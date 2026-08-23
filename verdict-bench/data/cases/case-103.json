@@ -1,0 +1,145 @@
+{
+  "case_id": "CASE-103",
+  "flag_reason": "SHARED_DEVICE_LINK",
+  "opened": "2026-06-15",
+  "priority": "medium",
+  "account": {
+    "account_id": "ACC-77301",
+    "owner_name": "Priya Nair",
+    "owner_dob": "1994-09-12",
+    "owner_ssn_last4": "4471",
+    "owner_country": "US",
+    "business_name": "Nair Consulting",
+    "mcc": "7392",
+    "tenure_days": 402,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": [
+        {
+          "vendor": "IDVerifyPlus",
+          "result": "PASS",
+          "detail": "Owner identity verified."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 5210.0,
+    "lifetime_volume_usd": 88400.0
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-05-10",
+      "ip": "203.0.113.44",
+      "device_id": "dev-p1",
+      "geo": "Seattle, US",
+      "note": "Public wifi (coffee shop); 60+ distinct accounts seen on this IP"
+    },
+    {
+      "date": "2026-05-28",
+      "ip": "98.44.2.10",
+      "device_id": "dev-p1",
+      "geo": "Seattle, US",
+      "note": "Home IP"
+    },
+    {
+      "date": "2026-06-11",
+      "ip": "98.44.2.10",
+      "device_id": "dev-p1",
+      "geo": "Seattle, US",
+      "note": "Home IP"
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-10",
+      "time": "10:00:00",
+      "amount_usd": 240.0,
+      "status": "approved",
+      "settled_amount_usd": 240.0,
+      "instrument_last4": "4417",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-28",
+      "time": "15:30:00",
+      "amount_usd": 178.5,
+      "status": "approved",
+      "settled_amount_usd": 178.5,
+      "instrument_last4": "4417",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-04",
+      "time": "09:45:00",
+      "amount_usd": 512.0,
+      "status": "approved",
+      "settled_amount_usd": 512.0,
+      "instrument_last4": "4417",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "11:22:00",
+      "amount_usd": 305.0,
+      "status": "approved",
+      "settled_amount_usd": 305.0,
+      "instrument_last4": "4417",
+      "bin": "401288",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [
+    {
+      "account_id": "ACC-55019",
+      "owner_name": "Victor Boone",
+      "owner_ssn_last4": "9902",
+      "status": "CLOSED_FRAUD",
+      "link_dimensions": [
+        "shared_ip"
+      ],
+      "shared_ip": "203.0.113.44",
+      "ip_context": "public_wifi_coffee_shop",
+      "shared_device_id": null,
+      "shared_payment_instrument": null,
+      "note": "Linked only by a public-wifi IP used by many customers. Different person, different device."
+    },
+    {
+      "account_id": "ACC-70988",
+      "owner_name": "Priya Nair",
+      "owner_ssn_last4": "4471",
+      "status": "ACTIVE_GOOD",
+      "link_dimensions": [
+        "shared_ssn",
+        "shared_device",
+        "shared_instrument"
+      ],
+      "note": "Second account of the SAME owner (Priya Nair). Strong link, but that account is in good standing."
+    }
+  ],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "link_system",
+      "date": "2026-06-15",
+      "text": "Auto-linked to a fraud-closed account via shared IP. No shared device or instrument."
+    },
+    {
+      "author": "analyst_rho",
+      "date": "2026-06-15",
+      "text": "The fraud link is IP-only on a coffee-shop network (60+ accounts share it). The only strong link is the owner's own second, good-standing account."
+    }
+  ]
+}

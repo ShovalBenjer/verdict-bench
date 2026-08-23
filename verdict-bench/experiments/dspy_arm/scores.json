@@ -1,0 +1,312 @@
+{
+  "n_active_cases": 12,
+  "n_train": 8,
+  "n_expert_eval": 4,
+  "expert_eval_case_ids": [
+    "CASE-101",
+    "CASE-102",
+    "CASE-106",
+    "CASE-108"
+  ],
+  "train_case_ids": [
+    "CASE-103",
+    "CASE-104",
+    "CASE-105",
+    "CASE-107",
+    "CASE-113",
+    "CASE-101-P1B",
+    "CASE-104-P2",
+    "CASE-113-P3"
+  ],
+  "baseline": {
+    "expert_4_accuracy": 1.0,
+    "all_12_accuracy": 1.0,
+    "expert_4_rows": [
+      {
+        "case_id": "CASE-101",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account was flagged for a WATCHLIST_NAME_MATCH. However, the watchlist hit on GLOBAL_SANCTIONS for \"Maria Garcia\" has a matched_dob of \"1968-11-02\" and matched_country of \"VE\", which does not align with the account owner's verified DOB of \"1991-03-22\" and country \"US\". The IDVerifyPlus vendor re"
+      },
+      {
+        "case_id": "CASE-102",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is new, with a tenure of only 9 days. The flag reason is VELOCITY_SPIKE, which is strongly corroborated by the transaction history on 2026-06-10. On this date, there was a rapid burst of low-value transactions (from 14:10:00 to 14:11:21), predominantly declined, using many different paym"
+      },
+      {
+        "case_id": "CASE-106",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for `CHARGEBACK_CONFIRMED`, and the `precomputed.confirmed_problem_on_record` and `precomputed.prior_verified_issue` fields are both `true`. The `transactions` show two settled transactions that subsequently resulted in chargebacks, leading to a negative `current_balance_usd` "
+      },
+      {
+        "case_id": "CASE-108",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is well-established with over 3 years of tenure (account.tenure_days: 1180) and full KYC/KYB verification (account.verification.status: VERIFIED). The flag reason is a volume spike (flag_reason: VOLUME_SPIKE), but this is mitigated by several factors:\n1.  The transaction activity shows a"
+      }
+    ],
+    "all_12_rows": [
+      {
+        "case_id": "CASE-103",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is well-established with a tenure of 402 days, full KYC/KYB verification (`account.verification.status: VERIFIED`), and a lifetime volume of $88,400.00 (`money.lifetime_volume_usd`). There are no `watchlist_hits`, `confirmed_problem_on_record`, or `prior_verified_issue`. The `flag_reason"
+      },
+      {
+        "case_id": "CASE-104",
+        "expected": "HOLD",
+        "predicted": "HOLD",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The decision is HOLD due to multiple unresolved questions regarding the account's current ownership and control, with a significant amount of money at risk.\n\n1.  **Unverified Ownership and Control**: The `flag_reason` is `KYB_DOC_PENDING`, and the `account.verification.status` is `UNVERIFIED` becaus"
+      },
+      {
+        "case_id": "CASE-105",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is well-established with over 900 days of tenure and significant lifetime volume ($512,000.0). KYC and KYB verification are complete and passed by IDVerifyPlus. The flag reason is a routine random audit, and there are no prior confirmed problems or verified issues on record (`precomputed"
+      },
+      {
+        "case_id": "CASE-107",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account exhibits a clear and corroborated pattern of \"bust-out\" fraud, which is explicitly defined as fraud in the policy. Key factors include:\n1.  **Flag Reason and Notes**: The `flag_reason` is \"BALANCE_DRAWDOWN\" and the `notes` state \"Rapid balance build then near-total cash-out; chargebacks "
+      },
+      {
+        "case_id": "CASE-113",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is well-established with a tenure of 1650 days and a lifetime volume of $2.4 million. Both the owner and business are fully verified (`account.verification.status` is \"VERIFIED\", `kyc_completed` is true, `kyb_completed` is true). There are no watchlist hits, confirmed problems on record,"
+      },
+      {
+        "case_id": "CASE-101-P1B",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account owner, Maria Garcia, has a confirmed, full-attribute match (name, DOB, country) to an entry on the GLOBAL_SANCTIONS watchlist, as detailed in the `watchlist_hits` section and corroborated by the `SanctionsScreenCo` vendor report within `account.verification.vendor_reports`. The policy st"
+      },
+      {
+        "case_id": "CASE-104-P2",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The `flag_reason` is \"KYB_DOC_PENDING\", however, the `account.verification.kyb_completed` field is explicitly `true`, and the `account.verification.vendor_reports` from \"KYBVerify\" states \"Beneficial owner verified.\" and \"IDVerifyPlus\" states \"Owner verified 18 months ago; unchanged.\". This directly"
+      },
+      {
+        "case_id": "CASE-113-P3",
+        "expected": "HOLD",
+        "predicted": "HOLD",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for an ELEVATED_DISPUTE_RATE, with 3 chargebacks out of 30 transactions, resulting in a 10% dispute rate. This is significant, especially for a new account with only 30 days of tenure (`account.tenure_days`: 30). There is a substantial amount of money at risk (`money.at_risk_u"
+      },
+      {
+        "case_id": "CASE-101",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account was flagged for a WATCHLIST_NAME_MATCH. However, the watchlist hit on GLOBAL_SANCTIONS for \"Maria Garcia\" has a matched_dob of \"1968-11-02\" and matched_country of \"VE\", which does not align with the account owner's verified DOB of \"1991-03-22\" and country \"US\". The IDVerifyPlus vendor re"
+      },
+      {
+        "case_id": "CASE-102",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is new, with a tenure of only 9 days. The flag reason is VELOCITY_SPIKE, which is strongly corroborated by the transaction history on 2026-06-10. On this date, there was a rapid burst of low-value transactions (from 14:10:00 to 14:11:21), predominantly declined, using many different paym"
+      },
+      {
+        "case_id": "CASE-106",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for `CHARGEBACK_CONFIRMED`, and the `precomputed.confirmed_problem_on_record` and `precomputed.prior_verified_issue` fields are both `true`. The `transactions` show two settled transactions that subsequently resulted in chargebacks, leading to a negative `current_balance_usd` "
+      },
+      {
+        "case_id": "CASE-108",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is well-established with over 3 years of tenure (account.tenure_days: 1180) and full KYC/KYB verification (account.verification.status: VERIFIED). The flag reason is a volume spike (flag_reason: VOLUME_SPIKE), but this is mitigated by several factors:\n1.  The transaction activity shows a"
+      }
+    ]
+  },
+  "optimized": {
+    "optimizer": "BootstrapFewShot(max_bootstrapped_demos=4, max_labeled_demos=4)",
+    "demo_case_ids_used": [
+      "CASE-103",
+      "CASE-104",
+      "CASE-105",
+      "CASE-107"
+    ],
+    "expert_4_accuracy": 1.0,
+    "all_12_accuracy": 1.0,
+    "expert_4_rows": [
+      {
+        "case_id": "CASE-101",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged due to a \"WATCHLIST_NAME_MATCH\". However, the \"GLOBAL_SANCTIONS\" watchlist hit for \"Maria Garcia\" has a `matched_dob` of \"1968-11-02\" and `matched_country` of \"VE\", which clearly mismatches the account owner's `owner_dob` of \"1991-03-22\" and `owner_country` of \"US\". The `IDVer"
+      },
+      {
+        "case_id": "CASE-102",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account, despite being KYC/KYB verified, is very new (tenure_days: 9). The flag reason \"VELOCITY_SPIKE\" is corroborated by the transaction history, which shows a rapid burst of low-value card authorization attempts (many declined) using numerous different payment instruments within seconds of ea"
+      },
+      {
+        "case_id": "CASE-106",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged due to \"CHARGEBACK_CONFIRMED\" and exhibits a current negative balance of -8000.0 USD, with 8000.0 USD at risk, indicating a confirmed financial loss. Crucially, the account is strongly linked to \"ACC-44120\", which has a \"CLOSED_FRAUD\" status. This linkage is established throug"
+      },
+      {
+        "case_id": "CASE-108",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for \"VOLUME_SPIKE,\" but the policy states that \"Ordinary sales, however large or fast-growing, are not a concern.\" This account is a long-standing, established merchant with 1180 days tenure and nearly $1 million in lifetime volume. Both the owner's identity and business are f"
+      }
+    ],
+    "all_12_rows": [
+      {
+        "case_id": "CASE-103",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged due to a \"SHARED_DEVICE_LINK\". However, the linked account \"ACC-55019\" with a \"CLOSED_FRAUD\" status is only connected via a shared IP address (\"203.0.113.44\"), which is identified as a \"public_wifi_coffee_shop\" IP used by \"60+ distinct accounts\". The policy states that \"Incide"
+      },
+      {
+        "case_id": "CASE-104",
+        "expected": "HOLD",
+        "predicted": "HOLD",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for \"KYB_DOC_PENDING\" and has a high priority. The primary concern is the recent change in ownership (5 days ago), which has rendered the account's Know Your Business (KYB) verification status as UNVERIFIED, with new owner documents still pending review. Despite the account's "
+      },
+      {
+        "case_id": "CASE-105",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for a \"RANDOM_AUDIT\" and presents no corroborated problems or unresolved questions. The account has a long tenure (903 days) and a high lifetime volume ($512,000.0), indicating a well-established and sound account. Both KYC and KYB verifications are completed and show a \"VERIF"
+      },
+      {
+        "case_id": "CASE-107",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account exhibits a clear pattern of \"bust-out\" fraud, which is explicitly defined as fraud in the policy. The account is very new (tenure_days: 21) and has a high priority flag for \"BALANCE_DRAWDOWN\". Funds were rapidly built up through numerous small \"card_auth\" transactions from 2026-06-06 to "
+      },
+      {
+        "case_id": "CASE-113",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for an \"ELEVATED_DISPUTE_RATE\", but this is contextualized by the merchant's business type (\"Holloway Apparel Co\", MCC 5651). The policy states, \"Some level of disputes, declines, and returns is normal; what matters is deviation from what the account's own history and profile "
+      },
+      {
+        "case_id": "CASE-101-P1B",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged due to a \"WATCHLIST_NAME_MATCH\". The `watchlist_hits` clearly indicate a \"GLOBAL_SANCTIONS\" match for \"Maria Garcia\" with a high score of 0.97, and the `match_type` is \"name_dob_country\", with `matched_dob` \"1991-03-22\" and `matched_country` \"US\". This is further corroborated "
+      },
+      {
+        "case_id": "CASE-104-P2",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The primary flag reason is \"KYB_DOC_PENDING\", but the `account.verification` status is now \"VERIFIED\", with `kyb_completed: true` and the `KYBVerify` vendor report showing a \"PASS\" with \"Beneficial owner verified.\" This indicates the pending KYB documentation issue has been resolved. The account is "
+      },
+      {
+        "case_id": "CASE-113-P3",
+        "expected": "HOLD",
+        "predicted": "HOLD",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for an \"ELEVATED_DISPUTE_RATE\" and is a very new account with a tenure of only 30 days. While the absolute number of chargebacks (3 for a total of $216) is small compared to the lifetime volume ($2,400,000.0), the policy states that \"a new account has not yet earned that benef"
+      },
+      {
+        "case_id": "CASE-101",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged due to a \"WATCHLIST_NAME_MATCH\". However, the \"GLOBAL_SANCTIONS\" watchlist hit for \"Maria Garcia\" has a `matched_dob` of \"1968-11-02\" and `matched_country` of \"VE\", which clearly mismatches the account owner's `owner_dob` of \"1991-03-22\" and `owner_country` of \"US\". The `IDVer"
+      },
+      {
+        "case_id": "CASE-102",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account, despite being KYC/KYB verified, is very new (tenure_days: 9). The flag reason \"VELOCITY_SPIKE\" is corroborated by the transaction history, which shows a rapid burst of low-value card authorization attempts (many declined) using numerous different payment instruments within seconds of ea"
+      },
+      {
+        "case_id": "CASE-106",
+        "expected": "REJECT",
+        "predicted": "REJECT",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged due to \"CHARGEBACK_CONFIRMED\" and exhibits a current negative balance of -8000.0 USD, with 8000.0 USD at risk, indicating a confirmed financial loss. Crucially, the account is strongly linked to \"ACC-44120\", which has a \"CLOSED_FRAUD\" status. This linkage is established throug"
+      },
+      {
+        "case_id": "CASE-108",
+        "expected": "APPROVE",
+        "predicted": "APPROVE",
+        "correct": true,
+        "error": null,
+        "reasoning_snippet": "The account is flagged for \"VOLUME_SPIKE,\" but the policy states that \"Ordinary sales, however large or fast-growing, are not a concern.\" This account is a long-standing, established merchant with 1180 days tenure and nearly $1 million in lifetime volume. Both the owner's identity and business are f"
+      }
+    ]
+  },
+  "api_calls": {
+    "baseline_expert_and_all12_eval": 16,
+    "bootstrap_compile": 4,
+    "optimized_expert_and_all12_eval": 16,
+    "prompt_extraction_sample": 1,
+    "total": 37
+  },
+  "lm_config": {
+    "model": "gemini/gemini-2.5-flash",
+    "temperature": 0.2,
+    "max_tokens": 4096
+  }
+}

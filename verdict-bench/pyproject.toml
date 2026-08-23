@@ -1,0 +1,16 @@
+[project]
+name = "verdict-bench"
+version = "0.1.0"
+description = "Prompt x model benchmark lab for an account-review decisioning agent"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+analysis = ["polars>=1.0", "matplotlib>=3.8", "jupyter"]
+dev = ["ruff>=0.5", "pytest>=8", "mypy>=1.10"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["engine"]
+ignore_missing_imports = true
+check_untyped_defs = true
