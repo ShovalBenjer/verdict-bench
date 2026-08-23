@@ -423,6 +423,9 @@ n=1 and ships as v5's named open question.
 
 ### Still cut, named
 
-The synthetic factory, the docker build proof (blocked on a one-line
-host permission only the account owner can run), and the live run-case
-demo button.
+The synthetic factory and the live run-case demo button. The docker
+build proof, blocked all week on a one-line host permission, closed
+minutes after the freeze: the account owner ran the group fix, the image
+built 15/15, and a live smoke served the UI from the container (HTTP 200
+on :8080 with the full 19-cell data file). The shipped bundle predates
+that smoke and keeps its conservative claim.

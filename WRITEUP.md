@@ -250,11 +250,12 @@ nemotron-super-49b decides 10 of 10 parseable cases correctly at v5
 including CASE-104, with its two recurring JSON contract failures;
 qwen3.8-max scores 11/12 at v5, its one miss a single-run flip on
 CASE-104-P2 (the inverted perturbation whose right answer is APPROVE)
-in exactly the direction the new bullet pushes. At n=1 that flip is
-unproven by the same repeat standard that saved v5 from a false
-rejection, so it ships as v5's named open question, not smoothed over.
-The recommended pair stays gemini-flash + v5; on qwen, v4b remains its
-best-evidenced cell.
+in exactly the direction the new bullet pushes. Repeated to N=5 by the
+same standard that saved v5 from a false rejection, the flip resolves
+to a coin flip, not a regression: 2 HOLD, 2 APPROVE, and one 240-second
+read timeout. It joins the instability finding rather than indicting
+the edit. The recommended pair stays gemini-flash + v5; on qwen, v4b
+remains its best-evidenced cell.
 
 **LR baseline.** Logistic regression on 10 hand-extracted mechanical
 features, leave-one-out over the 12 decision-suite cases: 8/12, against

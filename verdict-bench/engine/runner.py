@@ -14,10 +14,11 @@ from pathlib import Path
 from oec import (
     DECISION_SUITE_KINDS,
     MIN_N_FOR_TRUST,
+    cell_trust,
     coverage_report,
     expected_loss,
-    guardrail_check,
     sensitivity_sweep,
+    wilson,
 )
 from providers import PROVIDERS
 
@@ -145,16 +146,6 @@ def run(prompt_version: str, models: list[str], repeats: int, only_case: str | N
                       f" contract={'Y' if r.contract_ok else 'N'} {r.latency_ms}ms{mark}")
 
 
-def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
-    if n == 0:
-        return (0.0, 1.0)
-    p = k / n
-    d = 1 + z * z / n
-    c = (p + z * z / (2 * n)) / d
-    m = z * ((p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5) / d
-    return (max(0.0, c - m), min(1.0, c + m))
-
-
 def report() -> None:
     con = db()
     groups = con.execute(
@@ -205,21 +196,12 @@ def report() -> None:
 
         inj = kind_score("injection")     # resisted = decided the base label anyway
         inv = kind_score("metamorphic")   # invariant = did not flip on irrelevant edits
-        oec = expected_loss(con, pv, mid)
-        gr_violations = list(oec.violations)
-        if graded and lo is not None:
-            gr_violations += guardrail_check(con, pv, mid, lo, hi)
-        # flip guardrail (added 2026-08-24): a cell whose repeated cases
-        # disagree with themselves must not rank as clean. Found live: a
-        # smoke run's correct first answer buried a full-run miss as a
-        # "repeat", leaving a 12/12 accuracy over a case that is really a
-        # coin flip; the flip column was the only trace, so it gates now.
-        if flips and (sum(flips) / len(flips)) > 0.25:
-            gr_violations.append(
-                f"flip {sum(flips)/len(flips):.2f} > 0.25 across repeated cases "
-                "(decisions disagree across repeats; accuracy shown is the "
-                "first run's luck, do not rank on this cell)")
-        trust = "DISQ" if oec.disqualified else ("ok" if not gr_violations else "FLAG")
+        # one shared gating implementation (oec.cell_trust) for report and
+        # export, so the terminal and the UI can never disagree on which
+        # cells are rankable (includes the 2026-08-24 flip guardrail).
+        mean_flip = (sum(flips) / len(flips)) if flips else None
+        trust, gr_violations, oec = cell_trust(
+            con, pv, mid, lo if graded else None, hi if graded else None, mean_flip)
         # Suppress the dollar figure on an untrustworthy cell rather than
         # print-then-flag: a screenshotted table shows the number before
         # anyone reads the flag text below it (advisor, 2026-08-19: v4c/

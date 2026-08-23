@@ -76,10 +76,12 @@ alternative actually compared, not asserted: `docs/adr/0001` through
 ## Docker
 
 `Dockerfile` builds the UI (Node stage) and serves it from a Python
-stdlib HTTP server. **Build status: attempted 2026-08-23, blocked by a
-local permission gap** (`/var/run/docker.sock` is `root:docker`; the
-invoking user is not in the `docker` group on this machine), not a
-code defect, and not silently claimed as verified. To build:
+stdlib HTTP server. **Build status: VERIFIED 2026-08-24** after the
+one-time group fix below: image built clean (15/15 steps, tagged
+`verdict-bench:latest`), and a live smoke served the UI from the
+container (HTTP 200 on :8080, `benchmark.json` with all 19 cells
+including v5). The 2026-08-23 blocker was the group membership, not the
+code. To build:
 
 ```bash
 sudo usermod -aG docker $USER && newgrp docker   # one-time, this machine

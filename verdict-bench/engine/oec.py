@@ -107,6 +107,42 @@ MAX_CI_WIDTH = 0.5           # Wilson hi-lo above this: don't rank on it
 DECISION_SUITE_KINDS = ("golden", "perturbation")
 
 
+def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """Wilson score interval. Lives here (not runner.py) since 2026-08-24 so
+    the export can compute cell trust with the exact same bounds the report
+    uses; one implementation, two consumers."""
+    if n == 0:
+        return (0.0, 1.0)
+    p = k / n
+    d = 1 + z * z / n
+    c = (p + z * z / (2 * n)) / d
+    m = z * ((p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5) / d
+    return (max(0.0, c - m), min(1.0, c + m))
+
+
+MAX_FLIP = 0.25  # above this, repeated cases disagree; the cell is unrankable
+
+
+def cell_trust(con: sqlite3.Connection, prompt_version: str, model_id: str,
+               wilson_lo: float | None, wilson_hi: float | None,
+               mean_flip: float | None) -> tuple[str, list[str], OECResult]:
+    """One verdict per cell, shared by report and export: 'ok' | 'FLAG' |
+    'DISQ', the violation strings, and the OECResult behind them. One
+    implementation so the terminal report and the UI can never disagree
+    about which cells are rankable."""
+    oec = expected_loss(con, prompt_version, model_id)
+    violations = list(oec.violations)
+    if wilson_lo is not None and wilson_hi is not None:
+        violations += guardrail_check(con, prompt_version, model_id, wilson_lo, wilson_hi)
+    if mean_flip is not None and mean_flip > MAX_FLIP:
+        violations.append(
+            f"flip {mean_flip:.2f} > {MAX_FLIP} across repeated cases "
+            "(decisions disagree across repeats; accuracy shown is the "
+            "first run's luck, do not rank on this cell)")
+    trust = "DISQ" if oec.disqualified else ("ok" if not violations else "FLAG")
+    return trust, violations, oec
+
+
 @dataclass
 class ClauseCoverage:
     clause: str

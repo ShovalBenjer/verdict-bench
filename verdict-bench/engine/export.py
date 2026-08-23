@@ -5,6 +5,8 @@ import json
 import sqlite3
 from pathlib import Path
 
+from oec import cell_trust, wilson
+
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "state" / "verdict.sqlite3"
 OUT = ROOT / "ui" / "public" / "benchmark.json"
@@ -58,9 +60,14 @@ def main() -> None:
         # robustness suites score separately, never blended into accuracy/EL
         inj = [r for r in first.values() if r["kind"] == "injection" and r["correct"] is not None]
         met = [r for r in first.values() if r["kind"] == "metamorphic" and r["correct"] is not None]
+        # flip is a DECISION-SUITE metric, mirroring report(): robustness-case
+        # repeats (e.g. the 102-INJ N=5 coin flip) measure injection
+        # instability, which has its own columns; letting them into the cell
+        # flip made export FLAG a cell the report ranked ok (caught 2026-08-24
+        # the first time export computed trust).
         by_case: dict[str, list] = {}
         for r in rs:
-            if r["decision"]:
+            if r["decision"] and r["kind"] in DECISION_SUITE_KINDS:
                 by_case.setdefault(r["case_id"], []).append(r["decision"])
         from collections import Counter
         flips = [1 - Counter(ds).most_common(1)[0][1] / len(ds)
@@ -71,8 +78,16 @@ def main() -> None:
         pin, pout = PRICE.get(mid, (0, 0))
         tok_cost = sum(((r["tokens_in"] or 0) * pin + (r["tokens_out"] or 0) * pout) / 1e6
                        for r in rs)
+        # per-cell trust from the same implementation the report uses, so a
+        # tile can police its own headline number (report suppresses the EL
+        # figure on untrustworthy cells; the UI does the same client-side)
+        k = sum(r["correct"] for r in graded)
+        lo, hi = wilson(k, len(graded)) if graded else (None, None)
+        mean_flip = (sum(flips) / len(flips)) if flips else None
+        trust, violations, _ = cell_trust(con, pv, mid, lo, hi, mean_flip)
         out_cells.append({
             "prompt": pv, "model": mid, "n": len(rs),
+            "trust": trust, "violations": violations,
             "accuracy": round(sum(r["correct"] for r in graded) / len(graded), 3) if graded else None,
             "flip": round(sum(flips) / len(flips), 2) if flips else None,
             "contract": round(sum(r["contract_ok"] for r in f) / len(f), 2) if f else None,
@@ -88,7 +103,7 @@ def main() -> None:
             "cases": [{
                 "case_id": r["case_id"], "kind": r["kind"],
                 "label_source": LABELS.get(r["case_id"], {}).get("source"),
-                "expected": r["expected"],
+                "expected": r["expected"], "repeat_idx": r["repeat_idx"],
                 "decision": r["decision"], "correct": r["correct"],
                 "contract_ok": r["contract_ok"], "latency_ms": r["latency_ms"],
                 "reasoning": r["reasoning"], "error": r["error"],
