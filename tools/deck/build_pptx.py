@@ -187,33 +187,6 @@ note(s, "\"The prompt took two hours. Knowing whether to trust it took the week,
         "week is the part I would bring to the job.\"", top=5.2, color=GOLD)
 
 
-# journey
-s = slide()
-eyebrow(s, "How this was actually built")
-h2(s, "Planned Sunday evening, re-planned at 00:15")
-tf = box(s, 0.9, 2.1, 11.4, 4.4)
-tf.word_wrap = True
-for i, (h, b) in enumerate([
-    ("Sun 08-17, the plan:", "vertical slices around a real calendar (fly Wednesday, remote "
-     "from Bucharest, submit Sunday). By that night the engine, the v1-v4 ladder, and the "
-     "matrix UI already stood, 115 runs banked."),
-    ("The cut list that refused to die:", "the plan cut the live demo, the gated prompt "
-     "loop, and the synthetic factory. At 00:15 on submission day I rejected my own cut "
-     "list; every open item ran between 00:15 and 03:00."),
-    ("What that window produced:", "qwen and nemotron columns, the injection and "
-     "metamorphic suites (8/8 clause coverage), the cross-family judge, a classical-ML "
-     "baseline, a DSPy contrast arm, and v5 itself through the gated loop: first 12/12 "
-     "pass, accepted."),
-    ("glm-5.3, the honest gap:", "wired, then money-blocked on its only route (HTTP 429, "
-     "insufficient balance, banked verbatim). It ships as recorded error rows, not as a column."),
-]):
-    p2 = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
-    r1 = p2.add_run(); r1.text = h + " "
-    r1.font.size = Pt(14); r1.font.bold = True; r1.font.color.rgb = TEXT; r1.font.name = "Inter"
-    r2 = p2.add_run(); r2.text = b
-    r2.font.size = Pt(14); r2.font.color.rgb = MUT; r2.font.name = "Inter"
-    p2.space_after = Pt(12)
-
 # unshown work
 s = slide()
 eyebrow(s, "Measured, banked, and on no other slide")

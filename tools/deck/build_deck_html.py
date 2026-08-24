@@ -87,19 +87,6 @@ slides.append("""
 
 slides.append("""
 <section class="slide">
-  <div class="eyebrow">How this was actually built</div>
-  <h2>Planned Sunday evening, re&#8209;planned at 00:15</h2>
-  <ul class="verdicts">
-    <li><b>Sun 08&#8209;17, the plan:</b> vertical slices around a real calendar (fly Wednesday, remote from Bucharest, submit Sunday). By that night the engine, the v1&ndash;v4 ladder, and the matrix UI already stood, 115 runs banked.</li>
-    <li><b>The cut list that refused to die:</b> the plan cut the live demo, the gated prompt loop, and the synthetic factory. At 00:15 on submission day I rejected my own cut list; every open item ran between 00:15 and 03:00.</li>
-    <li><b>What that window produced:</b> qwen and nemotron columns, the injection and metamorphic suites (8/8 policy&#8209;clause coverage), the cross&#8209;family judge, a classical&#8209;ML baseline, a DSPy contrast arm, and v5 itself through the gated loop: first 12/12 pass, accepted.</li>
-    <li><b>glm&#8209;5.3, the honest gap:</b> wired, then money&#8209;blocked on its only route (HTTP 429, insufficient balance, banked verbatim). It ships as recorded error rows, not as a column.</li>
-  </ul>
-</section>""")
-
-
-slides.append("""
-<section class="slide">
   <div class="eyebrow">Measured, banked, and on no other slide</div>
   <h2>The work the deck does not show</h2>
   <ul class="commitments">

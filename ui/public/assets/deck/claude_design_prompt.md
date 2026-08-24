@@ -16,7 +16,7 @@ slide content came from `key_numbers.json` and the ledger and was verified
 
 ## The prompt
 
-Build a 23-slide 16:9 presentation deck named "verdict-bench" for a 45-minute
+Build a 22-slide 16:9 presentation deck named "verdict-bench" for a 45-minute
 technical panel (3 panelists, engineering audience, projected in a room).
 
 Design direction, fixed, not a suggestion:
@@ -57,60 +57,54 @@ Slide content, verbatim where quoted:
    matrix. Chart: funnel.png.
 5. "The two-hour version exists inside this one". The minimal deliverable is
    intact and separable; the lab is the evidence behind it.
-6. "Planned Sunday evening, re-planned at 00:15". The build story: the
-   Sunday plan (engine + ladder + matrix standing that night, 115 runs), the
-   cut list rejected at 00:15 on submission day, the 00:15-03:00 window that
-   produced the qwen/nemotron columns, both robustness suites, the judge,
-   the LR baseline, the DSPy arm, and v5 itself; glm-5.3 wired then
-   money-blocked, shipped as recorded error rows.
-7. "The work the deck does not show". Seven one-liners: LR baseline
+6. "The work the deck does not show". Seven one-liners: LR baseline
    (LOO 8/12 vs LLM 11-12/12, all four misses expensive-direction), DSPy arm
    (12/12 ceiling, different artifact), self-consistency (11/12 unanimous at
    N=5), SPRT (p0=0.75, p1=0.92, a=0.05, b=0.10), beta-binomial ~3:1 odds,
    data provenance (PaySim/ULB verified, IEEE-CIS honestly unverifiable),
    Tauri shell + adjudication queue + number-grounding audit (81-98%).
-8. "Six commitments, fixed before any analysis". The pre-registered gates:
+7. "Six commitments, fixed before any analysis". The pre-registered gates:
    n >= 8, contract >= 0.5, Wilson CI width <= 0.5, max flip 0.25,
    zero-tolerance tripwire, suite separation. The tripwire disqualified 10 of
    38 cells.
-9. "Expected loss, the actual model". The 3x3 cost matrix as a table ($0
+8. "Expected loss, the actual model". The 3x3 cost matrix as a table ($0
    diagonal; false approve $2,000 in gold; false reject $600; false hold $45;
    caught-fraud containment $500, derived). Beside it, the notation:
    EL_1k = (1000/N) SUM_i (1/R) SUM_r C(y_i, yhat_ir); unparseable charged
    worst-case; case-clustered bootstrap B=1,000 seed 1789; Wilson 95% width
    <= 0.5 rankability; EL(pi) prevalence sweep 0.5-5%; queue cost = 1000 x
    p_HOLD x $35.
-10. "One pipeline, every claim traceable to a run". DIAGRAM: 89 labeled
+9. "One pipeline, every claim traceable to a run". DIAGRAM: 89 labeled
     cases + prompt ladder -> runner (7 providers, N=5 repeats) -> sqlite
     ledger -> trust gates -> export -> surfaces. Caption: every surface
     reads one differential-tested export.
-11. "89 labeled cases, five suites, tiers kept apart". Chart: eda_corpus.png.
-12. "Repeats dissolve stories". Chart: injection_repeats.png.
-13. "The gate bites, and ranking survives". Chart: bootstrap_loss.png.
-14. "Stated confidence is decorative; earned confidence is measured". Chart:
+10. "89 labeled cases, five suites, tiers kept apart". Chart: eda_corpus.png.
+11. "Repeats dissolve stories". Chart: injection_repeats.png.
+12. "The gate bites, and ranking survives". Chart: bootstrap_loss.png.
+13. "Stated confidence is decorative; earned confidence is measured". Chart:
     reliability.png (claim pile-up + claimed-vs-earned; at stated 0.90 the
     model was right once in two).
-15. "Triangulated across three families". gemini-flash saturated and
+14. "Triangulated across three families". gemini-flash saturated and
     excluded; claude-haiku and phi-4 discriminate; both discriminating
     families score proportionality lowest. Chart: judge_triangulation.png
     (three judges by three rubric axes, ceiling line drawn).
-16. "64 generated cases found a policy ambiguity". Chart: synthetic_sweep.png.
-17. "Is v5 overfit to nine cases? Three tests, one open risk". Transfer
+15. "64 generated cases found a policy ambiguity". Chart: synthetic_sweep.png.
+16. "Is v5 overfit to nine cases? Three tests, one open risk". Transfer
     (tuned on flash only; 12/12 sonnet, 12/12 haiku, 11/12 gemini-pro),
     post-freeze generated data (56/56 flash, 48/48 qwen), weak columns fail
     for capacity (llama 8/12 on v1 before tuning, 9/12 at v5 with contract
     1.00), the v6 rejection as the discipline check, and the open risk: true
     holdout n=3 (v5 2/3), which is why gates carry the claim.
-18. "A contested case is routed, not resolved". DIAGRAM: archetype -> seven
+17. "A contested case is routed, not resolved". DIAGRAM: archetype -> seven
     models split 20 HOLD / 8 REJECT -> policy underdetermines -> no score ->
     policy owner gets the split. Caption: sanctions-partial fails closed,
     zero APPROVEs in 23 runs.
-19. "A million-case simulation on measured kernels". Chart: population_sim.png.
-20. "The gate does not bend on deadline day". The v6 story. Chart:
+18. "A million-case simulation on measured kernels". Chart: population_sim.png.
+19. "The gate does not bend on deadline day". The v6 story. Chart:
     holdout_funnel.png.
-21. "Ship v5 + gemini-flash, and say what that means". CERTIFIED / SUGGESTED /
+20. "Ship v5 + gemini-flash, and say what that means". CERTIFIED / SUGGESTED /
     DECORATIVE tiers. Chart: holdout.png.
-22. "Out of scope, and what I'd do next given time". Two columns.
+21. "Out of scope, and what I'd do next given time". Two columns.
     Deliberately out of scope, each with its one-line why: tools and skills
     (no function calling or retrieval; tools change the eval surface, so
     they get their own arm), MCP integrations (frozen case file keeps runs
@@ -122,7 +116,7 @@ Slide content, verbatim where quoted:
     labels (SPRT says how many), the v6 injection line, the claude API
     rerun with temperature control, the adjudication queue wired to a real
     reviewer, a tool-augmented variant as a new arm.
-23. "What breaks, in order". Five production risks ranked. Close: the
+22. "What breaks, in order". Five production risks ranked. Close: the
     benchmark's job is to say when not to trust a good-looking answer.
 
 ## Attachments (from docs/assets/deck/)

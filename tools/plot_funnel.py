@@ -40,7 +40,7 @@ def main() -> None:
     fig, ax = plt.subplots(figsize=(9.8, 5.2))
     nmax = max(r[2] for r in rows)
     ns = list(range(1, nmax + 4))
-    for z, style, lab in ((1.96, "--", "95% limits"), (3.09, ":", "99.8% limits")):
+    for z, style, lab in ((1.96, "--", "luck band, 95%"), (3.09, ":", "luck band, 99.8%")):
         ax.plot(ns, [min(1, p0 + z * math.sqrt(p0 * (1 - p0) / n)) for n in ns],
                 style, c="gray", lw=1, label=lab)
         ax.plot(ns, [max(0, p0 - z * math.sqrt(p0 * (1 - p0) / n)) for n in ns],
@@ -48,13 +48,21 @@ def main() -> None:
     ax.axhline(p0, c="gray", lw=1)
 
     labeled = []
+    seen_kind = set()
     for pv, model, n, acc in rows:
         lo = p0 - 1.96 * math.sqrt(p0 * (1 - p0) / n)
         outlier = acc < lo or acc <= 0.05
         champion = pv == "v5" and model == "gemini-flash"
+        kind = "champion" if champion else ("outlier" if outlier else "cell")
+        label_for_legend = {
+            "cell": "one prompt x model cell, within the luck band",
+            "outlier": "below the band: a real underperformer",
+            "champion": "v5 + gemini-flash, the shipped pairing",
+        }[kind] if kind not in seen_kind else None
+        seen_kind.add(kind)
         ax.scatter(n, acc, s=46,
                    c="#c94f4f" if outlier else ("#b8863f" if champion else "#5b8def"),
-                   zorder=3)
+                   zorder=3, label=label_for_legend)
         if outlier or champion:
             labeled.append((n, acc, f"{pv} | {model.replace('-super-49b','').replace('-3.3-70b','')}"))
     # global collision pass: push any label that lands near an earlier one
@@ -75,8 +83,8 @@ def main() -> None:
     ax.set_xlabel("cases graded (n)")
     ax.set_ylabel("accuracy")
     ax.set_ylim(-0.06, 1.08)
-    ax.set_title(f"funnel plot, all cells, base rate {p0:.2f}: "
-                 "labeled points are outliers and the champion; the cluster is the funnel")
+    ax.set_title("every dot is one prompt x model result; the curves show how far\n"
+                 f"a cell can drift from the shared rate ({p0:.2f}) by luck alone at that sample size")
     ax.legend(loc="lower right", fontsize=9)
     fig.tight_layout()
     out = DECK / "funnel.png"
