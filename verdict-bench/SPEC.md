@@ -1,6 +1,6 @@
 # verdict-bench: eval-driven prompt improvement for the Intuit case study
 
-PRD: this file. Ticket: Intuit take-home (Aviv Eyal, submit 2026-08-24).
+PRD: this file. Ticket: Intuit take-home (submit 2026-08-24).
 Status: active.
 
 ## One sentence
@@ -10,16 +10,17 @@ scored by deterministic tests plus rubric judges, with the whole history in
 SQLite and a web UI to present the power curve from v1 to v5.
 
 ## Audience calibration (the reason this exists)
-Aviv's feedback: too much engineering talk, he wants analytical predictions,
-feedback loops, evals. So the product is the BENCHMARK and its charts, not
-the runner. Every slice ends in an analyst artifact.
+The screening round pointed the follow-up at analytical craft: predictions,
+feedback loops, evals, rather than engineering internals. So the product is
+the BENCHMARK and its charts, not the runner. Every slice ends in an
+analyst artifact.
 
 ## KPIs
 
 ### Business KPIs (what a risk org actually buys)
 | KPI | Definition | Proxy in this project |
 |---|---|---|
-| Expected loss per 1k cases | sum(cost[error_type] x rate) using an explicit cost matrix | Cost matrix: FA=$2,000 (realized fraud loss, avg of case exposures), FH=$45 (support touch + churn risk), FR=$600 (lost LTV). Stated as assumptions, sensitivity-analyzed in the notebook |
+| Expected loss per 1k cases | sum(cost[error_type] x rate) using an explicit cost matrix | Cost matrix: FA=$2,000 (realized fraud loss, avg of case exposures), FH=$45 (support touch + churn risk), FR=$600 (lost LTV), plus ONE derived cell: a fraudster held instead of rejected costs FA/4=$500 (partial containment; the fourth price is derived, not a fourth assumption). Stated as assumptions, sensitivity-analyzed in the notebook |
 | Auto-decision rate | share of cases decided without human review at target precision | share of cases where decision is stable (N-run agreement = 100%) AND confidence >= threshold |
 | Hold queue burden | holds created per 1k cases x avg resolution cost | HOLD rate on the suite, weighted by exposure |
 | Sanctions recall | missed genuine sanctions matches | must be 1.0; a single miss is disqualifying (zero-tolerance mirror of the policy) |

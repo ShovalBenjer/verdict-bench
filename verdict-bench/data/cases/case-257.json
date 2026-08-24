@@ -1,0 +1,125 @@
+{
+  "case_id": "CASE-257",
+  "flag_reason": "PRIOR_CASE_REVIEW",
+  "opened": "2026-07-25",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-41024",
+    "owner_name": "Sofia Osei",
+    "owner_dob": "1988-03-01",
+    "owner_ssn_last4": "6495",
+    "owner_country": "US",
+    "business_name": "Osei Collective",
+    "mcc": "5812",
+    "tenure_days": 691,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 2043.77,
+    "current_balance_usd": 5771.4,
+    "lifetime_volume_usd": 143264.64
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-22",
+      "ip": "72.82.73.43",
+      "device_id": "dev-210",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-06",
+      "ip": "72.63.117.161",
+      "device_id": "dev-962",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-16",
+      "ip": "72.43.3.50",
+      "device_id": "dev-489",
+      "geo": "Portland, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-28",
+      "time": "14:20:00",
+      "amount_usd": 317.65,
+      "status": "approved",
+      "settled_amount_usd": 317.65,
+      "instrument_last4": "3750",
+      "bin": "470000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-31",
+      "time": "16:59:00",
+      "amount_usd": 238.92,
+      "status": "approved",
+      "settled_amount_usd": 238.92,
+      "instrument_last4": "4912",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "16:22:00",
+      "amount_usd": 147.79,
+      "status": "approved",
+      "settled_amount_usd": 147.79,
+      "instrument_last4": "8686",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "19:33:00",
+      "amount_usd": 119.38,
+      "status": "approved",
+      "settled_amount_usd": 119.38,
+      "instrument_last4": "6009",
+      "bin": "490000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "08:06:00",
+      "amount_usd": 154.08,
+      "status": "approved",
+      "settled_amount_usd": 154.08,
+      "instrument_last4": "8328",
+      "bin": "410000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [
+    {
+      "case_id": "CX-49995",
+      "date": "2025-05-25",
+      "decision": "REJECT",
+      "reviewer": "analyst_rk",
+      "note": "Bust-out adjudicated against this party; same SSN and payout account."
+    }
+  ],
+  "notes": [
+    {
+      "author": "data_migration_bot",
+      "date": "2026-06-25",
+      "text": "Precomputed risk booleans regenerated during migration; may lag the case record."
+    }
+  ]
+}

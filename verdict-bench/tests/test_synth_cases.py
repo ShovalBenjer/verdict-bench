@@ -73,6 +73,17 @@ def test_archetype_defining_signals_present():
         assert c["money"]["at_risk_usd"] > 0
     for c in by_arch["minor_anomaly_established"]:
         assert c["account"]["tenure_days"] >= 500
+    for c in by_arch["sanctions_partial_unresolved"]:
+        hit = c["watchlist_hits"][0]
+        assert hit["matched_dob"] == c["account"]["owner_dob"]
+        assert hit["matched_country"] is None
+        assert c["money"]["at_risk_usd"] == 0.0  # the fall-through trap IS the zero exposure
+    for c in by_arch["prior_reject_precomputed_false"]:
+        assert any(pc["decision"] == "REJECT" for pc in c["prior_cases"])
+        assert not c["precomputed"]["confirmed_problem_on_record"]
+    for c in by_arch["payout_swap_established"]:
+        assert c["account"]["tenure_days"] >= 500
+        assert c["money"]["at_risk_usd"] > 0
 
 
 def test_hold_and_reject_synthetics_expose_money_where_policy_requires():
@@ -91,4 +102,4 @@ def test_archetype_ids_stable():
     cases, _ = generate(1)
     assert cases[0]["case_id"] == "CASE-200"
     assert len({c["case_id"] for c in cases}) == len(cases)
-    assert len(ARCHETYPES) == 13
+    assert len(ARCHETYPES) == 16

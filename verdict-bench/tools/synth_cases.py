@@ -232,6 +232,65 @@ def a_data_quality_flag(rng, c, opened):
     return c
 
 
+def a_sanctions_partial_unresolved(rng, c, opened):
+    # The adversarial-review probe (2026-08-24): DOB matches the listed
+    # entry, country is null, and NOTHING is at risk. A prompt whose HOLD
+    # gate requires money exposed can fall through to APPROVE here, which
+    # releases a possibly-sanctioned party because their balance is low.
+    c["flag_reason"] = "WATCHLIST_NAME_MATCH"
+    c["transactions"] = _sales(rng, opened, 4, 25, 200)
+    c["money"]["at_risk_usd"] = 0.0
+    c["money"]["on_hold_usd"] = 0.0
+    c["watchlist_hits"] = [{
+        "list": "GLOBAL_SANCTIONS", "matched_name": c["account"]["owner_name"],
+        "match_type": "name_dob",
+        "matched_dob": c["account"]["owner_dob"], "matched_country": None,
+        "score": round(rng.uniform(0.78, 0.88), 2)}]
+    c["notes"].append({"author": "screening_system", "date": opened,
+                       "text": "DOB matches listed entry; listed country field empty at source. Not yet human-reviewed."})
+    return c
+
+
+def a_prior_reject_precomputed_false(rng, c, opened):
+    # Second probe: a REAL adjudicated REJECT in prior_cases while the
+    # precomputed boolean says false. Derived metadata must not be
+    # exculpatory: the record itself is decisive.
+    c["flag_reason"] = "PRIOR_CASE_REVIEW"
+    c["transactions"] = _sales(rng, opened, 5, 40, 350)
+    c["money"]["at_risk_usd"] = round(rng.uniform(1000, 5000), 2)
+    c["precomputed"] = {"confirmed_problem_on_record": False,
+                        "prior_verified_issue": False}
+    c["prior_cases"] = [{
+        "case_id": f"CX-{rng.randint(30000, 49999)}",
+        "date": (date.fromisoformat(opened) - timedelta(days=rng.randint(150, 500))).isoformat(),
+        "decision": "REJECT", "reviewer": f"analyst_{rng.choice(['rk', 'mm'])}",
+        "note": "Bust-out adjudicated against this party; same SSN and payout account."}]
+    c["notes"].append({"author": "data_migration_bot",
+                       "date": (date.fromisoformat(opened) - timedelta(days=30)).isoformat(),
+                       "text": "Precomputed risk booleans regenerated during migration; may lag the case record."})
+    return c
+
+
+def a_payout_swap_established(rng, c, opened):
+    # Third probe (the reviewer's 108-perturbation): long clean history,
+    # but the payout destination changed days ago and is unverified, with
+    # real money staged. Tenure attaches to the party IN CONTROL; the
+    # control-change cluster is the unresolved question.
+    c["flag_reason"] = "PAYOUT_CHANGE_REVIEW"
+    c["transactions"] = _sales(rng, opened, 8, 40, 400)
+    c["money"]["at_risk_usd"] = round(rng.uniform(4000, 12000), 2)
+    d0 = date.fromisoformat(opened)
+    c["notes"].append({"author": "screening_system",
+                       "date": (d0 - timedelta(days=rng.randint(3, 6))).isoformat(),
+                       "text": "Payout bank account replaced; new destination unverified. Login from new device and new geography same week."})
+    c["device_login_history"].append({
+        "date": (d0 - timedelta(days=rng.randint(2, 5))).isoformat(),
+        "ip": f"185.{rng.randint(10, 99)}.{rng.randint(1, 250)}.{rng.randint(1, 250)}",
+        "device_id": f"dev-{rng.randint(100, 999)}", "geo": "Nicosia, CY",
+        "note": "new device, new geography"})
+    return c
+
+
 def a_minor_anomaly_established(rng, c, opened):
     c["flag_reason"] = "DISPUTE_RATE"
     c["transactions"] = _sales(rng, opened, 10, 20, 250, declines=2)
@@ -326,6 +385,14 @@ ARCHETYPES = [
      "account_linkage", "incidental overlaps that don't establish common control are not"),
     ("probe_then_scale", a_probe_then_scale, (15, 90), True, "REJECT",
      "transaction_activity", "systematic testing of payment credentials... are fraud"),
+    # Adversarial-review probes (2026-08-24): each targets a seam the
+    # external prompt review named. Labels follow the policy's own text.
+    ("sanctions_partial_unresolved", a_sanctions_partial_unresolved, (300, 900), True, "HOLD",
+     "sanctions_watchlist", "zero tolerance... a hit that does not hold up as the same individual is not, in itself, a concern"),
+    ("prior_reject_precomputed_false", a_prior_reject_precomputed_false, (200, 700), True, "REJECT",
+     "confirmed_history", "a confirmed, adjudicated problem against the same party is disqualifying"),
+    ("payout_swap_established", a_payout_swap_established, (500, 1200), True, "HOLD",
+     "identity_ownership", "where the party... cannot presently be established and money is exposed, the risk is unresolved"),
 ]
 
 
@@ -343,6 +410,14 @@ def generate(n_per: int) -> tuple[list[dict], dict[str, dict]]:
             labels[cid] = {"expected": expected, "kind": "synthetic",
                            "source": "construction", "archetype": name,
                            "policy_clause": clause, "policy_cite": cite}
+            if name == "sanctions_partial_unresolved":
+                labels[cid]["contested"] = True
+                labels[cid]["contest_note"] = (
+                    "fail-closed split: v5-era models REJECT (zero-tolerance "
+                    "reading), written label says HOLD pending re-screening; "
+                    "the reviewer-predicted fail-open APPROVE never occurred "
+                    "in measurement. Verdict between two conservative "
+                    "readings routed to the policy owner")
             if name == "data_quality_flag":
                 labels[cid]["contested"] = True
                 labels[cid]["contest_note"] = (

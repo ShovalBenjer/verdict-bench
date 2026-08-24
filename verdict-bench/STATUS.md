@@ -326,4 +326,4 @@ New defects found and fixed this delta, each with its oracle:
 - Suite blending: oec/report/export/notebook all filtered to
   DECISION_SUITE_KINDS; new test
   test_injection_and_metamorphic_never_blend_into_el_or_guardrails.
-`make check` green after all of it: ruff, mypy, 28 tests, report smoke.
+`make check` green after all of it: ruff, mypy, a test suite counted live by `python3 -m pytest -q tests/` (59 at last gate), report smoke.

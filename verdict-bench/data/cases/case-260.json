@@ -1,0 +1,154 @@
+{
+  "case_id": "CASE-260",
+  "flag_reason": "PAYOUT_CHANGE_REVIEW",
+  "opened": "2026-07-02",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-75036",
+    "owner_name": "Sofia Osei",
+    "owner_dob": "1989-03-21",
+    "owner_ssn_last4": "9524",
+    "owner_country": "US",
+    "business_name": "Osei Services",
+    "mcc": "5734",
+    "tenure_days": 502,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 9496.91,
+    "current_balance_usd": 4042.89,
+    "lifetime_volume_usd": 85056.69
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-05-29",
+      "ip": "72.78.163.68",
+      "device_id": "dev-248",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-07",
+      "ip": "72.61.149.8",
+      "device_id": "dev-270",
+      "geo": "Raleigh, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-27",
+      "ip": "72.72.60.52",
+      "device_id": "dev-622",
+      "geo": "Denver, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-30",
+      "ip": "185.18.179.104",
+      "device_id": "dev-668",
+      "geo": "Nicosia, CY",
+      "note": "new device, new geography"
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-13",
+      "time": "16:24:00",
+      "amount_usd": 293.82,
+      "status": "approved",
+      "settled_amount_usd": 293.82,
+      "instrument_last4": "3808",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "12:10:00",
+      "amount_usd": 248.66,
+      "status": "approved",
+      "settled_amount_usd": 248.66,
+      "instrument_last4": "5627",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "11:46:00",
+      "amount_usd": 140.19,
+      "status": "approved",
+      "settled_amount_usd": 140.19,
+      "instrument_last4": "3728",
+      "bin": "550000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "10:26:00",
+      "amount_usd": 260.75,
+      "status": "approved",
+      "settled_amount_usd": 260.75,
+      "instrument_last4": "3469",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-27",
+      "time": "08:39:00",
+      "amount_usd": 40.58,
+      "status": "approved",
+      "settled_amount_usd": 40.58,
+      "instrument_last4": "6227",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "19:42:00",
+      "amount_usd": 184.23,
+      "status": "approved",
+      "settled_amount_usd": 184.23,
+      "instrument_last4": "8236",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "08:33:00",
+      "amount_usd": 197.84,
+      "status": "approved",
+      "settled_amount_usd": 197.84,
+      "instrument_last4": "8195",
+      "bin": "510000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "14:04:00",
+      "amount_usd": 362.75,
+      "status": "approved",
+      "settled_amount_usd": 362.75,
+      "instrument_last4": "8488",
+      "bin": "450000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-06-27",
+      "text": "Payout bank account replaced; new destination unverified. Login from new device and new geography same week."
+    }
+  ]
+}

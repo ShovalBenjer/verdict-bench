@@ -219,9 +219,9 @@ def call_hf(model: str, system_prompt: str, case_json: str,
             temperature: float = 0.2) -> DecisionResult:
     """HuggingFace inference router (OpenAI-compatible). Wired 2026-08-24 as
     the THIRD judge family: the rubric judge pool was gemini + claude, both
-    of which also sit in the judged matrix; Mistral overlaps with no judged
-    column (claude, gemini, llama-derived, qwen), so its scores cannot be
-    self-preference. HUGGINGFACE_API_KEY from ~/.env."""
+    of which also sit in the judged matrix; phi-4's family (microsoft)
+    overlaps no judged column, so its scores cannot be self-preference.
+    HUGGINGFACE_API_KEY from ~/.env."""
     return _openai_compat("https://router.huggingface.co/v1/chat/completions",
                           _env("HUGGINGFACE_API_KEY"), model, system_prompt,
                           case_json, temperature=temperature)
@@ -238,8 +238,9 @@ PROVIDERS = {
     "gemini-pro": lambda s, c, t=0.2: call_gemini("gemini-2.5-pro", s, c, temperature=t),
     "llama-3.3-70b": lambda s, c, t=0.2: call_nvidia("meta/llama-3.3-70b-instruct", s, c),
     "qwen3.8-max": lambda s, c, t=0.2: call_qwen("qwen3.8-max", s, c),
-    # glm-5.3 wired 2026-08-24 and immediately money-blocked on BOTH routes
-    # (Z.AI error 1113 insufficient balance; DashScope free tier exhausted).
+    # glm-5.3 wired 2026-08-24 and immediately money-blocked on its one
+    # route (Z.AI: HTTP 429 whose body is error 1113 "Insufficient balance
+    # or no resource package", banked verbatim in the ledger's raw_output).
     # Kept registered so the recorded error rows stay reproducible; recharging
     # is an operator decision. Nemotron fills the current-open roster slot
     # per SPEC.md's own roster policy ("qwen3 or nemotron").

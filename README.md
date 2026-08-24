@@ -4,9 +4,9 @@
 
 **Single runs lie. A prompt, treated as a model release.**
 
-![runs](https://img.shields.io/badge/runs_banked-835-333?style=flat-square&labelColor=1a1d24)
-![models](https://img.shields.io/badge/models-8-333?style=flat-square&labelColor=1a1d24)
-![cases](https://img.shields.io/badge/cases-76-333?style=flat-square&labelColor=1a1d24)
+![runs](https://img.shields.io/badge/runs_banked-1215_protocol_of_1275_banked-333?style=flat-square&labelColor=1a1d24)
+![models](https://img.shields.io/badge/models-8_wired_7_decided-333?style=flat-square&labelColor=1a1d24)
+![cases](https://img.shields.io/badge/cases-88-333?style=flat-square&labelColor=1a1d24)
 ![coverage](https://img.shields.io/badge/policy_coverage-8_of_8_clauses-333?style=flat-square&labelColor=1a1d24)
 
 </div>
@@ -14,7 +14,7 @@
 An account-review agent decides flagged merchant accounts: APPROVE, HOLD,
 or REJECT, driven by a plain-text prompt. This repository treats that
 prompt the way a risk team should: versioned one change at a time,
-benchmarked across 8 models on a frozen case suite, attacked with
+benchmarked across 8_wired_7_decided models on a frozen case suite, attacked with
 planted instructions, repeated until stability is a number, and gated so
 an untrustworthy cell cannot show a headline figure.
 
@@ -41,17 +41,19 @@ make check                             # compile, lint, types, full test suite, 
 | rung | model | accuracy | contract | weighted loss /1k [95% CI] |
 |---|---|---|---|---|
 | v5 | gemini-flash | 100% | 100% | $0 [0 to 0] |
+| v6b | gemini-flash | 100% | 100% | $0 [0 to 0] |
 | v1 | qwen3.8-max | 92% | 100% | $41,667 [0 to 125,000] |
 | v4 | gemini-flash | 92% | 100% | $50,000 [0 to 150,000] |
 | v4b | gemini-flash | 92% | 100% | $50,000 [0 to 150,000] |
-| v4c | gemini-flash | 92% | 100% | $50,000 [0 to 150,000] |
 
 Rankable cells only; a cell that fails the trust gate (n, contract rate,
 CI width, repeat-run flip, or a zero-tolerance miss) hides its own number.
-Loss prices are assumptions (missed fraud $2,000, needless hold $45, lost
-customer $600); the interval is case-resampling variability only. For
-scale, deciding every case the same way costs $189k (always HOLD) to
-$674k (always APPROVE) per 1,000 cases.
+Loss prices are assumptions: three stated (missed fraud $2,000, needless
+hold $45, lost customer $600) plus one derived cell, a fraudster merely
+held instead of rejected at $2,000/4 = $500 (partial containment). The
+interval is case-resampling variability only. For scale, deciding every
+case the same way costs $189k (always HOLD) to $674k (always APPROVE)
+per 1,000 cases.
 
 ## What is in here
 
@@ -61,9 +63,17 @@ $674k (always APPROVE) per 1,000 cases.
    loop proposed and a pre-registered gate accepted after N=5 repeats
    refuted a false regression.
 3. `TRANSCRIPT.md`: the curated work log, dead ends kept.
-4. `sessions/`: the verbatim extract behind it (0 words; operator
+4. `sessions/`: the verbatim extract behind it (9,256 words; operator
    messages word-for-word, every removal a counted marker).
-5. `verdict-bench/`: the lab itself: engine, 28 tests over real SQLite,
+   Version-name map, because two numbering schemes coexist: `early-prompts/
+   prompt_v1..v11` are the PRE-REPO drafts the transcript's first sessions
+   iterate (rich procedure from day one), while the ladder's `v1` in
+   `prompts/` is the deliberately minimal no-policy BASELINE built later so
+   ablations had a floor. Transcript sections about "prompt_v1" refer to
+   the former; every benchmark number refers to the latter.
+5. `verdict-bench/`: the lab itself: engine, the test suite over real SQLite
+   (run `python3 -m pytest -q verdict-bench/tests/` for the live count;
+   hand-typed test counts drift, so this README no longer carries one),
    ADRs each carrying the rejected alternative, `benchmark.json` (every
    number in the writeup, regenerated from the run ledger), robustness
    suites, and three held-out cases authored from fraud archetypes the
@@ -91,5 +101,14 @@ revoked one perfect score.
 
 Path note: repo-relative doc links map as `docs/prd/SPEC.md` to
 `verdict-bench/SPEC.md`, `ui/public/benchmark.json` to
-`verdict-bench/benchmark.json`. The raw run ledger and internal planning
-docs stay out by design; the ledger is available on request.
+`verdict-bench/benchmark.json`, `engine/prompts/CHANGELOG.md` to
+`prompts/CHANGELOG.md`. The run ledger SHIPS at
+`verdict-bench/state/verdict.sqlite3` (every number regenerates from it).
+
+References that deliberately do not resolve in this bundle, so nobody
+has to discover it: `PLAN.md`, `PRODUCT.md`, `TODO.md`, `INDEX.md` are
+internal planning surfaces (calendar and private harness detail), and a
+few ADRs cite the author's own workshop rule files
+(`boundary-contracts.md`, `repo-stack-reasoning.md`) whose relevant
+content the ADR restates in place. Named here rather than left as
+dangling links; any of them is available on request.

@@ -588,5 +588,109 @@
     "archetype": "probe_then_scale",
     "policy_clause": "transaction_activity",
     "policy_cite": "systematic testing of payment credentials... are fraud"
+  },
+  "CASE-252": {
+    "expected": "HOLD",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "sanctions_partial_unresolved",
+    "policy_clause": "sanctions_watchlist",
+    "policy_cite": "zero tolerance... a hit that does not hold up as the same individual is not, in itself, a concern",
+    "contested": true,
+    "contest_note": "fail-closed split: v5-era models REJECT (zero-tolerance reading), written label says HOLD pending re-screening; the reviewer-predicted fail-open APPROVE never occurred in measurement. Verdict between two conservative readings routed to the policy owner"
+  },
+  "CASE-253": {
+    "expected": "HOLD",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "sanctions_partial_unresolved",
+    "policy_clause": "sanctions_watchlist",
+    "policy_cite": "zero tolerance... a hit that does not hold up as the same individual is not, in itself, a concern",
+    "contested": true,
+    "contest_note": "fail-closed split: v5-era models REJECT (zero-tolerance reading), written label says HOLD pending re-screening; the reviewer-predicted fail-open APPROVE never occurred in measurement. Verdict between two conservative readings routed to the policy owner"
+  },
+  "CASE-254": {
+    "expected": "HOLD",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "sanctions_partial_unresolved",
+    "policy_clause": "sanctions_watchlist",
+    "policy_cite": "zero tolerance... a hit that does not hold up as the same individual is not, in itself, a concern",
+    "contested": true,
+    "contest_note": "fail-closed split: v5-era models REJECT (zero-tolerance reading), written label says HOLD pending re-screening; the reviewer-predicted fail-open APPROVE never occurred in measurement. Verdict between two conservative readings routed to the policy owner"
+  },
+  "CASE-255": {
+    "expected": "HOLD",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "sanctions_partial_unresolved",
+    "policy_clause": "sanctions_watchlist",
+    "policy_cite": "zero tolerance... a hit that does not hold up as the same individual is not, in itself, a concern",
+    "contested": true,
+    "contest_note": "fail-closed split: v5-era models REJECT (zero-tolerance reading), written label says HOLD pending re-screening; the reviewer-predicted fail-open APPROVE never occurred in measurement. Verdict between two conservative readings routed to the policy owner"
+  },
+  "CASE-256": {
+    "expected": "REJECT",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "prior_reject_precomputed_false",
+    "policy_clause": "confirmed_history",
+    "policy_cite": "a confirmed, adjudicated problem against the same party is disqualifying"
+  },
+  "CASE-257": {
+    "expected": "REJECT",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "prior_reject_precomputed_false",
+    "policy_clause": "confirmed_history",
+    "policy_cite": "a confirmed, adjudicated problem against the same party is disqualifying"
+  },
+  "CASE-258": {
+    "expected": "REJECT",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "prior_reject_precomputed_false",
+    "policy_clause": "confirmed_history",
+    "policy_cite": "a confirmed, adjudicated problem against the same party is disqualifying"
+  },
+  "CASE-259": {
+    "expected": "REJECT",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "prior_reject_precomputed_false",
+    "policy_clause": "confirmed_history",
+    "policy_cite": "a confirmed, adjudicated problem against the same party is disqualifying"
+  },
+  "CASE-260": {
+    "expected": "HOLD",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "payout_swap_established",
+    "policy_clause": "identity_ownership",
+    "policy_cite": "where the party... cannot presently be established and money is exposed, the risk is unresolved"
+  },
+  "CASE-261": {
+    "expected": "HOLD",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "payout_swap_established",
+    "policy_clause": "identity_ownership",
+    "policy_cite": "where the party... cannot presently be established and money is exposed, the risk is unresolved"
+  },
+  "CASE-262": {
+    "expected": "HOLD",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "payout_swap_established",
+    "policy_clause": "identity_ownership",
+    "policy_cite": "where the party... cannot presently be established and money is exposed, the risk is unresolved"
+  },
+  "CASE-263": {
+    "expected": "HOLD",
+    "kind": "synthetic",
+    "source": "construction",
+    "archetype": "payout_swap_established",
+    "policy_clause": "identity_ownership",
+    "policy_cite": "where the party... cannot presently be established and money is exposed, the risk is unresolved"
   }
 }

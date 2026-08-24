@@ -1,0 +1,154 @@
+{
+  "case_id": "CASE-262",
+  "flag_reason": "PAYOUT_CHANGE_REVIEW",
+  "opened": "2026-07-06",
+  "priority": "medium",
+  "account": {
+    "account_id": "ACC-36346",
+    "owner_name": "Ravi Kimura",
+    "owner_dob": "1991-09-11",
+    "owner_ssn_last4": "8127",
+    "owner_country": "US",
+    "business_name": "Kimura Collective",
+    "mcc": "5941",
+    "tenure_days": 1018,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 4341.63,
+    "current_balance_usd": 4839.06,
+    "lifetime_volume_usd": 51757.41
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-07",
+      "ip": "72.91.65.112",
+      "device_id": "dev-204",
+      "geo": "Boise, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-18",
+      "ip": "72.97.105.128",
+      "device_id": "dev-221",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-24",
+      "ip": "72.79.204.94",
+      "device_id": "dev-150",
+      "geo": "Boise, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-03",
+      "ip": "185.30.18.249",
+      "device_id": "dev-668",
+      "geo": "Nicosia, CY",
+      "note": "new device, new geography"
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-27",
+      "time": "15:15:00",
+      "amount_usd": 74.34,
+      "status": "approved",
+      "settled_amount_usd": 74.34,
+      "instrument_last4": "5098",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "15:12:00",
+      "amount_usd": 132.12,
+      "status": "approved",
+      "settled_amount_usd": 132.12,
+      "instrument_last4": "7779",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "18:19:00",
+      "amount_usd": 357.87,
+      "status": "approved",
+      "settled_amount_usd": 357.87,
+      "instrument_last4": "7491",
+      "bin": "450000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "14:31:00",
+      "amount_usd": 114.44,
+      "status": "approved",
+      "settled_amount_usd": 114.44,
+      "instrument_last4": "8405",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "12:08:00",
+      "amount_usd": 361.94,
+      "status": "approved",
+      "settled_amount_usd": 361.94,
+      "instrument_last4": "9277",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "17:15:00",
+      "amount_usd": 223.55,
+      "status": "approved",
+      "settled_amount_usd": 223.55,
+      "instrument_last4": "3165",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "11:55:00",
+      "amount_usd": 105.45,
+      "status": "approved",
+      "settled_amount_usd": 105.45,
+      "instrument_last4": "4550",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "09:55:00",
+      "amount_usd": 120.54,
+      "status": "approved",
+      "settled_amount_usd": 120.54,
+      "instrument_last4": "6192",
+      "bin": "470000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-06-30",
+      "text": "Payout bank account replaced; new destination unverified. Login from new device and new geography same week."
+    }
+  ]
+}

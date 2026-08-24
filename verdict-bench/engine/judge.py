@@ -32,7 +32,23 @@ from providers import call_claude_cli, call_gemini, call_hf
 
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "state" / "verdict.sqlite3"
-POLICY = (ROOT / "assignment" / "case-study" / "case-study" / "POLICY.md").read_text()
+def _find_policy() -> str:
+    # repo layout nests the assignment zip twice; the shipped bundle flattens
+    # it to one case-study/ at the bundle root (README's "path note"). The
+    # hardcoded repo path crashed test collection on a fresh clone of the
+    # bundle (external review, 2026-08-24); resolve instead of assuming.
+    candidates = [
+        ROOT / "assignment" / "case-study" / "case-study" / "POLICY.md",
+        ROOT.parent / "case-study" / "POLICY.md",
+        ROOT / "case-study" / "POLICY.md",
+    ]
+    for c in candidates:
+        if c.exists():
+            return c.read_text()
+    raise FileNotFoundError(f"POLICY.md not found in any known layout: {candidates}")
+
+
+POLICY = _find_policy()
 
 RUBRIC_VERSION = "r1"
 

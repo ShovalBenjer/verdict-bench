@@ -14,26 +14,20 @@ complete.
 Operator ask, 2026-08-19: the metrics must be "a good/great representation
 of POLICY.md" plus "a compound mathematical way to composite all." This
 module answers both: coverage first (does a case exist for every clause the
-policy names), then one dollar-denominated composite.
-
-Correction, same night: an earlier version of this file invented a unitless
-0-10 cost matrix with per-clause severity multipliers (1.0x-2.0x), before
-re-reading docs/prd/SPEC.md's own KPI table, which already specifies real
-dollar costs (FA=$2,000, FH=$45, FR=$600, with a stated rationale for each)
-and a hard rule ("Sanctions recall must be 1.0; a single miss is
-disqualifying") that predates this session by months. Two competing cost
-models in one repo is a defect a reviewer catches on sight; SPEC.md's
-figures win because they are the actual spec, not tonight's invention.
-The clause tags did not get thrown away: they are the better tool for
-coverage (does a case exist per policy section) and for slicing (which
-clause do the misses land on), and the sanctions "zero tolerance" line is
-now a disqualifying GATE (matching the policy's own word) rather than a
-cost multiplier.
+policy names), then one dollar-denominated composite. SPEC.md's dollar
+figures are the one cost model in the repo; clause tags serve coverage and
+slicing, never cost weighting, and the policy's own "zero tolerance" is a
+disqualifying GATE, not a multiplier.
 """
 from __future__ import annotations
 
+import math
 import sqlite3
+from collections import Counter
+from collections.abc import Mapping
 from dataclasses import dataclass, field
+from types import MappingProxyType
+from typing import NamedTuple
 
 DECISIONS = ("APPROVE", "HOLD", "REJECT")
 
@@ -57,41 +51,32 @@ POLICY_CLAUSES: dict[str, str] = {
 # it is a gate: the cell fails eligibility outright, regardless of its EL.
 DISQUALIFYING_CLAUSES = frozenset({"sanctions_watchlist", "confirmed_history"})
 
-# SPEC.md's KPI table, verbatim: "Expected loss per 1k cases: sum(cost[error_type]
-# x rate) using an explicit cost matrix. Cost matrix: FA=$2,000 (realized fraud
-# loss, avg of case exposures), FH=$45 (support touch + churn risk), FR=$600
-# (lost LTV)." This matrix MUST match engine/export.py's error_cost() exactly:
-# export.py is the pre-existing, UI-connected implementation (feeds
-# ui/public/benchmark.json, which is what PRODUCT.md's matrix tiles render),
-# and notebooks/analysis.ipynb's cell 4 has its own copy of the same formula.
-# An earlier version of this file (same night) invented a DIFFERENT six-cell
-# mapping without checking export.py first, a real defect caught only when
-# the operator asked whether the notebook was presentation-ready and a full
-# read of it surfaced the mismatch. Fixed by matching export.py's four
-# off-diagonal branches instead of re-deriving new assumptions:
+# SPEC.md's KPI table, verbatim: FA=$2,000 (realized fraud loss), FH=$45
+# (support touch + churn risk), FR=$600 (lost LTV). This matrix MUST match
+# engine/export.py's error_cost() exactly (export feeds benchmark.json, the
+# surface a reviewer sees); to change it, change error_cost() FIRST and port
+# the same four off-diagonal branches here:
 #   REJECT->APPROVE = FA ($2,000)      REJECT->HOLD    = FA*0.25 ($500)
 #   APPROVE->REJECT = FR ($600)        APPROVE->HOLD   = FH ($45)
 #   HOLD->REJECT    = FR ($600)        HOLD->APPROVE   = FH ($45)
-# If this ever needs to change again, change export.py's error_cost() FIRST
-# (it is the one already wired to what a reviewer sees) and port the same
-# four branches here, not the other way around.
-# Grounding check (2026-08-23): mean at_risk_usd over the 4 cases actually
-# labeled expected=REJECT (the only cases where FA fires) is $4,251.63
-# (CASE-101-P1B $0, CASE-102 $6.50, CASE-106 $8,000, CASE-107 $9,000) --
-# roughly 2x the stated $2,000, but n=4 with one $0 case is itself too
-# thin to treat as ground truth over the stated figure. Read as: $2,000 is
-# not contradicted by the suite's own data, and the suite is too small to
-# settle the question either way. --sweep covers $1k-$5k, which brackets
-# this computed mean on both sides.
+# Grounding check (2026-08-23): mean at_risk_usd over the 4 cases labeled
+# expected=REJECT (the only cases where FA fires) is $4,251.63 (CASE-101-P1B
+# $0, CASE-102 $6.50, CASE-106 $8,000, CASE-107 $9,000): roughly 2x the
+# stated $2,000, but n=4 with one $0 case is too thin to overrule the stated
+# figure. Read as: not contradicted, not confirmed; --sweep covers $1k-$5k,
+# bracketing the computed mean on both sides.
 FA_USD = 2000.0   # false approve: realized fraud loss (expected REJECT, decided APPROVE)
 FH_USD = 45.0     # false hold: support touch + churn risk
 FR_USD = 600.0    # false reject: lost LTV
 
-COST_MATRIX_USD: dict[str, dict[str, float]] = {
-    "APPROVE": {"APPROVE": 0.0, "HOLD": FH_USD, "REJECT": FR_USD},
-    "HOLD":    {"APPROVE": FH_USD, "HOLD": 0.0, "REJECT": FR_USD},
-    "REJECT":  {"APPROVE": FA_USD, "HOLD": FA_USD * 0.25, "REJECT": 0.0},
-}
+# Read-only on purpose (Fluent Python ch6: a shared mutable default is a
+# drift bomb): in-place mutation raises instead of silently corrupting
+# every later expected_loss() call; the sweep already copies before overriding.
+COST_MATRIX_USD: Mapping[str, Mapping[str, float]] = MappingProxyType({
+    "APPROVE": MappingProxyType({"APPROVE": 0.0, "HOLD": FH_USD, "REJECT": FR_USD}),
+    "HOLD":    MappingProxyType({"APPROVE": FH_USD, "HOLD": 0.0, "REJECT": FR_USD}),
+    "REJECT":  MappingProxyType({"APPROVE": FA_USD, "HOLD": FA_USD * 0.25, "REJECT": 0.0}),
+})
 
 # Guardrail floors: a cell below these is flagged, not silently scored.
 MIN_N_FOR_TRUST = 8          # Kohavi: below this, a CI is too wide to rank on
@@ -121,6 +106,25 @@ def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
 
 
 MAX_FLIP = 0.25  # above this, repeated cases disagree; the cell is unrankable
+
+
+def flip_rates(decisions_by_case: dict[str, list[str]]) -> list[float]:
+    """Per-case disagreement across repeats (1 minus the modal decision's
+    share), cases with repeats only. One implementation for report() and
+    export (the same block lived copy-pasted in both); callers keep their
+    own rounding so pinned outputs stay byte-identical."""
+    return [1 - Counter(ds).most_common(1)[0][1] / len(ds)
+            for ds in decisions_by_case.values() if len(ds) > 1]
+
+
+class FirstRun(NamedTuple):
+    """First run per case, named fields instead of a positional 4-tuple:
+    the positional-shift bug class this repo shipped once tonight
+    (temperature landing in a timeout slot) cannot recur here."""
+    decision: str | None
+    contract_ok: int
+    expected: str
+    clause: str | None
 
 
 def cell_trust(con: sqlite3.Connection, prompt_version: str, model_id: str,
@@ -194,7 +198,7 @@ def expected_loss(
     con: sqlite3.Connection,
     prompt_version: str,
     model_id: str,
-    cost_matrix: dict[str, dict[str, float]] = COST_MATRIX_USD,
+    cost_matrix: Mapping[str, Mapping[str, float]] = COST_MATRIX_USD,
     fa_usd: float | None = None,
 ) -> OECResult:
     """First-run-per-case decisions only (repeats feed flip rate, not the
@@ -227,10 +231,9 @@ def expected_loss(
         (prompt_version, model_id),
     ).fetchall()
 
-    first: dict[str, tuple[str | None, int, str, str | None]] = {}
-    for case_id, decision, contract_ok, repeat_idx, expected, clause in rows:
-        if case_id not in first:
-            first[case_id] = (decision, contract_ok, expected, clause)
+    first: dict[str, FirstRun] = {}
+    for case_id, decision, contract_ok, _repeat_idx, expected, clause in rows:
+        first.setdefault(case_id, FirstRun(decision, contract_ok, expected, clause))
 
     n = len(first)
     violations: list[str] = []
@@ -240,7 +243,7 @@ def expected_loss(
                           disqualified=False, trustworthy=False,
                           violations=["no graded runs"])
 
-    contract_rate = sum(c for _, c, _, _ in first.values()) / n
+    contract_rate = sum(fr.contract_ok for fr in first.values()) / n
     if contract_rate < MIN_CONTRACT_RATE:
         violations.append(
             f"contract_rate {contract_rate:.2f} < {MIN_CONTRACT_RATE} "
@@ -253,7 +256,7 @@ def expected_loss(
     graded = 0
     unparseable = 0
     disqualified_cases: list[str] = []
-    for case_id, (decision, _contract_ok, expected, clause) in first.items():
+    for case_id, (decision, _contract_ok, expected, clause) in first.items():  # NamedTuple unpacks positionally too
         # SPEC.md: "Sanctions recall must be 1.0; a single miss is
         # disqualifying." POLICY.md: "zero tolerance." A miss on either
         # disqualifying clause is a gate failure, not a cost: it does not
@@ -262,12 +265,9 @@ def expected_loss(
             disqualified_cases.append(case_id)
 
         if decision not in DECISIONS:
-            # No recoverable decision: a real, separate failure mode from a
-            # wrong-but-parseable decision (contract_ok already flags it as
-            # a guardrail). Charge the worst cost reachable FROM THIS
-            # EXPECTED LABEL (never a different label's worst cell, the bug
-            # this file already fixed once tonight): still costs more than
-            # any parseable miss, never becomes an off-scale outlier.
+            # No recoverable decision: charged the worst cost reachable FROM
+            # THIS EXPECTED LABEL (never another label's worst cell): costs
+            # more than any parseable miss, never an off-scale outlier.
             total_loss += max(matrix[expected].values())
             unparseable += 1
             graded += 1
@@ -370,7 +370,6 @@ def sprt(outcomes: list[int], p0: float = 0.75, p1: float = 0.92,
     replaces the trust gates: a promoted challenger still needs contract,
     flip, and zero-tolerance gates green before it ranks.
     """
-    import math
     if not (0 < p0 < p1 < 1):
         raise ValueError("need 0 < p0 < p1 < 1")
     up = math.log((1 - beta) / alpha)        # accept H1 at or above

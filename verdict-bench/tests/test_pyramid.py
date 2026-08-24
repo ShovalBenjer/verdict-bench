@@ -212,7 +212,7 @@ def test_sprt_rejects_a_clearly_losing_challenger_early():
 
 
 def test_sprt_accepts_a_clean_sweep():
-    verdict, _, n = oec.sprt([1] * 30)
+    verdict, _llr, _n = oec.sprt([1] * 30)
     assert verdict == "accept"
 
 

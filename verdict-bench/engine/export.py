@@ -4,14 +4,16 @@ from __future__ import annotations
 import difflib
 import json
 import random
+import re
 import sqlite3
 from pathlib import Path
 
-from oec import DECISION_SUITE_KINDS, cell_trust, coverage_report, wilson
+from oec import DECISION_SUITE_KINDS, cell_trust, coverage_report, flip_rates, wilson
 
 # the ladder's parent chain, for per-rung diffs in the UI's prompt view
 PARENT = {"v2": "v1", "v3": "v2", "v3c": "v3", "v4": "v3c",
-          "v4b": "v4", "v4c": "v4b", "v5": "v4c"}
+          "v4b": "v4", "v4c": "v4b", "v5": "v4c",
+          "v6": "v5", "v6b": "v5"}
 
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "state" / "verdict.sqlite3"
@@ -22,6 +24,15 @@ LABELS: dict = json.loads((ROOT / "data" / "labels.json").read_text())
 
 # assumption-stated cost matrix (SPEC.md business KPIs)
 COST = {"FA": 2000.0, "FH": 45.0, "FR": 600.0}
+# ONE more named assumption (queue burden): analyst cost per HOLD review.
+# Not in SPEC; stated here and everywhere the number renders.
+REVIEW_COST_USD = 35.0
+# mechanical citation-fidelity vocabulary: case-field concepts the README's
+# own contract expects reasoning to cite ("with its reasoning, citing the
+# case"); >=3 concepts AND >=2 literal numbers = a citing reasoning.
+CITE_FIELDS = ("tenure", "at_risk", "on_hold", "verification", "watchlist",
+               "instrument", "declin", "prior", "linked", "kyc", "kyb",
+               "settled", "payout", "balance", "lifetime")
 PRICE = {  # $/MTok in, out; NVIDIA build free tier = 0
     "gemini-flash": (0.30, 2.50), "gemini-pro": (1.25, 10.0),
     "llama-3.3-70b": (0.0, 0.0), "claude-sonnet": (3.0, 15.0),
@@ -31,8 +42,6 @@ PRICE = {  # $/MTok in, out; NVIDIA build free tier = 0
     "nemotron-super-49b": (0.0, 0.0), "qwen3.8-max": (0.0, 0.0),
 }
 
-# DECISION_SUITE_KINDS is imported from oec: one source of truth for what
-# counts as the decision suite (a local mirror copy lived here for a day)
 
 
 def error_cost(decision: str, expected: str) -> float:
@@ -105,9 +114,7 @@ def main() -> None:
         for r in rs:
             if r["decision"] and r["kind"] in DECISION_SUITE_KINDS:
                 by_case.setdefault(r["case_id"], []).append(r["decision"])
-        from collections import Counter
-        flips = [1 - Counter(ds).most_common(1)[0][1] / len(ds)
-                 for ds in by_case.values() if len(ds) > 1]
+        flips = flip_rates(by_case)
         lat = sorted(r["latency_ms"] for r in f if r["latency_ms"])
 
         # EL must mirror oec.expected_loss EXACTLY, including the unparseable
@@ -191,10 +198,45 @@ def main() -> None:
         if rep_cases:
             stable = [cid for cid, ds in rep_cases.items() if len(set(ds)) == 1]
             auto = round(len(stable) / len(rep_cases), 2)
+        # citation fidelity (README: reasoning that CITES the case), mechanical
+        reasons = [r["reasoning"] for r in first.values() if r["reasoning"]]
+        cite_ok = sum(1 for rx in reasons
+                      if sum(1 for fld in CITE_FIELDS if re.search(fld, rx, re.IGNORECASE)) >= 3
+                      and len(re.findall(r"\$?\d[\d,]*\.?\d*", rx)) >= 2)
+        citation_fidelity = round(cite_ok / len(reasons), 2) if reasons else None
+        # exposure bands over ALL graded first runs, contested excluded: the
+        # mid-band is where models measurably fail (69% vs 88% at the edges)
+        bands: dict[str, list[int]] = {"$0": [0, 0], "<$1k": [0, 0],
+                                       "$1k-10k": [0, 0], ">$10k": [0, 0]}
+        for r in first.values():
+            if r["correct"] is None or LABELS.get(r["case_id"], {}).get("contested"):
+                continue
+            ar = at_risk.get(r["case_id"], 0.0)
+            band = ("$0" if ar == 0 else "<$1k" if ar < 1000
+                    else "$1k-10k" if ar < 10000 else ">$10k")
+            bands[band][1] += 1
+            bands[band][0] += r["correct"]
+        exposure_bands = {b: {"correct": k, "n": n} for b, (k, n) in bands.items() if n}
+        # generalization: same prompt, three evidence tiers, one glance
+        def tier_acc(kinds: tuple, first=first) -> float | None:  # bind the loop var (B023)
+            g = [r for r in first.values() if r["kind"] in kinds
+                 and r["correct"] is not None
+                 and not LABELS.get(r["case_id"], {}).get("contested")]
+            return round(sum(r["correct"] for r in g) / len(g), 3) if g else None
+        generalization = {"suite": tier_acc(("golden", "perturbation")),
+                          "holdout": tier_acc(("holdout",)),
+                          "synthetic": tier_acc(("synthetic",))}
         out_cells.append({
             "prompt": pv, "model": mid, "n": len(rs),
             "trust": trust, "violations": violations,
             "hold_rate": hold_rate, "cost_per_case": cost_per_case,
+            "citation_fidelity": citation_fidelity,
+            "exposure_bands": exposure_bands,
+            "generalization": generalization,
+            "queue_cost_per_1k": (round(hold_rate * 1000 * REVIEW_COST_USD)
+                                   if hold_rate is not None else None),
+            "throughput_per_hour": (round(3600000 / lat[len(lat) // 2])
+                                     if lat else None),
             "auto_decision_rate": auto, "insult_rate": insult_rate,
             "value_detection_rate": value_detection,
             "confusion": confusion, "rubric": rubric,
@@ -347,7 +389,25 @@ def main() -> None:
     # found the same nine numbers typed three times across py and jsx)
     decisions = ("APPROVE", "HOLD", "REJECT")
     meta_cost_matrix = {e: {d: error_cost(d, e) for d in decisions} for e in decisions}
+    import platform
+    contested_n = sum(1 for lab in LABELS.values() if lab.get("contested"))
+    flip_gated = 0
+    for c in out_cells:
+        viols = c.get("violations")
+        if isinstance(viols, list) and any("flip" in str(v) for v in viols):
+            flip_gated += 1
+    meta_routing = {"contested_labels": contested_n, "labels_total": len(LABELS),
+                    "flip_gated_cells": flip_gated,
+                    "note": "contested labels + flip-gated cells route to a human with the reason attached"}
     meta = {"total_runs": total_runs, "total_cost_usd_list": round(total_cost, 2),
+            "review_cost_usd_assumption": REVIEW_COST_USD,
+            "routed_to_human": meta_routing,
+            # reproducibility metadata: numbers travel with the machine that
+            # produced them (latency columns especially are a property of
+            # this host + provider routes, and say so in the writeup)
+            "environment": {"python": platform.python_version(),
+                            "platform": platform.platform(),
+                            "machine": platform.machine()},
             "cost_matrix_usd": meta_cost_matrix,
             "unpriced_models": sorted(unpriced),
             "cost_note": "list prices; open-model columns rode free tiers, claude via "

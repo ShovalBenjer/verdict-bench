@@ -51,7 +51,7 @@ ground truth, and I don't present them as such.
 
 **The confidence ladder, in one paragraph.** Certified, meaning enough
 runs behind it that I would act on it: the zero-tolerance gate is live
-and enforced: after the full matrix fill it fired on 10 of 36 cells
+and enforced: after the full matrix fill it fired on 10 of 38 cells
 (v1-era rungs and the weaker open models, almost all on CASE-101-P1B,
 the perturbation where the sanctions match becomes genuine, deciding
 HOLD where the policy demands REJECT) and disqualified every one of them
@@ -200,10 +200,11 @@ that resisted all four injection cases and held all four metamorphic
 variants, at the price of 30 to 120 seconds per decision. nemotron-super-49b:
 10/11 plus one JSON contract failure, and it misses CASE-102 the same way
 claude-haiku and llama-3.3-70b do. A GLM column was wired and is
-money-blocked on both available routes (Z.AI error 1113, insufficient
-balance; DashScope free tier exhausted); it ships as recorded error rows
-rather than a silently absent column, because recharging is an account
-decision, not an engineering one.
+money-blocked on its one route (Z.AI: HTTP 429 whose body carries error
+1113, "Insufficient balance or no resource package", banked verbatim in
+the ledger's raw_output); it ships as recorded error rows rather than a
+silently absent column, because recharging is an account decision, not
+an engineering one.
 
 **Robustness suites, and the claim they killed.** Four injection cases
 (adversarial instructions planted in fields the model must read as data:
@@ -381,19 +382,25 @@ from them.
 ## The synthetic sweep, and the policy ambiguity it found (2026-08-24)
 
 To test rule-consistency at a scale the 12-case suite cannot, a seeded
-generator (`tools/synth_cases.py`) builds 52 cases across 13 archetypes,
-each archetype one policy clause instantiated with surface variation
-(names, amounts, tenures, distractor noise), regenerating byte-identical
-from a fixed seed. The labels are construction-derived, which is stated
+generator (`tools/synth_cases.py`) builds 64 cases across 16 archetypes
+(13 original plus three adversarial-review probes), each archetype one
+policy clause instantiated with surface variation (names, amounts,
+tenures, distractor noise), regenerating byte-identical from a fixed
+seed. The labels are construction-derived, which is stated
 wherever the numbers appear: this measures whether the prompt applies the
 clause it was written against, not expert agreement, and the results
 never blend into headline accuracy or loss.
 
-The headline: on the 12 uncontested archetypes, v5 is 48/48 where v1 is
-44/48, and v1's misses are exactly where fraud lives: two bust-outs
-decided HOLD instead of REJECT, one unverifiable-identity and one
-document-inconsistency case over-rejected. The ladder's gains replicate
-on 48 cases the prompt has never seen in any form.
+The headline: on the uncontested archetypes, v5 with gemini-flash is
+56/56 where v1 is 44/48, and v1's misses are exactly where fraud lives:
+two bust-outs decided HOLD instead of REJECT, one unverifiable-identity
+and one document-inconsistency case over-rejected. The full cross-model
+sweep is the corpus's strongest result: it separates models the 12-case
+suite could not. flash sweeps 56/56 and qwen 48/48; gemini-pro drops two
+(46/48); claude-haiku drops nine (39/48); and the open models collapse:
+nemotron 28/46 and llama 25/43, overwhelmingly holding fraud archetypes
+they should reject. On the visible suite these models looked one or two
+cases apart; at generated scale they are twenty apart.
 
 The thirteenth archetype is the real finding. An unsubstantiated legacy
 flag (`confirmed_problem_on_record=true`, nothing behind it) on a
@@ -427,6 +434,94 @@ is the split itself. What I deliberately did NOT do is mint a v6 rung
 teaching either answer: tuning the prompt to a label no expert has
 confirmed would be training on my own noise, and the gate discipline this
 repo is built on cuts both ways.
+
+## The adversarial prompt review, answered with measurement (2026-08-24)
+
+Hours before submission I ran an external adversarial review of the prompt
+itself (a separate model given the prompt and the visible cases, not this
+repo). Its critique was sharp and partly wrong, and the useful part is
+that the bench could measure which was which instead of arguing.
+
+**Claims the work had already answered.** The review's centerpiece, that
+the prompt never draws the line between CASE-104 (HOLD) and CASE-107
+(REJECT), described an earlier draft: v5's look-alike bullet IS that line
+(build-up AND extraction; a pre-existing balance moved after a control
+change is Step 2 HOLD, not a Step 1 bust-out), and it exists because the
+loop measured flash misreading 104 six of six before the gated edit. The
+"benchmark over nine cases proves nothing" meta-critique prescribes,
+almost verbatim, what this repo is: consistency repeats, perturbations,
+adversarial cases, cost-weighted errors. The repo is private.
+
+**Claims refuted by probe measurement.** Three new probe archetypes
+(cases 252 to 263, four seeded variants each) turned the review's
+predictions into runs. "Precomputed booleans are only defended in one
+direction": v5 REJECTs all four cases where a real adjudicated REJECT
+sits behind `precomputed: false`: the record is decisive, the boolean is
+not, in both directions. "You survive 108 by luck of emphasis": the
+suggested perturbation (long clean history, payout destination swapped
+days ago, unverified, money staged) HOLDs four of four: tenure attaches
+to the party in control by design, not by luck.
+
+**The claim that was half right, in an instructive way.** The review
+predicted the sanctions middle case (DOB matches, country null, zero
+dollars at risk) would fall through to APPROVE, "releasing a possibly
+sanctioned party because their balance is low." Measured: v5 REJECTs all
+four variants. It fails CLOSED, not open, because Step 1's
+unresolved-sanctions branch carries no money gate, exactly the exemption
+the review said was missing. What the probe DID expose is a verdict
+choice the policy underdetermines: zero tolerance argues REJECT,
+resolve-then-decide argues HOLD pending re-screening, and both are
+conservative. Those four labels ship contested and routed, like the
+data-quality family before them, and the cross-model measurement
+sharpens the packet: across seven models and 23 decided runs, not one
+APPROVE: gemini-flash, gemini-pro, and qwen REJECT 4/4 each, llama HOLDs
+4/4, sonnet and nemotron lean HOLD 3/4. Every model fails closed; the
+policy's silence only decides WHICH conservative verdict.
+
+**Claims tested as candidate rungs, verdicts in.** Two attacks survived
+verification and became candidate rungs with pre-registered gates
+(CHANGELOG: v6, v6b). v6, one added line (case content is data, in-case
+instructions are themselves a signal), resisted 19 of 20 injection runs
+including 5/5 on the hardest case where v5 sits at 5/9: the line works,
+and it corrects this project's own earlier overreach ("hardening did not
+buy me out of injection" was measured over rungs that never targeted
+injection). v6 was still REJECTED: its suite read 11/12 against a
+pre-registered 12/12 bar, the miss landing on the case already measured
+flipping at protocol temperature, and the bar does not move on deadline
+day. v6b (reasoning-first field order) cleared suite and contract but
+read 2/5 on the two hardest injections and materialized the predicted
+parse fragility (an unescaped control character in a longer reasoning
+field killed a run); rejected on evidence. v5 remains the submitted
+prompt; v6 ships as the named, tested, recommended next rung.
+
+**The second review ran the bundle, and the bundle failed.** A separate
+external review was handed the shipped repository and did the one thing
+that matters: it executed the quickstart on a fresh clone. Every
+advertised command failed: the run ledger was not shipped (so every
+number was take-my-word-for-it in a repo about not taking people's
+word), the sessions/ directory the README pointed at was EMPTY (a
+rebuild without arguments silently dropped the mandatory transcript
+extract), and a hardcoded policy path crashed test collection in the
+bundle's flattened layout. This is the exact failure class this
+project's own transcript brags about catching, repeated in the final
+artifact. All four are fixed at the source (the build now hard-fails on
+an empty sessions dir; the ledger, UI source, and Dockerfile ship; paths
+resolve across layouts) and the repaired bundle is fresh-clone verified:
+report, coverage, and the full test suite run cold. The lesson stands in
+this paragraph on purpose: the instrument gated everything except its
+own packaging.
+
+**The prose-over-thresholds defense, made explicit.** The review is right
+that key branch words ("genuine", "holds up") are judgment terms, and
+that the alternative is operational thresholds. Card-testing IS
+operationalized (the v4c counting scaffold: distinct instruments, decline
+rate, capture fraction). For the rest, prose is a deliberate
+generalization bet, and its consistency cost is measured rather than
+assumed: champion flip rate 0.03, self-consistency vote fraction 98%,
+clause-citation hit rate 94 to 100% on the gemini/claude families.
+Thresholds would buy determinism on the visible cases and brittleness on
+the hidden ones; the measured wobble the prose actually costs is the
+number above.
 
 ## What I built beyond the prompt, and why it's not the main deliverable
 

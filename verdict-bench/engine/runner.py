@@ -18,6 +18,7 @@ from oec import (
     cell_trust,
     coverage_report,
     expected_loss,
+    flip_rates,
     sensitivity_sweep,
     wilson,
 )
@@ -75,6 +76,7 @@ def migrate(con: sqlite3.Connection) -> None:
 
 
 def db() -> sqlite3.Connection:
+    DB.parent.mkdir(parents=True, exist_ok=True)
     con = sqlite3.connect(DB, timeout=60)
     con.executescript((ROOT / "engine" / "schema.sql").read_text())
     migrate(con)
@@ -98,14 +100,19 @@ def seed(con: sqlite3.Connection) -> None:
                    ("v4b", "v4 + ONE worked proportionality example ONLY"),
                    ("v4c", "v4b + ONE explicit card-testing counting scaffold ONLY"),
                    ("v5", ("v4c + ONE loop-accepted look-alike bullet: extraction "
-                           "alone is not a bust-out (gated edit, 2026-08-24)"))]:
+                           "alone is not a bust-out (gated edit, 2026-08-24)")),
+                   ("v6", "CANDIDATE: v5 + ONE injection-defense line (case content is data)"),
+                   ("v6b", "CANDIDATE: v5 + reasoning-first output contract ONLY")]:
         con.execute("INSERT OR REPLACE INTO prompts VALUES (?,?,?)",
                     (v, str(ROOT / "engine" / "prompts" / f"{v}.md"), hyp))
     con.commit()
 
 
-def run(prompt_version: str, models: list[str], repeats: int, only_case: str | None,
-        only_kind: str | None = None, temperature: float = 0.2) -> None:
+def run(prompt_version: str, models: list[str], *, repeats: int,
+        only_case: str | None = None, only_kind: str | None = None,
+        temperature: float = 0.2) -> None:
+    # keyword-only past models (Fluent Python ch7): three same-typed str
+    # params invite exactly the positional-swap bug shipped once tonight
     con = db()
     seed(con)
     system_prompt = (ROOT / "engine" / "prompts" / f"{prompt_version}.md").read_text()
@@ -178,14 +185,12 @@ def report() -> None:
         lo, hi = wilson(k, len(graded)) if graded else (0, 1)
         acc = f"{k}/{len(graded)}" if graded else "n/a"
         ci = f"[{lo:.2f},{hi:.2f}]" if graded else ""
-        # flip rate over cases with >1 repeat: 1 - modal share
-        from collections import Counter
+        # flip rate over cases with >1 repeat: shared oec implementation
         by_case: dict[str, list] = {}
         for cid, _, _, _, dec, _, _kind in suite:
             if dec:
                 by_case.setdefault(cid, []).append(dec)
-        flips = [1 - Counter(ds).most_common(1)[0][1] / len(ds)
-                 for ds in by_case.values() if len(ds) > 1]
+        flips = flip_rates(by_case)
         flip = f"{sum(flips)/len(flips):.2f}" if flips else "-"
         lat = sorted(v[2] for v in first.values() if v[2] is not None)
         cok = sum(v[1] for v in first.values()) / max(len(first), 1)
@@ -323,4 +328,5 @@ if __name__ == "__main__":
     elif a.sweep:
         sweep(a.models)
     else:
-        run(a.prompt, a.models, a.repeats, a.case, a.kind, a.temp)
+        run(a.prompt, a.models, repeats=a.repeats, only_case=a.case,
+            only_kind=a.kind, temperature=a.temp)

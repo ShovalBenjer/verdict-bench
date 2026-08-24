@@ -1,0 +1,116 @@
+{
+  "case_id": "CASE-254",
+  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "opened": "2026-07-31",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-25320",
+    "owner_name": "Tal Zamir",
+    "owner_dob": "1971-09-02",
+    "owner_ssn_last4": "5100",
+    "owner_country": "US",
+    "business_name": "Zamir Labs",
+    "mcc": "5945",
+    "tenure_days": 556,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 3885.04,
+    "lifetime_volume_usd": 81684.55
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [
+    {
+      "list": "GLOBAL_SANCTIONS",
+      "matched_name": "Tal Zamir",
+      "match_type": "name_dob",
+      "matched_dob": "1971-09-02",
+      "matched_country": null,
+      "score": 0.8
+    }
+  ],
+  "device_login_history": [
+    {
+      "date": "2026-07-04",
+      "ip": "72.59.186.48",
+      "device_id": "dev-440",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-18",
+      "ip": "72.43.7.90",
+      "device_id": "dev-521",
+      "geo": "Portland, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-23",
+      "ip": "72.72.22.21",
+      "device_id": "dev-721",
+      "geo": "Raleigh, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-07-13",
+      "time": "12:58:00",
+      "amount_usd": 175.87,
+      "status": "approved",
+      "settled_amount_usd": 175.87,
+      "instrument_last4": "2506",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-13",
+      "time": "19:03:00",
+      "amount_usd": 127.92,
+      "status": "approved",
+      "settled_amount_usd": 127.92,
+      "instrument_last4": "9751",
+      "bin": "510000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-15",
+      "time": "13:43:00",
+      "amount_usd": 50.84,
+      "status": "approved",
+      "settled_amount_usd": 50.84,
+      "instrument_last4": "7509",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "13:50:00",
+      "amount_usd": 174.54,
+      "status": "approved",
+      "settled_amount_usd": 174.54,
+      "instrument_last4": "2817",
+      "bin": "430000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-31",
+      "text": "DOB matches listed entry; listed country field empty at source. Not yet human-reviewed."
+    }
+  ]
+}

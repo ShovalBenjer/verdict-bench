@@ -26,6 +26,12 @@ No API keys needed to read the existing ledger (`state/verdict.sqlite3`
 is checked in). Running new cases against live providers needs
 `~/.env` credentials per `engine/providers.py`.
 
+Zero-install reproduction: `make docker && make docker-run` builds the
+two-stage image (node builds the UI from the lockfile, python:3.12-slim
+serves it; the engine is stdlib-only so the container needs no pip
+installs) and serves the full benchmark UI on :8080 with the ledger
+mounted.
+
 ## Structure
 
 ```

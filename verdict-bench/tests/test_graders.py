@@ -12,7 +12,7 @@ from providers import parse_contract
 
 
 def test_strict_json_passes():
-    d, r, c, ok, err = parse_contract('{"decision": "APPROVE", "reasoning": "x"}')
+    d, _r, _c, ok, err = parse_contract('{"decision": "APPROVE", "reasoning": "x"}')
     assert d == "APPROVE" and ok and err is None
 
 
@@ -67,6 +67,6 @@ def test_report_runs_clean(tmp_path):
     src.close()
     dst.close()
     p = subprocess.run([sys.executable, str(ROOT / "engine" / "runner.py"), "--report"],
-                       capture_output=True, text=True,
+                       capture_output=True, text=True, check=False,
                        env={"PATH": "/usr/bin:/bin", "VERDICT_DB": str(snap)})
     assert p.returncode == 0, p.stderr
