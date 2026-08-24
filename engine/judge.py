@@ -40,6 +40,7 @@ def _find_policy() -> str:
     # hardcoded repo path crashed test collection on a fresh clone of the
     # bundle (external review, 2026-08-24); resolve instead of assuming.
     candidates = [
+        ROOT / "submission" / "case-study" / "POLICY.md",
         ROOT / "assignment" / "case-study" / "case-study" / "POLICY.md",
         ROOT.parent / "case-study" / "POLICY.md",
         ROOT / "case-study" / "POLICY.md",
