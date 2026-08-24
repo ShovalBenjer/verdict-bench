@@ -472,67 +472,91 @@ function Kpis({ data, grid }) {
 }
 
 function LadderWalk({ grid, data }) {
+  // Redesigned 2026-08-24 (operator-approved): the walk IS the brand mark
+  // enacted: the descending stroke ending in the lit endpoint dot. Trusted
+  // rungs carry bootstrap-CI whiskers and sit on the money axis; gated
+  // rungs never touch the axis at a fake $0: they live in their own dim
+  // track beneath it, priced at nothing because they are not rankable.
   const pts = ORDER.map(p => grid.byKey[`${p}|gemini-flash`]).filter(Boolean)
-  // constant-decision baselines from the suite's own label mix (Spiegelhalter's
-  // naive-baseline row: does any model earn its keep?)
   const suiteFiles = Object.values(data.caseFiles || {}).filter(f => SUITE.includes(f.kind) && !f.retired && f.expected)
   const counts = { APPROVE: 0, HOLD: 0, REJECT: 0 }
   for (const f of suiteFiles) counts[f.expected] += 1
   const nSuite = Math.max(1, suiteFiles.length)
   const COST = data.meta?.cost_matrix_usd || FALLBACK_COST
   const constEL = d => Math.round(Object.entries(counts).reduce((a, [e, n]) => a + n * COST[e][d], 0) / nSuite * 1000)
-  const W = 720, H = 250, PAD = 44
+  const W = 720, H = 268, PAD = 46, TRACK = H - 26   // gated track sits below the axis
+  const AXIS = H - 62
   const ok = c => (c.trust || 'ok') === 'ok'
   const trusted = pts.map((c, i) => ({ c, i })).filter(({ c }) => ok(c))
-  const maxEL = Math.max(...trusted.map(({ c }) => c.expected_loss_per_1k), 1)
-  const x = i => PAD + (i * (W - 2 * PAD)) / (pts.length - 1)
-  const y = v => H - PAD - (v / maxEL) * (H - 2 * PAD - 26)
+  const maxEL = Math.max(...trusted.map(({ c }) => Math.max(c.expected_loss_per_1k, (c.el_ci || [0, 0])[1])), 1)
+  const x = i => PAD + (i * (W - 2 * PAD)) / (Math.max(pts.length - 1, 1))
+  const y = v => AXIS - (v / maxEL) * (AXIS - 34)
   const path = trusted.map(({ c, i }, j) => `${j ? 'L' : 'M'}${x(i)},${y(c.expected_loss_per_1k)}`).join(' ')
-  const last = trusted[trusted.length - 1], first = trusted[0]
-  const area = `${path} L${x(last.i)},${H - PAD} L${x(first.i)},${H - PAD} Z`
+  const lastT = trusted[trusted.length - 1]
+  const firstT = trusted[0]
+  const area = trusted.length > 1
+    ? `${path} L${x(lastT.i)},${AXIS} L${x(firstT.i)},${AXIS} Z` : ''
   return (
     <div className="glass p-5">
       <div className="flex items-baseline justify-between mb-2">
         <Cap>the ladder walk</Cap>
-        <span className="text-[11px] text-slate-500">gemini-flash · weighted loss per 1,000 cases, assumption-priced · gated rungs on the baseline</span>
+        <span className="text-[11px] text-slate-500">gemini-flash · weighted loss per 1,000 cases with 95% resampling whiskers · gated rungs never touch the axis</span>
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full">
         <defs>
           <linearGradient id="walkfill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#6b9aff" stopOpacity="0.3" />
+            <stop offset="0%" stopColor="#6b9aff" stopOpacity="0.28" />
             <stop offset="100%" stopColor="#6b9aff" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="walkline" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#6b9aff" /><stop offset="100%" stopColor="#f0a848" />
           </linearGradient>
         </defs>
-        <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="rgba(255,255,255,0.1)" />
-        <motion.path d={area} fill="url(#walkfill)" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9, duration: 0.6 }} />
+        <line x1={PAD} y1={AXIS} x2={W - PAD} y2={AXIS} stroke="rgba(255,255,255,0.12)" />
+        {area && <motion.path d={area} fill="url(#walkfill)" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9, duration: 0.6 }} />}
         <motion.path d={path} fill="none" stroke="url(#walkline)" strokeWidth="2.5"
           initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.3, ease: 'easeInOut' }} />
+        {trusted.map(({ c, i }) => {
+          const yy = y(c.expected_loss_per_1k)
+          const isEnd = lastT && i === lastT.i
+          return (
+            <g key={c.prompt}>
+              {c.el_ci && (c.el_ci[1] > c.el_ci[0]) && (
+                <line x1={x(i)} y1={y(c.el_ci[0])} x2={x(i)} y2={y(c.el_ci[1])}
+                  stroke="rgba(232,236,244,0.35)" strokeWidth="1.5" strokeLinecap="round" />
+              )}
+              {isEnd ? (
+                <circle cx={x(i)} cy={yy} r="5.5" fill="#cfe0ff"
+                  style={{ filter: 'drop-shadow(0 0 7px rgba(130,143,255,0.95))' }} />
+              ) : (
+                <circle cx={x(i)} cy={yy} r="4" fill="#e8ecf4" />
+              )}
+              <text x={x(i)} y={yy - 13} textAnchor="middle" fontSize="14" fontWeight="700" fill="#f0a848">
+                {c.expected_loss_per_1k >= 1000 ? `$${(c.expected_loss_per_1k / 1000).toFixed(0)}k` : `$${c.expected_loss_per_1k}`}
+              </text>
+            </g>
+          )
+        })}
         {pts.map((c, i) => (
-          <g key={c.prompt}>
-            {ok(c) ? (
+          <g key={`lbl-${c.prompt}`}>
+            {!ok(c) && (
               <>
-                <circle cx={x(i)} cy={y(c.expected_loss_per_1k)} r="4.5" fill="#e8ecf4" />
-                <text x={x(i)} y={y(c.expected_loss_per_1k) - 12} textAnchor="middle" fontSize="14" fontWeight="700" fill="#f0a848">
-                  ${(c.expected_loss_per_1k / 1000).toFixed(0)}k
-                </text>
-              </>
-            ) : (
-              <>
-                <circle cx={x(i)} cy={H - PAD} r="4" fill="#07090d" stroke="#3a4356" strokeWidth="1.5" />
-                <text x={x(i)} y={H - PAD - 10} textAnchor="middle" fontSize="10" fill="#5c6678">gated</text>
+                <line x1={x(i)} y1={AXIS + 8} x2={x(i)} y2={TRACK - 22} stroke="rgba(92,102,120,0.35)" strokeDasharray="2 4" />
+                <rect x={x(i) - 17} y={TRACK - 22} width="34" height="14" rx="7"
+                  fill="rgba(92,102,120,0.14)" stroke="rgba(92,102,120,0.4)" strokeWidth="0.8" />
+                <text x={x(i)} y={TRACK - 11.5} textAnchor="middle" fontSize="8.5" letterSpacing="1" fill="#8a93a3">GATED</text>
               </>
             )}
-            <text x={x(i)} y={H - PAD + 18} textAnchor="middle" fontSize="12" fontWeight="600" fill="#8a93a3">{c.prompt}</text>
-            <text x={x(i)} y={H - PAD + 32} textAnchor="middle" fontSize="10" fill="#5c6678">{pct(c.accuracy)}</text>
+            <text x={x(i)} y={TRACK - 2} textAnchor="middle" fontSize="12" fontWeight="600"
+              fill={ok(c) ? '#c9d2e2' : '#5c6678'}>{c.prompt}</text>
+            <text x={x(i)} y={TRACK + 12} textAnchor="middle" fontSize="10" fill="#5c6678">{pct(c.accuracy)}</text>
           </g>
         ))}
       </svg>
       <p className="text-[11px] text-slate-500 mt-1.5">For scale, deciding every case the same way costs
         {' '}always-HOLD ${(constEL('HOLD') / 1000).toFixed(0)}k, always-REJECT ${(constEL('REJECT') / 1000).toFixed(0)}k,
-        always-APPROVE ${(constEL('APPROVE') / 1000).toFixed(0)}k per 1,000 cases. Every rung on the line beats all three.</p>
+        always-APPROVE ${(constEL('APPROVE') / 1000).toFixed(0)}k per 1,000 cases. Every rung on the line beats all three;
+        the walkline ending in the lit point is the mark on the door.</p>
     </div>
   )
 }

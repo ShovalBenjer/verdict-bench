@@ -124,3 +124,16 @@ Rejected on evidence; the deliberation-before-verdict idea remains
 plausible and untested at N large enough to say.
 
 v5 remains the submitted prompt. Both candidates and both verdicts ship.
+
+## Addendum (2026-08-24, ~12:00, operator-approved): the v6 gate was defectively designed
+
+The verdict above stands, and one thing about it must be on the record in
+the artifact itself, not only in a private reflection: the pre-registered
+bar (suite 12/12, first run) was registered over a suite CONTAINING
+CASE-113-P3, a case this ledger had already measured flipping 2-of-4 at
+protocol temperature. A binary first-run bar over a known-unstable case
+is partially a coin-flip gate, and v6's rejection rode that coin as much
+as it rode evidence. The discipline that survives scrutiny is the
+pre-registration itself (the bar was not moved after seeing the result);
+the design lesson is that the next gate uses N=3 majority per suite case
+so a known flipper cannot single-handedly decide a rung's fate.
