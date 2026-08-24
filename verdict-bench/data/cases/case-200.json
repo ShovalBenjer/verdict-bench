@@ -1,0 +1,147 @@
+{
+  "case_id": "CASE-200",
+  "flag_reason": "VELOCITY_REVIEW",
+  "opened": "2026-07-30",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-69287",
+    "owner_name": "Omar Quinn",
+    "owner_dob": "1994-08-01",
+    "owner_ssn_last4": "3873",
+    "owner_country": "US",
+    "business_name": "Quinn Goods",
+    "mcc": "7538",
+    "tenure_days": 725,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 1399.37,
+    "lifetime_volume_usd": 105609.58
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-30",
+      "ip": "72.80.69.111",
+      "device_id": "dev-346",
+      "geo": "Portland, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-01",
+      "ip": "72.59.143.21",
+      "device_id": "dev-915",
+      "geo": "Richmond, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-18",
+      "ip": "72.35.57.244",
+      "device_id": "dev-823",
+      "geo": "Omaha, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-31",
+      "time": "20:26:00",
+      "amount_usd": 287.59,
+      "status": "approved",
+      "settled_amount_usd": 287.59,
+      "instrument_last4": "4718",
+      "bin": "410000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-01",
+      "time": "12:07:00",
+      "amount_usd": 54.0,
+      "status": "approved",
+      "settled_amount_usd": 54.0,
+      "instrument_last4": "3228",
+      "bin": "490000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "15:28:00",
+      "amount_usd": 109.47,
+      "status": "approved",
+      "settled_amount_usd": 109.47,
+      "instrument_last4": "8991",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "12:31:00",
+      "amount_usd": 187.92,
+      "status": "approved",
+      "settled_amount_usd": 187.92,
+      "instrument_last4": "4443",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "12:40:00",
+      "amount_usd": 296.01,
+      "status": "approved",
+      "settled_amount_usd": 296.01,
+      "instrument_last4": "2578",
+      "bin": "480000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "20:30:00",
+      "amount_usd": 342.57,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "7252",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "19:08:00",
+      "amount_usd": 238.05,
+      "status": "approved",
+      "settled_amount_usd": 238.05,
+      "instrument_last4": "1001",
+      "bin": "450000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "17:57:00",
+      "amount_usd": 40.99,
+      "status": "approved",
+      "settled_amount_usd": 40.99,
+      "instrument_last4": "2281",
+      "bin": "490000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-30",
+      "text": "Routine periodic review; volume within profile."
+    }
+  ]
+}

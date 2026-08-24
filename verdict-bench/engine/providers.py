@@ -115,14 +115,14 @@ def call_claude_cli(model: str, system_prompt: str, case_json: str, timeout: int
 
 def _openai_compat(url: str, key: str, model: str, system_prompt: str,
                    case_json: str, timeout: int = 120,
-                   retries_429: int = 2) -> DecisionResult:
+                   retries_429: int = 2, temperature: float = 0.2) -> DecisionResult:
     body = json.dumps({
         "model": model,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"Decide this case:\n{case_json}"},
         ],
-        "temperature": 0.2,
+        "temperature": temperature,
     }).encode()
     req = urllib.request.Request(url, data=body, headers={
         "Content-Type": "application/json", "Authorization": f"Bearer {key}"})
@@ -143,7 +143,7 @@ def _openai_compat(url: str, key: str, model: str, system_prompt: str,
                 delay = 10.0
             time.sleep(delay)
             return _openai_compat(url, key, model, system_prompt, case_json,
-                                  timeout, retries_429 - 1)
+                                  timeout, retries_429 - 1, temperature)
         return DecisionResult(None, None, None, e.read().decode()[:2000], False,
                               None, None, int((time.monotonic() - t0) * 1000), f"HTTP {e.code}")
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
@@ -162,13 +162,14 @@ def _openai_compat(url: str, key: str, model: str, system_prompt: str,
                           latency, err)
 
 
-def call_gemini(model: str, system_prompt: str, case_json: str, timeout: int = 120) -> DecisionResult:
+def call_gemini(model: str, system_prompt: str, case_json: str, timeout: int = 120,
+                temperature: float = 0.2) -> DecisionResult:
     key = _env("GEMINI_API_KEY")
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
     body = json.dumps({
         "system_instruction": {"parts": [{"text": system_prompt}]},
         "contents": [{"role": "user", "parts": [{"text": f"Decide this case:\n{case_json}"}]}],
-        "generationConfig": {"temperature": 0.2},
+        "generationConfig": {"temperature": temperature},
     }).encode()
     req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
     t0 = time.monotonic()
@@ -214,18 +215,41 @@ def call_zai(model: str, system_prompt: str, case_json: str) -> DecisionResult:
                           _env("Z_AI_KEY"), model, system_prompt, case_json, timeout=240)
 
 
+def call_hf(model: str, system_prompt: str, case_json: str,
+            temperature: float = 0.2) -> DecisionResult:
+    """HuggingFace inference router (OpenAI-compatible). Wired 2026-08-24 as
+    the THIRD judge family: the rubric judge pool was gemini + claude, both
+    of which also sit in the judged matrix; Mistral overlaps with no judged
+    column (claude, gemini, llama-derived, qwen), so its scores cannot be
+    self-preference. HUGGINGFACE_API_KEY from ~/.env."""
+    return _openai_compat("https://router.huggingface.co/v1/chat/completions",
+                          _env("HUGGINGFACE_API_KEY"), model, system_prompt,
+                          case_json, temperature=temperature)
+
+
 PROVIDERS = {
-    "claude-sonnet": lambda s, c: call_claude_cli("claude-sonnet-5", s, c),
-    "claude-haiku": lambda s, c: call_claude_cli("claude-haiku-4-5-20251001", s, c),
-    "gemini-flash": lambda s, c: call_gemini("gemini-2.5-flash", s, c),
-    "gemini-pro": lambda s, c: call_gemini("gemini-2.5-pro", s, c),
-    "llama-3.3-70b": lambda s, c: call_nvidia("meta/llama-3.3-70b-instruct", s, c),
-    "qwen3.8-max": lambda s, c: call_qwen("qwen3.8-max", s, c),
+    # every entry takes (system_prompt, case_json, temperature). The claude
+    # CLI exposes no sampler control, so its columns cannot participate in
+    # temperature-raised self-consistency sampling; the t argument is
+    # accepted and ignored there, stated rather than silent.
+    "claude-sonnet": lambda s, c, t=0.2: call_claude_cli("claude-sonnet-5", s, c),
+    "claude-haiku": lambda s, c, t=0.2: call_claude_cli("claude-haiku-4-5-20251001", s, c),
+    "gemini-flash": lambda s, c, t=0.2: call_gemini("gemini-2.5-flash", s, c, temperature=t),
+    "gemini-pro": lambda s, c, t=0.2: call_gemini("gemini-2.5-pro", s, c, temperature=t),
+    "llama-3.3-70b": lambda s, c, t=0.2: call_nvidia("meta/llama-3.3-70b-instruct", s, c),
+    "qwen3.8-max": lambda s, c, t=0.2: call_qwen("qwen3.8-max", s, c),
     # glm-5.3 wired 2026-08-24 and immediately money-blocked on BOTH routes
     # (Z.AI error 1113 insufficient balance; DashScope free tier exhausted).
     # Kept registered so the recorded error rows stay reproducible; recharging
     # is an operator decision. Nemotron fills the current-open roster slot
     # per SPEC.md's own roster policy ("qwen3 or nemotron").
-    "glm-5.3": lambda s, c: call_zai("glm-5.3", s, c),
-    "nemotron-super-49b": lambda s, c: call_nvidia("nvidia/llama-3.3-nemotron-super-49b-v1", s, c),
+    "glm-5.3": lambda s, c, t=0.2: call_zai("glm-5.3", s, c),
+    "nemotron-super-49b": lambda s, c, t=0.2: call_nvidia("nvidia/llama-3.3-nemotron-super-49b-v1", s, c),
+    # judge-only third family (never a benchmarked column: 7B is below the
+    # decisioning floor this suite expects, and adding it as a judged model
+    # would re-create the family overlap it exists to break). Mistral was the
+    # first pick and the router serves none of that family (130-model list,
+    # 2026-08-24); phi-4 is the correction: microsoft family, 14B, overlaps
+    # no judged column either.
+    "hf-phi-4": lambda s, c, t=0.2: call_hf("microsoft/phi-4", s, c, t),
 }

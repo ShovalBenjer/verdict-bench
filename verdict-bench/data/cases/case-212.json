@@ -1,0 +1,201 @@
+{
+  "case_id": "CASE-212",
+  "flag_reason": "AUTH_PATTERN",
+  "opened": "2026-07-20",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-98359",
+    "owner_name": "Ravi Quinn",
+    "owner_dob": "1983-06-11",
+    "owner_ssn_last4": "8293",
+    "owner_country": "US",
+    "business_name": "Quinn Works",
+    "mcc": "5734",
+    "tenure_days": 46,
+    "verification": {
+      "status": "PENDING",
+      "kyc_completed": false,
+      "kyb_completed": false,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 528.99,
+    "lifetime_volume_usd": 2322.18
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-13",
+      "ip": "72.12.90.195",
+      "device_id": "dev-997",
+      "geo": "Raleigh, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-03",
+      "ip": "72.45.42.23",
+      "device_id": "dev-621",
+      "geo": "Omaha, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-07",
+      "ip": "72.86.163.55",
+      "device_id": "dev-168",
+      "geo": "Denver, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-07-18",
+      "time": "02:05:00",
+      "amount_usd": 2.44,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "8404",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "02:06:00",
+      "amount_usd": 0.9,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "9442",
+      "bin": "510000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "02:07:00",
+      "amount_usd": 1.82,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "8824",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "03:08:00",
+      "amount_usd": 1.65,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "1229",
+      "bin": "480000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "03:09:00",
+      "amount_usd": 0.86,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "4814",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "03:10:00",
+      "amount_usd": 0.66,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "4584",
+      "bin": "470000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "03:11:00",
+      "amount_usd": 1.91,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "8584",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "04:12:00",
+      "amount_usd": 1.1,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "4321",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "02:13:00",
+      "amount_usd": 1.73,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "4747",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "02:14:00",
+      "amount_usd": 2.15,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3570",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "02:15:00",
+      "amount_usd": 0.67,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "6177",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "01:16:00",
+      "amount_usd": 2.14,
+      "status": "approved",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "2655",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "04:17:00",
+      "amount_usd": 2.33,
+      "status": "approved",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "2087",
+      "bin": "470000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "02:18:00",
+      "amount_usd": 1.77,
+      "status": "approved",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "7580",
+      "bin": "480000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": []
+}

@@ -1,0 +1,167 @@
+{
+  "case_id": "CASE-237",
+  "flag_reason": "DISPUTE_RATE",
+  "opened": "2026-07-03",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-32890",
+    "owner_name": "Lea Osei",
+    "owner_dob": "1975-12-02",
+    "owner_ssn_last4": "6808",
+    "owner_country": "US",
+    "business_name": "Osei Labs",
+    "mcc": "5699",
+    "tenure_days": 590,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 4493.0,
+    "lifetime_volume_usd": 78242.04
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-05-26",
+      "ip": "72.89.55.86",
+      "device_id": "dev-282",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-06",
+      "ip": "72.32.71.133",
+      "device_id": "dev-839",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-18",
+      "ip": "72.36.93.184",
+      "device_id": "dev-294",
+      "geo": "Denver, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-06",
+      "time": "08:59:00",
+      "amount_usd": 196.38,
+      "status": "approved",
+      "settled_amount_usd": 196.38,
+      "instrument_last4": "2881",
+      "bin": "410000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-18",
+      "time": "12:04:00",
+      "amount_usd": 163.54,
+      "status": "approved",
+      "settled_amount_usd": 163.54,
+      "instrument_last4": "2226",
+      "bin": "510000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-19",
+      "time": "14:37:00",
+      "amount_usd": 125.8,
+      "status": "approved",
+      "settled_amount_usd": 125.8,
+      "instrument_last4": "1680",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "18:30:00",
+      "amount_usd": 124.17,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "1752",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "20:27:00",
+      "amount_usd": 134.11,
+      "status": "approved",
+      "settled_amount_usd": 134.11,
+      "instrument_last4": "4440",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-25",
+      "time": "14:13:00",
+      "amount_usd": 87.9,
+      "status": "approved",
+      "settled_amount_usd": 87.9,
+      "instrument_last4": "2585",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-28",
+      "time": "09:52:00",
+      "amount_usd": 219.52,
+      "status": "approved",
+      "settled_amount_usd": 219.52,
+      "instrument_last4": "7679",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "11:25:00",
+      "amount_usd": 144.63,
+      "status": "approved",
+      "settled_amount_usd": 144.63,
+      "instrument_last4": "2146",
+      "bin": "470000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "12:48:00",
+      "amount_usd": 50.92,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "8685",
+      "bin": "490000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-24",
+      "time": "20:27:00",
+      "amount_usd": 189.56,
+      "status": "approved",
+      "settled_amount_usd": 189.56,
+      "instrument_last4": "3288",
+      "bin": "410000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-03",
+      "text": "Dispute rate 1.2% vs 0.9% trailing average; amounts small."
+    }
+  ]
+}

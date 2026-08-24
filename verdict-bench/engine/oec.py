@@ -220,6 +220,9 @@ def expected_loss(
         "FROM runs r JOIN cases c USING(case_id) "
         "WHERE r.prompt_version=? AND r.model_id=? AND c.expected IS NOT NULL "
         f"AND c.kind IN {DECISION_SUITE_KINDS!r} "
+        # protocol-temperature rows only: high-temp self-consistency samples
+        # are their own analysis, never the accuracy/EL substrate
+        "AND (r.temperature IS NULL OR r.temperature <= 0.21) "
         "ORDER BY r.repeat_idx",
         (prompt_version, model_id),
     ).fetchall()
@@ -348,3 +351,35 @@ def guardrail_check(con: sqlite3.Connection, prompt_version: str, model_id: str,
             "(guardrail: a high-accuracy prompt can still burn good accounts)")
 
     return violations
+
+
+def sprt(outcomes: list[int], p0: float = 0.75, p1: float = 0.92,
+         alpha: float = 0.05, beta: float = 0.10) -> tuple[str, float, int]:
+    """Wald's sequential probability ratio test over a challenger's per-case
+    correctness stream (fixed case order, first run per case). H0: the
+    challenger's true rate is at most p0; H1: at least p1. Returns
+    (verdict, log_lr, n_consumed) where verdict is 'accept' (H1, promote),
+    'reject' (H0, stop wasting runs), or 'continue' (evidence exhausted
+    before either boundary: the fixed-N Wilson interval remains the answer).
+
+    Why it exists (2026-08-24, operator's PPDAC brief): a fixed-N benchmark
+    burns the full suite on a challenger that is clearly losing by case 5.
+    SPRT is the classical stopping rule for that; defaults set the
+    indifference region around the observed champion rate (0.92 on the
+    12-case suite) with a floor a losing rung would sit under. It never
+    replaces the trust gates: a promoted challenger still needs contract,
+    flip, and zero-tolerance gates green before it ranks.
+    """
+    import math
+    if not (0 < p0 < p1 < 1):
+        raise ValueError("need 0 < p0 < p1 < 1")
+    up = math.log((1 - beta) / alpha)        # accept H1 at or above
+    down = math.log(beta / (1 - alpha))      # accept H0 at or below
+    llr = 0.0
+    for i, ok in enumerate(outcomes, start=1):
+        llr += math.log(p1 / p0) if ok else math.log((1 - p1) / (1 - p0))
+        if llr >= up:
+            return "accept", llr, i
+        if llr <= down:
+            return "reject", llr, i
+    return "continue", llr, len(outcomes)

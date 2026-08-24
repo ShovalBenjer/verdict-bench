@@ -64,3 +64,15 @@ Two roles, never mixed:
   context, the policy argued clause by clause). It produced the silver
   labels and the perturbation designs. It is never a matrix column,
   because the grader must not compete in the contest it grades.
+
+## v5conf: instrumentation variant, not a rung (2026-08-24)
+
+v5 plus one field in the output contract: a stated confidence 0 to 1.
+Exists because SPEC lists a calibration KPI and the ledger's confidence
+column had been NULL for all 326 runs: no rung ever asked. First run
+(flash, full suite): the model states 0.95 or 1.00 on every case,
+including its one miss, and the instrumentation itself perturbed the
+instrument (113-P3 flipped vs v5's clean pass, one contract wobble).
+Verbalized confidence is decorative here; the A/A flip rate stays the
+real uncertainty signal. Excluded from the ladder and from rung
+comparisons by name.

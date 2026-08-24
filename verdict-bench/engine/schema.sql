@@ -5,7 +5,10 @@ CREATE TABLE IF NOT EXISTS cases (
   -- from the decision suite (oec.DECISION_SUITE_KINDS) so old and new cells
   -- never compare different denominators; live DBs get the widened CHECK via
   -- runner.migrate()'s table rebuild.
-  kind TEXT NOT NULL CHECK (kind IN ('golden','perturbation','metamorphic','injection','synthetic','coverage')),
+  -- 'holdout' added 2026-08-24: Davies-archetype cases the ladder never
+  -- saw during authoring; the held-out generalization set (Spiegelhalter's
+  -- validation-split requirement). Excluded from the decision suite.
+  kind TEXT NOT NULL CHECK (kind IN ('golden','perturbation','metamorphic','injection','synthetic','coverage','holdout')),
   expected TEXT CHECK (expected IN ('APPROVE','HOLD','REJECT') OR expected IS NULL),
   label_source TEXT NOT NULL,          -- 'expert' | 'adjudicated' | 'construction'
   path TEXT NOT NULL,

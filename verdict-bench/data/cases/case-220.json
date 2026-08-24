@@ -1,0 +1,107 @@
+{
+  "case_id": "CASE-220",
+  "flag_reason": "KYC_REVIEW",
+  "opened": "2026-08-04",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-74448",
+    "owner_name": "Lea Haddad",
+    "owner_dob": "1990-07-13",
+    "owner_ssn_last4": "7743",
+    "owner_country": "US",
+    "business_name": "Haddad Trading LLC",
+    "mcc": "5462",
+    "tenure_days": 56,
+    "verification": {
+      "status": "PENDING",
+      "kyc_completed": false,
+      "kyb_completed": false,
+      "vendor_reports": [
+        {
+          "vendor": "IDVerifyPlus",
+          "result": "FAIL",
+          "detail": "Submitted document did not match issuing-authority record; resubmission requested."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 4839.12,
+    "at_risk_usd": 4839.12,
+    "current_balance_usd": 981.98,
+    "lifetime_volume_usd": 11655.44
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-07-02",
+      "ip": "72.16.21.153",
+      "device_id": "dev-988",
+      "geo": "Omaha, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-12",
+      "ip": "72.86.212.170",
+      "device_id": "dev-225",
+      "geo": "Raleigh, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-23",
+      "ip": "72.68.211.125",
+      "device_id": "dev-747",
+      "geo": "Portland, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-19",
+      "time": "12:18:00",
+      "amount_usd": 840.37,
+      "status": "approved",
+      "settled_amount_usd": 840.37,
+      "instrument_last4": "8602",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "12:35:00",
+      "amount_usd": 254.24,
+      "status": "approved",
+      "settled_amount_usd": 254.24,
+      "instrument_last4": "8480",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-24",
+      "time": "17:54:00",
+      "amount_usd": 582.6,
+      "status": "approved",
+      "settled_amount_usd": 582.6,
+      "instrument_last4": "7301",
+      "bin": "450000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-08-02",
+      "time": "13:03:00",
+      "amount_usd": 547.85,
+      "status": "approved",
+      "settled_amount_usd": 547.85,
+      "instrument_last4": "1561",
+      "bin": "440000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": []
+}

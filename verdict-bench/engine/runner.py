@@ -7,6 +7,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sqlite3
 import uuid
 from pathlib import Path
@@ -23,7 +24,10 @@ from oec import (
 from providers import PROVIDERS
 
 ROOT = Path(__file__).resolve().parent.parent
-DB = ROOT / "state" / "verdict.sqlite3"
+# VERDICT_DB lets a test (or an operator) point the engine at a snapshot
+# instead of the tracked ledger; the report smoke test depends on this so it
+# can never rewrite the artifact it certifies.
+DB = Path(os.environ.get("VERDICT_DB", ROOT / "state" / "verdict.sqlite3"))
 
 LABELS = json.loads((Path(__file__).resolve().parent.parent / "data" / "labels.json").read_text())
 
@@ -46,7 +50,7 @@ def migrate(con: sqlite3.Connection) -> None:
     live_sql = con.execute(
         "SELECT sql FROM sqlite_master WHERE type='table' AND name='cases'"
     ).fetchone()[0]
-    if "'coverage'" not in live_sql:
+    if "'coverage'" not in live_sql or "'holdout'" not in live_sql:
         n_before = con.execute("SELECT COUNT(*) FROM cases").fetchone()[0]
         con.executescript(
             "BEGIN;"
@@ -54,7 +58,7 @@ def migrate(con: sqlite3.Connection) -> None:
             "CREATE TABLE cases ("
             "  case_id TEXT PRIMARY KEY,"
             "  kind TEXT NOT NULL CHECK (kind IN "
-            "    ('golden','perturbation','metamorphic','injection','synthetic','coverage')),"
+            "    ('golden','perturbation','metamorphic','injection','synthetic','coverage','holdout')),"
             "  expected TEXT CHECK (expected IN ('APPROVE','HOLD','REJECT') OR expected IS NULL),"
             "  label_source TEXT NOT NULL,"
             "  path TEXT NOT NULL,"
@@ -71,7 +75,7 @@ def migrate(con: sqlite3.Connection) -> None:
 
 
 def db() -> sqlite3.Connection:
-    con = sqlite3.connect(DB)
+    con = sqlite3.connect(DB, timeout=60)
     con.executescript((ROOT / "engine" / "schema.sql").read_text())
     migrate(con)
     return con
@@ -101,7 +105,7 @@ def seed(con: sqlite3.Connection) -> None:
 
 
 def run(prompt_version: str, models: list[str], repeats: int, only_case: str | None,
-        only_kind: str | None = None) -> None:
+        only_kind: str | None = None, temperature: float = 0.2) -> None:
     con = db()
     seed(con)
     system_prompt = (ROOT / "engine" / "prompts" / f"{prompt_version}.md").read_text()
@@ -128,7 +132,7 @@ def run(prompt_version: str, models: list[str], repeats: int, only_case: str | N
                 "WHERE case_id=? AND prompt_version=? AND model_id=? AND prompt_sha=?",
                 (case_id, prompt_version, model_id, prompt_sha)).fetchone()[0]
             for i in range(existing_max + 1, existing_max + 1 + repeats):
-                r = fn(system_prompt, case_json)
+                r = fn(system_prompt, case_json, temperature)
                 correct = None if expected is None or r.decision is None else int(r.decision == expected)
                 con.execute(
                     "INSERT INTO runs (case_id,prompt_version,model_id,repeat_idx,decision,"
@@ -138,7 +142,7 @@ def run(prompt_version: str, models: list[str], repeats: int, only_case: str | N
                     (case_id, prompt_version, model_id, i, r.decision, r.reasoning,
                      r.confidence, r.raw_output, int(r.contract_ok), correct,
                      r.tokens_in, r.tokens_out, r.latency_ms, r.error,
-                     prompt_sha, case_sha, 0.2, batch_id))
+                     prompt_sha, case_sha, temperature, batch_id))
                 con.commit()
                 status = r.decision or f"ERR:{r.error}"
                 mark = "" if correct is None else (" ok" if correct else f" WRONG(exp {expected})")
@@ -159,7 +163,8 @@ def report() -> None:
             "SELECT r.case_id, r.correct, r.contract_ok, r.latency_ms, r.decision, "
             "r.repeat_idx, c.kind "
             "FROM runs r JOIN cases c USING(case_id) "
-            "WHERE r.prompt_version=? AND r.model_id=?", (pv, mid)).fetchall()
+            "WHERE r.prompt_version=? AND r.model_id=? "
+            "AND (r.temperature IS NULL OR r.temperature <= 0.21)", (pv, mid)).fetchall()
         # first-run-per-case for accuracy (repeat batches feed flip, not acc).
         # acc/flip/contract/latency are DECISION-SUITE metrics; injection and
         # metamorphic cases score in their own columns (inj / inv), never
@@ -302,7 +307,11 @@ if __name__ == "__main__":
     ap.add_argument("--repeats", type=int, default=1)
     ap.add_argument("--case", default=None)
     ap.add_argument("--kind", default=None,
-                    help="run only cases of this kind (injection, metamorphic, coverage, golden, perturbation)")
+                    help="run only cases of this kind (injection, metamorphic, coverage, golden, perturbation, holdout)")
+    ap.add_argument("--temp", type=float, default=0.2,
+                    help="sampling temperature, recorded per row; 0.2 is the protocol "
+                         "temperature that feeds accuracy/flip, higher temps are for "
+                         "self-consistency sampling and analyzed separately")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--coverage", action="store_true", help="policy-clause coverage table")
     ap.add_argument("--sweep", action="store_true", help="EL sensitivity sweep over zero-tolerance severity")
@@ -314,4 +323,4 @@ if __name__ == "__main__":
     elif a.sweep:
         sweep(a.models)
     else:
-        run(a.prompt, a.models, a.repeats, a.case, a.kind)
+        run(a.prompt, a.models, a.repeats, a.case, a.kind, a.temp)

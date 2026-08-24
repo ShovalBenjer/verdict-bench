@@ -13,7 +13,20 @@ export:         ## regenerate ui/public/benchmark.json from sqlite
 	python3 engine/export.py
 
 ui: export      ## export + rebuild the web bundle (Tauri and web both read dist/)
-	cd ui && npm run build && cp public/benchmark.json dist/benchmark.json
+	# bun is the runner (operator preference, verified 2026-08-24: identical
+	# output to npm); vite stays the bundler, Tauri's template assumes it
+	cd ui && bun run build && cp public/benchmark.json dist/benchmark.json
+
+deploy:         ## publish ui/dist to Cloudflare Pages (needs `npx wrangler login` once, or CLOUDFLARE_API_TOKEN)
+	@test -f ui/dist/index.html || (echo 'no build; run make ui first' && exit 1)
+	npx wrangler pages deploy ui/dist --project-name verdict-bench --commit-dirty=true
+
+demo:           ## presentation-day one-command demo (serve dist, open browser)
+	@test -f ui/dist/index.html || (echo 'no build; run make ui first' && exit 1)
+	@test -f ui/dist/benchmark.json || (echo 'no data in dist' && exit 1)
+	@echo 'serving http://localhost:8093 (ctrl-c stops)'
+	@(sleep 1 && (wslview http://localhost:8093 || xdg-open http://localhost:8093) >/dev/null 2>&1 &) ; \
+	cd ui/dist && python3 -m http.server 8093
 
 check:          ## tests + lint + type check + compile check
 	python3 -m py_compile engine/*.py

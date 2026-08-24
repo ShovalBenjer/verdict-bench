@@ -28,7 +28,7 @@ import re
 import sqlite3
 from pathlib import Path
 
-from providers import call_claude_cli, call_gemini
+from providers import call_claude_cli, call_gemini, call_hf
 
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "state" / "verdict.sqlite3"
@@ -58,16 +58,24 @@ Output EXACTLY one JSON object, first character {{, no markdown fences:
 
 
 def judge_for(model_id: str, overlap: bool = False) -> list[str]:
-    """Cross-family judge id(s). `overlap` adds the second-family judge."""
-    if model_id.startswith("claude"):
-        judges = ["gemini-flash"]
-    elif model_id.startswith("gemini"):
-        judges = ["claude-haiku"]
-    else:
-        judges = ["gemini-flash"]
+    """Cross-family judge id(s), cross-family ENFORCED for the primary
+    assignment: a judge sharing the judged model's family is filtered out
+    (self-preference bias, the invariant this module states up top; before
+    2026-08-24 the overlap branch returned the full pool unconditionally,
+    which would have handed a claude cell a claude judge).
+
+    `overlap` adds the remaining pool judge for the inter-judge-agreement
+    measurement, and is the ONE deliberate exception where a same-family
+    judge may appear: its scores feed the agreement number only ever
+    alongside the cross-family judge, never alone (the v4/gemini-flash
+    dual-judge cell, where flash judging flash is part of what exposed
+    flash-as-judge as saturated)."""
+    pool = ["gemini-flash", "claude-haiku", "hf-phi-4"]
+    fam = model_id.split("-")[0]
+    cross = [j for j in pool if not j.startswith(fam)]
     if overlap:
-        judges = ["gemini-flash", "claude-haiku"]
-    return judges
+        return cross + [j for j in pool if j not in cross]
+    return cross[:1]
 
 
 def call_judge(judge_id: str, content: str) -> tuple[dict | None, str]:
@@ -75,6 +83,10 @@ def call_judge(judge_id: str, content: str) -> tuple[dict | None, str]:
         r = call_gemini("gemini-2.5-flash", JUDGE_SYSTEM, content)
     elif judge_id == "claude-haiku":
         r = call_claude_cli("claude-haiku-4-5-20251001", JUDGE_SYSTEM, content)
+    elif judge_id == "hf-phi-4":
+        # third family (microsoft, via the HF router): overlaps no judged
+        # column, added 2026-08-24 so the champion's rubric is triangulated
+        r = call_hf("microsoft/phi-4", JUDGE_SYSTEM, content)
     else:
         raise ValueError(f"unknown judge {judge_id}")
     raw = r.raw_output
@@ -99,7 +111,7 @@ def main() -> None:
     ap.add_argument("--versions", nargs="+", default=["v3", "v4", "v4b"])
     ap.add_argument("--limit", type=int, default=None, help="max judge calls (smoke)")
     a = ap.parse_args()
-    con = sqlite3.connect(DB)
+    con = sqlite3.connect(DB, timeout=60)
     placeholders = ",".join("?" for _ in a.versions)
     rows = con.execute(
         f"""SELECT r.run_id, r.case_id, r.prompt_version, r.model_id,
@@ -118,7 +130,7 @@ def main() -> None:
         (RUBRIC_VERSION,))}
     done = 0
     for (pv, mid, cid), (run_id, _, _, _, decision, reasoning, path) in sorted(first.items()):
-        overlap = (pv, mid) == ("v4", "gemini-flash")
+        overlap = (pv, mid) in (("v4", "gemini-flash"), ("v5", "gemini-flash"))
         for judge_id in judge_for(mid, overlap=overlap):
             if (run_id, judge_id) in already:
                 continue

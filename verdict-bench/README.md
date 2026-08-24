@@ -15,6 +15,7 @@ this repo is the process behind them, not a substitute for them).
 ```bash
 git clone <this-repo> && cd verdict-bench
 pip install -r requirements.txt        # analysis extras (polars, jupyter); engine core is stdlib-only
+pip install -e '.[dev]'                # ruff + mypy + pytest, needed by `make check` below
 python3 engine/runner.py --report      # print the benchmark table from the checked-in DB
 python3 engine/runner.py --coverage    # policy-clause coverage: which POLICY.md sections have zero test cases
 python3 engine/runner.py --sweep --models gemini-flash   # sensitivity sweep on the FA cost assumption

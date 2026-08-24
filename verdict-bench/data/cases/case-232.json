@@ -1,0 +1,117 @@
+{
+  "case_id": "CASE-232",
+  "flag_reason": "PRIOR_CASE_REVIEW",
+  "opened": "2026-07-28",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-26811",
+    "owner_name": "Amara Stein",
+    "owner_dob": "1983-12-06",
+    "owner_ssn_last4": "5406",
+    "owner_country": "US",
+    "business_name": "Stein Labs",
+    "mcc": "5734",
+    "tenure_days": 671,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 6102.58,
+    "current_balance_usd": 3889.19,
+    "lifetime_volume_usd": 70802.81
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": true,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-21",
+      "ip": "72.13.149.203",
+      "device_id": "dev-973",
+      "geo": "Richmond, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-01",
+      "ip": "72.96.153.159",
+      "device_id": "dev-298",
+      "geo": "Portland, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-23",
+      "ip": "72.87.165.23",
+      "device_id": "dev-583",
+      "geo": "Richmond, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-06",
+      "time": "20:00:00",
+      "amount_usd": 121.04,
+      "status": "approved",
+      "settled_amount_usd": 121.04,
+      "instrument_last4": "5356",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "14:51:00",
+      "amount_usd": 126.12,
+      "status": "approved",
+      "settled_amount_usd": 126.12,
+      "instrument_last4": "5630",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-22",
+      "time": "19:26:00",
+      "amount_usd": 265.78,
+      "status": "approved",
+      "settled_amount_usd": 265.78,
+      "instrument_last4": "1078",
+      "bin": "450000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "19:28:00",
+      "amount_usd": 117.94,
+      "status": "approved",
+      "settled_amount_usd": 117.94,
+      "instrument_last4": "9163",
+      "bin": "510000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "19:48:00",
+      "amount_usd": 54.24,
+      "status": "approved",
+      "settled_amount_usd": 54.24,
+      "instrument_last4": "3067",
+      "bin": "530000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "data_migration_bot",
+      "date": "2026-04-29",
+      "text": "Flag imported from legacy system; source record not migrated."
+    }
+  ]
+}

@@ -8,10 +8,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "engine"))
-from oec import (  # noqa: E402
-    expected_loss, guardrail_check, coverage_report, sensitivity_sweep,
-    COST_MATRIX_USD, FA_USD, FH_USD, FR_USD, POLICY_CLAUSES,
-    DISQUALIFYING_CLAUSES, MIN_N_FOR_TRUST,
+from oec import (
+    COST_MATRIX_USD,
+    FA_USD,
+    MIN_N_FOR_TRUST,
+    POLICY_CLAUSES,
+    coverage_report,
+    expected_loss,
+    guardrail_check,
+    sensitivity_sweep,
 )
 
 SCHEMA = (ROOT / "engine" / "schema.sql").read_text()

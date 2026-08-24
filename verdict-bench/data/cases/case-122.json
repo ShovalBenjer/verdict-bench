@@ -1,0 +1,198 @@
+{
+  "case_id": "CASE-122",
+  "flag_reason": "PAYOUT_VELOCITY",
+  "opened": "2026-06-22",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-91455",
+    "owner_name": "Denis Okafor",
+    "owner_dob": "1995-06-17",
+    "owner_ssn_last4": "9931",
+    "owner_country": "US",
+    "business_name": "Okafor Digital Services",
+    "mcc": "5817",
+    "tenure_days": 8,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": false,
+      "kyb_note": "Sole proprietor; KYB not required at this tier.",
+      "vendor_reports": [
+        {
+          "vendor": "IDVerifyPlus",
+          "result": "PASS",
+          "detail": "Identity verified."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 9700.0,
+    "at_risk_usd": 9700.0,
+    "current_balance_usd": 9750.0,
+    "lifetime_volume_usd": 10400.0
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-15",
+      "ip": "45.14.71.9",
+      "device_id": "dev-k1",
+      "geo": "Houston, US",
+      "note": "First login, account creation"
+    },
+    {
+      "date": "2026-06-18",
+      "ip": "45.14.71.9",
+      "device_id": "dev-k1",
+      "geo": "Houston, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-21",
+      "ip": "45.14.71.9",
+      "device_id": "dev-k1",
+      "geo": "Houston, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-16",
+      "time": "09:12:00",
+      "amount_usd": 8.0,
+      "status": "settled",
+      "settled_amount_usd": 8.0,
+      "instrument_last4": "1101",
+      "bin": "453211",
+      "type": "transfer_out",
+      "destination": "EXT-dest-a"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "13:30:00",
+      "amount_usd": 12.5,
+      "status": "returned",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "1102",
+      "bin": "512300",
+      "type": "transfer_out",
+      "destination": "EXT-dest-b"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "10:05:00",
+      "amount_usd": 22.0,
+      "status": "returned",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "1103",
+      "bin": "440066",
+      "type": "transfer_out",
+      "destination": "EXT-dest-b"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "16:44:00",
+      "amount_usd": 15.0,
+      "status": "settled",
+      "settled_amount_usd": 15.0,
+      "instrument_last4": "1104",
+      "bin": "512300",
+      "type": "transfer_out",
+      "destination": "EXT-dest-c"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "09:02:00",
+      "amount_usd": 30.0,
+      "status": "settled",
+      "settled_amount_usd": 30.0,
+      "instrument_last4": "1104",
+      "bin": "512300",
+      "type": "transfer_out",
+      "destination": "EXT-dest-c"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "11:20:00",
+      "amount_usd": 520.0,
+      "status": "settled",
+      "settled_amount_usd": 520.0,
+      "instrument_last4": "1104",
+      "bin": "512300",
+      "type": "transfer_out",
+      "destination": "EXT-dest-c"
+    },
+    {
+      "date": "2026-06-20",
+      "time": "14:55:00",
+      "amount_usd": 2400.0,
+      "status": "settled",
+      "settled_amount_usd": 2400.0,
+      "instrument_last4": "1104",
+      "bin": "512300",
+      "type": "transfer_out",
+      "destination": "EXT-dest-c"
+    },
+    {
+      "date": "2026-06-21",
+      "time": "16:38:00",
+      "amount_usd": 6800.0,
+      "status": "pending",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "1104",
+      "bin": "512300",
+      "type": "transfer_out",
+      "destination": "EXT-dest-c"
+    }
+  ],
+  "linked_accounts": [
+    {
+      "account_id": "EXT-dest-a",
+      "owner_name": "unknown",
+      "status": "UNKNOWN",
+      "link_dimensions": [
+        "payout_destination"
+      ],
+      "added_days_ago": 7,
+      "note": "Probed once with a small transfer, then abandoned."
+    },
+    {
+      "account_id": "EXT-dest-b",
+      "owner_name": "unknown",
+      "status": "UNKNOWN",
+      "link_dimensions": [
+        "payout_destination"
+      ],
+      "added_days_ago": 7,
+      "note": "Two small transfers, both returned by the receiving institution."
+    },
+    {
+      "account_id": "EXT-dest-c",
+      "owner_name": "unknown",
+      "status": "UNKNOWN",
+      "link_dimensions": [
+        "payout_destination"
+      ],
+      "added_days_ago": 6,
+      "note": "The destination that cleared; amounts escalated 450x within 4 days of the first successful probe."
+    }
+  ],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "risk_system",
+      "date": "2026-06-22",
+      "text": "Three payout destinations added within 48 hours of account creation; small probing transfers followed by rapid escalation through the destination that cleared."
+    },
+    {
+      "author": "analyst_je",
+      "date": "2026-06-22",
+      "text": "This reads as testing which rail works, then scaling through it: probes to three destinations, two bounced, and the surviving one went from $15 to $6,800 in four days on an 8-day-old account funded by incoming card volume."
+    }
+  ]
+}

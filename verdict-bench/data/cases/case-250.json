@@ -1,0 +1,161 @@
+{
+  "case_id": "CASE-250",
+  "flag_reason": "AUTH_PATTERN",
+  "opened": "2026-07-28",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-74974",
+    "owner_name": "Omar Toledo",
+    "owner_dob": "1974-04-21",
+    "owner_ssn_last4": "7413",
+    "owner_country": "US",
+    "business_name": "Toledo Studio",
+    "mcc": "7299",
+    "tenure_days": 79,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 7017.52,
+    "current_balance_usd": 2649.26,
+    "lifetime_volume_usd": 7729.15
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-07-21",
+      "ip": "72.21.69.116",
+      "device_id": "dev-964",
+      "geo": "Omaha, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-23",
+      "ip": "72.97.231.45",
+      "device_id": "dev-318",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-24",
+      "ip": "72.13.199.27",
+      "device_id": "dev-675",
+      "geo": "Columbus, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-07-08",
+      "time": "04:52:00",
+      "amount_usd": 0.74,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "1823",
+      "bin": "480000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-09",
+      "time": "05:40:00",
+      "amount_usd": 1.59,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "9518",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "03:10:00",
+      "amount_usd": 0.85,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "5708",
+      "bin": "460000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "04:36:00",
+      "amount_usd": 2.09,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "1884",
+      "bin": "490000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-12",
+      "time": "05:12:00",
+      "amount_usd": 0.78,
+      "status": "approved",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "1936",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-13",
+      "time": "05:13:00",
+      "amount_usd": 2.78,
+      "status": "approved",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "9883",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-22",
+      "time": "14:28:00",
+      "amount_usd": 1998.36,
+      "status": "approved",
+      "settled_amount_usd": 1998.36,
+      "instrument_last4": "2181",
+      "bin": "510000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "18:21:00",
+      "amount_usd": 1157.71,
+      "status": "approved",
+      "settled_amount_usd": 1157.71,
+      "instrument_last4": "6335",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-24",
+      "time": "17:39:00",
+      "amount_usd": 2107.9,
+      "status": "approved",
+      "settled_amount_usd": 2107.9,
+      "instrument_last4": "8281",
+      "bin": "450000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "10:26:00",
+      "amount_usd": 1753.55,
+      "status": "approved",
+      "settled_amount_usd": 1753.55,
+      "instrument_last4": "1662",
+      "bin": "550000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": []
+}

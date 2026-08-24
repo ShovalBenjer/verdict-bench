@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "engine"))
-from providers import parse_contract  # noqa: E402
+from providers import parse_contract
 
 
 def test_strict_json_passes():
@@ -19,6 +19,7 @@ def test_strict_json_passes():
 def test_fenced_json_is_contract_violation_but_graded():
     d, _, _, ok, err = parse_contract('```json\n{"decision": "HOLD", "reasoning": "x"}\n```')
     assert d == "HOLD" and not ok  # decision recovered, contract failed
+    assert err is None  # recovered decision must not also carry an error string
 
 
 def test_prose_preamble_is_violation():
@@ -48,15 +49,24 @@ def test_labels_file_covers_every_case_file():
     assert case_ids == set(labels), f"unlabeled cases: {case_ids ^ set(labels)}"
 
 
-def test_retired_case_never_runs():
-    con = sqlite3.connect(ROOT / "state" / "verdict.sqlite3")
-    rows = con.execute(
-        "SELECT COUNT(*) FROM runs r JOIN cases c USING(case_id) "
-        "WHERE c.retired=1 AND r.batch_id IS NOT NULL").fetchone()[0]
-    assert rows == 0, "retired case appeared in a pinned batch"
+# test_retired_case_never_runs lived here until 2026-08-24. It was vacuous:
+# it counted ledger history that could not fail whatever the code did (the
+# retired case has zero runs, pinned batch or not). The real oracle, seeding
+# a temp DB and calling runner.run() against a retired case through a fake
+# provider, is test_pyramid.py::test_retired_case_writes_no_row.
 
 
-def test_report_runs_clean():
+def test_report_runs_clean(tmp_path):
+    # Smoke the report against a SNAPSHOT of the ledger, never the tracked
+    # file: report() calls migrate(), and a smoke test that can rewrite the
+    # deliverable it certifies is the shared-SUT antipattern by the book.
+    src = sqlite3.connect(f"file:{ROOT / 'state' / 'verdict.sqlite3'}?mode=ro", uri=True)
+    snap = tmp_path / "snap.sqlite3"
+    dst = sqlite3.connect(snap)
+    src.backup(dst)
+    src.close()
+    dst.close()
     p = subprocess.run([sys.executable, str(ROOT / "engine" / "runner.py"), "--report"],
-                       capture_output=True, text=True)
+                       capture_output=True, text=True,
+                       env={"PATH": "/usr/bin:/bin", "VERDICT_DB": str(snap)})
     assert p.returncode == 0, p.stderr

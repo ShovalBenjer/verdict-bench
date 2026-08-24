@@ -49,6 +49,23 @@ directly from POLICY.md's text, and recorded the reasoning at the time
 policy clauses the 4 real cases don't touch, but they are not expert
 ground truth, and I don't present them as such.
 
+**The confidence ladder, in one paragraph.** Certified, meaning enough
+runs behind it that I would act on it: the zero-tolerance gate is live
+and enforced: after the full matrix fill it fired on 10 of 36 cells
+(v1-era rungs and the weaker open models, almost all on CASE-101-P1B,
+the perturbation where the sanctions match becomes genuine, deciding
+HOLD where the policy demands REJECT) and disqualified every one of them
+from ranking, so on every cell that IS ranked, gate-clause recall is 1.0
+by construction, and the recommended cell never tripped it anywhere on
+any rung. Contract adherence at or above the trust floor on every ranked
+cell. Suggested, meaning the direction is real but the n is not:
+held-out generalization (3 cases), injection resistance (the N=5 repeats
+put every rung in the same coin-flip band), and the v5-over-v4 edge
+itself. Decorative, meaning measured and then discounted: verbalized
+confidence, which saturates at 95-100% regardless of whether the answer
+is right; the vote-fraction panel replaces it. A reader who takes only
+this paragraph takes the calibrated version of the whole document.
+
 ## Finding on the 4 real cases: they don't discriminate between versions
 
 Checked (2026-08-23, re-checked 2026-08-24 after the freeze-day runs,
@@ -276,6 +293,32 @@ At n=12 the suite cannot separate them, and
 `experiments/dspy_arm/RESULTS.md` carries that ceiling-effect caveat and
 the leakage risks in full.
 
+**The held-out set, and what it answered.** The sharpest criticism of
+everything above is that the ladder was tuned on the same 12 cases that
+score it, which is the textbook cheating condition. So three new cases
+were authored from fraud archetypes the suite never covered (drawn from
+Davies' fraud taxonomy: a formally passed verification that traces to
+one applicant-supplied source, self-dealing where the owner controls
+both legs of escalating transfers, and probe-then-scale across payout
+destinations), labeled by construction, tagged as held out, and the
+ladder ran against them cold. At n=3 per rung this is a smoke signal,
+not a benchmark, and it says: the core gain replicates (the naive
+prompt misses the probe-then-scale fraud, the procedure rungs catch
+it), no rung collapses, and the residual errors land where the
+archetypes predicted, with the hardened rung over-rejecting the
+self-dealing case built to look like normal activity, and v5 throwing
+one contract flake. The ladder's improvement is not pure overfitting,
+and its aggressiveness has a measurable price out of distribution.
+
+**Calibration, measured at last.** No rung ever asked the model for a
+confidence, so the ledger's confidence column sat NULL for 326 runs
+while the spec listed calibration as a KPI. An instrumentation variant
+(v5 plus one contract field, excluded from the ladder) filled it: the
+model states 95 or 100 percent on every case, including its one miss,
+and adding the field itself perturbed a decision and a contract on
+single runs. Verbalized confidence is decorative here; the repeat-run
+flip rate remains the only uncertainty signal this system trusts.
+
 **Cost grounding.** The expected-loss framing follows the cost-sensitive
 fraud-evaluation literature: with fraud prevalence under 1%, plain
 accuracy is the wrong headline (a trivial always-approve classifier
@@ -286,6 +329,104 @@ not a blanket metric swap (a 2024 NeurIPS review shows the popular
 Baesens, Van Vlasselaer and Verbeke's Fraud Analytics (Wiley, 2015) is
 the standing reference for the descriptive-to-predictive pipeline this
 mirrors; cited as metadata, not extracted.
+
+**Prevalence, and what the headline loss number does and does not mean.**
+The decision suite's label mix is 50% APPROVE, 17% HOLD, 33% REJECT; a
+real account-review book runs under 1% fraud. The expected-loss figures
+above therefore rank prompts under the suite's own mix; they are not a
+forecast for a production book. Reweighting each cell's conditional
+decision rates by a stated real-world prevalence (96.5% APPROVE, 3% HOLD,
+0.5% REJECT, an assumption named as one): v1 with gemini-flash moves from
+$50,000 to $9,000 per 1k, and the LR baseline from $300,000 to $12,750,
+because most of the suite-mix penalty sits on the fraud class that is
+rare in production. The champion cell is diagonal, so it reads $0 under
+both mixes. The honest takeaway cuts both ways: the ladder's dollar
+advantage concentrates exactly on the rare-but-expensive class, and at
+real prevalence the cheap baselines look far less catastrophic than the
+suite-mix number suggests. Both figures appear so neither can be quoted
+without the other.
+
+**The LR baseline, priced.** Applying the same cost matrix to the LR
+baseline's leave-one-out decisions: $300,000 per 1k at the suite mix
+($12,750 reweighted), against the champion's $0. Its four misses are all
+in the expensive direction, and all on the policy-reasoning cases a
+linear model cannot represent; the leakage caveat from the baseline
+section still applies.
+
+**The judge, triangulated (2026-08-24, late).** A third judge family was
+added specifically to break the two-family limit: microsoft/phi-4 via the
+HuggingFace router, overlapping no judged column. On the champion cell
+all three judges scored the same 12 runs: gemini-flash 5.0/5.0/5.0
+(saturated, confirming the dead-instrument finding), claude-haiku
+4.2/3.9/3.1, phi-4 4.6/5.0/4.7. The two discriminating families agree
+the reasoning is good and not perfect, and both score proportionality
+lowest, which is also the axis the policy makes hardest. The saturated
+judge is reported as an instrument finding, never averaged in.
+
+**A SPEC deviation, self-reported.** SPEC.md gates the auto-decision KPI
+on stated confidence at or above 0.8. The v5conf instrumentation showed
+verbalized confidence is decorative (95 to 100% on everything, including
+the misses), so the shipped auto-decision rate gates on repeat stability
+alone and says so; gating a business metric on a signal this same
+document disowns would be a self-contradiction.
+
+**Latency.** Every run records wall-clock latency, and each matrix cell
+reports p50/p95 (in benchmark.json and on the cell drill panel). One
+measurement honesty note: the claude-family rows go through the CLI, so
+their p95 includes 10-40s of process startup that the HTTP-called models
+don't pay; cross-family latency comparisons are therefore about this
+harness, not the models, and the writeup draws no model conclusion
+from them.
+
+## The synthetic sweep, and the policy ambiguity it found (2026-08-24)
+
+To test rule-consistency at a scale the 12-case suite cannot, a seeded
+generator (`tools/synth_cases.py`) builds 52 cases across 13 archetypes,
+each archetype one policy clause instantiated with surface variation
+(names, amounts, tenures, distractor noise), regenerating byte-identical
+from a fixed seed. The labels are construction-derived, which is stated
+wherever the numbers appear: this measures whether the prompt applies the
+clause it was written against, not expert agreement, and the results
+never blend into headline accuracy or loss.
+
+The headline: on the 12 uncontested archetypes, v5 is 48/48 where v1 is
+44/48, and v1's misses are exactly where fraud lives: two bust-outs
+decided HOLD instead of REJECT, one unverifiable-identity and one
+document-inconsistency case over-rejected. The ladder's gains replicate
+on 48 cases the prompt has never seen in any form.
+
+The thirteenth archetype is the real finding. An unsubstantiated legacy
+flag (`confirmed_problem_on_record=true`, nothing behind it) on a
+verified, established account with a few thousand dollars exposed: v1
+decides HOLD on all four variants, v5 decides APPROVE on all four, and
+both cite the policy correctly. The policy underdetermines the case:
+"where genuine doubt remains and money is exposed, holding is preferred
+to releasing" argues HOLD; "a flag with nothing substantiating it, or one
+that conflicts with the record, is a data-quality question, not a
+confirmed problem" plus the weighing clause's mitigation for established
+accounts argues APPROVE, and the suite's own CASE-115 (same shape, $150
+at risk) carries an accepted APPROVE label. The difference between the
+two families is only the size of the exposure, and the policy never says
+where that line sits.
+
+The cross-model measurement makes the ambiguity unambiguous. Running the
+same four cases with the same v5 prompt across all seven models:
+claude-sonnet, gemini-flash, gemini-pro, and nemotron decide APPROVE on
+all four; claude-haiku leans HOLD 3 of 4, qwen3.8-max HOLD 3 of 4, and
+llama-3.3-70b HOLD 2 of 4. Twenty votes APPROVE, eight HOLD, and the
+split does not follow model family or capability tier. One prompt, seven
+models, no consensus: that is a property of the policy text, not of any
+model.
+
+What I did with it follows the feedback-loop design stated in step 4 of
+the presentation: a stable cross-version split on a constructed case is
+evidence about the label, not about the models. The four cases ship
+marked `contested` in `data/labels.json` with the reasoning, are excluded
+from every headline synthetic number, and the packet for the policy owner
+is the split itself. What I deliberately did NOT do is mint a v6 rung
+teaching either answer: tuning the prompt to a label no expert has
+confirmed would be training on my own noise, and the gate discipline this
+repo is built on cuts both ways.
 
 ## What I built beyond the prompt, and why it's not the main deliverable
 
