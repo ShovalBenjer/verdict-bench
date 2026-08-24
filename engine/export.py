@@ -219,11 +219,19 @@ def main() -> None:
             bands[band][0] += r["correct"]
         exposure_bands = {b: {"correct": k, "n": n} for b, (k, n) in bands.items() if n}
         # generalization: same prompt, three evidence tiers, one glance
-        def tier_acc(kinds: tuple, first=first) -> float | None:  # bind the loop var (B023)
+        def tier_acc(kinds: tuple, first=first) -> dict | None:  # bind the loop var (B023)
+            # an unparseable run counts AGAINST the tier, mirroring the EL
+            # worst-case charge: dropping it would let a parse failure vanish
+            # into a 100% headline (caught 2026-08-24: v5 holdout read 1.0
+            # while CASE-120's run was a banked JSON parse error)
             g = [r for r in first.values() if r["kind"] in kinds
-                 and r["correct"] is not None
                  and not LABELS.get(r["case_id"], {}).get("contested")]
-            return round(sum(r["correct"] for r in g) / len(g), 3) if g else None
+            if not g:
+                return None
+            scored = [r for r in g if r["correct"] is not None]
+            return {"acc": round(sum(r["correct"] for r in scored) / len(g), 3),
+                    "correct": int(sum(r["correct"] for r in scored)),
+                    "n": len(g), "unscored": len(g) - len(scored)}
         generalization = {"suite": tier_acc(("golden", "perturbation")),
                           "holdout": tier_acc(("holdout",)),
                           "synthetic": tier_acc(("synthetic",))}

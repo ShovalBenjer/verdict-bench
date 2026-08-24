@@ -520,7 +520,7 @@ function Kpis({ data, grid }) {
   const ops = [
     { label: 'citation fidelity', value: champ.citation_fidelity != null ? pct(champ.citation_fidelity) : 'n/a',
       sub: 'reasonings citing 3+ case fields and 2+ literal numbers, mechanical, no judge (the contract’s own "citing the case")' },
-    { label: 'generalization', value: [gen.suite, gen.holdout, gen.synthetic].map(v => v == null ? '–' : pct(v)).join(' / '),
+    { label: 'generalization', value: [gen.suite, gen.holdout, gen.synthetic].map(v => v == null ? '–' : pct(v.acc ?? v) + (v.unscored ? '*' : '')).join(' / '),
       sub: 'tuned suite / held-out / synthetic uncontested: same prompt, three evidence tiers' },
     { label: 'routed to a human', value: routing ? `${routing.contested_labels + routing.flip_gated_cells}` : 'n/a',
       sub: routing ? `${routing.contested_labels} contested labels of ${routing.labels_total} + ${routing.flip_gated_cells} flip-gated cells: escalation with the reason attached` : '' },
