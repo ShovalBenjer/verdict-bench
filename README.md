@@ -35,9 +35,12 @@ marked as such.
    accepted after N=5 repeats refuted a false regression.
 2. **The writeup**: `docs/WRITEUP.md`, what was chosen, why, and what
    would convince a reviewer the prompt is ready or not.
-3. **The transcript**: `TRANSCRIPT.md` (the curated work log, dead ends
-   kept) with `submission/sessions/` behind it, the verbatim extract
-   (operator messages word-for-word, every removal a counted marker).
+3. **The transcript**: three depths of the same record. `TRANSCRIPT.md`
+   (the curated narrative, dead ends kept);
+   `submission/sessions/*-full.md`, the COMPLETE build session, all 445
+   turns verbatim (only a logged personal-content screen removed 73
+   off-scope segments); and the sibling 93-turn readability cut with
+   every drop marked.
 
 ## Sixty seconds
 
