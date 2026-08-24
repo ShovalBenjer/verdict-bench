@@ -9,6 +9,8 @@
 ![cases](https://img.shields.io/badge/cases-88_active_of_89-333?style=flat-square&labelColor=1a1d24)
 ![coverage](https://img.shields.io/badge/policy_coverage-8_of_8_clauses-333?style=flat-square&labelColor=1a1d24)
 
+**[Live benchmark UI](https://verdict-bench.pages.dev)** &nbsp;&middot;&nbsp; **[Analysis notebook](https://verdict-bench.pages.dev/notebook)** &nbsp;&middot;&nbsp; reachable by link, deliberately unindexed
+
 </div>
 
 An account-review agent decides flagged merchant accounts: APPROVE, HOLD,
