@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synthetic case generator: 12 archetypes x N seeded variants.
+"""Synthetic case generator: 16 archetypes x N seeded variants (13 original + 3 adversarial-review probes).
 
 Each archetype is ONE policy clause instantiated as a case template, so the
 label is construction-derived: it holds by how the case was built, not by

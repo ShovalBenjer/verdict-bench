@@ -34,6 +34,12 @@ mounted.
 
 ## Structure
 
+The tree below describes this WORKING repo. In the submission bundle,
+`docs/` flattens to the repo root (`SPEC.md`, `STATUS.md`, `adr/`), the
+writeup moves to the bundle root, and `PRODUCT.md`, `PLAN.md`, and
+`notebooks/` stay local by design (the bundle README's path note says so
+explicitly).
+
 ```
 engine/         runner, provider clients, cost model (oec.py), export
   prompts/      the ablation ladder (v1..v4c) + CHANGELOG.md
@@ -86,7 +92,7 @@ alternative actually compared, not asserted: `docs/adr/0001` through
 stdlib HTTP server. **Build status: VERIFIED 2026-08-24** after the
 one-time group fix below: image built clean (15/15 steps, tagged
 `verdict-bench:latest`), and a live smoke served the UI from the
-container (HTTP 200 on :8080, `benchmark.json` with all 19 cells
+container (HTTP 200 on :8080, `benchmark.json` served with every cell
 including v5). The 2026-08-23 blocker was the group membership, not the
 code. To build:
 
@@ -108,7 +114,8 @@ untyped-dict findings, ruff found 4, all fixed). Both now run in
 ## Tests
 
 `make check` runs `py_compile` + `ruff check` + `mypy` + the full pytest
-suite (27 tests, real-sqlite boundary tests, no mocks) + a live report
+suite (count it live: `python3 -m pytest -q tests/`; real-sqlite boundary
+tests, no mocks) + a live report
 smoke test against the checked-in ledger. All steps fail the target on a
 real failure
 (no swallowed errors; a prior version of this Makefile silently ignored

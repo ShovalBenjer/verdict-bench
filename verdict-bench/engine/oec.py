@@ -223,7 +223,7 @@ def expected_loss(
         "c.expected, c.policy_clause "
         "FROM runs r JOIN cases c USING(case_id) "
         "WHERE r.prompt_version=? AND r.model_id=? AND c.expected IS NOT NULL "
-        f"AND c.kind IN {DECISION_SUITE_KINDS!r} "
+        "AND c.kind IN (" + ",".join(f"'{k}'" for k in DECISION_SUITE_KINDS) + ") "
         # protocol-temperature rows only: high-temp self-consistency samples
         # are their own analysis, never the accuracy/EL substrate
         "AND (r.temperature IS NULL OR r.temperature <= 0.21) "
@@ -342,7 +342,7 @@ def guardrail_check(con: sqlite3.Connection, prompt_version: str, model_id: str,
         "SELECT COUNT(*) FROM runs r JOIN cases c USING(case_id) "
         "WHERE r.prompt_version=? AND r.model_id=? "
         "AND c.expected='APPROVE' AND r.decision='REJECT' "
-        f"AND c.kind IN {DECISION_SUITE_KINDS!r}",
+        "AND c.kind IN (" + ",".join(f"'{k}'" for k in DECISION_SUITE_KINDS) + ")",
         (prompt_version, model_id),
     ).fetchone()[0]
     if false_rejects:

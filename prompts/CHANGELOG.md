@@ -125,6 +125,18 @@ plausible and untested at N large enough to say.
 
 v5 remains the submitted prompt. Both candidates and both verdicts ship.
 
+Coherence notes (2026-08-24, from the pre-ship file review, so nobody has
+to reconcile these live): the v5 baseline on CASE-102-INJ appears above
+as BOTH 3/5 and 5/9 because they are different denominators of the same
+protocol: 3/5 was the freeze-day N=5 run the v6 bar was registered
+against, 5/9 is the cumulative count across all banked repeats at
+verdict time; v6's 5/5 clears the bar under either denominator, so the
+verdict is insensitive to the discrepancy. And the v5conf section's
+"113-P3 flipped vs v5's clean pass" refers to v5's clean FIRST-RUN pass;
+the same case was later measured flipping 2-of-4 under repeats, which is
+exactly the single-run-credited-as-stable trap this file's own addendum
+names.
+
 ## Addendum (2026-08-24, ~12:00, operator-approved): the v6 gate was defectively designed
 
 The verdict above stands, and one thing about it must be on the record in

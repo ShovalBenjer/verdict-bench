@@ -1,5 +1,10 @@
 # Implementation status audit
 
+> Append-only file: early sections describe their own date and are
+> superseded by later appends. Current state lives at the BOTTOM
+> (2026-08-24 entries); the 08-19 'no ADRs exist' section below was
+> true then and is answered by adr/0001-0004 now.
+
 Dated snapshot, 2026-08-19 morning. Verified against running code/tests/DB,
 not against plan-doc claims. Rubric: FULL (built, tested, demoed) / PARTIAL
 (built, gaps named) / STUB (exists but mock/thin) / PLANNED (doc only, no

@@ -58,7 +58,10 @@ def main() -> None:
         "holdout_flash": hold,
         "self_consistency_cases": len(sc),
         "self_consistency_unanimous": sum(1 for r in sc if r.get("vote_fraction") == 1.0),
-        "ladder_rungs": len(bench.get("ladder", [])),
+        # the LADDER is v1..v5; v5conf (instrumentation) and v6/v6b
+        # (rejected candidates) are kept but are not rungs of it
+        "ladder_rungs": sum(1 for v in bench.get("ladder", {})
+                             if v in ("v1", "v2", "v3", "v3c", "v4", "v4b", "v4c", "v5")),
         "trusted_cells": sum(
             1 for c in bench.get("cells", []) if c.get("trust") == "ok"
         ),

@@ -17,8 +17,10 @@ Design choices, on the record:
   and make the column redundant with accuracy.
 - Only decision-suite kinds are judged (golden, perturbation): robustness
   cases measure resistance, not reasoning craft.
-- A dual-judge overlap runs BOTH judges over the v4/gemini-flash cell so
-  inter-judge agreement is a measured number, not an assumption.
+- Judge overlap cells (v4/gemini-flash and v5/gemini-flash) run the full
+  judge pool, three families since 2026-08-24 (gemini, claude, and phi-4
+  via the HF router), so inter-judge agreement is a measured number, not
+  an assumption.
 """
 from __future__ import annotations
 

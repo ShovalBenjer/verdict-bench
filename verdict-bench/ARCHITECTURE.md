@@ -77,4 +77,3 @@ one write path (runner/graders), one audit trail, and no server process.
    the accuracy metric lost.
 5. Stale UI data at demo time: export + rebuild is one make target
    (make ui); the demo checklist in PLAN.md names it.
-```

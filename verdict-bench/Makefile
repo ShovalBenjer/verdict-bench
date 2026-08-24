@@ -13,8 +13,8 @@ export:         ## regenerate ui/public/benchmark.json from sqlite
 	python3 engine/export.py
 
 ui: export      ## export + rebuild the web bundle (Tauri and web both read dist/)
-	# bun is the runner (operator preference, verified 2026-08-24: identical
-	# output to npm); vite stays the bundler, Tauri's template assumes it
+	# bun is the runner locally (operator preference); the shipped bundle
+	# carries package-lock.json, so npm ci is the reproducible path there
 	cd ui && bun run build && cp public/benchmark.json dist/benchmark.json
 
 deploy:         ## publish ui/dist to Cloudflare Pages (needs `npx wrangler login` once, or CLOUDFLARE_API_TOKEN)

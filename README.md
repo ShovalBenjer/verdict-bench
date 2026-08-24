@@ -6,7 +6,7 @@
 
 ![runs](https://img.shields.io/badge/runs_banked-1215_protocol_of_1275_banked-333?style=flat-square&labelColor=1a1d24)
 ![models](https://img.shields.io/badge/models-8_wired_7_decided-333?style=flat-square&labelColor=1a1d24)
-![cases](https://img.shields.io/badge/cases-88-333?style=flat-square&labelColor=1a1d24)
+![cases](https://img.shields.io/badge/cases-88_active_of_89-333?style=flat-square&labelColor=1a1d24)
 ![coverage](https://img.shields.io/badge/policy_coverage-8_of_8_clauses-333?style=flat-square&labelColor=1a1d24)
 
 </div>
