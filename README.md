@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.jpg" alt="verdict-bench" width="520" />
+<img src="lab/docs/assets/logo.jpg" alt="verdict-bench" width="520" />
 
 **Every prompt version ran against every model, and no claim ships without the runs behind it.**
 
@@ -29,7 +29,7 @@ marked as such.
 ## Sixty seconds
 
 ```bash
-git clone https://github.com/ShovalBenjer/verdict-bench && cd verdict-bench/verdict-bench
+git clone https://github.com/ShovalBenjer/verdict-bench && cd verdict-bench/lab
 python3 engine/runner.py --report      # the gated benchmark matrix, no keys needed
 python3 engine/runner.py --coverage    # does every policy clause have a test
 pip install -e '.[dev]'                # ruff + mypy + pytest for the line below
@@ -73,21 +73,18 @@ per 1,000 cases.
    `prompts/` is the deliberately minimal no-policy BASELINE built later so
    ablations had a floor. Transcript sections about "prompt_v1" refer to
    the former; every benchmark number refers to the latter.
-5. `lab/`: the FULL working lab, transferred whole on request for the
-   way-of-work: engine and tests, the complete run ledger, all planning
-   docs (`docs/PLAN.md`, `docs/PRODUCT.md`, `docs/STATUS.md`), ADRs,
-   analysis notebook, the web UI source behind the live site, deck
-   builders and assets, and `docs/PROCESS-LOG.txt`: all 107 commit
-   subjects with timestamps, the week's build arc in one page.
-   Personal and third-party content is excluded; nothing else is.
-6. `verdict-bench/`: the frozen curated bundle the writeup's path notes
-   cite: engine, the test suite over real SQLite
-   (run `python3 -m pytest -q verdict-bench/tests/` for the live count;
+5. `lab/`: the working lab, whole: engine and the test suite over real
+   SQLite (run `python3 -m pytest -q lab/tests/` for the live count;
    hand-typed test counts drift, so this README no longer carries one),
-   ADRs each carrying the rejected alternative, `benchmark.json` (every
-   number in the writeup, regenerated from the run ledger), robustness
-   suites, and three held-out cases authored from fraud archetypes the
-   ladder never saw.
+   the complete run ledger (`lab/state/verdict.sqlite3`, every number
+   regenerates from it), all planning docs (`docs/PLAN.md`,
+   `docs/PRODUCT.md`, `docs/STATUS.md`), ADRs each carrying the rejected
+   alternative, the analysis notebook, robustness suites, three held-out
+   cases authored from fraud archetypes the ladder never saw, the web UI
+   source behind the live site, deck builders and assets, and
+   `docs/PROCESS-LOG.txt`: all 107 commit subjects with timestamps, the
+   week's build arc in one page. Personal and third-party content is
+   excluded; nothing else is.
 
 ## How it stays honest
 
@@ -109,11 +106,12 @@ revoked one perfect score.
 | Resist adversarial notes | measured, not achieved: resistance is a coin flip at every rung, named |
 | Replace promptfoo in CI | no, and the writeup says why |
 
-Path note: repo-relative doc links map as `docs/prd/SPEC.md` to
-`verdict-bench/SPEC.md`, `ui/public/benchmark.json` to
-`verdict-bench/benchmark.json`, `engine/prompts/CHANGELOG.md` to
-`prompts/CHANGELOG.md`. The run ledger SHIPS at
-`verdict-bench/state/verdict.sqlite3` (every number regenerates from it).
+Path note: the lab ships at its native layout, so repo-relative doc links
+resolve under `lab/` directly (`docs/prd/SPEC.md` is
+`lab/docs/prd/SPEC.md`, `ui/public/benchmark.json` is
+`lab/ui/public/benchmark.json`). The prompt ladder is additionally
+frozen at root as `prompts/` with its `CHANGELOG.md`, byte-identical to
+`lab/engine/prompts/`.
 
 Reference note: `PLAN.md` and `PRODUCT.md`, earlier withheld as internal
 planning surfaces, now ship in full at `lab/docs/` (the way-of-work was
