@@ -242,7 +242,7 @@ for i, (h, b) in enumerate([
 # expected-loss model
 s = slide()
 eyebrow(s, "PPDAC · Plan · the price of a mistake")
-h2(s, "Expected loss, the actual model")
+h2(s, "How a mistake is priced")
 rows = [("", "-> APPROVE", "-> HOLD", "-> REJECT"),
         ("truth APPROVE", "$0", "$45", "$600"),
         ("truth HOLD", "$45", "$0", "$600"),

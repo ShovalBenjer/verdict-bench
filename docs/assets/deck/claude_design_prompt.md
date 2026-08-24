@@ -67,7 +67,7 @@ Slide content, verbatim where quoted:
    n >= 8, contract >= 0.5, Wilson CI width <= 0.5, max flip 0.25,
    zero-tolerance tripwire, suite separation. The tripwire disqualified 10 of
    38 cells.
-8. "Expected loss, the actual model". The 3x3 cost matrix as a table ($0
+8. "How a mistake is priced". The 3x3 cost matrix as a table ($0
    diagonal; false approve $2,000 in gold; false reject $600; false hold $45;
    caught-fraud containment $500, derived). Beside it, the notation:
    EL_1k = (1000/N) SUM_i (1/R) SUM_r C(y_i, yhat_ir); unparseable charged

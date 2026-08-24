@@ -118,7 +118,7 @@ slides.append("""
 slides.append("""
 <section class="slide">
   <div class="eyebrow">PPDAC &middot; Plan &middot; the price of a mistake</div>
-  <h2>Expected loss, the actual model</h2>
+  <h2>How a mistake is priced</h2>
   <div class="mathgrid">
     <table class="costm">
       <tr><th></th><th>&rarr; APPROVE</th><th>&rarr; HOLD</th><th>&rarr; REJECT</th></tr>
