@@ -7,7 +7,7 @@ This file is the running log; the raw Claude Code session transcript backs it.
 
 ### 1. Intake
 - Received Aviv's email + `ai-workflow-case-study 2.zip`. Filed under
-  the assignment zip, unzipped to `case-study/` (shipped in this bundle).
+  the assignment zip, unzipped to `submission/case-study/` (shipped in this bundle).
 - Read README.md, POLICY.md, labeled-answers.md, all 9 case JSONs whole
   (no sampling), before forming any opinion.
 
@@ -98,7 +98,7 @@ This file is the running log; the raw Claude Code session transcript backs it.
   before emitting.
 
 ### 8. Perturbation tests (flip the causal feature, decision must flip)
-Built 3 perturbed cases under verification/:
+Built 3 perturbed cases under submission/verification/:
 - case-101-p1: sanctions hit now matches owner DOB+country, score 0.97.
   Expect REJECT (was APPROVE).
 - case-104-p2: ownership change removed, KYB complete, US-only logins,
@@ -356,7 +356,7 @@ The submission bundle had been declared done and gated the night before,
 with eight open plan items cut to one line each. At 00:15 on submission
 day I rejected those cuts and ran the register in full against a 15:00
 deadline. This section is the curated log of that round; the verbatim
-session extract in `sessions/` ends at its curation point the previous
+session extract in `submission/sessions/` ends at its curation point the previous
 evening, and the raw turns behind this section are available on request,
 same as the rest.
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="lab/docs/assets/logo.jpg" alt="verdict-bench" width="520" />
+<img src="docs/assets/logo.jpg" alt="verdict-bench" width="520" />
 
 **Every prompt version ran against every model, and no claim ships without the runs behind it.**
 
@@ -16,9 +16,9 @@
 An account-review agent decides flagged merchant accounts: APPROVE, HOLD,
 or REJECT, driven by a plain-text prompt. This repository treats that
 prompt the way a risk team should: versioned one change at a time,
-benchmarked across 8 wired (7 decided) models on a frozen case suite, attacked with
-planted instructions, repeated until stability is a number, and gated so
-an untrustworthy cell cannot show a headline figure.
+benchmarked across 8 wired (7 decided) models on a frozen case suite,
+attacked with planted instructions, repeated until stability is a number,
+and gated so an untrustworthy cell cannot show a headline figure.
 
 It is not a general eval platform (promptfoo is the production-grade
 alternative and is named as prior art), not a fraud model, and not a
@@ -26,15 +26,35 @@ prediction of money: the dollar figures are stated exchange rates between
 error types, sensitivity-swept, with the one partially-grounded figure
 marked as such.
 
+## The three deliverables
+
+1. **The prompt**: `engine/prompts/v5.md`, the shipped rung of an
+   ablation ladder (`engine/prompts/v1..v6b`, one change per rung, each
+   with its hypothesis); `engine/prompts/CHANGELOG.md` carries the gate
+   record of the one edit a loop proposed and a pre-registered gate
+   accepted after N=5 repeats refuted a false regression.
+2. **The writeup**: `docs/WRITEUP.md`, what was chosen, why, and what
+   would convince a reviewer the prompt is ready or not.
+3. **The transcript**: `TRANSCRIPT.md` (the curated work log, dead ends
+   kept) with `submission/sessions/` behind it, the verbatim extract
+   (operator messages word-for-word, every removal a counted marker).
+
 ## Sixty seconds
 
 ```bash
-git clone https://github.com/ShovalBenjer/verdict-bench && cd verdict-bench/lab
+git clone https://github.com/ShovalBenjer/verdict-bench && cd verdict-bench
 python3 engine/runner.py --report      # the gated benchmark matrix, no keys needed
 python3 engine/runner.py --coverage    # does every policy clause have a test
 pip install -e '.[dev]'                # ruff + mypy + pytest for the line below
 make check                             # compile, lint, types, full test suite, report smoke
 ```
+
+No API keys needed to read the checked-in ledger
+(`state/verdict.sqlite3`); running new cases against live providers
+needs credentials per `engine/providers.py`. Zero-install reproduction:
+`make docker && make docker-run` builds the two-stage image (build
+VERIFIED 2026-08-24: 15/15 steps, live smoke on :8080) and serves the
+full benchmark UI with the ledger mounted.
 
 ## Where it landed
 
@@ -57,44 +77,61 @@ interval is case-resampling variability only. For scale, deciding every
 case the same way costs $189k (always HOLD) to $674k (always APPROVE)
 per 1,000 cases.
 
-## What is in here
+## Structure
 
-1. `WRITEUP.md`: the required writeup, 5 minutes.
-2. `prompts/`: the ablation ladder v1 to v5, one change per rung with its
-   hypothesis; `CHANGELOG.md` carries the gate record of the one edit a
-   loop proposed and a pre-registered gate accepted after N=5 repeats
-   refuted a false regression.
-3. `TRANSCRIPT.md`: the curated work log, dead ends kept.
-4. `sessions/`: the verbatim extract behind it (9,256 words; operator
-   messages word-for-word, every removal a counted marker).
-   Version-name map, because two numbering schemes coexist: `early-prompts/
-   prompt_v1..v11` are the PRE-REPO drafts the transcript's first sessions
-   iterate (rich procedure from day one), while the ladder's `v1` in
-   `prompts/` is the deliberately minimal no-policy BASELINE built later so
-   ablations had a floor. Transcript sections about "prompt_v1" refer to
-   the former; every benchmark number refers to the latter.
-5. `lab/`: the working lab, whole: engine and the test suite over real
-   SQLite (run `python3 -m pytest -q lab/tests/` for the live count;
-   hand-typed test counts drift, so this README no longer carries one),
-   the complete run ledger (`lab/state/verdict.sqlite3`, every number
-   regenerates from it), all planning docs (`docs/PLAN.md`,
-   `docs/PRODUCT.md`, `docs/STATUS.md`), ADRs each carrying the rejected
-   alternative, the analysis notebook, robustness suites, three held-out
-   cases authored from fraud archetypes the ladder never saw, the web UI
-   source behind the live site, deck builders and assets, and
-   `docs/PROCESS-LOG.txt`: all 107 commit subjects with timestamps, the
-   week's build arc in one page. Personal and third-party content is
-   excluded; nothing else is.
+```
+engine/           runner, provider clients, cost model (oec.py), export
+  prompts/        the ablation ladder v1..v6b + CHANGELOG.md (deliverable 1)
+data/             case JSON (synthetic, no real PII) + labels.json
+state/            verdict.sqlite3, the run ledger (checked in; every number regenerates from it)
+tests/            pytest suite, boundary tests over real sqlite fixtures, no mocks
+notebooks/        analysis.ipynb, the analyst surface over the ledger
+ui/               web + Tauri UI behind verdict-bench.pages.dev
+tools/            deck builders, synthetic-case factory, plots, annotation ingest
+docs/
+  WRITEUP.md      deliverable 2
+  prd/SPEC.md     the spec this lab implements
+  ARCHITECTURE.md, PRODUCT.md, PLAN.md, STATUS.md, adr/
+  PROCESS-LOG.txt all 107 lab commit subjects with timestamps, the week's arc
+TRANSCRIPT.md     deliverable 3, curated, dead ends kept
+submission/       the assignment's own material and the raw work evidence:
+  case-study/     the assignment input as received (the company's material,
+                  reproduced for reference; not covered by this repo's MIT license)
+  sessions/       verbatim session extract behind TRANSCRIPT.md
+  early-prompts/  the pre-repo drafts (prompt_v1..v11) the first sessions iterate
+  verification/   perturbed cases built to break the early prompts
+```
+
+Version-name map, because two numbering schemes coexist:
+`submission/early-prompts/prompt_v1..v11` are the PRE-REPO drafts the
+transcript's first sessions iterate (rich procedure from day one), while
+the ladder's `v1` in `engine/prompts/` is the deliberately minimal
+no-policy BASELINE built later so ablations had a floor. Transcript
+sections about "prompt_v1" refer to the former; every benchmark number
+refers to the latter.
+
+## Tech stack, reasoned (not defaulted)
+
+Every non-obvious choice is an ADR with the alternative actually
+compared: `docs/adr/0001..0004`. SQLite over DuckDB/JSONL for the run
+ledger; hand-rolled provider clients over LiteLLM/promptfoo because the
+request-path failure modes (retry, contract parsing, latency) are the
+thing being measured; Tauri shell with the web build as a same-`dist/`
+fallback; stdlib-only engine core (`urllib`, `sqlite3`, `json`) with
+analysis extras kept separate for clone-once install friction.
 
 ## How it stays honest
 
 Every run is pinned to its prompt by content hash. Accuracy never blends
 label tiers (4 expert labels, 5 adjudicated, the rest constructed and
-saying so) or suites (robustness cases score in their own columns). 511
-blocklist-kept conversation turns ship as 93, every drop marked. A
-verdict that depends on one temperature-0.2 sample is repeated to N=5
-before it is believed; that protocol reversed one gate decision and
-revoked one perfect score.
+saying so; see `docs/WRITEUP.md` for what each tier supports) or suites
+(robustness cases score in their own columns). 511 blocklist-kept
+conversation turns ship as 93, every drop marked. A verdict that depends
+on one temperature-0.2 sample is repeated to N=5 before it is believed;
+that protocol reversed one gate decision and revoked one perfect score.
+`make check` fails on any real failure (a prior Makefile swallowed test
+failures with `2>/dev/null || true`; found and fixed 2026-08-23, and the
+fix is in the transcript).
 
 ## Fits and does not fit
 
@@ -105,18 +142,3 @@ revoked one perfect score.
 | Predict fraud losses in dollars | no: prices are stated assumptions |
 | Resist adversarial notes | measured, not achieved: resistance is a coin flip at every rung, named |
 | Replace promptfoo in CI | no, and the writeup says why |
-
-Path note: the lab ships at its native layout, so repo-relative doc links
-resolve under `lab/` directly (`docs/prd/SPEC.md` is
-`lab/docs/prd/SPEC.md`, `ui/public/benchmark.json` is
-`lab/ui/public/benchmark.json`). The prompt ladder is additionally
-frozen at root as `prompts/` with its `CHANGELOG.md`, byte-identical to
-`lab/engine/prompts/`.
-
-Reference note: `PLAN.md` and `PRODUCT.md`, earlier withheld as internal
-planning surfaces, now ship in full at `lab/docs/` (the way-of-work was
-requested, so the planning surfaces came along). `TODO.md`/`INDEX.md`
-never existed (the plan's coverage register owns that job, by a recorded
-decision). A few ADRs cite the author's own workshop rule files
-(`boundary-contracts.md`, `repo-stack-reasoning.md`); their relevant
-content is restated in place and the inherited copies were kept private.
