@@ -2,7 +2,7 @@
 
 <img src="assets/logo.jpg" alt="verdict-bench" width="520" />
 
-**Single runs lie. A prompt, treated as a model release.**
+**Every prompt version ran against every model, and no claim ships without the runs behind it.**
 
 ![runs](https://img.shields.io/badge/runs_banked-1215_protocol_of_1275_banked-333?style=flat-square&labelColor=1a1d24)
 ![models](https://img.shields.io/badge/models-8_wired_7_decided-333?style=flat-square&labelColor=1a1d24)

@@ -15,7 +15,9 @@ export:         ## regenerate ui/public/benchmark.json from sqlite
 ui: export      ## export + rebuild the web bundle (Tauri and web both read dist/)
 	# bun is the runner locally (operator preference); the shipped bundle
 	# carries package-lock.json, so npm ci is the reproducible path there
-	cd ui && bun run build && cp public/benchmark.json dist/benchmark.json
+	# vite 8 needs node >= 20.12 (styleText); --bun runs it on bun's own
+	# runtime so the build works even where system node is older
+	cd ui && bunx --bun vite build && cp public/benchmark.json dist/benchmark.json
 
 deploy:         ## publish ui/dist to Cloudflare Pages (needs `npx wrangler login` once, or CLOUDFLARE_API_TOKEN)
 	@test -f ui/dist/index.html || (echo 'no build; run make ui first' && exit 1)

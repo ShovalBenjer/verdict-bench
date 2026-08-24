@@ -1111,20 +1111,9 @@ const STEPS = [
   { chip: ['00', 'What this is'], title: <>A prompt is a <span className="text-gold">model release</span></>,
     render: (data, go) => (
       <div>
-        <Prose>Every review team eventually delegates its checking to something cheaper than a person.
-          This is a study of what happens when that something is a prompt: an agent reads a flagged
-          merchant account and decides to approve, hold, or reject. The prompt behind it is versioned,
-          benchmarked across eight models, attacked with planted instructions, and every claim it earns
-          is priced in dollars and gated for trust before it is believed.</Prose>
-        <div className="flex gap-3 justify-center">
-          {[[`${data.meta?.total_runs ?? data.cells.reduce((a, c) => a + c.n, 0)}`, 'runs banked'],
-            [`${[...new Set(data.cells.map(c => c.model))].length}`, 'models'],
-            [`${Object.keys(data.caseFiles || {}).length}`, 'cases'],
-            [`$${data.meta?.total_cost_usd_list ?? '–'}`, 'total API spend, list prices']].map(([v, l]) => (
-            <div key={l} className="glass px-4 py-2.5"><b className="text-xl tabular-nums">{v}</b>
-              <span className="text-[11px] text-slate-500 ml-2">{l}</span></div>
-          ))}
-        </div>
+        <Prose>An agent reads a flagged merchant account and decides to approve, hold,
+          or reject it under a written policy. Versioned the account-review prompt like a model release, ran every version against every model on a frozen case suite, and let pre-registered gates decide what to believe, which meant rejecting my own best injection fix after it resisted 19 of 20 planted-instruction attacks but missed the 12-of-12 decision bar it had signed up for.</Prose>
+        <p className="text-slate-400 text-[15px] leading-7 max-w-xl mx-auto">The submitted version decides the whole visible suite correctly on the lead model and generalizes to a 64-case generated corpus it never saw, where the same prompt scores 100% on two models and 58% on the weakest, a separation nine visible cases could never show. Where the policy itself does not settle a case, the benchmark refuses to score anyone and routes the case to a human with the cross-model split attached.</p>
       </div>) },
   { chip: ['01', 'Problem'], title: <>Test the policy <span className="text-gold">before the prompt</span></>,
     render: (data, go) => (
