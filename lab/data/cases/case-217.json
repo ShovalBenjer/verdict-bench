@@ -1,0 +1,167 @@
+{
+  "case_id": "CASE-217",
+  "flag_reason": "VELOCITY_REVIEW",
+  "opened": "2026-07-09",
+  "priority": "medium",
+  "account": {
+    "account_id": "ACC-76700",
+    "owner_name": "Ines Yona",
+    "owner_dob": "1976-08-26",
+    "owner_ssn_last4": "8764",
+    "owner_country": "US",
+    "business_name": "Yona Supply Co",
+    "mcc": "5941",
+    "tenure_days": 77,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 15394.04,
+    "current_balance_usd": 750.55,
+    "lifetime_volume_usd": 6136.7
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-08",
+      "ip": "72.39.90.226",
+      "device_id": "dev-721",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-19",
+      "ip": "72.74.169.202",
+      "device_id": "dev-163",
+      "geo": "Portland, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-03",
+      "ip": "72.21.7.60",
+      "device_id": "dev-501",
+      "geo": "Raleigh, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-27",
+      "time": "15:15:00",
+      "amount_usd": 1002.79,
+      "status": "approved",
+      "settled_amount_usd": 1002.79,
+      "instrument_last4": "1466",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-28",
+      "time": "22:16:00",
+      "amount_usd": 3173.48,
+      "status": "approved",
+      "settled_amount_usd": 3173.48,
+      "instrument_last4": "1506",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "18:28:00",
+      "amount_usd": 2608.86,
+      "status": "approved",
+      "settled_amount_usd": 2608.86,
+      "instrument_last4": "7366",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "21:08:00",
+      "amount_usd": 1691.42,
+      "status": "approved",
+      "settled_amount_usd": 1691.42,
+      "instrument_last4": "5478",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-01",
+      "time": "16:02:00",
+      "amount_usd": 1188.46,
+      "status": "approved",
+      "settled_amount_usd": 1188.46,
+      "instrument_last4": "1331",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-02",
+      "time": "20:43:00",
+      "amount_usd": 2365.29,
+      "status": "approved",
+      "settled_amount_usd": 2365.29,
+      "instrument_last4": "9978",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "19:00:00",
+      "amount_usd": 1040.18,
+      "status": "approved",
+      "settled_amount_usd": 1040.18,
+      "instrument_last4": "3409",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "14:15:00",
+      "amount_usd": 2592.0,
+      "status": "approved",
+      "settled_amount_usd": 2592.0,
+      "instrument_last4": "6592",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "11:02:00",
+      "amount_usd": 1271.96,
+      "status": "approved",
+      "settled_amount_usd": 1271.96,
+      "instrument_last4": "2061",
+      "bin": "460000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-08",
+      "time": "03:40:00",
+      "amount_usd": 15394.04,
+      "status": "approved",
+      "settled_amount_usd": 15394.04,
+      "instrument_last4": "",
+      "bin": "",
+      "type": "payout_transfer_new_destination"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-09",
+      "text": "Payout destination added 2 days before transfer; no prior payout history."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "case_id": "CASE-228",
+  "flag_reason": "PRIOR_CASE_REVIEW",
+  "opened": "2026-08-08",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-23800",
+    "owner_name": "Ken Weiss",
+    "owner_dob": "1985-02-06",
+    "owner_ssn_last4": "2516",
+    "owner_country": "US",
+    "business_name": "Weiss Studio",
+    "mcc": "5462",
+    "tenure_days": 439,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 2054.98,
+    "lifetime_volume_usd": 57068.28
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": true,
+    "prior_verified_issue": true
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-07-19",
+      "ip": "72.78.198.196",
+      "device_id": "dev-419",
+      "geo": "Omaha, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-30",
+      "ip": "72.79.214.89",
+      "device_id": "dev-744",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-08-07",
+      "ip": "72.10.239.80",
+      "device_id": "dev-692",
+      "geo": "Raleigh, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-28",
+      "time": "10:20:00",
+      "amount_usd": 203.15,
+      "status": "approved",
+      "settled_amount_usd": 203.15,
+      "instrument_last4": "7593",
+      "bin": "480000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-19",
+      "time": "09:42:00",
+      "amount_usd": 305.87,
+      "status": "approved",
+      "settled_amount_usd": 305.87,
+      "instrument_last4": "6085",
+      "bin": "460000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-19",
+      "time": "12:46:00",
+      "amount_usd": 76.28,
+      "status": "approved",
+      "settled_amount_usd": 76.28,
+      "instrument_last4": "7529",
+      "bin": "550000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "12:31:00",
+      "amount_usd": 280.35,
+      "status": "approved",
+      "settled_amount_usd": 280.35,
+      "instrument_last4": "6645",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-24",
+      "time": "10:41:00",
+      "amount_usd": 149.66,
+      "status": "approved",
+      "settled_amount_usd": 149.66,
+      "instrument_last4": "1389",
+      "bin": "450000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [
+    {
+      "case_id": "CX-49216",
+      "date": "2025-08-28",
+      "decision": "REJECT",
+      "reviewer": "analyst_rk",
+      "note": "Chargeback fraud adjudicated against this party; identity verified at the time."
+    }
+  ],
+  "notes": []
+}

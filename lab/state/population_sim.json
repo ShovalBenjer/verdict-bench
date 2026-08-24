@@ -1,0 +1,119 @@
+{
+ "seed": 20260824,
+ "population": 500000,
+ "exposure_fit": {
+  "lognormal_mu": 8.2723,
+  "lognormal_sigma": 1.9206,
+  "source": "corpus's own nonzero at_risk_usd values"
+ },
+ "scenarios": {
+  "v5|gemini-flash|fraud_0.1pct": {
+   "mix": {
+    "fraud": 0.001,
+    "hold_risk": 0.02,
+    "contested": 0.005
+   },
+   "population": 500000,
+   "decided": {
+    "APPROVE": 489656,
+    "HOLD": 9868,
+    "REJECT": 476
+   },
+   "hold_rate": 0.0197,
+   "loss_matrix_per_1k": 0.0,
+   "loss_exposure_per_1k": 0.0,
+   "contested_cost_per_1k_if_hold_right": 228.33,
+   "contested_cost_per_1k_if_approve_right": 0.0
+  },
+  "v5|gemini-flash|fraud_0.5pct": {
+   "mix": {
+    "fraud": 0.005,
+    "hold_risk": 0.03,
+    "contested": 0.01
+   },
+   "population": 500000,
+   "decided": {
+    "APPROVE": 482694,
+    "HOLD": 14858,
+    "REJECT": 2448
+   },
+   "hold_rate": 0.0297,
+   "loss_matrix_per_1k": 0.0,
+   "loss_exposure_per_1k": 0.0,
+   "contested_cost_per_1k_if_hold_right": 455.85,
+   "contested_cost_per_1k_if_approve_right": 0.0
+  },
+  "v5|gemini-flash|fraud_2pct": {
+   "mix": {
+    "fraud": 0.02,
+    "hold_risk": 0.05,
+    "contested": 0.02
+   },
+   "population": 500000,
+   "decided": {
+    "APPROVE": 465305,
+    "HOLD": 24827,
+    "REJECT": 9868
+   },
+   "hold_rate": 0.0497,
+   "loss_matrix_per_1k": 0.0,
+   "loss_exposure_per_1k": 0.0,
+   "contested_cost_per_1k_if_hold_right": 896.04,
+   "contested_cost_per_1k_if_approve_right": 0.0
+  },
+  "v1|gemini-flash|fraud_0.1pct": {
+   "mix": {
+    "fraud": 0.001,
+    "hold_risk": 0.02,
+    "contested": 0.005
+   },
+   "population": 500000,
+   "decided": {
+    "APPROVE": 487115,
+    "HOLD": 10038,
+    "REJECT": 2847
+   },
+   "hold_rate": 0.0201,
+   "loss_matrix_per_1k": 2947.4,
+   "loss_exposure_per_1k": 4115.79,
+   "contested_cost_per_1k_if_hold_right": 0.0,
+   "contested_cost_per_1k_if_approve_right": 228.51
+  },
+  "v1|gemini-flash|fraud_0.5pct": {
+   "mix": {
+    "fraud": 0.005,
+    "hold_risk": 0.03,
+    "contested": 0.01
+   },
+   "population": 500000,
+   "decided": {
+    "APPROVE": 477627,
+    "HOLD": 16508,
+    "REJECT": 5865
+   },
+   "hold_rate": 0.033,
+   "loss_matrix_per_1k": 4573.6,
+   "loss_exposure_per_1k": 7695.83,
+   "contested_cost_per_1k_if_hold_right": 0.0,
+   "contested_cost_per_1k_if_approve_right": 455.22
+  },
+  "v1|gemini-flash|fraud_2pct": {
+   "mix": {
+    "fraud": 0.02,
+    "hold_risk": 0.05,
+    "contested": 0.02
+   },
+   "population": 500000,
+   "decided": {
+    "APPROVE": 455357,
+    "HOLD": 29406,
+    "REJECT": 15237
+   },
+   "hold_rate": 0.0588,
+   "loss_matrix_per_1k": 8282.6,
+   "loss_exposure_per_1k": 19108.99,
+   "contested_cost_per_1k_if_hold_right": 0.0,
+   "contested_cost_per_1k_if_approve_right": 895.5
+  }
+ }
+}

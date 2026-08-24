@@ -1,0 +1,167 @@
+{
+  "case_id": "CASE-216",
+  "flag_reason": "VELOCITY_REVIEW",
+  "opened": "2026-07-24",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-51679",
+    "owner_name": "Lea Toledo",
+    "owner_dob": "1993-09-02",
+    "owner_ssn_last4": "4271",
+    "owner_country": "US",
+    "business_name": "Toledo Supply Co",
+    "mcc": "7538",
+    "tenure_days": 36,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 17037.05,
+    "current_balance_usd": 4252.69,
+    "lifetime_volume_usd": 6726.25
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-07-01",
+      "ip": "72.26.127.188",
+      "device_id": "dev-363",
+      "geo": "Denver, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-05",
+      "ip": "72.72.129.23",
+      "device_id": "dev-678",
+      "geo": "Portland, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-21",
+      "ip": "72.38.35.216",
+      "device_id": "dev-519",
+      "geo": "Richmond, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-07-12",
+      "time": "20:06:00",
+      "amount_usd": 878.28,
+      "status": "approved",
+      "settled_amount_usd": 878.28,
+      "instrument_last4": "4499",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-13",
+      "time": "21:00:00",
+      "amount_usd": 851.53,
+      "status": "approved",
+      "settled_amount_usd": 851.53,
+      "instrument_last4": "5901",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-14",
+      "time": "18:39:00",
+      "amount_usd": 1866.22,
+      "status": "approved",
+      "settled_amount_usd": 1866.22,
+      "instrument_last4": "4357",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-15",
+      "time": "12:38:00",
+      "amount_usd": 1703.66,
+      "status": "approved",
+      "settled_amount_usd": 1703.66,
+      "instrument_last4": "6711",
+      "bin": "490000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "16:41:00",
+      "amount_usd": 2307.07,
+      "status": "approved",
+      "settled_amount_usd": 2307.07,
+      "instrument_last4": "2535",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "14:14:00",
+      "amount_usd": 2705.46,
+      "status": "approved",
+      "settled_amount_usd": 2705.46,
+      "instrument_last4": "1151",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "22:34:00",
+      "amount_usd": 2724.81,
+      "status": "approved",
+      "settled_amount_usd": 2724.81,
+      "instrument_last4": "9949",
+      "bin": "470000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-19",
+      "time": "15:06:00",
+      "amount_usd": 2445.9,
+      "status": "approved",
+      "settled_amount_usd": 2445.9,
+      "instrument_last4": "1939",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-20",
+      "time": "18:23:00",
+      "amount_usd": 2936.21,
+      "status": "approved",
+      "settled_amount_usd": 2936.21,
+      "instrument_last4": "1630",
+      "bin": "460000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "03:40:00",
+      "amount_usd": 17037.05,
+      "status": "approved",
+      "settled_amount_usd": 17037.05,
+      "instrument_last4": "",
+      "bin": "",
+      "type": "payout_transfer_new_destination"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-24",
+      "text": "Payout destination added 2 days before transfer; no prior payout history."
+    }
+  ]
+}

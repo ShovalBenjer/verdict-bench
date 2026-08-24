@@ -1,0 +1,167 @@
+{
+  "case_id": "CASE-238",
+  "flag_reason": "DISPUTE_RATE",
+  "opened": "2026-07-02",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-65022",
+    "owner_name": "Felix Vega",
+    "owner_dob": "1984-06-05",
+    "owner_ssn_last4": "2224",
+    "owner_country": "US",
+    "business_name": "Vega Studio",
+    "mcc": "5945",
+    "tenure_days": 826,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 3531.22,
+    "lifetime_volume_usd": 85763.06
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-05-31",
+      "ip": "72.96.36.202",
+      "device_id": "dev-983",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-16",
+      "ip": "72.69.172.111",
+      "device_id": "dev-693",
+      "geo": "Omaha, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-23",
+      "ip": "72.41.237.107",
+      "device_id": "dev-556",
+      "geo": "Tucson, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-07",
+      "time": "09:48:00",
+      "amount_usd": 228.16,
+      "status": "approved",
+      "settled_amount_usd": 228.16,
+      "instrument_last4": "8359",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "19:26:00",
+      "amount_usd": 218.62,
+      "status": "approved",
+      "settled_amount_usd": 218.62,
+      "instrument_last4": "8387",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "19:36:00",
+      "amount_usd": 132.06,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "9521",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "17:05:00",
+      "amount_usd": 36.83,
+      "status": "approved",
+      "settled_amount_usd": 36.83,
+      "instrument_last4": "6044",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "20:36:00",
+      "amount_usd": 214.63,
+      "status": "approved",
+      "settled_amount_usd": 214.63,
+      "instrument_last4": "9019",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "10:25:00",
+      "amount_usd": 76.21,
+      "status": "approved",
+      "settled_amount_usd": 76.21,
+      "instrument_last4": "3530",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "16:26:00",
+      "amount_usd": 63.84,
+      "status": "approved",
+      "settled_amount_usd": 63.84,
+      "instrument_last4": "1383",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "12:44:00",
+      "amount_usd": 134.92,
+      "status": "approved",
+      "settled_amount_usd": 134.92,
+      "instrument_last4": "2236",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "08:10:00",
+      "amount_usd": 107.99,
+      "status": "approved",
+      "settled_amount_usd": 107.99,
+      "instrument_last4": "9709",
+      "bin": "410000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-22",
+      "time": "18:22:00",
+      "amount_usd": 140.44,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "7804",
+      "bin": "480000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-02",
+      "text": "Dispute rate 1.1% vs 0.8% trailing average; amounts small."
+    }
+  ]
+}

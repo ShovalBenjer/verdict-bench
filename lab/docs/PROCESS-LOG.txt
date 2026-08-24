@@ -1,0 +1,107 @@
+2026-08-17 17:15  spec: verdict-bench PRD, KPIs, benchmark matrix, vertical slices
+2026-08-17 17:16  docs: prior-art section, retract implied novelty, log queries
+2026-08-17 17:20  feat(engine): S0 slice: schema, typed providers (claude-cli, gemini, nvidia), runner, golden suite
+2026-08-17 17:24  fix(providers): claude CLI flags, nvidia 240s timeout for cold starts
+2026-08-17 17:44  fix(report): python-side percentiles; llama 106 retry passes
+2026-08-17 17:46  feat(ui): matrix + drill-down React app over benchmark.json export
+2026-08-17 19:10  docs(ui): backlog from operator review, ordered by demo value
+2026-08-17 19:11  feat(prompts): v1 naive + v2 policy-quoting baselines
+2026-08-17 19:12  feat(ui): power-curve screen, case split-pane with multi-model compare, discrepancy banners, auto-expanded misses
+2026-08-17 19:16  data: v1-v3 gemini-flash runs; suite saturation finding
+2026-08-17 19:29  data: claude-sonnet v4 column (wrapper route, 12/12), silent-skip finding logged
+2026-08-17 19:33  fix(providers): --bare skipped credential load, not a sandbox issue; purge auth-error rows
+2026-08-17 19:36  feat(tauri): native shell over the built UI; first launch verified under WSLg
+2026-08-17 19:39  fix(providers): retry claude CLI flake once, keep stdout in error path
+2026-08-17 19:43  data: N=5 stability runs; v3->v4 distribution shift on 113-P3; stable 104 disagreement
+2026-08-17 19:46  build: pyproject, requirements, Makefile, Dockerfile, arch/product/plan docs
+2026-08-17 19:47  fix(rigor): peer-review items 1-3,6,7,9: planted-defect tests, sha-pinned runs, labels as data, Wilson CIs, first-run/repeat separation, retired flag
+2026-08-17 22:37  docs(plan): operator-ask coverage register; supersede plan_nextgen
+2026-08-17 22:44  feat(ablation): v3c rung isolates contract delta (0%->100% contract, decisions untouched); ladder verified by diff; tiers/pyramid/roster documented
+2026-08-18 17:43  feat(ui): version rows carry their one-line delta + hypothesis tooltip; power curve annotated (delta ticks, value labels); export fixed to first-run accuracy + flip metric; nowrap rows
+2026-08-19 02:36  feat(prompts): v4b rung adds ONE worked proportionality example; no regression on single-run flash (11/12, contract 100%); N=5 confirmation still needed
+2026-08-19 02:37  docs: full implementation-status audit (STATUS.md); docker found not-installed on real attempt, not just unrun
+2026-08-19 04:39  docs: second book pass (content-checked, not filename-grepped); STATUS.md updated
+2026-08-19 05:20  feat(notebook): analysis.ipynb, executes clean end to end over the real DB
+2026-08-19 05:24  chore: gitignore the notebook HTML export (regenerable, binary-heavy)
+2026-08-19 05:30  fix(bug): document duplicate repeat_idx=0 rows found via grill-me stress test; ablation-ladder purity gap in v3c named
+2026-08-19 05:34  fix(integrity): dupe-guard UNIQUE constraint + repeat_idx offset fix; 7 miscounted rows renumbered (not deleted); legacy NULL-sha limitation disclosed
+2026-08-19 05:36  test(v4c): card-testing counting scaffold; fixes haiku, does not fix llama-3.3-70b; mixed result recorded honestly
+2026-08-19 09:07  feat(oec): expected-loss OEC + trustworthiness guardrails, closes PLANNED gap
+2026-08-19 09:15  feat(oec): clause-conditional cost matrix, coverage table, sensitivity sweep
+2026-08-19 13:11  fix(oec): use SPEC.md's dollar cost matrix (FA/FH/FR), reconcile 3 cost models into 1
+2026-08-23 15:42  fix(oec): suppress EL\$ on untrustworthy cells, ground FA against the suite's own REJECT-case exposure
+2026-08-23 15:44  docs(product): beat sheet, 5-beat arc -> 10-12 slides + live app, every number verified
+2026-08-23 16:20  docs: first writeup draft, the actual required deliverable per README.md
+2026-08-23 19:57  chore(repo): professionalize per estate standards -- ADRs, real README, fixed false-green Makefile, fold in assignment materials
+2026-08-23 20:06  fix(style): wire mypy+ruff into make check, they were declared but never run
+2026-08-23 20:18  fix(assignment): point build_dist.py's PROJ at the repo that actually has the conversation
+2026-08-23 20:20  docs: add LICENSE, AGENTS.md, CLAUDE.md pointer per agentic-repo-standard
+2026-08-23 20:44  feat(assignment): turn-level curation of shipped session extracts, applied at build time
+2026-08-23 20:44  chore: ignore assignment/turns (uncurated verbatim text, regenerable; curation.json is what ships)
+2026-08-23 21:19  docs: one-page 'how I operate' slide in the beat sheet; inherit the six claude-setup rules this repo cites
+2026-08-23 21:39  feat(assignment): curated session extract, 511 turns to 95, every drop marked and listed
+2026-08-23 22:38  feat(assignment): zero-gaps pass: ship the cited evidence, fail-closed bundle checks, prose cleanup, status reconciliation
+2026-08-23 22:59  fix(assignment): final-review findings applied, 21 of 21 addressed, checks clean
+2026-08-24 01:20  feat(engine): freeze-day round: two new model columns, robustness suites, cross-family judge, v5 gated and accepted
+2026-08-24 01:20  feat(arms): DSPy comparison arm and LR baseline, plus dataset fetch scripts with verified provenance
+2026-08-24 01:20  docs(freeze): registers run and recorded; writeup and deck spine absorb the night; bundle manifest widened
+2026-08-24 01:42  fix(repo): the ledger is now actually checked in, and the close lands
+2026-08-24 01:43  docs(transcript): Session 3, the freeze-day round, as curated work log
+2026-08-24 01:56  docs(docker): the proof landed: image built 15/15 and live-smoked from the container
+2026-08-24 02:05  fix(writeup): the qwen 104-P2 open question is measured closed: coin flip at N=5, not a regression
+2026-08-24 02:22  feat(ui): tiles police their own headline: trust badges, EL suppression, robustness columns, gated curve
+2026-08-24 02:24  docs(plan): delivery is the GitHub repo, not the zip; repo refreshed post-freeze
+2026-08-24 02:36  feat(ui): the app becomes the presentation instrument: PPDAC story mode, ladder and coverage screens, confusion matrix, explanatory tooltips
+2026-08-24 02:58  feat(ui): launch-page register on Tailwind v4 + motion; PPDAC hero story; honest walk chart; model frontier
+2026-08-24 03:21  feat(ui+eval): round 3: de-slopped launch UI with KPI band, calibration, clause heatmap, policy force graph; v5conf instrumentation
+2026-08-24 03:31  feat(eval+ui): held-out Davies set answers the overfitting question; story becomes a stage; payments KPIs; subpixel fix
+2026-08-24 03:35  feat(ui): Linear-register polish and The Queue playground
+2026-08-24 03:39  docs(plan): submission repo renamed to verdict-bench, one brand end to end
+2026-08-24 03:48  feat(brand): operator logo wired: the mark is the walk to the lit endpoint; true-black minimal top bar; favicon
+2026-08-24 04:00  feat(eval+repo): A-grade pass round 1: temperature protocol, self-consistency plumbing, bootstrap CI, weighted-loss honesty; production README; full-strip tool
+2026-08-24 04:08  feat(analysis): A-grade instrumentation pass + deck source pack
+2026-08-24 04:11  docs+ui: review-pass fixes: confidence ladder, latency surfaced, sanctions isolated
+2026-08-24 04:30  feat: synthetic corpus + testing pyramid + audit fixes
+2026-08-24 04:37  feat(synthetic): contested-label routing for the policy ambiguity the sweep found
+2026-08-24 04:55  feat: adjudication queue, matrix synthetic band, third judge family, SPRT
+2026-08-24 04:56  docs: the contested family is a cross-model split, 20-8 with no family pattern
+2026-08-24 05:56  feat: final refresh: 895 runs, triple-judge triangulation, gate-bites correction, panel pack
+2026-08-24 06:04  assets(deck): screenshots, story mp4+gif, executed-notebook PNGs; ship tools in dist
+2026-08-24 06:26  refactor(engine): ponytail comment pass, oracle-pinned
+2026-08-24 06:35  refactor+docs: Fluent Python pass, doc-rot corrections from the gap inventory
+2026-08-24 06:36  fix(lint): the red-gate commit: Mapping from collections.abc, unquoted annotation
+2026-08-24 06:43  feat(analysis): professional notebook rebuild + population simulation + clause audit
+2026-08-24 06:49  feat(probes): adversarial-review probes measured; v6/v6b candidate rungs pre-registered
+2026-08-24 06:56  fix(bundle): the external review's fresh-clone failures, repaired at the source
+2026-08-24 06:58  fix(bundle): ship population_sim/clause_audit tools, stale ledger comments, repo-review paragraph
+2026-08-24 07:01  feat(ui): queue as case dossier, earned-confidence panel, $0 skepticism sub
+2026-08-24 07:04  docs: v6/v6b gate verdicts recorded; injection claim corrected both ways; sanctions probe cross-model split
+2026-08-24 07:05  chore: environment meta in export, Dockerfile pinning note, name-collision line
+2026-08-24 07:05  docs(deck): talking points synced to the gate verdicts
+2026-08-24 07:20  reflect: the finishing-day heidegger pass
+2026-08-24 07:30  reflect: percent-done pass over every plan and every session ask; PPDAC notebook; GitHub link in header
+2026-08-24 07:36  assets(deck): the pptx, 14 slides, mirrors the artifact deck
+2026-08-24 07:45  feat(kpi+eda): the source-derived KPI layer and the four-act EDA story
+2026-08-24 07:46  fix(lint): the second red-gate-through-tail commit: IGNORECASE + B023 loop-var binding
+2026-08-24 07:46  fix(types): flip-gated count with explicit list check; gate GREEN exit 0 before this commit
+2026-08-24 07:48  deck: voice pass + breadth-books principles into artifact, pptx, talking points
+2026-08-24 07:50  docs(deck): the Gemini phantom audit, answered with measurements
+2026-08-24 08:04  feat(grounding): number-grounding verifier + triaged forward roadmap
+2026-08-24 08:11  sweep: name every deliberately-unresolvable reference in the bundle README
+2026-08-24 08:42  final: full-matrix synthetic sweep banked; live-numbers pass; gate exit 0
+2026-08-24 11:51  changelog: the v6 gate-design defect, on the record in the artifact (operator-approved)
+2026-08-24 11:53  feat(ui): the ladder walk redesigned as the mark enacted (operator-approved)
+2026-08-24 11:55  deck: final-numbers rebuild (1275 runs, $2.72, 11 rungs)
+2026-08-24 12:05  fix: the file-by-file review's eleven catches
+2026-08-24 13:04  fix(copy): replace the process-metric opening with ledger-verified results
+2026-08-24 13:06  build(ui): adopt the dependabot vite-8 bump the operator merged, pin bun runtime
+2026-08-24 13:07  docs(deck): claude-design prompt pack, the styled deck's actual path
+2026-08-24 13:19  deck: cover + presenter + diagrams restructure; calibration chart rebuilt
+2026-08-24 13:19  fix: unstage the peer session's embedded worktree, ignore .claude/worktrees/
+2026-08-24 13:32  deck: the build story, overfitting defense, and the loss model in notation
+2026-08-24 13:33  docs(deck): record the generated claude-design deck as deck of record
+2026-08-24 13:39  bundle README: live UI and notebook links up top
+2026-08-24 13:47  deck: modest presenter bio on pptx page 2 and the design-pack source
+2026-08-24 14:00  deck: out-of-scope and next-given-time slide before the close
+2026-08-24 14:10  deck: judge-triangulation chart replaces the saturated clause-citation wall
+2026-08-24 14:12  assets: presenter photo for deck slide 2 (final lab commit before transfer)

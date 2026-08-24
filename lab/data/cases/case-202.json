@@ -1,0 +1,147 @@
+{
+  "case_id": "CASE-202",
+  "flag_reason": "VELOCITY_REVIEW",
+  "opened": "2026-07-31",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-91985",
+    "owner_name": "Omar Yona",
+    "owner_dob": "1979-03-17",
+    "owner_ssn_last4": "4364",
+    "owner_country": "US",
+    "business_name": "Yona Works",
+    "mcc": "5812",
+    "tenure_days": 944,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 2496.27,
+    "lifetime_volume_usd": 67565.81
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-22",
+      "ip": "72.25.24.37",
+      "device_id": "dev-132",
+      "geo": "Boise, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-17",
+      "ip": "72.72.60.214",
+      "device_id": "dev-223",
+      "geo": "Richmond, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-28",
+      "ip": "72.73.176.32",
+      "device_id": "dev-725",
+      "geo": "Tucson, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-07",
+      "time": "10:50:00",
+      "amount_usd": 201.7,
+      "status": "approved",
+      "settled_amount_usd": 201.7,
+      "instrument_last4": "5244",
+      "bin": "450000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "10:18:00",
+      "amount_usd": 72.56,
+      "status": "approved",
+      "settled_amount_usd": 72.56,
+      "instrument_last4": "6714",
+      "bin": "550000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "15:33:00",
+      "amount_usd": 296.66,
+      "status": "approved",
+      "settled_amount_usd": 296.66,
+      "instrument_last4": "1371",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "19:15:00",
+      "amount_usd": 187.8,
+      "status": "approved",
+      "settled_amount_usd": 187.8,
+      "instrument_last4": "8400",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "09:46:00",
+      "amount_usd": 160.92,
+      "status": "approved",
+      "settled_amount_usd": 160.92,
+      "instrument_last4": "7404",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-06",
+      "time": "19:57:00",
+      "amount_usd": 268.34,
+      "status": "approved",
+      "settled_amount_usd": 268.34,
+      "instrument_last4": "7936",
+      "bin": "470000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "20:50:00",
+      "amount_usd": 270.08,
+      "status": "approved",
+      "settled_amount_usd": 270.08,
+      "instrument_last4": "9823",
+      "bin": "490000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "18:49:00",
+      "amount_usd": 314.48,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "4962",
+      "bin": "480000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-31",
+      "text": "Routine periodic review; volume within profile."
+    }
+  ]
+}

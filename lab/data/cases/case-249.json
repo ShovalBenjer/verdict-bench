@@ -1,0 +1,161 @@
+{
+  "case_id": "CASE-249",
+  "flag_reason": "AUTH_PATTERN",
+  "opened": "2026-07-14",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-78727",
+    "owner_name": "Ines Kimura",
+    "owner_dob": "1994-10-13",
+    "owner_ssn_last4": "5387",
+    "owner_country": "US",
+    "business_name": "Kimura Collective",
+    "mcc": "7299",
+    "tenure_days": 37,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 6275.66,
+    "current_balance_usd": 3096.41,
+    "lifetime_volume_usd": 6473.19
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-07",
+      "ip": "72.52.86.81",
+      "device_id": "dev-194",
+      "geo": "Raleigh, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-19",
+      "ip": "72.82.49.157",
+      "device_id": "dev-168",
+      "geo": "Portland, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-03",
+      "ip": "72.58.98.13",
+      "device_id": "dev-258",
+      "geo": "Richmond, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-24",
+      "time": "04:25:00",
+      "amount_usd": 2.43,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "5712",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-25",
+      "time": "05:58:00",
+      "amount_usd": 0.68,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "6019",
+      "bin": "450000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-26",
+      "time": "03:28:00",
+      "amount_usd": 2.16,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "8803",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-27",
+      "time": "02:52:00",
+      "amount_usd": 2.83,
+      "status": "declined",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "9803",
+      "bin": "460000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-28",
+      "time": "05:02:00",
+      "amount_usd": 1.34,
+      "status": "approved",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "9038",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "04:34:00",
+      "amount_usd": 0.9,
+      "status": "approved",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "2670",
+      "bin": "550000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-08",
+      "time": "16:54:00",
+      "amount_usd": 1081.43,
+      "status": "approved",
+      "settled_amount_usd": 1081.43,
+      "instrument_last4": "1608",
+      "bin": "490000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-09",
+      "time": "21:51:00",
+      "amount_usd": 1129.93,
+      "status": "approved",
+      "settled_amount_usd": 1129.93,
+      "instrument_last4": "3745",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "18:27:00",
+      "amount_usd": 1998.32,
+      "status": "approved",
+      "settled_amount_usd": 1998.32,
+      "instrument_last4": "5272",
+      "bin": "510000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "09:35:00",
+      "amount_usd": 2065.98,
+      "status": "approved",
+      "settled_amount_usd": 2065.98,
+      "instrument_last4": "6741",
+      "bin": "440000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": []
+}

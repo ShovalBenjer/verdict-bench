@@ -1,0 +1,107 @@
+{
+  "case_id": "CASE-221",
+  "flag_reason": "KYC_REVIEW",
+  "opened": "2026-07-08",
+  "priority": "medium",
+  "account": {
+    "account_id": "ACC-25721",
+    "owner_name": "Yuri Osei",
+    "owner_dob": "1977-04-26",
+    "owner_ssn_last4": "9134",
+    "owner_country": "US",
+    "business_name": "Osei Works",
+    "mcc": "5699",
+    "tenure_days": 24,
+    "verification": {
+      "status": "PENDING",
+      "kyc_completed": false,
+      "kyb_completed": false,
+      "vendor_reports": [
+        {
+          "vendor": "IDVerifyPlus",
+          "result": "FAIL",
+          "detail": "Submitted document did not match issuing-authority record; resubmission requested."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 14975.83,
+    "at_risk_usd": 14975.83,
+    "current_balance_usd": 5313.69,
+    "lifetime_volume_usd": 1497.44
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-06",
+      "ip": "72.75.137.205",
+      "device_id": "dev-827",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-12",
+      "ip": "72.70.42.185",
+      "device_id": "dev-373",
+      "geo": "Omaha, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-06",
+      "ip": "72.90.29.92",
+      "device_id": "dev-706",
+      "geo": "Portland, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-27",
+      "time": "10:48:00",
+      "amount_usd": 183.56,
+      "status": "approved",
+      "settled_amount_usd": 183.56,
+      "instrument_last4": "7620",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-25",
+      "time": "14:53:00",
+      "amount_usd": 280.16,
+      "status": "approved",
+      "settled_amount_usd": 280.16,
+      "instrument_last4": "8443",
+      "bin": "470000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "08:04:00",
+      "amount_usd": 496.56,
+      "status": "approved",
+      "settled_amount_usd": 496.56,
+      "instrument_last4": "5748",
+      "bin": "540000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "14:22:00",
+      "amount_usd": 540.54,
+      "status": "approved",
+      "settled_amount_usd": 540.54,
+      "instrument_last4": "9596",
+      "bin": "430000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": []
+}

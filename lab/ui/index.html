@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 24'%3E%3Cpath d='M1 3 H10 L21 17 M6 9 H12' fill='none' stroke='%23828fff' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='19' r='3.8' fill='%23cfe0ff'/%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>verdict-bench</title>
+    <!-- reachable by link, not by crawl: the case corpus derives from
+         assignment material and the deployed site should not be indexed -->
+    <meta name="robots" content="noindex" />
+    <!-- static, not injected: link unfurlers and no-JS fetchers read only
+         this payload, so the description and OG card live here -->
+    <meta name="description" content="An account-review decisioning-prompt study: a gated prompt-by-model benchmark matrix, a versioned prompt ladder, and an adjudication queue, every number backed by a recorded run." />
+    <meta property="og:title" content="verdict-bench" />
+    <meta property="og:description" content="An account-review decisioning-prompt study: gated benchmark matrix, versioned prompt ladder, adjudication queue." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://verdict-bench.pages.dev/" />
+    <meta property="og:image" content="https://verdict-bench.pages.dev/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root">
+      <noscript>
+        <h1>verdict-bench</h1>
+        <p>An account-review decisioning-prompt study. This page renders
+        client-side; the underlying data is served statically at
+        <a href="/benchmark.json">/benchmark.json</a> and the analysis
+        notebook at <a href="/notebook.html">/notebook.html</a>.</p>
+      </noscript>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

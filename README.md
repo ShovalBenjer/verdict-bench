@@ -16,7 +16,7 @@
 An account-review agent decides flagged merchant accounts: APPROVE, HOLD,
 or REJECT, driven by a plain-text prompt. This repository treats that
 prompt the way a risk team should: versioned one change at a time,
-benchmarked across 8_wired_7_decided models on a frozen case suite, attacked with
+benchmarked across 8 wired (7 decided) models on a frozen case suite, attacked with
 planted instructions, repeated until stability is a number, and gated so
 an untrustworthy cell cannot show a headline figure.
 
@@ -73,7 +73,15 @@ per 1,000 cases.
    `prompts/` is the deliberately minimal no-policy BASELINE built later so
    ablations had a floor. Transcript sections about "prompt_v1" refer to
    the former; every benchmark number refers to the latter.
-5. `verdict-bench/`: the lab itself: engine, the test suite over real SQLite
+5. `lab/`: the FULL working lab, transferred whole on request for the
+   way-of-work: engine and tests, the complete run ledger, all planning
+   docs (`docs/PLAN.md`, `docs/PRODUCT.md`, `docs/STATUS.md`), ADRs,
+   analysis notebook, the web UI source behind the live site, deck
+   builders and assets, and `docs/PROCESS-LOG.txt`: all 107 commit
+   subjects with timestamps, the week's build arc in one page.
+   Personal and third-party content is excluded; nothing else is.
+6. `verdict-bench/`: the frozen curated bundle the writeup's path notes
+   cite: engine, the test suite over real SQLite
    (run `python3 -m pytest -q verdict-bench/tests/` for the live count;
    hand-typed test counts drift, so this README no longer carries one),
    ADRs each carrying the rejected alternative, `benchmark.json` (every
@@ -107,10 +115,10 @@ Path note: repo-relative doc links map as `docs/prd/SPEC.md` to
 `prompts/CHANGELOG.md`. The run ledger SHIPS at
 `verdict-bench/state/verdict.sqlite3` (every number regenerates from it).
 
-References that deliberately do not resolve in this bundle, so nobody
-has to discover it: `PLAN.md`, `PRODUCT.md`, `TODO.md`, `INDEX.md` are
-internal planning surfaces (calendar and private harness detail), and a
-few ADRs cite the author's own workshop rule files
-(`boundary-contracts.md`, `repo-stack-reasoning.md`) whose relevant
-content the ADR restates in place. Named here rather than left as
-dangling links; any of them is available on request.
+Reference note: `PLAN.md` and `PRODUCT.md`, earlier withheld as internal
+planning surfaces, now ship in full at `lab/docs/` (the way-of-work was
+requested, so the planning surfaces came along). `TODO.md`/`INDEX.md`
+never existed (the plan's coverage register owns that job, by a recorded
+decision). A few ADRs cite the author's own workshop rule files
+(`boundary-contracts.md`, `repo-stack-reasoning.md`); their relevant
+content is restated in place and the inherited copies were kept private.

@@ -1,0 +1,117 @@
+{
+  "case_id": "CASE-233",
+  "flag_reason": "PRIOR_CASE_REVIEW",
+  "opened": "2026-07-08",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-81537",
+    "owner_name": "Tal Vega",
+    "owner_dob": "1991-01-14",
+    "owner_ssn_last4": "4532",
+    "owner_country": "US",
+    "business_name": "Vega Goods",
+    "mcc": "5812",
+    "tenure_days": 761,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 4161.83,
+    "current_balance_usd": 4473.09,
+    "lifetime_volume_usd": 32847.54
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": true,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-03",
+      "ip": "72.45.195.188",
+      "device_id": "dev-323",
+      "geo": "Raleigh, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-05",
+      "ip": "72.60.113.230",
+      "device_id": "dev-750",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-27",
+      "ip": "72.40.29.32",
+      "device_id": "dev-829",
+      "geo": "Portland, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-17",
+      "time": "19:11:00",
+      "amount_usd": 224.19,
+      "status": "approved",
+      "settled_amount_usd": 224.19,
+      "instrument_last4": "2198",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-23",
+      "time": "09:19:00",
+      "amount_usd": 246.37,
+      "status": "approved",
+      "settled_amount_usd": 246.37,
+      "instrument_last4": "1231",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "15:37:00",
+      "amount_usd": 64.82,
+      "status": "approved",
+      "settled_amount_usd": 64.82,
+      "instrument_last4": "1177",
+      "bin": "480000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-04",
+      "time": "15:48:00",
+      "amount_usd": 108.72,
+      "status": "approved",
+      "settled_amount_usd": 108.72,
+      "instrument_last4": "1246",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-26",
+      "time": "11:13:00",
+      "amount_usd": 197.58,
+      "status": "approved",
+      "settled_amount_usd": 197.58,
+      "instrument_last4": "1406",
+      "bin": "420000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "data_migration_bot",
+      "date": "2026-04-09",
+      "text": "Flag imported from legacy system; source record not migrated."
+    }
+  ]
+}

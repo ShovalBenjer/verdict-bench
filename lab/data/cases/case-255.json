@@ -1,0 +1,116 @@
+{
+  "case_id": "CASE-255",
+  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "opened": "2026-07-20",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-16286",
+    "owner_name": "Ken Stein",
+    "owner_dob": "1976-09-14",
+    "owner_ssn_last4": "7614",
+    "owner_country": "US",
+    "business_name": "Stein Collective",
+    "mcc": "5812",
+    "tenure_days": 431,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 2029.45,
+    "lifetime_volume_usd": 28154.4
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [
+    {
+      "list": "GLOBAL_SANCTIONS",
+      "matched_name": "Ken Stein",
+      "match_type": "name_dob",
+      "matched_dob": "1976-09-14",
+      "matched_country": null,
+      "score": 0.78
+    }
+  ],
+  "device_login_history": [
+    {
+      "date": "2026-06-16",
+      "ip": "72.24.44.208",
+      "device_id": "dev-234",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-18",
+      "ip": "72.95.128.86",
+      "device_id": "dev-318",
+      "geo": "Omaha, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-30",
+      "ip": "72.82.247.94",
+      "device_id": "dev-159",
+      "geo": "Boise, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-23",
+      "time": "13:10:00",
+      "amount_usd": 172.08,
+      "status": "approved",
+      "settled_amount_usd": 172.08,
+      "instrument_last4": "3659",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-22",
+      "time": "14:22:00",
+      "amount_usd": 162.77,
+      "status": "approved",
+      "settled_amount_usd": 162.77,
+      "instrument_last4": "7569",
+      "bin": "450000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-12",
+      "time": "10:20:00",
+      "amount_usd": 35.39,
+      "status": "approved",
+      "settled_amount_usd": 35.39,
+      "instrument_last4": "9341",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "14:12:00",
+      "amount_usd": 110.6,
+      "status": "approved",
+      "settled_amount_usd": 110.6,
+      "instrument_last4": "5831",
+      "bin": "550000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-20",
+      "text": "DOB matches listed entry; listed country field empty at source. Not yet human-reviewed."
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "case_id": "CASE-242",
+  "flag_reason": "LINK_ANALYSIS",
+  "opened": "2026-07-08",
+  "priority": "medium",
+  "account": {
+    "account_id": "ACC-68496",
+    "owner_name": "Noa Stein",
+    "owner_dob": "1987-07-18",
+    "owner_ssn_last4": "7618",
+    "owner_country": "US",
+    "business_name": "Stein Studio",
+    "mcc": "7299",
+    "tenure_days": 226,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 4254.47,
+    "current_balance_usd": 1618.62,
+    "lifetime_volume_usd": 26792.98
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-30",
+      "ip": "72.54.16.76",
+      "device_id": "dev-253",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-06",
+      "ip": "72.42.139.11",
+      "device_id": "dev-956",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-07",
+      "ip": "72.21.185.162",
+      "device_id": "dev-984",
+      "geo": "Boise, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-18",
+      "time": "08:14:00",
+      "amount_usd": 415.13,
+      "status": "approved",
+      "settled_amount_usd": 415.13,
+      "instrument_last4": "9291",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "12:36:00",
+      "amount_usd": 193.52,
+      "status": "approved",
+      "settled_amount_usd": 193.52,
+      "instrument_last4": "5818",
+      "bin": "480000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-20",
+      "time": "12:45:00",
+      "amount_usd": 281.97,
+      "status": "approved",
+      "settled_amount_usd": 281.97,
+      "instrument_last4": "4129",
+      "bin": "410000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-02",
+      "time": "17:19:00",
+      "amount_usd": 348.82,
+      "status": "approved",
+      "settled_amount_usd": 348.82,
+      "instrument_last4": "9455",
+      "bin": "460000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "19:02:00",
+      "amount_usd": 306.16,
+      "status": "approved",
+      "settled_amount_usd": 306.16,
+      "instrument_last4": "1667",
+      "bin": "410000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [
+    {
+      "account_id": "ACC-54234",
+      "relationship": "same_owner_ssn_and_bank_account",
+      "status": "CLOSED_FRAUD",
+      "note": "Same SSN and payout bank account as an account closed for bust-out fraud."
+    }
+  ],
+  "prior_cases": [],
+  "notes": []
+}

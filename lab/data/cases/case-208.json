@@ -1,0 +1,126 @@
+{
+  "case_id": "CASE-208",
+  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "opened": "2026-07-13",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-82447",
+    "owner_name": "Lea Rossi",
+    "owner_dob": "1976-03-25",
+    "owner_ssn_last4": "9541",
+    "owner_country": "US",
+    "business_name": "Rossi Goods",
+    "mcc": "5734",
+    "tenure_days": 278,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": [
+        {
+          "vendor": "SanctionsScreenCo",
+          "result": "CONFIRMED_MATCH",
+          "detail": "Identity attributes compared: DOB and country align with the listed entry."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 1181.78,
+    "lifetime_volume_usd": 22084.14
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [
+    {
+      "list": "GLOBAL_SANCTIONS",
+      "matched_name": "Lea Rossi",
+      "match_type": "name_dob_country",
+      "matched_dob": "1976-03-25",
+      "matched_country": "US",
+      "score": 0.96
+    }
+  ],
+  "device_login_history": [
+    {
+      "date": "2026-06-17",
+      "ip": "72.49.57.208",
+      "device_id": "dev-169",
+      "geo": "Denver, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-24",
+      "ip": "72.20.136.194",
+      "device_id": "dev-970",
+      "geo": "Raleigh, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-03",
+      "ip": "72.46.244.129",
+      "device_id": "dev-770",
+      "geo": "Boise, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-15",
+      "time": "09:37:00",
+      "amount_usd": 231.46,
+      "status": "approved",
+      "settled_amount_usd": 231.46,
+      "instrument_last4": "4697",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "17:35:00",
+      "amount_usd": 279.29,
+      "status": "approved",
+      "settled_amount_usd": 279.29,
+      "instrument_last4": "3435",
+      "bin": "410000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-31",
+      "time": "13:58:00",
+      "amount_usd": 296.76,
+      "status": "approved",
+      "settled_amount_usd": 296.76,
+      "instrument_last4": "3646",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-01",
+      "time": "08:38:00",
+      "amount_usd": 391.01,
+      "status": "approved",
+      "settled_amount_usd": 391.01,
+      "instrument_last4": "7719",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "08:18:00",
+      "amount_usd": 561.69,
+      "status": "approved",
+      "settled_amount_usd": 561.69,
+      "instrument_last4": "5689",
+      "bin": "500000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": []
+}

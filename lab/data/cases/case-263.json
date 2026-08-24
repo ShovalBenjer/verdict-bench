@@ -1,0 +1,154 @@
+{
+  "case_id": "CASE-263",
+  "flag_reason": "PAYOUT_CHANGE_REVIEW",
+  "opened": "2026-07-21",
+  "priority": "low",
+  "account": {
+    "account_id": "ACC-98315",
+    "owner_name": "Aisha Haddad",
+    "owner_dob": "1973-04-10",
+    "owner_ssn_last4": "5661",
+    "owner_country": "US",
+    "business_name": "Haddad Studio",
+    "mcc": "5699",
+    "tenure_days": 850,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 9265.49,
+    "current_balance_usd": 5050.5,
+    "lifetime_volume_usd": 119292.63
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-19",
+      "ip": "72.80.28.21",
+      "device_id": "dev-779",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-25",
+      "ip": "72.38.63.18",
+      "device_id": "dev-657",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-03",
+      "ip": "72.18.180.246",
+      "device_id": "dev-380",
+      "geo": "Tucson, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-18",
+      "ip": "185.25.228.118",
+      "device_id": "dev-391",
+      "geo": "Nicosia, CY",
+      "note": "new device, new geography"
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-30",
+      "time": "08:06:00",
+      "amount_usd": 114.48,
+      "status": "approved",
+      "settled_amount_usd": 114.48,
+      "instrument_last4": "1983",
+      "bin": "420000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-04",
+      "time": "18:45:00",
+      "amount_usd": 267.66,
+      "status": "approved",
+      "settled_amount_usd": 267.66,
+      "instrument_last4": "7944",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "13:26:00",
+      "amount_usd": 170.6,
+      "status": "approved",
+      "settled_amount_usd": 170.6,
+      "instrument_last4": "1008",
+      "bin": "410000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "20:37:00",
+      "amount_usd": 185.42,
+      "status": "approved",
+      "settled_amount_usd": 185.42,
+      "instrument_last4": "8434",
+      "bin": "440000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-25",
+      "time": "15:48:00",
+      "amount_usd": 106.12,
+      "status": "approved",
+      "settled_amount_usd": 106.12,
+      "instrument_last4": "9866",
+      "bin": "490000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-02",
+      "time": "19:18:00",
+      "amount_usd": 188.54,
+      "status": "approved",
+      "settled_amount_usd": 188.54,
+      "instrument_last4": "6335",
+      "bin": "410000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "19:26:00",
+      "amount_usd": 47.94,
+      "status": "approved",
+      "settled_amount_usd": 47.94,
+      "instrument_last4": "8111",
+      "bin": "400000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-06",
+      "time": "12:19:00",
+      "amount_usd": 280.24,
+      "status": "approved",
+      "settled_amount_usd": 280.24,
+      "instrument_last4": "5321",
+      "bin": "530000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "screening_system",
+      "date": "2026-07-17",
+      "text": "Payout bank account replaced; new destination unverified. Login from new device and new geography same week."
+    }
+  ]
+}

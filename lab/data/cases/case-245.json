@@ -1,0 +1,138 @@
+{
+  "case_id": "CASE-245",
+  "flag_reason": "LINK_ANALYSIS",
+  "opened": "2026-08-04",
+  "priority": "medium",
+  "account": {
+    "account_id": "ACC-38459",
+    "owner_name": "Tomas Feld",
+    "owner_dob": "1997-05-10",
+    "owner_ssn_last4": "1167",
+    "owner_country": "US",
+    "business_name": "Feld Trading LLC",
+    "mcc": "7299",
+    "tenure_days": 476,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": []
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 1734.62,
+    "lifetime_volume_usd": 95106.12
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-07-05",
+      "ip": "72.99.25.57",
+      "device_id": "dev-789",
+      "geo": "Boise, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-17",
+      "ip": "72.71.140.155",
+      "device_id": "dev-218",
+      "geo": "Omaha, US",
+      "note": ""
+    },
+    {
+      "date": "2026-07-24",
+      "ip": "72.68.90.162",
+      "device_id": "dev-838",
+      "geo": "Denver, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-08",
+      "time": "12:20:00",
+      "amount_usd": 94.0,
+      "status": "approved",
+      "settled_amount_usd": 94.0,
+      "instrument_last4": "9207",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-21",
+      "time": "11:37:00",
+      "amount_usd": 152.14,
+      "status": "approved",
+      "settled_amount_usd": 152.14,
+      "instrument_last4": "3339",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "15:50:00",
+      "amount_usd": 108.35,
+      "status": "approved",
+      "settled_amount_usd": 108.35,
+      "instrument_last4": "6224",
+      "bin": "470000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "17:22:00",
+      "amount_usd": 245.0,
+      "status": "approved",
+      "settled_amount_usd": 245.0,
+      "instrument_last4": "5310",
+      "bin": "550000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "15:48:00",
+      "amount_usd": 271.02,
+      "status": "approved",
+      "settled_amount_usd": 271.02,
+      "instrument_last4": "9338",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-15",
+      "time": "13:23:00",
+      "amount_usd": 38.6,
+      "status": "approved",
+      "settled_amount_usd": 38.6,
+      "instrument_last4": "1460",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "14:00:00",
+      "amount_usd": 165.23,
+      "status": "approved",
+      "settled_amount_usd": 165.23,
+      "instrument_last4": "2514",
+      "bin": "490000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [
+    {
+      "account_id": "ACC-83143",
+      "relationship": "shared_coworking_address",
+      "status": "OPEN_GOOD_STANDING",
+      "note": "Same registered coworking address; no shared identity, bank, or device attributes."
+    }
+  ],
+  "prior_cases": [],
+  "notes": []
+}

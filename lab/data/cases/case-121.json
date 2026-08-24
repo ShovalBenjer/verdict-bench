@@ -1,0 +1,161 @@
+{
+  "case_id": "CASE-121",
+  "flag_reason": "PAYOUT_PATTERN_REVIEW",
+  "opened": "2026-06-21",
+  "priority": "medium",
+  "account": {
+    "account_id": "ACC-40277",
+    "owner_name": "Rita Alvarez",
+    "owner_dob": "1981-09-30",
+    "owner_ssn_last4": "2244",
+    "owner_country": "US",
+    "business_name": "Alvarez Trade Co",
+    "mcc": "5999",
+    "tenure_days": 720,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": [
+        {
+          "vendor": "IDVerifyPlus",
+          "result": "PASS",
+          "detail": "Identity verified."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 8200.0,
+    "at_risk_usd": 8200.0,
+    "current_balance_usd": 8450.0,
+    "lifetime_volume_usd": 310000.0
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-05",
+      "ip": "71.202.4.18",
+      "device_id": "dev-r1",
+      "geo": "San Diego, US",
+      "note": "Long-standing device"
+    },
+    {
+      "date": "2026-06-12",
+      "ip": "172.58.9.101",
+      "device_id": "dev-r9",
+      "geo": "San Diego, US",
+      "note": "New device, first seen the day the new payout destination was added"
+    },
+    {
+      "date": "2026-06-19",
+      "ip": "172.58.9.101",
+      "device_id": "dev-r9",
+      "geo": "San Diego, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-04-10",
+      "time": "10:00:00",
+      "amount_usd": 2100.0,
+      "status": "settled",
+      "settled_amount_usd": 2100.0,
+      "instrument_last4": "3320",
+      "bin": "453211",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-15",
+      "time": "12:30:00",
+      "amount_usd": 2600.0,
+      "status": "settled",
+      "settled_amount_usd": 2600.0,
+      "instrument_last4": "3320",
+      "bin": "453211",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "09:20:00",
+      "amount_usd": 900.0,
+      "status": "settled",
+      "settled_amount_usd": 900.0,
+      "instrument_last4": "7075",
+      "bin": "512300",
+      "type": "transfer_out"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "10:45:00",
+      "amount_usd": 2400.0,
+      "status": "settled",
+      "settled_amount_usd": 2400.0,
+      "instrument_last4": "7075",
+      "bin": "512300",
+      "type": "transfer_out"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "16:05:00",
+      "amount_usd": 4100.0,
+      "status": "settled",
+      "settled_amount_usd": 4100.0,
+      "instrument_last4": "7075",
+      "bin": "512300",
+      "type": "transfer_out"
+    },
+    {
+      "date": "2026-06-20",
+      "time": "11:15:00",
+      "amount_usd": 8200.0,
+      "status": "pending",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "7075",
+      "bin": "512300",
+      "type": "transfer_out"
+    }
+  ],
+  "linked_accounts": [
+    {
+      "account_id": "EXT-ralvarez-personal",
+      "owner_name": "Rita Alvarez",
+      "owner_ssn_last4": "2244",
+      "status": "UNVERIFIED",
+      "link_dimensions": [
+        "payout_destination",
+        "shared_ssn"
+      ],
+      "added_days_ago": 12,
+      "note": "New payout destination added 12 days ago; receiving account belongs to the same individual (same SSN), separate from the business's long-standing verified payout."
+    },
+    {
+      "account_id": "EXT-payout-atc",
+      "owner_name": "Alvarez Trade Co",
+      "status": "VERIFIED",
+      "link_dimensions": [
+        "payout_destination"
+      ],
+      "added_days_ago": 700,
+      "note": "Long-established, verified business payout account, unused since 2026-06-10."
+    }
+  ],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "risk_system",
+      "date": "2026-06-21",
+      "text": "Payout destination switched from the verified business account to a newly added personal account of the same owner; transfer amounts escalating over 8 days."
+    },
+    {
+      "author": "analyst_bg",
+      "date": "2026-06-21",
+      "text": "Owner controls both legs of every recent transfer. Two years of clean history, but the escalation to a fresh unverified personal destination plus a new device the same day is a cluster I cannot explain from the file."
+    }
+  ]
+}

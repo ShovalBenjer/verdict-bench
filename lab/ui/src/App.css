@@ -1,0 +1,70 @@
+@import "@fontsource-variable/inter";
+@import "tailwindcss";
+
+@theme {
+  /* near-monochrome with one indigo accent (Linear/OpenAI register,
+     operator-set 2026-08-24); warm tone demoted to a muted brass used
+     only for money and the champion */
+  --color-ink: #08090c;
+  --color-panel: rgba(255, 255, 255, 0.03);
+  --color-edge: rgba(255, 255, 255, 0.07);
+  --color-accent: #828fff;
+  --color-gold: #cfa36c;
+  --color-good: #4ade80;
+  --color-bad: #f87171;
+  --font-sans: "Inter Variable", "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-ink); color: #e8ecf4; font-family: var(--font-sans); margin: 0;
+  /* no font-smoothing override: forcing grayscale AA defeats ClearType
+     subpixel rendering on Windows and reads as blur at fractional DPI */
+  text-rendering: optimizeLegibility;
+}
+
+/* aurora canvas: two slow radial glows, the only decoration on the page */
+.aurora { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.aurora::before, .aurora::after {
+  content: ""; position: absolute; width: 60vw; height: 60vw; border-radius: 50%;
+  filter: blur(90px); opacity: 0.15; animation: drift 26s ease-in-out infinite alternate;
+}
+.aurora::before { background: #3d47b8; top: -22vw; left: -14vw; }
+.aurora::after { background: #6b5330; bottom: -26vw; right: -16vw; animation-delay: -13s; }
+@keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(5vw, 3vw) scale(1.12); } }
+@media (prefers-reduced-motion: reduce) {
+  .aurora::before, .aurora::after { animation: none; }
+}
+
+/* glass panel */
+.glass { background: var(--color-panel); border: 1px solid var(--color-edge);
+  border-radius: 1rem; backdrop-filter: blur(14px); }
+
+/* gradtext retired from display headers 2026-08-24: background-clip text
+   disables subpixel antialiasing and the gradient transition lands
+   mid-glyph at header sizes (split-color letters, operator-diagnosed).
+   Emphasis words use solid --color-gold; the class stays for non-text use. */
+.gradtext { background: linear-gradient(92deg, #cfdcff 0%, #86aaff 42%, #f6b259 108%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* explanatory tooltip: rendered into a body portal at fixed coordinates
+   (see Tipped in App.jsx), so overflow panels and the viewport edge can
+   never clip it; focus/blur mirror hover for keyboard users */
+.tip { cursor: help; outline: none; }
+.tip:focus-visible { box-shadow: 0 0 0 2px rgba(130, 143, 255, 0.5); border-radius: 4px; }
+.tipbox { position: fixed; z-index: 60; display: block;
+  width: min(300px, calc(100vw - 24px));
+  background: rgba(13, 16, 22, 0.92); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.09); border-left: 2px solid var(--color-accent);
+  border-radius: 0.6rem; padding: 0.6rem 0.8rem; font-size: 0.76rem; line-height: 1.55;
+  color: #cfd6e4; font-weight: 400; letter-spacing: normal; text-transform: none;
+  font-style: normal; text-align: left;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+  animation: tipin 0.12s ease-out; }
+.tiphead { display: block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-accent); margin-bottom: 0.25rem; font-weight: 600; }
+@keyframes tipin { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+
+/* prompt diff coloring */
+.dadd { color: var(--color-good); }
+.ddel { color: var(--color-bad); }
+.dctx { color: #5c6678; }

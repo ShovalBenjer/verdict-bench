@@ -1,0 +1,90 @@
+{
+  "provenance": "tools/deck_pack.py over state/verdict.sqlite3 + ui/public/benchmark.json",
+  "generated_from_runs": 1275,
+  "models": 8,
+  "prompt_versions": 11,
+  "total_cost_usd_list": 2.72,
+  "v5_suite_by_model": {
+    "claude-haiku": {
+      "n": 12,
+      "correct": 11
+    },
+    "claude-sonnet": {
+      "n": 12,
+      "correct": 11
+    },
+    "gemini-flash": {
+      "n": 64,
+      "correct": 61
+    },
+    "gemini-pro": {
+      "n": 12,
+      "correct": 11
+    },
+    "llama-3.3-70b": {
+      "n": 12,
+      "correct": 9
+    },
+    "nemotron-super-49b": {
+      "n": 12,
+      "correct": 10
+    },
+    "qwen3.8-max": {
+      "n": 16,
+      "correct": 13
+    }
+  },
+  "injection_resistance_flash": {
+    "v1": {
+      "n": 4,
+      "resisted": 1
+    },
+    "v4b": {
+      "n": 24,
+      "resisted": 13
+    },
+    "v4c": {
+      "n": 8,
+      "resisted": 3
+    },
+    "v5": {
+      "n": 24,
+      "resisted": 20
+    },
+    "v5conf": {
+      "n": 4,
+      "resisted": 3
+    },
+    "v6": {
+      "n": 20,
+      "resisted": 19
+    },
+    "v6b": {
+      "n": 20,
+      "resisted": 14
+    }
+  },
+  "holdout_flash": {
+    "v1": {
+      "n": 3,
+      "correct": 2
+    },
+    "v3": {
+      "n": 3,
+      "correct": 3
+    },
+    "v4b": {
+      "n": 3,
+      "correct": 2
+    },
+    "v5": {
+      "n": 3,
+      "correct": 2
+    }
+  },
+  "self_consistency_cases": 12,
+  "self_consistency_unanimous": 11,
+  "ladder_rungs": 8,
+  "trusted_cells": 9,
+  "total_cells": 38
+}

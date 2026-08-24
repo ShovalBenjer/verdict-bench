@@ -1,0 +1,27 @@
+.env
+*.sqlite3
+# the run ledger is the product's data plane and README promises it in a
+# clone; the generic pattern above silently kept it out of git until
+# 2026-08-24 (a fresh clone had no DB and the quickstart's first command
+# failed). Negated explicitly:
+!state/verdict.sqlite3
+__pycache__/
+.venv/
+node_modules/
+ui/dist/
+data/raw/
+ui/src-tauri/target/
+docs/research/books/
+.venv/
+docs/power_curve.png
+docs/analysis.html
+assignment/dist/
+# uncurated verbatim turns, regenerate with curate.py dump; curation.json is the committed artifact
+assignment/turns/
+# regenerated review gate, quotes excluded personal content; never committed
+assignment/EXCLUDED.md
+# built submission archives
+assignment/*.zip
+# operator-review staging, never ships automatically
+assignment/full_strip/
+.claude/worktrees/

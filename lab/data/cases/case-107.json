@@ -1,0 +1,397 @@
+{
+  "case_id": "CASE-107",
+  "flag_reason": "BALANCE_DRAWDOWN",
+  "opened": "2026-06-14",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-52310",
+    "owner_name": "Corbin Vale",
+    "owner_dob": "1995-05-05",
+    "owner_ssn_last4": "7788",
+    "owner_country": "US",
+    "business_name": "Vale Electronics Outlet",
+    "mcc": "5732",
+    "tenure_days": 21,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": [
+        {
+          "vendor": "IDVerifyPlus",
+          "result": "PASS",
+          "detail": "Identity verified."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 9000.0,
+    "current_balance_usd": -8500.0,
+    "lifetime_volume_usd": 17500.0
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-06-06",
+      "ip": "102.89.3.3",
+      "device_id": "dev-v1",
+      "geo": "Accra, GH",
+      "note": ""
+    },
+    {
+      "date": "2026-06-10",
+      "ip": "102.89.3.3",
+      "device_id": "dev-v1",
+      "geo": "Accra, GH",
+      "note": "Cash-out initiated from here"
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-06-06",
+      "time": "9:00:00",
+      "amount_usd": 400.0,
+      "status": "settled",
+      "settled_amount_usd": 400.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "10:00:00",
+      "amount_usd": 415.0,
+      "status": "settled",
+      "settled_amount_usd": 415.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "11:00:00",
+      "amount_usd": 430.0,
+      "status": "settled",
+      "settled_amount_usd": 430.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "12:00:00",
+      "amount_usd": 445.0,
+      "status": "settled",
+      "settled_amount_usd": 445.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "13:00:00",
+      "amount_usd": 460.0,
+      "status": "settled",
+      "settled_amount_usd": 460.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "9:00:00",
+      "amount_usd": 400.0,
+      "status": "settled",
+      "settled_amount_usd": 400.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "10:00:00",
+      "amount_usd": 415.0,
+      "status": "settled",
+      "settled_amount_usd": 415.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "11:00:00",
+      "amount_usd": 430.0,
+      "status": "settled",
+      "settled_amount_usd": 430.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "12:00:00",
+      "amount_usd": 445.0,
+      "status": "settled",
+      "settled_amount_usd": 445.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "13:00:00",
+      "amount_usd": 460.0,
+      "status": "settled",
+      "settled_amount_usd": 460.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "9:00:00",
+      "amount_usd": 400.0,
+      "status": "settled",
+      "settled_amount_usd": 400.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "10:00:00",
+      "amount_usd": 415.0,
+      "status": "settled",
+      "settled_amount_usd": 415.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "11:00:00",
+      "amount_usd": 430.0,
+      "status": "settled",
+      "settled_amount_usd": 430.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "12:00:00",
+      "amount_usd": 445.0,
+      "status": "settled",
+      "settled_amount_usd": 445.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "13:00:00",
+      "amount_usd": 460.0,
+      "status": "settled",
+      "settled_amount_usd": 460.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "9:00:00",
+      "amount_usd": 400.0,
+      "status": "settled",
+      "settled_amount_usd": 400.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "10:00:00",
+      "amount_usd": 415.0,
+      "status": "settled",
+      "settled_amount_usd": 415.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "11:00:00",
+      "amount_usd": 430.0,
+      "status": "settled",
+      "settled_amount_usd": 430.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "12:00:00",
+      "amount_usd": 445.0,
+      "status": "settled",
+      "settled_amount_usd": 445.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "13:00:00",
+      "amount_usd": 460.0,
+      "status": "settled",
+      "settled_amount_usd": 460.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-10",
+      "time": "08:00:00",
+      "amount_usd": 7000.0,
+      "status": "settled",
+      "settled_amount_usd": 7000.0,
+      "instrument_last4": "9999",
+      "bin": "512300",
+      "type": "transfer_out"
+    },
+    {
+      "date": "2026-06-10",
+      "time": "08:05:00",
+      "amount_usd": 1500.0,
+      "status": "settled",
+      "settled_amount_usd": 1500.0,
+      "instrument_last4": "9999",
+      "bin": "512300",
+      "type": "transfer_out"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "10:00:00",
+      "amount_usd": 400.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "11:00:00",
+      "amount_usd": 415.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "12:00:00",
+      "amount_usd": 430.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "13:00:00",
+      "amount_usd": 445.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "14:00:00",
+      "amount_usd": 460.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "10:00:00",
+      "amount_usd": 400.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "11:00:00",
+      "amount_usd": 415.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "12:00:00",
+      "amount_usd": 430.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "13:00:00",
+      "amount_usd": 445.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "14:00:00",
+      "amount_usd": 460.0,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "3300",
+      "bin": "520000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [
+    {
+      "account_id": "EXT-new-bank-2",
+      "owner_name": "unknown",
+      "status": "UNKNOWN",
+      "link_dimensions": [
+        "payout_destination"
+      ],
+      "added_days_ago": 5,
+      "note": "External payout destination added 5 days ago; not verified."
+    }
+  ],
+  "prior_cases": [],
+  "notes": [
+    {
+      "author": "risk_system",
+      "date": "2026-06-14",
+      "text": "Rapid balance build then near-total cash-out; chargebacks now arriving on the funding transactions."
+    }
+  ]
+}

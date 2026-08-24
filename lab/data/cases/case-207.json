@@ -1,0 +1,136 @@
+{
+  "case_id": "CASE-207",
+  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "opened": "2026-07-13",
+  "priority": "high",
+  "account": {
+    "account_id": "ACC-20247",
+    "owner_name": "Felix Rossi",
+    "owner_dob": "1984-09-25",
+    "owner_ssn_last4": "7681",
+    "owner_country": "US",
+    "business_name": "Rossi Supply Co",
+    "mcc": "5699",
+    "tenure_days": 493,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": [
+        {
+          "vendor": "IDVerifyPlus",
+          "result": "PASS",
+          "detail": "Government ID, SSN, and DOB verified for Felix Rossi, DOB 1984-09-25, US."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 5007.4,
+    "lifetime_volume_usd": 84339.63
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [
+    {
+      "list": "GLOBAL_SANCTIONS",
+      "matched_name": "Felix Rossi",
+      "match_type": "name_only",
+      "matched_dob": "1956-09-04",
+      "matched_country": "VE",
+      "score": 0.54
+    }
+  ],
+  "device_login_history": [
+    {
+      "date": "2026-06-10",
+      "ip": "72.63.68.162",
+      "device_id": "dev-627",
+      "geo": "Columbus, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-22",
+      "ip": "72.44.190.145",
+      "device_id": "dev-488",
+      "geo": "Denver, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-28",
+      "ip": "72.26.25.210",
+      "device_id": "dev-726",
+      "geo": "Raleigh, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-25",
+      "time": "13:15:00",
+      "amount_usd": 231.05,
+      "status": "approved",
+      "settled_amount_usd": 231.05,
+      "instrument_last4": "8306",
+      "bin": "480000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-31",
+      "time": "10:17:00",
+      "amount_usd": 47.92,
+      "status": "approved",
+      "settled_amount_usd": 47.92,
+      "instrument_last4": "6636",
+      "bin": "500000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "16:13:00",
+      "amount_usd": 172.44,
+      "status": "approved",
+      "settled_amount_usd": 172.44,
+      "instrument_last4": "8928",
+      "bin": "530000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "19:06:00",
+      "amount_usd": 150.27,
+      "status": "approved",
+      "settled_amount_usd": 150.27,
+      "instrument_last4": "5910",
+      "bin": "520000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "11:37:00",
+      "amount_usd": 239.92,
+      "status": "approved",
+      "settled_amount_usd": 239.92,
+      "instrument_last4": "6403",
+      "bin": "430000",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "13:59:00",
+      "amount_usd": 48.58,
+      "status": "approved",
+      "settled_amount_usd": 48.58,
+      "instrument_last4": "7515",
+      "bin": "440000",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [],
+  "prior_cases": [],
+  "notes": []
+}

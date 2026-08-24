@@ -1,0 +1,417 @@
+{
+  "case_id": "CASE-108-MET",
+  "flag_reason": "VOLUME_SPIKE",
+  "opened": "2026-06-15",
+  "priority": "medium",
+  "account": {
+    "account_id": "ACC-58317",
+    "owner_name": "Dana Whitfield",
+    "owner_dob": "1983-08-19",
+    "owner_ssn_last4": "1357",
+    "owner_country": "US",
+    "business_name": "Whitfield Outdoor Gear",
+    "mcc": "5941",
+    "tenure_days": 1180,
+    "verification": {
+      "status": "VERIFIED",
+      "kyc_completed": true,
+      "kyb_completed": true,
+      "vendor_reports": [
+        {
+          "vendor": "IDVerifyPlus",
+          "result": "PASS",
+          "detail": "Identity verified."
+        }
+      ]
+    }
+  },
+  "money": {
+    "on_hold_usd": 0.0,
+    "at_risk_usd": 0.0,
+    "current_balance_usd": 14200.0,
+    "lifetime_volume_usd": 980000.0
+  },
+  "precomputed": {
+    "confirmed_problem_on_record": false,
+    "prior_verified_issue": false
+  },
+  "watchlist_hits": [],
+  "device_login_history": [
+    {
+      "date": "2026-05-22",
+      "ip": "71.198.3.9",
+      "device_id": "dev-k4",
+      "geo": "Portland, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-05",
+      "ip": "71.198.3.9",
+      "device_id": "dev-k4",
+      "geo": "Portland, US",
+      "note": ""
+    },
+    {
+      "date": "2026-06-14",
+      "ip": "71.198.3.9",
+      "device_id": "dev-k4",
+      "geo": "Portland, US",
+      "note": ""
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-05-22",
+      "time": "9:00:00",
+      "amount_usd": 300,
+      "status": "settled",
+      "settled_amount_usd": 300,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "10:00:00",
+      "amount_usd": 310,
+      "status": "settled",
+      "settled_amount_usd": 310,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "11:00:00",
+      "amount_usd": 320,
+      "status": "settled",
+      "settled_amount_usd": 320,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "12:00:00",
+      "amount_usd": 330,
+      "status": "settled",
+      "settled_amount_usd": 330,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "13:00:00",
+      "amount_usd": 340,
+      "status": "settled",
+      "settled_amount_usd": 340,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "14:00:00",
+      "amount_usd": 350,
+      "status": "settled",
+      "settled_amount_usd": 350,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "15:00:00",
+      "amount_usd": 360,
+      "status": "settled",
+      "settled_amount_usd": 360,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "16:00:00",
+      "amount_usd": 370,
+      "status": "settled",
+      "settled_amount_usd": 370,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "9:00:00",
+      "amount_usd": 420,
+      "status": "settled",
+      "settled_amount_usd": 420,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "10:00:00",
+      "amount_usd": 430,
+      "status": "settled",
+      "settled_amount_usd": 430,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "11:00:00",
+      "amount_usd": 440,
+      "status": "settled",
+      "settled_amount_usd": 440,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "12:00:00",
+      "amount_usd": 450,
+      "status": "settled",
+      "settled_amount_usd": 450,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "13:00:00",
+      "amount_usd": 460,
+      "status": "settled",
+      "settled_amount_usd": 460,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "14:00:00",
+      "amount_usd": 470,
+      "status": "settled",
+      "settled_amount_usd": 470,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "15:00:00",
+      "amount_usd": 480,
+      "status": "settled",
+      "settled_amount_usd": 480,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "16:00:00",
+      "amount_usd": 490,
+      "status": "settled",
+      "settled_amount_usd": 490,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "9:00:00",
+      "amount_usd": 540,
+      "status": "settled",
+      "settled_amount_usd": 540,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "10:00:00",
+      "amount_usd": 550,
+      "status": "settled",
+      "settled_amount_usd": 550,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "11:00:00",
+      "amount_usd": 560,
+      "status": "settled",
+      "settled_amount_usd": 560,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "12:00:00",
+      "amount_usd": 570,
+      "status": "settled",
+      "settled_amount_usd": 570,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "13:00:00",
+      "amount_usd": 580,
+      "status": "settled",
+      "settled_amount_usd": 580,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "14:00:00",
+      "amount_usd": 590,
+      "status": "settled",
+      "settled_amount_usd": 590,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "15:00:00",
+      "amount_usd": 600,
+      "status": "settled",
+      "settled_amount_usd": 600,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "16:00:00",
+      "amount_usd": 610,
+      "status": "chargeback",
+      "settled_amount_usd": 0.0,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "9:00:00",
+      "amount_usd": 660,
+      "status": "settled",
+      "settled_amount_usd": 660,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "10:00:00",
+      "amount_usd": 670,
+      "status": "settled",
+      "settled_amount_usd": 670,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "11:00:00",
+      "amount_usd": 680,
+      "status": "settled",
+      "settled_amount_usd": 680,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "12:00:00",
+      "amount_usd": 690,
+      "status": "settled",
+      "settled_amount_usd": 690,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "13:00:00",
+      "amount_usd": 700,
+      "status": "settled",
+      "settled_amount_usd": 700,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "14:00:00",
+      "amount_usd": 710,
+      "status": "settled",
+      "settled_amount_usd": 710,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "15:00:00",
+      "amount_usd": 720,
+      "status": "settled",
+      "settled_amount_usd": 720,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "16:00:00",
+      "amount_usd": 730,
+      "status": "settled",
+      "settled_amount_usd": 730,
+      "instrument_last4": "2468",
+      "bin": "401288",
+      "type": "card_auth"
+    }
+  ],
+  "linked_accounts": [
+    {
+      "account_id": "EXT-payout-main",
+      "owner_name": "Whitfield Outdoor Gear",
+      "status": "VERIFIED",
+      "link_dimensions": [
+        "payout_destination"
+      ],
+      "added_days_ago": 900,
+      "note": "Long-established, verified payout account (900+ days)."
+    }
+  ],
+  "prior_cases": [
+    {
+      "case_id": "CX-33110",
+      "date": "2025-11-23",
+      "decision": "APPROVE",
+      "reviewer": "analyst_lee",
+      "note": "Seasonal sales spike reviewed and cleared; legitimate growth."
+    }
+  ],
+  "notes": [
+    {
+      "author": "risk_system",
+      "date": "2026-06-15",
+      "text": "Transaction volume up sharply vs prior month."
+    },
+    {
+      "author": "analyst_lee",
+      "date": "2026-06-15",
+      "text": "Established 3-year merchant, verified long-standing payout, one isolated chargeback, steady same-instrument growth. Looks like real seasonal growth (cf CX-33110)."
+    }
+  ]
+}
