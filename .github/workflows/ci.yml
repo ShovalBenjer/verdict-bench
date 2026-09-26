@@ -7,7 +7,7 @@ jobs:
   sanity:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Repo sanity
         run: |
           echo "Static/content repo: no build step. Checking tree hygiene."
