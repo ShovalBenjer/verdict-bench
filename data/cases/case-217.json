@@ -3,34 +3,34 @@
   "flag_reason": "VELOCITY_REVIEW",
   "opened": "2026-07-09",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-76700",
-    "owner_name": "Ines Yona",
-    "owner_dob": "1976-08-26",
-    "owner_ssn_last4": "8764",
-    "owner_country": "US",
-    "business_name": "Yona Supply Co",
-    "mcc": "5941",
+  "author": {
+    "author_id": "ATH-76700",
+    "display_name": "Ines Yona",
+    "country": "US",
+    "page_name": "Yona Supply Co",
+    "vertical": "5941",
     "tenure_days": 77,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1976-08-26",
+    "tax_id_last4": "8764"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 15394.04,
-    "current_balance_usd": 750.55,
-    "lifetime_volume_usd": 6136.7
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 15394.04,
+    "follower_count": 750.55,
+    "lifetime_views": 6136.7
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-08",
       "ip": "72.39.90.226",
@@ -53,106 +53,106 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-27",
       "time": "15:15:00",
-      "amount_usd": 1002.79,
-      "status": "approved",
-      "settled_amount_usd": 1002.79,
-      "instrument_last4": "1466",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 1003,
+      "status": "published",
+      "served_views": 1002.79,
+      "origin_last4": "1466",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-06-28",
       "time": "22:16:00",
-      "amount_usd": 3173.48,
-      "status": "approved",
-      "settled_amount_usd": 3173.48,
-      "instrument_last4": "1506",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 3173,
+      "status": "published",
+      "served_views": 3173.48,
+      "origin_last4": "1506",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-06-29",
       "time": "18:28:00",
-      "amount_usd": 2608.86,
-      "status": "approved",
-      "settled_amount_usd": 2608.86,
-      "instrument_last4": "7366",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 2609,
+      "status": "published",
+      "served_views": 2608.86,
+      "origin_last4": "7366",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-06-30",
       "time": "21:08:00",
-      "amount_usd": 1691.42,
-      "status": "approved",
-      "settled_amount_usd": 1691.42,
-      "instrument_last4": "5478",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 1691,
+      "status": "published",
+      "served_views": 1691.42,
+      "origin_last4": "5478",
+      "network": "500000",
+      "type": "post"
     },
     {
       "date": "2026-07-01",
       "time": "16:02:00",
-      "amount_usd": 1188.46,
-      "status": "approved",
-      "settled_amount_usd": 1188.46,
-      "instrument_last4": "1331",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 1188,
+      "status": "published",
+      "served_views": 1188.46,
+      "origin_last4": "1331",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-07-02",
       "time": "20:43:00",
-      "amount_usd": 2365.29,
-      "status": "approved",
-      "settled_amount_usd": 2365.29,
-      "instrument_last4": "9978",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 2365,
+      "status": "published",
+      "served_views": 2365.29,
+      "origin_last4": "9978",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-07-03",
       "time": "19:00:00",
-      "amount_usd": 1040.18,
-      "status": "approved",
-      "settled_amount_usd": 1040.18,
-      "instrument_last4": "3409",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 1040,
+      "status": "published",
+      "served_views": 1040.18,
+      "origin_last4": "3409",
+      "network": "500000",
+      "type": "post"
     },
     {
       "date": "2026-07-04",
       "time": "14:15:00",
-      "amount_usd": 2592.0,
-      "status": "approved",
-      "settled_amount_usd": 2592.0,
-      "instrument_last4": "6592",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 2592,
+      "status": "published",
+      "served_views": 2592.0,
+      "origin_last4": "6592",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-07-05",
       "time": "11:02:00",
-      "amount_usd": 1271.96,
-      "status": "approved",
-      "settled_amount_usd": 1271.96,
-      "instrument_last4": "2061",
-      "bin": "460000",
-      "type": "card_auth"
+      "length_chars": 1272,
+      "status": "published",
+      "served_views": 1271.96,
+      "origin_last4": "2061",
+      "network": "460000",
+      "type": "post"
     },
     {
       "date": "2026-07-08",
       "time": "03:40:00",
-      "amount_usd": 15394.04,
-      "status": "approved",
-      "settled_amount_usd": 15394.04,
-      "instrument_last4": "",
-      "bin": "",
-      "type": "payout_transfer_new_destination"
+      "length_chars": 15394,
+      "status": "published",
+      "served_views": 15394.04,
+      "origin_last4": "",
+      "network": "",
+      "type": "monetization_transfer_new_destination"
     }
   ],
   "linked_accounts": [],
@@ -161,7 +161,7 @@
     {
       "author": "screening_system",
       "date": "2026-07-09",
-      "text": "Payout destination added 2 days before transfer; no prior payout history."
+      "text": "Payout destination added 2 days before payout; no prior payout history."
     }
   ]
 }

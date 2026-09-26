@@ -16,8 +16,8 @@ MODELS = ["claude-haiku", "claude-sonnet-v4", "gemini-flash", "gemini-pro",
           "llama-3-70b", "nemotron-70b", "qwen-2-72b", "hf-phi-4"]
 
 # Decisive case fields the fidelity axis requires a reasoning to cite.
-DECISIVE_TOKENS = ("watchlist", "at_risk", "confirmed_problem", "prior_cases",
-                   "device_login", "transactions", "on_hold")
+DECISIVE_TOKENS = ("blocklist", "views_at_risk", "confirmed_problem", "prior_cases",
+                   "session_history", "posts", "views_live")
 
 
 def _probes():

@@ -20,10 +20,10 @@ analyst artifact.
 ### Business KPIs (what a risk org actually buys)
 | KPI | Definition | Proxy in this project |
 |---|---|---|
-| Expected loss per 1k cases | sum(cost[error_type] x rate) using an explicit cost matrix | Cost matrix: FA=$2,000 (realized fraud loss, avg of case exposures), FH=$45 (support touch + churn risk), FR=$600 (lost LTV), plus ONE derived cell: a fraudster held instead of rejected costs FA/4=$500 (partial containment; the fourth price is derived, not a fourth assumption). Stated as assumptions, sensitivity-analyzed in the notebook |
+| Expected loss per 1k cases | sum(cost[error_type] x rate) using an explicit cost matrix | Cost matrix: FA=$2,000 (realized harm from abusive reach left live, avg of case exposures), FH=$45 (support touch + churn risk), FR=$600 (lost LTV), plus ONE derived cell: an abusive post held instead of removed costs FA/4=$500 (partial containment; the fourth price is derived, not a fourth assumption). Stated as assumptions, sensitivity-analyzed in the notebook |
 | Auto-decision rate | share of cases decided without human review at target precision | share of cases where decision is stable (N-run agreement = 100%) AND confidence >= threshold |
 | Hold queue burden | holds created per 1k cases x avg resolution cost | HOLD rate on the suite, weighted by exposure |
-| Sanctions recall | missed genuine sanctions matches | must be 1.0; a single miss is disqualifying (zero-tolerance mirror of the policy) |
+| Blocklist recall | missed genuine blocklist matches | must be 1.0; a single miss is disqualifying (zero-tolerance mirror of the policy) |
 | Cost to serve | $ per decided case | tokens x provider price per cell |
 
 ### Technical KPIs
@@ -46,7 +46,7 @@ because p95 blowups reveal provider throttling. Report it, never tune for it.
 
 ## How a prompt becomes solvable / testable / benchmarkable
 Each prompt version is an immutable artifact: `engine/prompts/v{n}.md` +
-a changelog entry naming the hypothesis it encodes ("v3: conflicted sanctions
+a changelog entry naming the hypothesis it encodes ("v3: conflicted blocklist
 signal resolves to HOLD"). A version is benchmarkable because:
 1. Input space is frozen: the case suite (golden + perturbation + metamorphic
    + injection + synthetic) is versioned data, not regenerated per run.
@@ -61,7 +61,7 @@ scores on reasoning fidelity, evidence citation, proportionality reasoning).
 
 ## The benchmark matrix (the centerpiece screen)
 Rows: prompt v1 (baseline "just decide"), v2 (policy-quoting naive), v3
-(policy-teaching, today's work), v4 (+sanctions conflict rule + contract
+(policy-teaching, today's work), v4 (+blocklist conflict rule + contract
 hardening), v5 (+expected-loss weighing / whatever the feedback loop
 proposes). Columns: claude-sonnet, claude-haiku, gemini-flash, gemini-pro,
 llama-3.3-70b (NVIDIA), nemotron (NVIDIA), qwen-max, glm (Z.AI).

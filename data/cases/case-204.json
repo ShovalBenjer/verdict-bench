@@ -1,51 +1,51 @@
 {
   "case_id": "CASE-204",
-  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "flag_reason": "BLOCKLIST_ALIAS_MATCH",
   "opened": "2026-07-24",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-97636",
-    "owner_name": "Sofia Osei",
-    "owner_dob": "1994-10-21",
-    "owner_ssn_last4": "4628",
-    "owner_country": "US",
-    "business_name": "Osei Studio",
-    "mcc": "7538",
+  "author": {
+    "author_id": "ATH-97636",
+    "display_name": "Sofia Osei",
+    "country": "US",
+    "page_name": "Osei Studio",
+    "vertical": "7538",
     "tenure_days": 637,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
           "result": "PASS",
-          "detail": "Government ID, SSN, and DOB verified for Sofia Osei, DOB 1994-10-21, US."
+          "detail": "Government ID, tax ID, and DOB verified for Sofia Osei, DOB 1994-10-21, US."
         }
       ]
-    }
+    },
+    "dob": "1994-10-21",
+    "tax_id_last4": "4628"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 1776.04,
-    "lifetime_volume_usd": 68201.02
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 1776.04,
+    "lifetime_views": 68201.02
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [
+  "blocklist_hits": [
     {
-      "list": "GLOBAL_SANCTIONS",
-      "matched_name": "Sofia Osei",
-      "match_type": "name_only",
+      "list": "EXTREMIST_ACTOR_DB",
+      "matched_alias": "Sofia Osei",
+      "match_type": "alias_only",
       "matched_dob": "1955-04-21",
       "matched_country": "SY",
       "score": 0.56
     }
   ],
-  "device_login_history": [
+  "session_history": [
     {
       "date": "2026-06-16",
       "ip": "72.78.23.195",
@@ -68,66 +68,66 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-26",
       "time": "17:11:00",
-      "amount_usd": 49.41,
-      "status": "approved",
-      "settled_amount_usd": 49.41,
-      "instrument_last4": "1619",
-      "bin": "400000",
-      "type": "card_auth"
+      "length_chars": 49,
+      "status": "published",
+      "served_views": 49.41,
+      "origin_last4": "1619",
+      "network": "400000",
+      "type": "post"
     },
     {
       "date": "2026-05-27",
       "time": "15:20:00",
-      "amount_usd": 240.03,
-      "status": "approved",
-      "settled_amount_usd": 240.03,
-      "instrument_last4": "6101",
-      "bin": "400000",
-      "type": "card_auth"
+      "length_chars": 240,
+      "status": "published",
+      "served_views": 240.03,
+      "origin_last4": "6101",
+      "network": "400000",
+      "type": "post"
     },
     {
       "date": "2026-06-04",
       "time": "10:49:00",
-      "amount_usd": 125.33,
-      "status": "approved",
-      "settled_amount_usd": 125.33,
-      "instrument_last4": "6084",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 125,
+      "status": "published",
+      "served_views": 125.33,
+      "origin_last4": "6084",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-06-06",
       "time": "18:10:00",
-      "amount_usd": 220.52,
-      "status": "approved",
-      "settled_amount_usd": 220.52,
-      "instrument_last4": "2631",
-      "bin": "400000",
-      "type": "card_auth"
+      "length_chars": 221,
+      "status": "published",
+      "served_views": 220.52,
+      "origin_last4": "2631",
+      "network": "400000",
+      "type": "post"
     },
     {
       "date": "2026-06-09",
       "time": "09:54:00",
-      "amount_usd": 38.2,
-      "status": "approved",
-      "settled_amount_usd": 38.2,
-      "instrument_last4": "4960",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 38,
+      "status": "published",
+      "served_views": 38.2,
+      "origin_last4": "4960",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-07-19",
       "time": "19:56:00",
-      "amount_usd": 152.66,
-      "status": "approved",
-      "settled_amount_usd": 152.66,
-      "instrument_last4": "9756",
-      "bin": "430000",
-      "type": "card_auth"
+      "length_chars": 153,
+      "status": "published",
+      "served_views": 152.66,
+      "origin_last4": "9756",
+      "network": "430000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

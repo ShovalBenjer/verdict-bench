@@ -1,45 +1,45 @@
 {
   "case_id": "CASE-253",
-  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "flag_reason": "BLOCKLIST_ALIAS_MATCH",
   "opened": "2026-07-30",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-91038",
-    "owner_name": "Sofia Ueda",
-    "owner_dob": "1985-03-17",
-    "owner_ssn_last4": "8038",
-    "owner_country": "US",
-    "business_name": "Ueda Services",
-    "mcc": "5812",
+  "author": {
+    "author_id": "ATH-91038",
+    "display_name": "Sofia Ueda",
+    "country": "US",
+    "page_name": "Ueda Services",
+    "vertical": "5812",
     "tenure_days": 772,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1985-03-17",
+    "tax_id_last4": "8038"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 1420.6,
-    "lifetime_volume_usd": 129640.24
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 1420.6,
+    "lifetime_views": 129640.24
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [
+  "blocklist_hits": [
     {
-      "list": "GLOBAL_SANCTIONS",
-      "matched_name": "Sofia Ueda",
-      "match_type": "name_dob",
+      "list": "EXTREMIST_ACTOR_DB",
+      "matched_alias": "Sofia Ueda",
+      "match_type": "alias_dob",
       "matched_dob": "1985-03-17",
       "matched_country": null,
       "score": 0.88
     }
   ],
-  "device_login_history": [
+  "session_history": [
     {
       "date": "2026-06-30",
       "ip": "72.60.193.171",
@@ -62,46 +62,46 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-15",
       "time": "13:43:00",
-      "amount_usd": 111.01,
-      "status": "approved",
-      "settled_amount_usd": 111.01,
-      "instrument_last4": "8618",
-      "bin": "400000",
-      "type": "card_auth"
+      "length_chars": 111,
+      "status": "published",
+      "served_views": 111.01,
+      "origin_last4": "8618",
+      "network": "400000",
+      "type": "post"
     },
     {
       "date": "2026-06-23",
       "time": "20:31:00",
-      "amount_usd": 157.1,
-      "status": "approved",
-      "settled_amount_usd": 157.1,
-      "instrument_last4": "6439",
-      "bin": "470000",
-      "type": "card_auth"
+      "length_chars": 157,
+      "status": "published",
+      "served_views": 157.1,
+      "origin_last4": "6439",
+      "network": "470000",
+      "type": "post"
     },
     {
       "date": "2026-07-09",
       "time": "13:35:00",
-      "amount_usd": 125.18,
-      "status": "approved",
-      "settled_amount_usd": 125.18,
-      "instrument_last4": "5493",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 125,
+      "status": "published",
+      "served_views": 125.18,
+      "origin_last4": "5493",
+      "network": "410000",
+      "type": "post"
     },
     {
       "date": "2026-07-22",
       "time": "19:10:00",
-      "amount_usd": 36.88,
-      "status": "approved",
-      "settled_amount_usd": 36.88,
-      "instrument_last4": "4533",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 37,
+      "status": "published",
+      "served_views": 36.88,
+      "origin_last4": "4533",
+      "network": "420000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

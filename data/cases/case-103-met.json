@@ -3,19 +3,17 @@
   "flag_reason": "SHARED_DEVICE_LINK",
   "opened": "2026-06-16",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-64209",
-    "owner_name": "Priya Nair",
-    "owner_dob": "1994-09-12",
-    "owner_ssn_last4": "4471",
-    "owner_country": "US",
-    "business_name": "Nair Consulting",
-    "mcc": "7392",
+  "author": {
+    "author_id": "ATH-64209",
+    "display_name": "Priya Nair",
+    "country": "US",
+    "page_name": "Nair Consulting",
+    "vertical": "7392",
     "tenure_days": 402,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -23,20 +21,22 @@
           "detail": "Owner identity verified."
         }
       ]
-    }
+    },
+    "dob": "1994-09-12",
+    "tax_id_last4": "4471"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 5210.0,
-    "lifetime_volume_usd": 88400.0
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 5210.0,
+    "lifetime_views": 88400.0
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-05-11",
       "ip": "198.51.100.77",
@@ -59,74 +59,72 @@
       "note": "Home IP"
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-11",
       "time": "10:00:00",
-      "amount_usd": 240.0,
-      "status": "approved",
-      "settled_amount_usd": 240.0,
-      "instrument_last4": "4417",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 240,
+      "status": "published",
+      "served_views": 240.0,
+      "origin_last4": "4417",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-29",
       "time": "15:30:00",
-      "amount_usd": 178.5,
-      "status": "approved",
-      "settled_amount_usd": 178.5,
-      "instrument_last4": "4417",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 178,
+      "status": "published",
+      "served_views": 178.5,
+      "origin_last4": "4417",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-05",
       "time": "09:45:00",
-      "amount_usd": 512.0,
-      "status": "approved",
-      "settled_amount_usd": 512.0,
-      "instrument_last4": "4417",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 512,
+      "status": "published",
+      "served_views": 512.0,
+      "origin_last4": "4417",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-12",
       "time": "11:22:00",
-      "amount_usd": 305.0,
-      "status": "approved",
-      "settled_amount_usd": 305.0,
-      "instrument_last4": "4417",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 305,
+      "status": "published",
+      "served_views": 305.0,
+      "origin_last4": "4417",
+      "network": "401288",
+      "type": "post"
     }
   ],
   "linked_accounts": [
     {
-      "account_id": "ACC-83445",
-      "owner_name": "Marcus Reed",
-      "owner_ssn_last4": "6103",
-      "status": "CLOSED_FRAUD",
+      "author_id": "ATH-83445",
+      "status": "CLOSED_ABUSE",
+      "display_name": "Marcus Reed",
+      "tax_id_last4": "6103",
       "link_dimensions": [
         "shared_ip"
       ],
-      "shared_ip": "198.51.100.77",
+      "note": "Linked only by a public-wifi IP used by many customers. Different person, different device.",
       "ip_context": "public_wifi_coffee_shop",
-      "shared_device_id": null,
-      "shared_payment_instrument": null,
-      "note": "Linked only by a public-wifi IP used by many customers. Different person, different device."
+      "shared_ip": "198.51.100.77"
     },
     {
-      "account_id": "ACC-91230",
-      "owner_name": "Priya Nair",
-      "owner_ssn_last4": "4471",
+      "author_id": "ATH-91230",
       "status": "ACTIVE_GOOD",
+      "display_name": "Priya Nair",
+      "tax_id_last4": "4471",
       "link_dimensions": [
-        "shared_ssn",
+        "shared_tax_id",
         "shared_device",
-        "shared_instrument"
+        "shared_origin"
       ],
-      "note": "Second account of the SAME owner (Priya Nair). Strong link, but that account is in good standing."
+      "note": "Second account of the SAME creator (Priya Nair). Strong link, but that account is in good standing."
     }
   ],
   "prior_cases": [],
@@ -134,12 +132,12 @@
     {
       "author": "link_system",
       "date": "2026-06-16",
-      "text": "Auto-linked to a fraud-closed account via shared IP. No shared device or instrument."
+      "text": "Auto-linked to an abuse-closed account via shared IP. No shared device or origin."
     },
     {
-      "author": "analyst_rho",
+      "author": "moderator_rho",
       "date": "2026-06-16",
-      "text": "The fraud link is IP-only on a coffee-shop network (60+ accounts share it). The only strong link is the owner's own second, good-standing account."
+      "text": "The abuse link is IP-only on a coffee-shop network (60+ accounts share it). The only strong link is the creator's own second, good-standing account."
     }
   ]
 }

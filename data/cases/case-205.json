@@ -1,51 +1,51 @@
 {
   "case_id": "CASE-205",
-  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "flag_reason": "BLOCKLIST_ALIAS_MATCH",
   "opened": "2026-08-08",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-19167",
-    "owner_name": "Noa Ueda",
-    "owner_dob": "1971-01-05",
-    "owner_ssn_last4": "1449",
-    "owner_country": "US",
-    "business_name": "Ueda Studio",
-    "mcc": "5812",
+  "author": {
+    "author_id": "ATH-19167",
+    "display_name": "Noa Ueda",
+    "country": "US",
+    "page_name": "Ueda Studio",
+    "vertical": "5812",
     "tenure_days": 722,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
           "result": "PASS",
-          "detail": "Government ID, SSN, and DOB verified for Noa Ueda, DOB 1971-01-05, US."
+          "detail": "Government ID, tax ID, and DOB verified for Noa Ueda, DOB 1971-01-05, US."
         }
       ]
-    }
+    },
+    "dob": "1971-01-05",
+    "tax_id_last4": "1449"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 3664.6,
-    "lifetime_volume_usd": 50167.54
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 3664.6,
+    "lifetime_views": 50167.54
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [
+  "blocklist_hits": [
     {
-      "list": "GLOBAL_SANCTIONS",
-      "matched_name": "Noa Ueda",
-      "match_type": "name_only",
+      "list": "EXTREMIST_ACTOR_DB",
+      "matched_alias": "Noa Ueda",
+      "match_type": "alias_only",
       "matched_dob": "1942-03-25",
       "matched_country": "VE",
       "score": 0.64
     }
   ],
-  "device_login_history": [
+  "session_history": [
     {
       "date": "2026-07-03",
       "ip": "72.42.131.43",
@@ -68,66 +68,66 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-07-03",
       "time": "11:01:00",
-      "amount_usd": 173.04,
-      "status": "approved",
-      "settled_amount_usd": 173.04,
-      "instrument_last4": "1865",
-      "bin": "550000",
-      "type": "card_auth"
+      "length_chars": 173,
+      "status": "published",
+      "served_views": 173.04,
+      "origin_last4": "1865",
+      "network": "550000",
+      "type": "post"
     },
     {
       "date": "2026-07-09",
       "time": "12:05:00",
-      "amount_usd": 141.96,
-      "status": "approved",
-      "settled_amount_usd": 141.96,
-      "instrument_last4": "7370",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 142,
+      "status": "published",
+      "served_views": 141.96,
+      "origin_last4": "7370",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-07-11",
       "time": "10:47:00",
-      "amount_usd": 113.18,
-      "status": "approved",
-      "settled_amount_usd": 113.18,
-      "instrument_last4": "8217",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 113,
+      "status": "published",
+      "served_views": 113.18,
+      "origin_last4": "8217",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-07-11",
       "time": "18:12:00",
-      "amount_usd": 232.72,
-      "status": "approved",
-      "settled_amount_usd": 232.72,
-      "instrument_last4": "4149",
-      "bin": "400000",
-      "type": "card_auth"
+      "length_chars": 233,
+      "status": "published",
+      "served_views": 232.72,
+      "origin_last4": "4149",
+      "network": "400000",
+      "type": "post"
     },
     {
       "date": "2026-07-15",
       "time": "17:38:00",
-      "amount_usd": 264.4,
-      "status": "approved",
-      "settled_amount_usd": 264.4,
-      "instrument_last4": "9339",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 264,
+      "status": "published",
+      "served_views": 264.4,
+      "origin_last4": "9339",
+      "network": "500000",
+      "type": "post"
     },
     {
       "date": "2026-08-01",
       "time": "08:07:00",
-      "amount_usd": 28.12,
-      "status": "approved",
-      "settled_amount_usd": 28.12,
-      "instrument_last4": "8362",
-      "bin": "550000",
-      "type": "card_auth"
+      "length_chars": 28,
+      "status": "published",
+      "served_views": 28.12,
+      "origin_last4": "8362",
+      "network": "550000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

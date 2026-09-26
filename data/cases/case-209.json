@@ -1,51 +1,51 @@
 {
   "case_id": "CASE-209",
-  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "flag_reason": "BLOCKLIST_ALIAS_MATCH",
   "opened": "2026-07-09",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-24533",
-    "owner_name": "Ines Ueda",
-    "owner_dob": "1976-07-16",
-    "owner_ssn_last4": "5826",
-    "owner_country": "US",
-    "business_name": "Ueda Collective",
-    "mcc": "5941",
+  "author": {
+    "author_id": "ATH-24533",
+    "display_name": "Ines Ueda",
+    "country": "US",
+    "page_name": "Ueda Collective",
+    "vertical": "5941",
     "tenure_days": 580,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
-          "vendor": "SanctionsScreenCo",
+          "vendor": "BlocklistScreenCo",
           "result": "CONFIRMED_MATCH",
           "detail": "Identity attributes compared: DOB and country align with the listed entry."
         }
       ]
-    }
+    },
+    "dob": "1976-07-16",
+    "tax_id_last4": "5826"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 3742.34,
-    "lifetime_volume_usd": 127316.0
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 3742.34,
+    "lifetime_views": 127316.0
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [
+  "blocklist_hits": [
     {
-      "list": "GLOBAL_SANCTIONS",
-      "matched_name": "Ines Ueda",
-      "match_type": "name_dob_country",
+      "list": "EXTREMIST_ACTOR_DB",
+      "matched_alias": "Ines Ueda",
+      "match_type": "alias_dob_country",
       "matched_dob": "1976-07-16",
       "matched_country": "US",
       "score": 0.95
     }
   ],
-  "device_login_history": [
+  "session_history": [
     {
       "date": "2026-05-31",
       "ip": "72.75.150.173",
@@ -68,56 +68,56 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-07",
       "time": "08:01:00",
-      "amount_usd": 180.07,
-      "status": "approved",
-      "settled_amount_usd": 180.07,
-      "instrument_last4": "8189",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 180,
+      "status": "published",
+      "served_views": 180.07,
+      "origin_last4": "8189",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-07-01",
       "time": "09:00:00",
-      "amount_usd": 395.41,
-      "status": "approved",
-      "settled_amount_usd": 395.41,
-      "instrument_last4": "9670",
-      "bin": "550000",
-      "type": "card_auth"
+      "length_chars": 395,
+      "status": "published",
+      "served_views": 395.41,
+      "origin_last4": "9670",
+      "network": "550000",
+      "type": "post"
     },
     {
       "date": "2026-07-01",
       "time": "16:17:00",
-      "amount_usd": 445.04,
-      "status": "approved",
-      "settled_amount_usd": 445.04,
-      "instrument_last4": "7156",
-      "bin": "450000",
-      "type": "card_auth"
+      "length_chars": 445,
+      "status": "published",
+      "served_views": 445.04,
+      "origin_last4": "7156",
+      "network": "450000",
+      "type": "post"
     },
     {
       "date": "2026-07-02",
       "time": "17:18:00",
-      "amount_usd": 280.3,
-      "status": "approved",
-      "settled_amount_usd": 280.3,
-      "instrument_last4": "6163",
-      "bin": "460000",
-      "type": "card_auth"
+      "length_chars": 280,
+      "status": "published",
+      "served_views": 280.3,
+      "origin_last4": "6163",
+      "network": "460000",
+      "type": "post"
     },
     {
       "date": "2026-07-05",
       "time": "08:45:00",
-      "amount_usd": 431.21,
-      "status": "approved",
-      "settled_amount_usd": 431.21,
-      "instrument_last4": "5629",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 431,
+      "status": "published",
+      "served_views": 431.21,
+      "origin_last4": "5629",
+      "network": "410000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

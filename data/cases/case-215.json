@@ -1,36 +1,36 @@
 {
   "case_id": "CASE-215",
-  "flag_reason": "AUTH_PATTERN",
+  "flag_reason": "POSTING_PATTERN",
   "opened": "2026-07-08",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-82321",
-    "owner_name": "Felix Quinn",
-    "owner_dob": "1978-11-16",
-    "owner_ssn_last4": "1376",
-    "owner_country": "US",
-    "business_name": "Quinn Studio",
-    "mcc": "5734",
+  "author": {
+    "author_id": "ATH-82321",
+    "display_name": "Felix Quinn",
+    "country": "US",
+    "page_name": "Quinn Studio",
+    "vertical": "5734",
     "tenure_days": 46,
     "verification": {
       "status": "PENDING",
-      "kyc_completed": false,
-      "kyb_completed": false,
+      "identity_verified": false,
+      "entity_verified": false,
       "vendor_reports": []
-    }
+    },
+    "dob": "1978-11-16",
+    "tax_id_last4": "1376"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 5204.08,
-    "lifetime_volume_usd": 2687.61
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 5204.08,
+    "lifetime_views": 2687.61
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-22",
       "ip": "72.59.150.202",
@@ -53,146 +53,146 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-07-06",
       "time": "04:05:00",
-      "amount_usd": 0.84,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "8651",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "8651",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "01:06:00",
-      "amount_usd": 0.69,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "3461",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "3461",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "04:07:00",
-      "amount_usd": 1.26,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "3215",
-      "bin": "430000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "3215",
+      "network": "430000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "02:08:00",
-      "amount_usd": 0.96,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "3208",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "3208",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "04:09:00",
-      "amount_usd": 0.97,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "6444",
-      "bin": "460000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "6444",
+      "network": "460000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "03:10:00",
-      "amount_usd": 2.49,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "7634",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "7634",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "03:11:00",
-      "amount_usd": 1.82,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "8639",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "8639",
+      "network": "410000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "02:12:00",
-      "amount_usd": 2.41,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5483",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "5483",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "04:13:00",
-      "amount_usd": 1.44,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5877",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "5877",
+      "network": "410000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "03:14:00",
-      "amount_usd": 2.2,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "7621",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "7621",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "03:15:00",
-      "amount_usd": 1.57,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "6897",
-      "bin": "550000",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "6897",
+      "network": "550000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "02:16:00",
-      "amount_usd": 2.17,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5121",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "5121",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "04:17:00",
-      "amount_usd": 1.44,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "7915",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "7915",
+      "network": "480000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "04:18:00",
-      "amount_usd": 0.7,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "6181",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "6181",
+      "network": "510000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

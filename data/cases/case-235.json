@@ -3,34 +3,34 @@
   "flag_reason": "PRIOR_CASE_REVIEW",
   "opened": "2026-08-07",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-37708",
-    "owner_name": "Aisha Vega",
-    "owner_dob": "1983-05-07",
-    "owner_ssn_last4": "4356",
-    "owner_country": "US",
-    "business_name": "Vega Services",
-    "mcc": "5941",
+  "author": {
+    "author_id": "ATH-37708",
+    "display_name": "Aisha Vega",
+    "country": "US",
+    "page_name": "Vega Services",
+    "vertical": "5941",
     "tenure_days": 667,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1983-05-07",
+    "tax_id_last4": "4356"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 3610.3,
-    "current_balance_usd": 2533.47,
-    "lifetime_volume_usd": 109535.1
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 3610.3,
+    "follower_count": 2533.47,
+    "lifetime_views": 109535.1
   },
   "precomputed": {
     "confirmed_problem_on_record": true,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-07-12",
       "ip": "72.18.115.243",
@@ -53,56 +53,56 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-24",
       "time": "14:43:00",
-      "amount_usd": 312.29,
-      "status": "approved",
-      "settled_amount_usd": 312.29,
-      "instrument_last4": "9391",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 312,
+      "status": "published",
+      "served_views": 312.29,
+      "origin_last4": "9391",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-07-02",
       "time": "10:53:00",
-      "amount_usd": 77.1,
-      "status": "approved",
-      "settled_amount_usd": 77.1,
-      "instrument_last4": "6397",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 77,
+      "status": "published",
+      "served_views": 77.1,
+      "origin_last4": "6397",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-07-07",
       "time": "14:10:00",
-      "amount_usd": 156.44,
-      "status": "approved",
-      "settled_amount_usd": 156.44,
-      "instrument_last4": "7386",
-      "bin": "430000",
-      "type": "card_auth"
+      "length_chars": 156,
+      "status": "published",
+      "served_views": 156.44,
+      "origin_last4": "7386",
+      "network": "430000",
+      "type": "post"
     },
     {
       "date": "2026-07-13",
       "time": "10:40:00",
-      "amount_usd": 216.81,
-      "status": "approved",
-      "settled_amount_usd": 216.81,
-      "instrument_last4": "2039",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 217,
+      "status": "published",
+      "served_views": 216.81,
+      "origin_last4": "2039",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-07-19",
       "time": "13:19:00",
-      "amount_usd": 94.02,
-      "status": "approved",
-      "settled_amount_usd": 94.02,
-      "instrument_last4": "4489",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 94,
+      "status": "published",
+      "served_views": 94.02,
+      "origin_last4": "4489",
+      "network": "540000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

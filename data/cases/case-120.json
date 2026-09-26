@@ -3,19 +3,17 @@
   "flag_reason": "VERIFICATION_SOURCE_REVIEW",
   "opened": "2026-06-20",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-83017",
-    "owner_name": "Tomas Ferreira",
-    "owner_dob": "1990-02-11",
-    "owner_ssn_last4": "5518",
-    "owner_country": "US",
-    "business_name": "Ferreira Import House",
-    "mcc": "5999",
+  "author": {
+    "author_id": "ATH-83017",
+    "display_name": "Tomas Ferreira",
+    "country": "US",
+    "page_name": "Ferreira Import House",
+    "vertical": "5999",
     "tenure_days": 45,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -25,23 +23,25 @@
         {
           "vendor": "BizRegConfirm",
           "result": "PASS",
-          "detail": "Business registration confirmed from a notarized attestation letter supplied by the applicant; independent registry cross-check unavailable, source registry API deprecated 2025. No second source."
+          "detail": "Entity registration confirmed from a notarized attestation letter supplied by the applicant; independent registry cross-check unavailable, source registry API deprecated 2025. No second source."
         }
       ]
-    }
+    },
+    "dob": "1990-02-11",
+    "tax_id_last4": "5518"
   },
-  "money": {
-    "on_hold_usd": 9500.0,
-    "at_risk_usd": 9500.0,
-    "current_balance_usd": 11200.0,
-    "lifetime_volume_usd": 38400.0
+  "exposure": {
+    "views_live": 9500.0,
+    "views_at_risk": 9500.0,
+    "follower_count": 11200.0,
+    "lifetime_views": 38400.0
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-05-08",
       "ip": "24.90.66.12",
@@ -64,71 +64,71 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-14",
       "time": "10:05:00",
-      "amount_usd": 1450.0,
-      "status": "settled",
-      "settled_amount_usd": 1450.0,
-      "instrument_last4": "8802",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 1450,
+      "status": "served",
+      "served_views": 1450.0,
+      "origin_last4": "8802",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-05-27",
       "time": "15:40:00",
-      "amount_usd": 2900.0,
-      "status": "settled",
-      "settled_amount_usd": 2900.0,
-      "instrument_last4": "8802",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 2900,
+      "status": "served",
+      "served_views": 2900.0,
+      "origin_last4": "8802",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "11:22:00",
-      "amount_usd": 3800.0,
-      "status": "settled",
-      "settled_amount_usd": 3800.0,
-      "instrument_last4": "4471",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 3800,
+      "status": "served",
+      "served_views": 3800.0,
+      "origin_last4": "4471",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-19",
       "time": "09:10:00",
-      "amount_usd": 9500.0,
+      "length_chars": 9500,
       "status": "pending",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "6690",
-      "bin": "512300",
-      "type": "transfer_out"
+      "served_views": 0.0,
+      "origin_last4": "6690",
+      "network": "512300",
+      "type": "link_drop"
     }
   ],
   "linked_accounts": [
     {
-      "account_id": "EXT-payout-fh",
-      "owner_name": "Ferreira Import House",
+      "author_id": "EXT-payout-fh",
       "status": "UNVERIFIED",
+      "display_name": "Ferreira Import House",
       "link_dimensions": [
         "payout_destination"
       ],
-      "added_days_ago": 9,
-      "note": "Payout destination added 9 days ago; ownership of the receiving account attested by the applicant, not independently verified."
+      "note": "Payout destination added 9 days ago; control of the receiving account attested by the applicant, not independently verified.",
+      "added_days_ago": 9
     }
   ],
   "prior_cases": [],
   "notes": [
     {
-      "author": "risk_system",
+      "author": "safety_system",
       "date": "2026-06-20",
-      "text": "Verification vendor audit: BizRegConfirm PASS for this account traces to a single applicant-supplied attestation; registry cross-check was never performed."
+      "text": "Verification vendor audit: EntityRegConfirm PASS for this account traces to a single applicant-supplied attestation; registry cross-check was never performed."
     },
     {
-      "author": "analyst_mv",
+      "author": "moderator_mv",
       "date": "2026-06-20",
-      "text": "Everything is formally green, but the business-registration PASS certifies less than it appears to: one self-supplied document, no independent source, and a large pending transfer to a destination attested the same way."
+      "text": "Everything is formally green, but the entity-registration PASS certifies less than it appears to: one self-supplied document, no independent source, and a large pending payout to a destination attested the same way."
     }
   ]
 }

@@ -181,10 +181,10 @@ The part of this page I care about is not the automation, it is that the system 
   itself said HOLD (one run each), so the stable disagreement belongs to
   the prompt-model pair, not the model. Stable disagreement ->
   label-review trigger, not automated belief.
-- Slide: the disqualifying gate. SPEC.md: "Sanctions recall must be 1.0;
+- Slide: the disqualifying gate. SPEC.md: "Blocklist recall must be 1.0;
   a single miss is disqualifying." `python engine/runner.py --report`
   shows every model in the matrix passes this gate: zero misses on
-  sanctions_watchlist or confirmed_history cases across the ENTIRE
+  blocklist_match or confirmed_history cases across the ENTIRE
   suite. One exception to show, honestly: llama-3.3-70b's v4 cell
   DISQUALIFIES on CASE-101/CASE-106, but those are contract-parse
   failures that recovered correctly on retry, not real policy misses,

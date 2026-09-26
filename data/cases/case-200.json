@@ -3,34 +3,34 @@
   "flag_reason": "VELOCITY_REVIEW",
   "opened": "2026-07-30",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-69287",
-    "owner_name": "Omar Quinn",
-    "owner_dob": "1994-08-01",
-    "owner_ssn_last4": "3873",
-    "owner_country": "US",
-    "business_name": "Quinn Goods",
-    "mcc": "7538",
+  "author": {
+    "author_id": "ATH-69287",
+    "display_name": "Omar Quinn",
+    "country": "US",
+    "page_name": "Quinn Goods",
+    "vertical": "7538",
     "tenure_days": 725,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1994-08-01",
+    "tax_id_last4": "3873"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 1399.37,
-    "lifetime_volume_usd": 105609.58
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 1399.37,
+    "lifetime_views": 105609.58
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-30",
       "ip": "72.80.69.111",
@@ -53,86 +53,86 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-31",
       "time": "20:26:00",
-      "amount_usd": 287.59,
-      "status": "approved",
-      "settled_amount_usd": 287.59,
-      "instrument_last4": "4718",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 288,
+      "status": "published",
+      "served_views": 287.59,
+      "origin_last4": "4718",
+      "network": "410000",
+      "type": "post"
     },
     {
       "date": "2026-06-01",
       "time": "12:07:00",
-      "amount_usd": 54.0,
-      "status": "approved",
-      "settled_amount_usd": 54.0,
-      "instrument_last4": "3228",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 54,
+      "status": "published",
+      "served_views": 54.0,
+      "origin_last4": "3228",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-06-05",
       "time": "15:28:00",
-      "amount_usd": 109.47,
-      "status": "approved",
-      "settled_amount_usd": 109.47,
-      "instrument_last4": "8991",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 109,
+      "status": "published",
+      "served_views": 109.47,
+      "origin_last4": "8991",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-06-17",
       "time": "12:31:00",
-      "amount_usd": 187.92,
-      "status": "approved",
-      "settled_amount_usd": 187.92,
-      "instrument_last4": "4443",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 188,
+      "status": "published",
+      "served_views": 187.92,
+      "origin_last4": "4443",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-07-05",
       "time": "12:40:00",
-      "amount_usd": 296.01,
-      "status": "approved",
-      "settled_amount_usd": 296.01,
-      "instrument_last4": "2578",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 296,
+      "status": "published",
+      "served_views": 296.01,
+      "origin_last4": "2578",
+      "network": "480000",
+      "type": "post"
     },
     {
       "date": "2026-07-05",
       "time": "20:30:00",
-      "amount_usd": 342.57,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "7252",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 343,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "7252",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-07-18",
       "time": "19:08:00",
-      "amount_usd": 238.05,
-      "status": "approved",
-      "settled_amount_usd": 238.05,
-      "instrument_last4": "1001",
-      "bin": "450000",
-      "type": "card_auth"
+      "length_chars": 238,
+      "status": "published",
+      "served_views": 238.05,
+      "origin_last4": "1001",
+      "network": "450000",
+      "type": "post"
     },
     {
       "date": "2026-07-23",
       "time": "17:57:00",
-      "amount_usd": 40.99,
-      "status": "approved",
-      "settled_amount_usd": 40.99,
-      "instrument_last4": "2281",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 41,
+      "status": "published",
+      "served_views": 40.99,
+      "origin_last4": "2281",
+      "network": "490000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

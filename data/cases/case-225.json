@@ -3,19 +3,17 @@
   "flag_reason": "DOC_REVIEW",
   "opened": "2026-07-27",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-96601",
-    "owner_name": "Marco Toledo",
-    "owner_dob": "1986-06-22",
-    "owner_ssn_last4": "6534",
-    "owner_country": "US",
-    "business_name": "Toledo Studio",
-    "mcc": "7299",
+  "author": {
+    "author_id": "ATH-96601",
+    "display_name": "Marco Toledo",
+    "country": "US",
+    "page_name": "Toledo Studio",
+    "vertical": "7299",
     "tenure_days": 76,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -25,23 +23,25 @@
         {
           "vendor": "BizRegistryCheck",
           "result": "MISMATCH",
-          "detail": "Registered business address differs from application; officer list does not include the account owner."
+          "detail": "Registered entity address differs from application; officer list does not include the account creator."
         }
       ]
-    }
+    },
+    "dob": "1986-06-22",
+    "tax_id_last4": "6534"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 6416.72,
-    "current_balance_usd": 1824.26,
-    "lifetime_volume_usd": 11801.0
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 6416.72,
+    "follower_count": 1824.26,
+    "lifetime_views": 11801.0
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-27",
       "ip": "72.39.221.95",
@@ -64,36 +64,36 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-07-05",
       "time": "20:35:00",
-      "amount_usd": 422.65,
-      "status": "approved",
-      "settled_amount_usd": 422.65,
-      "instrument_last4": "6603",
-      "bin": "470000",
-      "type": "card_auth"
+      "length_chars": 423,
+      "status": "published",
+      "served_views": 422.65,
+      "origin_last4": "6603",
+      "network": "470000",
+      "type": "post"
     },
     {
       "date": "2026-07-09",
       "time": "10:33:00",
-      "amount_usd": 326.58,
-      "status": "approved",
-      "settled_amount_usd": 326.58,
-      "instrument_last4": "9668",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 327,
+      "status": "published",
+      "served_views": 326.58,
+      "origin_last4": "9668",
+      "network": "410000",
+      "type": "post"
     },
     {
       "date": "2026-07-17",
       "time": "10:12:00",
-      "amount_usd": 171.74,
-      "status": "approved",
-      "settled_amount_usd": 171.74,
-      "instrument_last4": "7083",
-      "bin": "450000",
-      "type": "card_auth"
+      "length_chars": 172,
+      "status": "published",
+      "served_views": 171.74,
+      "origin_last4": "7083",
+      "network": "450000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

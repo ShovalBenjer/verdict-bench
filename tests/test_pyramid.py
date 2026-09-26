@@ -74,7 +74,7 @@ def test_export_el_equals_oec_el_including_unparseable(tmp_path, monkeypatch):
 # 2. cell_trust precedence and the flip guardrail branch.
 def test_disq_beats_flag_when_both_apply():
     con = mem_db()
-    add_case(con, "CASE-910", "REJECT", clause="sanctions_watchlist")
+    add_case(con, "CASE-910", "REJECT", clause="blocklist_match")
     add_run(con, "CASE-910", "vX", "m1", "APPROVE", 0)  # zero-tolerance miss
     trust, violations, _ = oec.cell_trust(con, "vX", "m1", 0.0, 1.0, None)
     assert trust == "DISQ"  # thin n and wide CI must not soften it to FLAG

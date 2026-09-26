@@ -3,34 +3,34 @@
   "flag_reason": "LINK_ANALYSIS",
   "opened": "2026-07-08",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-68496",
-    "owner_name": "Noa Stein",
-    "owner_dob": "1987-07-18",
-    "owner_ssn_last4": "7618",
-    "owner_country": "US",
-    "business_name": "Stein Studio",
-    "mcc": "7299",
+  "author": {
+    "author_id": "ATH-68496",
+    "display_name": "Noa Stein",
+    "country": "US",
+    "page_name": "Stein Studio",
+    "vertical": "7299",
     "tenure_days": 226,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1987-07-18",
+    "tax_id_last4": "7618"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 4254.47,
-    "current_balance_usd": 1618.62,
-    "lifetime_volume_usd": 26792.98
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 4254.47,
+    "follower_count": 1618.62,
+    "lifetime_views": 26792.98
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-30",
       "ip": "72.54.16.76",
@@ -53,64 +53,64 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-18",
       "time": "08:14:00",
-      "amount_usd": 415.13,
-      "status": "approved",
-      "settled_amount_usd": 415.13,
-      "instrument_last4": "9291",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 415,
+      "status": "published",
+      "served_views": 415.13,
+      "origin_last4": "9291",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-06-08",
       "time": "12:36:00",
-      "amount_usd": 193.52,
-      "status": "approved",
-      "settled_amount_usd": 193.52,
-      "instrument_last4": "5818",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 194,
+      "status": "published",
+      "served_views": 193.52,
+      "origin_last4": "5818",
+      "network": "480000",
+      "type": "post"
     },
     {
       "date": "2026-06-20",
       "time": "12:45:00",
-      "amount_usd": 281.97,
-      "status": "approved",
-      "settled_amount_usd": 281.97,
-      "instrument_last4": "4129",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 282,
+      "status": "published",
+      "served_views": 281.97,
+      "origin_last4": "4129",
+      "network": "410000",
+      "type": "post"
     },
     {
       "date": "2026-07-02",
       "time": "17:19:00",
-      "amount_usd": 348.82,
-      "status": "approved",
-      "settled_amount_usd": 348.82,
-      "instrument_last4": "9455",
-      "bin": "460000",
-      "type": "card_auth"
+      "length_chars": 349,
+      "status": "published",
+      "served_views": 348.82,
+      "origin_last4": "9455",
+      "network": "460000",
+      "type": "post"
     },
     {
       "date": "2026-07-05",
       "time": "19:02:00",
-      "amount_usd": 306.16,
-      "status": "approved",
-      "settled_amount_usd": 306.16,
-      "instrument_last4": "1667",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 306,
+      "status": "published",
+      "served_views": 306.16,
+      "origin_last4": "1667",
+      "network": "410000",
+      "type": "post"
     }
   ],
   "linked_accounts": [
     {
-      "account_id": "ACC-54234",
-      "relationship": "same_owner_ssn_and_bank_account",
-      "status": "CLOSED_FRAUD",
-      "note": "Same SSN and payout bank account as an account closed for bust-out fraud."
+      "author_id": "ATH-54234",
+      "status": "CLOSED_ABUSE",
+      "relationship": "same_creator_tax_id_and_payout_account",
+      "note": "Same tax ID and payout account as an account closed for farm-and-dump abuse."
     }
   ],
   "prior_cases": [],

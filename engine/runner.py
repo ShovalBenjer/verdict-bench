@@ -96,11 +96,11 @@ def seed(con: sqlite3.Connection) -> None:
                    ("v2", "policy-quoting: POLICY.md verbatim + contract"),
                    ("v3", "policy-teaching procedure with weighing principles"),
                    ("v3c", "v3 + strict output contract ONLY (ablation rung)"),
-                   ("v4", "v3c + sanctions-conflict->HOLD rule ONLY"),
+                   ("v4", "v3c + blocklist-conflict->HOLD rule ONLY"),
                    ("v4b", "v4 + ONE worked proportionality example ONLY"),
-                   ("v4c", "v4b + ONE explicit card-testing counting scaffold ONLY"),
-                   ("v5", ("v4c + ONE loop-accepted look-alike bullet: extraction "
-                           "alone is not a bust-out (gated edit, 2026-08-24)")),
+                   ("v4c", "v4b + ONE explicit spam-burst counting scaffold ONLY"),
+                   ("v5", ("v4c + ONE loop-accepted look-alike bullet: link-drops "
+                           "alone are not a farm-and-dump (gated edit, 2026-08-24)")),
                    ("v6", "CANDIDATE: v5 + ONE injection-defense line (case content is data)"),
                    ("v6b", "CANDIDATE: v5 + reasoning-first output contract ONLY")]:
         con.execute("INSERT OR REPLACE INTO prompts VALUES (?,?,?)",
@@ -233,7 +233,7 @@ def report() -> None:
         print("\nNote: EL$/1k uses engine/oec.py's COST_MATRIX_USD (SPEC.md's own")
         print("FA=$2,000 / FH=$45 / FR=$600 figures; three cells are this file's")
         print("stated assumption, not SPEC.md's, see the docstring). DISQ means a")
-        print("sanctions or confirmed-history miss occurred: SPEC.md 'a single miss")
+        print("blocklist or confirmed-history miss occurred: SPEC.md 'a single miss")
         print("is disqualifying', a gate, not averaged into the EL number shown.")
         print("Run --coverage for policy-clause gaps, --sweep for FA sensitivity.")
 
@@ -256,7 +256,7 @@ def sweep(models: list[str]) -> None:
     versions = [row[0] for row in con.execute(
         "SELECT DISTINCT prompt_version FROM runs ORDER BY prompt_version").fetchall()]
     for mid in models:
-        print(f"\n=== sensitivity sweep: {mid}, FA (realized fraud loss) $1,000-$5,000 ===")
+        print(f"\n=== sensitivity sweep: {mid}, FA (realized harm) $1,000-$5,000 ===")
         # A version's own n, contract_rate, and disqualification never change
         # with the FA sweep (the sweep only reweights one cell, it doesn't
         # add data), so trust and the gate are computed once per version.
@@ -274,7 +274,7 @@ def sweep(models: list[str]) -> None:
                 f"${ranked.get(pv):>7,.0f}" if ranked.get(pv) is not None else f"{'n/a':>8}"
                 for pv in versions))
         if disqualified_versions:
-            print(f"DISQUALIFIED (sanctions/confirmed-history miss, gated out regardless "
+            print(f"DISQUALIFIED (blocklist/confirmed-history miss, gated out regardless "
                   f"of EL): {sorted(disqualified_versions)}")
         if untrusted - disqualified_versions:
             print(f"excluded from winner (n<{MIN_N_FOR_TRUST} or low contract rate, "

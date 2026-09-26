@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS cases (
   path TEXT NOT NULL,
   -- which POLICY.md section this case's decision turns on (added 2026-08-19,
   -- operator ask: metrics must trace to the policy, not an invented weight).
-  -- One of: sanctions_watchlist | account_linkage | transaction_activity |
-  -- identity_ownership | confirmed_history | weighing_proportionality |
+  -- One of: blocklist_match | author_linkage | posting_activity |
+  -- identity_control | confirmed_history | weighing_proportionality |
   -- evidence_discipline | data_quality_flag. NULL for untagged legacy rows.
   policy_clause TEXT,
   -- kept out of state until 2026-08-19 (added live via ALTER TABLE, schema.sql

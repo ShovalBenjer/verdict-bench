@@ -3,34 +3,34 @@
   "flag_reason": "PRIOR_CASE_REVIEW",
   "opened": "2026-08-07",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-45527",
-    "owner_name": "Ravi Petrov",
-    "owner_dob": "1988-08-25",
-    "owner_ssn_last4": "6948",
-    "owner_country": "US",
-    "business_name": "Petrov Trading LLC",
-    "mcc": "5699",
+  "author": {
+    "author_id": "ATH-45527",
+    "display_name": "Ravi Petrov",
+    "country": "US",
+    "page_name": "Petrov Trading LLC",
+    "vertical": "5699",
     "tenure_days": 203,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1988-08-25",
+    "tax_id_last4": "6948"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 2021.43,
-    "lifetime_volume_usd": 28756.72
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 2021.43,
+    "lifetime_views": 28756.72
   },
   "precomputed": {
     "confirmed_problem_on_record": true,
     "prior_verified_issue": true
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-07-05",
       "ip": "72.50.152.249",
@@ -53,56 +53,56 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-07-11",
       "time": "17:28:00",
-      "amount_usd": 194.72,
-      "status": "approved",
-      "settled_amount_usd": 194.72,
-      "instrument_last4": "5351",
-      "bin": "400000",
-      "type": "card_auth"
+      "length_chars": 195,
+      "status": "published",
+      "served_views": 194.72,
+      "origin_last4": "5351",
+      "network": "400000",
+      "type": "post"
     },
     {
       "date": "2026-07-15",
       "time": "12:05:00",
-      "amount_usd": 307.81,
-      "status": "approved",
-      "settled_amount_usd": 307.81,
-      "instrument_last4": "2251",
-      "bin": "470000",
-      "type": "card_auth"
+      "length_chars": 308,
+      "status": "published",
+      "served_views": 307.81,
+      "origin_last4": "2251",
+      "network": "470000",
+      "type": "post"
     },
     {
       "date": "2026-07-17",
       "time": "19:04:00",
-      "amount_usd": 315.04,
-      "status": "approved",
-      "settled_amount_usd": 315.04,
-      "instrument_last4": "3684",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 315,
+      "status": "published",
+      "served_views": 315.04,
+      "origin_last4": "3684",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-07-21",
       "time": "20:55:00",
-      "amount_usd": 187.33,
-      "status": "approved",
-      "settled_amount_usd": 187.33,
-      "instrument_last4": "1596",
-      "bin": "430000",
-      "type": "card_auth"
+      "length_chars": 187,
+      "status": "published",
+      "served_views": 187.33,
+      "origin_last4": "1596",
+      "network": "430000",
+      "type": "post"
     },
     {
       "date": "2026-07-26",
       "time": "13:02:00",
-      "amount_usd": 329.36,
-      "status": "approved",
-      "settled_amount_usd": 329.36,
-      "instrument_last4": "9866",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 329,
+      "status": "published",
+      "served_views": 329.36,
+      "origin_last4": "9866",
+      "network": "440000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],
@@ -111,8 +111,8 @@
       "case_id": "CX-35002",
       "date": "2024-12-29",
       "decision": "REJECT",
-      "reviewer": "analyst_ds",
-      "note": "Chargeback fraud adjudicated against this party; identity verified at the time."
+      "reviewer": "moderator_ds",
+      "note": "Report abuse adjudicated against this party; identity verified at the time."
     }
   ],
   "notes": []

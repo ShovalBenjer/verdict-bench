@@ -25,15 +25,15 @@ LABELS: dict = json.loads((ROOT / "data" / "labels.json").read_text())
 
 # assumption-stated cost matrix (SPEC.md business KPIs)
 COST = {"FA": 2000.0, "FH": 45.0, "FR": 600.0}
-# ONE more named assumption (queue burden): analyst cost per HOLD review.
+# ONE more named assumption (queue burden): moderator cost per HOLD review.
 # Not in SPEC; stated here and everywhere the number renders.
 REVIEW_COST_USD = 35.0
 # mechanical citation-fidelity vocabulary: case-field concepts the README's
 # own contract expects reasoning to cite ("with its reasoning, citing the
 # case"); >=3 concepts AND >=2 literal numbers = a citing reasoning.
-CITE_FIELDS = ("tenure", "at_risk", "on_hold", "verification", "watchlist",
-               "instrument", "declin", "prior", "linked", "kyc", "kyb",
-               "settled", "payout", "balance", "lifetime")
+CITE_FIELDS = ("tenure", "at_risk", "views_live", "verification", "blocklist",
+               "origin", "filter", "prior", "linked", "identity", "entity",
+               "served", "payout", "follower", "lifetime")
 PRICE = {  # $/MTok in, out; NVIDIA build free tier = 0
     "gemini-flash": (0.30, 2.50), "gemini-pro": (1.25, 10.0),
     "llama-3.3-70b": (0.0, 0.0), "claude-sonnet": (3.0, 15.0),
@@ -48,9 +48,9 @@ PRICE = {  # $/MTok in, out; NVIDIA build free tier = 0
 def error_cost(decision: str, expected: str) -> float:
     if decision == expected:
         return 0.0
-    if expected == "REJECT":          # released or merely held a fraudster
+    if expected == "REJECT":          # left up or merely held an abusive post
         return COST["FA"] if decision == "APPROVE" else COST["FA"] * 0.25
-    if expected == "APPROVE":         # friction on a good customer
+    if expected == "APPROVE":         # friction on a good creator
         return COST["FR"] if decision == "REJECT" else COST["FH"]
     return COST["FH"] if decision == "APPROVE" else COST["FR"]  # expected HOLD
 
@@ -63,7 +63,7 @@ def main() -> None:
     for row in con.execute("SELECT case_id, path FROM cases"):
         try:
             at_risk[row["case_id"]] = float(json.loads(Path(row["path"]).read_text())
-                                            .get("money", {}).get("at_risk_usd", 0.0))
+                                            .get("exposure", {}).get("views_at_risk", 0.0))
         except (OSError, json.JSONDecodeError, TypeError, ValueError):
             at_risk[row["case_id"]] = 0.0
     cells: dict[tuple[str, str], dict] = {}
@@ -171,10 +171,11 @@ def main() -> None:
             rubric[jm] = {"n": n_j, "fidelity": round(fid, 1),
                           "evidence": round(evi, 1), "proportionality": round(pro, 1)}
         # SPEC business KPIs, per cell, from suite first runs. Also the two
-        # payments-industry framings the suite CAN support (2026-08-24):
-        # insult rate (good customers declined per the industry's own word)
-        # and dollar-weighted detection (fraud $ caught over fraud $ present).
-        # bps-of-processed-volume and chargeback-threshold positioning need
+        # trust & safety framings the suite CAN support (2026-08-24):
+        # insult rate (good creators removed per the industry's own word)
+        # and reach-weighted detection (abusive reach caught over abusive
+        # reach present).
+        # bps-of-served-views and report-threshold positioning need
         # volume assumptions the suite does not carry; absent by name.
         approve_graded = [r for r in graded if r["expected"] == "APPROVE"]
         insult_rate = (sum(1 for r in approve_graded if r["decision"] == "REJECT")
@@ -338,8 +339,8 @@ def main() -> None:
         "SELECT version, hypothesis FROM prompts")}
     deltas = {"v1": "baseline: no policy", "v2": "+ policy verbatim",
               "v3": "procedure replaces quote", "v3c": "+ strict contract",
-              "v4": "+ sanctions rule", "v4b": "+ worked proportionality example",
-              "v4c": "+ card-testing counting scaffold",
+              "v4": "+ blocklist rule", "v4b": "+ worked proportionality example",
+              "v4c": "+ spam-burst counting scaffold",
               "v5": "+ loop-accepted edit"}
     for v, d in deltas.items():
         versions.setdefault(v, {})["delta"] = d

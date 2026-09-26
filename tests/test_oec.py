@@ -1,5 +1,5 @@
 """Boundary tests for engine/oec.py: dollar expected loss (SPEC.md's own
-cost matrix), the sanctions/confirmed-history disqualifying gate, policy-
+cost matrix), the blocklist/confirmed-history disqualifying gate, policy-
 clause coverage, and guardrail checks. Real in-memory SQLite, no mocks,
 per the no-mocks standing rule."""
 import sqlite3
@@ -52,7 +52,7 @@ def test_all_correct_decisions_yield_zero_loss():
 
 
 def test_false_approve_costs_more_than_held_on_reject():
-    # APPROVE-when-expected-REJECT (missed fraud, released, FA=$2,000) must
+    # APPROVE-when-expected-REJECT (missed abuse, released, FA=$2,000) must
     # cost more than HOLD-when-expected-REJECT (caught but not closed,
     # FA*0.25=$500 per export.py's formula): funds stay held either way is
     # NOT true of full release, so full release must cost the most.
@@ -116,13 +116,13 @@ def test_unparseable_decision_costs_worst_case_not_free():
     assert r.expected_loss_usd_per_1k == worst * 1000
 
 
-def test_sanctions_miss_disqualifies_regardless_of_low_el():
-    # SPEC.md: "Sanctions recall must be 1.0; a single miss is
+def test_blocklist_miss_disqualifies_regardless_of_low_el():
+    # SPEC.md: "Blocklist recall must be 1.0; a single miss is
     # disqualifying." POLICY.md: "zero tolerance." A miss on this clause
     # must flip `disqualified=True` even though APPROVE-when-expected-
     # APPROVE elsewhere in the same cell would otherwise read as cheap.
     con = seed_db(rows=[("C1", "APPROVE", True, 0)],
-                   cases=[("C1", "REJECT", "sanctions_watchlist")])
+                   cases=[("C1", "REJECT", "blocklist_match")])
     r = expected_loss(con, "v1", "m1")
     assert r.disqualified
     assert r.disqualified_cases == ["C1"]
@@ -138,7 +138,7 @@ def test_confirmed_history_miss_disqualifies():
 
 def test_correct_decision_on_disqualifying_clause_does_not_disqualify():
     con = seed_db(rows=[("C1", "REJECT", True, 0)],
-                   cases=[("C1", "REJECT", "sanctions_watchlist")])
+                   cases=[("C1", "REJECT", "blocklist_match")])
     r = expected_loss(con, "v1", "m1")
     assert not r.disqualified
     assert r.expected_loss_usd_per_1k == 0.0
@@ -146,7 +146,7 @@ def test_correct_decision_on_disqualifying_clause_does_not_disqualify():
 
 def test_non_disqualifying_clause_miss_costs_but_does_not_gate():
     con = seed_db(rows=[("C1", "APPROVE", True, 0)],
-                   cases=[("C1", "REJECT", "account_linkage")])
+                   cases=[("C1", "REJECT", "author_linkage")])
     r = expected_loss(con, "v1", "m1")
     assert not r.disqualified
     assert r.expected_loss_usd_per_1k == FA_USD * 1000  # still costs FA, just not gated
@@ -161,12 +161,12 @@ def test_untagged_case_costs_normally_no_special_flag():
 
 def test_coverage_report_names_every_policy_clause_including_zero_case_ones():
     con = seed_db(rows=[("C1", "APPROVE", True, 0)],
-                   cases=[("C1", "APPROVE", "sanctions_watchlist")])
+                   cases=[("C1", "APPROVE", "blocklist_match")])
     report = coverage_report(con)
     clauses_seen = {c.clause for c in report}
     assert clauses_seen == set(POLICY_CLAUSES)  # every clause reported, not just covered ones
     by_name = {c.clause: c for c in report}
-    assert by_name["sanctions_watchlist"].n_cases == 1
+    assert by_name["blocklist_match"].n_cases == 1
     assert by_name["evidence_discipline"].n_cases == 0  # the real, named hole
 
 
@@ -175,7 +175,7 @@ def test_sensitivity_sweep_moves_only_the_false_approve_cell():
     # C2: expected APPROVE, decided REJECT -> pays FR, must NOT move.
     con = seed_db(
         rows=[("C1", "APPROVE", True, 0), ("C2", "REJECT", True, 0)],
-        cases=[("C1", "REJECT", "account_linkage"), ("C2", "APPROVE", "account_linkage")])
+        cases=[("C1", "REJECT", "author_linkage"), ("C2", "APPROVE", "author_linkage")])
     swept = sensitivity_sweep(con, ["v1"], "m1", fa_values=(1000.0, 3000.0))
     lo = dict(swept[1000.0])["v1"]
     hi = dict(swept[3000.0])["v1"]
@@ -207,9 +207,9 @@ def test_cost_matrix_matches_export_py_exactly():
 
 
 def test_hold_expected_reject_does_not_pay_full_fa():
-    # POLICY.md: funds stay held, "the loss is realised when the funds
-    # leave" -- a HOLD on a REJECT-expected case is friction, not a missed
-    # fraud loss, so it must cost less than the APPROVE-on-REJECT cell.
+    # POLICY.md: the post stays held, "the harm is realised when the links
+    # go out" -- a HOLD on a REJECT-expected case is friction, not a missed
+    # abuse loss, so it must cost less than the APPROVE-on-REJECT cell.
     con = seed_db(rows=[("C1", "HOLD", True, 0)], cases=[("C1", "REJECT")])
     r = expected_loss(con, "v1", "m1")
     assert r.expected_loss_usd_per_1k < FA_USD * 1000

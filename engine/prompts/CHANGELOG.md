@@ -11,18 +11,18 @@ produced it even if a file changes later.
 | v2 | v1 | + POLICY.md pasted verbatim | does raw policy text help over priors? |
 | v3 | v2 | policy text REPLACED by a decision procedure (3 steps + weighing principles + look-alike table) | does teaching the weighing logic beat quoting it? |
 | v3c | v3 | + strict output contract (entire output is one JSON object; final-reminder block) | does contract hardening fix format without touching decisions? |
-| v4 | v3c | + sanctions-conflict rule (conflicted attribute-match resolves to HOLD, a note can block a reject but never justify a release) | does the rule fix 101-P1B without breaking 101? |
+| v4 | v3c | + blocklist-conflict rule (conflicted attribute-match resolves to HOLD, a note can block a reject but never justify a release) | does the rule fix 101-P1B without breaking 101? |
 | v4b | v4 | + one worked proportionality example (read once, apply the pattern) | does a worked example improve weighing on borderline cases? (verified by diff: single-section addition) |
-| v4c | v4b | + card-testing counting scaffold (count distinct instruments before deciding) | is the haiku/llama CASE-102 miss a compute gap or a capability gap? (verified by diff: single-section addition; result mixed, see STATUS.md) |
-| v5 | v4c | + ONE look-alike bullet: extraction alone is not a bust-out; a bust-out needs the rapid build-up half too, so post-ownership-change extraction of a pre-existing balance is Step 2 HOLD, not Step 1 (verified by diff: title line + one bullet) | can a gated loop find an edit that beats manual authoring? ACCEPTED 2026-08-24, protocol below |
+| v4c | v4b | + spam-burst counting scaffold (count distinct origins before deciding) | is the haiku/llama CASE-102 miss a compute gap or a capability gap? (verified by diff: single-section addition; result mixed, see STATUS.md) |
+| v5 | v4c | + ONE look-alike bullet: extraction alone is not a farm-and-dump; a farm-and-dump needs the rapid build-up half too, so post-control-change redirection of a pre-existing audience is Step 2 HOLD, not Step 1 (verified by diff: title line + one bullet) | can a gated loop find an edit that beats manual authoring? ACCEPTED 2026-08-24, protocol below |
 
 ## v5 gate record (2026-08-24, the loop's first iteration, run in full)
 
 Target chosen from the ledger, not intuition: gemini-flash decides CASE-104
 REJECT where the adjudicated label is HOLD, stably (6/6 at v4), reading the
-post-ownership-change transfer-outs as a Step 1 bust-out. The distinction the
-policy supports: CASE-104's balance accumulated under the prior verified
-owner (Feb-Mar card_auths), so there is no rapid build-up half; extraction
+post-control-change link-drops as a Step 1 farm-and-dump. The distinction the
+policy supports: CASE-104's audience accumulated under the prior verified
+creator (Feb-Mar posts), so there is no rapid build-up half; extraction
 alone is an unresolved-control question. v5 = v4c + that one look-alike
 bullet.
 
@@ -49,9 +49,9 @@ single-run robustness reading would have rejected wrong. The repeats
 protocol is the actual gate.
 
 Historical note, kept for honesty: v4 was originally authored as TWO
-changes on v3 (contract + sanctions rule) in one file; the operator's
+changes on v3 (contract + blocklist rule) in one file; the operator's
 one-element rule came after. v3c was then created to isolate the contract
-delta, and v4 is defined as v3c + sanctions rule (verified: the v4 file
+delta, and v4 is defined as v3c + blocklist rule (verified: the v4 file
 equals v3c plus that one bullet). All pre-existing v4 rows in the DB carry
 the v4 sha and remain valid; v3c rows fill the missing rung.
 
@@ -96,7 +96,7 @@ text. Two become candidate rungs, one change each, gated:
 
 Rejection is a recorded result, not a failure: v5 remains the submitted
 prompt unless a candidate clears its gate. The remaining verified seams
-(sanctions partial-match middle case, zero-exposure verdict, precomputed
+(blocklist partial-match middle case, zero-exposure verdict, precomputed
 anti-exculpatory line) are measured by probe archetypes 252-263 first;
 whether they justify rungs depends on what the probes show v5 actually does.
 

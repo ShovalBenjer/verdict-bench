@@ -69,7 +69,7 @@ Slide content, verbatim where quoted:
    38 cells.
 8. "How a mistake is priced". The 3x3 cost matrix as a table ($0
    diagonal; false approve $2,000 in gold; false reject $600; false hold $45;
-   caught-fraud containment $500, derived). Beside it, the notation:
+   caught-abuse containment $500, derived). Beside it, the notation:
    EL_1k = (1000/N) SUM_i (1/R) SUM_r C(y_i, yhat_ir); unparseable charged
    worst-case; case-clustered bootstrap B=1,000 seed 1789; Wilson 95% width
    <= 0.5 rankability; EL(pi) prevalence sweep 0.5-5%; queue cost = 1000 x
@@ -97,7 +97,7 @@ Slide content, verbatim where quoted:
     holdout n=3 (v5 2/3), which is why gates carry the claim.
 17. "A contested case is routed, not resolved". DIAGRAM: archetype -> seven
     models split 20 HOLD / 8 REJECT -> policy underdetermines -> no score ->
-    policy owner gets the split. Caption: sanctions-partial fails closed,
+    policy owner gets the split. Caption: blocklist-partial fails closed,
     zero APPROVEs in 23 runs.
 18. "A million-case simulation on measured kernels". Chart: population_sim.png.
 19. "The gate does not bend on deadline day". The v6 story. Chart:

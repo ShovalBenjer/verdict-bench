@@ -1,36 +1,36 @@
 {
   "case_id": "CASE-248",
-  "flag_reason": "AUTH_PATTERN",
+  "flag_reason": "POSTING_PATTERN",
   "opened": "2026-07-15",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-29240",
-    "owner_name": "Felix Stein",
-    "owner_dob": "1980-06-07",
-    "owner_ssn_last4": "5572",
-    "owner_country": "US",
-    "business_name": "Stein Labs",
-    "mcc": "5734",
+  "author": {
+    "author_id": "ATH-29240",
+    "display_name": "Felix Stein",
+    "country": "US",
+    "page_name": "Stein Labs",
+    "vertical": "5734",
     "tenure_days": 61,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1980-06-07",
+    "tax_id_last4": "5572"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 7243.69,
-    "current_balance_usd": 4061.34,
-    "lifetime_volume_usd": 5565.71
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 7243.69,
+    "follower_count": 4061.34,
+    "lifetime_views": 5565.71
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-08",
       "ip": "72.58.170.71",
@@ -53,106 +53,106 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-25",
       "time": "04:36:00",
-      "amount_usd": 0.8,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5576",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "5576",
+      "network": "480000",
+      "type": "post"
     },
     {
       "date": "2026-06-26",
       "time": "04:21:00",
-      "amount_usd": 2.37,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "1415",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "1415",
+      "network": "500000",
+      "type": "post"
     },
     {
       "date": "2026-06-27",
       "time": "05:16:00",
-      "amount_usd": 1.22,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "4039",
-      "bin": "550000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "4039",
+      "network": "550000",
+      "type": "post"
     },
     {
       "date": "2026-06-28",
       "time": "02:09:00",
-      "amount_usd": 2.86,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "8411",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 3,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "8411",
+      "network": "500000",
+      "type": "post"
     },
     {
       "date": "2026-06-29",
       "time": "05:54:00",
-      "amount_usd": 1.37,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "9665",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "9665",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-06-30",
       "time": "03:45:00",
-      "amount_usd": 1.33,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "2499",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "2499",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-07-09",
       "time": "18:30:00",
-      "amount_usd": 1915.02,
-      "status": "approved",
-      "settled_amount_usd": 1915.02,
-      "instrument_last4": "7619",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 1915,
+      "status": "published",
+      "served_views": 1915.02,
+      "origin_last4": "7619",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-07-10",
       "time": "12:21:00",
-      "amount_usd": 2374.38,
-      "status": "approved",
-      "settled_amount_usd": 2374.38,
-      "instrument_last4": "7415",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 2374,
+      "status": "published",
+      "served_views": 2374.38,
+      "origin_last4": "7415",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-07-11",
       "time": "09:59:00",
-      "amount_usd": 1274.83,
-      "status": "approved",
-      "settled_amount_usd": 1274.83,
-      "instrument_last4": "4890",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 1275,
+      "status": "published",
+      "served_views": 1274.83,
+      "origin_last4": "4890",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-07-12",
       "time": "10:48:00",
-      "amount_usd": 1679.46,
-      "status": "approved",
-      "settled_amount_usd": 1679.46,
-      "instrument_last4": "9759",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 1679,
+      "status": "published",
+      "served_views": 1679.46,
+      "origin_last4": "9759",
+      "network": "500000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

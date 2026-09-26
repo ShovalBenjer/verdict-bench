@@ -166,7 +166,7 @@ questions (invented CASE-104 content, invented prompt files
 numbers). Flagged and rejected wholesale rather than partially credited.
 Re-ran all 8 questions against the real repo. Findings from that pass:
 
-1. Real CASE-104 (KYB ownership change, not the fabricated ATO/Tor
+1. Real CASE-104 (entity control change, not the fabricated ATO/Tor
    scenario) run_id=6, v4/gemini-flash: model said REJECT, expert label
    is HOLD. Reproducible model miss, not a data artifact.
 2. Real v3->v3c diff has TWO changes (stricter contract block AND a

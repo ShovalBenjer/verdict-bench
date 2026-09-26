@@ -1,21 +1,19 @@
 {
   "case_id": "CASE-221",
-  "flag_reason": "KYC_REVIEW",
+  "flag_reason": "ID_REVIEW",
   "opened": "2026-07-08",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-25721",
-    "owner_name": "Yuri Osei",
-    "owner_dob": "1977-04-26",
-    "owner_ssn_last4": "9134",
-    "owner_country": "US",
-    "business_name": "Osei Works",
-    "mcc": "5699",
+  "author": {
+    "author_id": "ATH-25721",
+    "display_name": "Yuri Osei",
+    "country": "US",
+    "page_name": "Osei Works",
+    "vertical": "5699",
     "tenure_days": 24,
     "verification": {
       "status": "PENDING",
-      "kyc_completed": false,
-      "kyb_completed": false,
+      "identity_verified": false,
+      "entity_verified": false,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -23,20 +21,22 @@
           "detail": "Submitted document did not match issuing-authority record; resubmission requested."
         }
       ]
-    }
+    },
+    "dob": "1977-04-26",
+    "tax_id_last4": "9134"
   },
-  "money": {
-    "on_hold_usd": 14975.83,
-    "at_risk_usd": 14975.83,
-    "current_balance_usd": 5313.69,
-    "lifetime_volume_usd": 1497.44
+  "exposure": {
+    "views_live": 14975.83,
+    "views_at_risk": 14975.83,
+    "follower_count": 5313.69,
+    "lifetime_views": 1497.44
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-06",
       "ip": "72.75.137.205",
@@ -59,46 +59,46 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-27",
       "time": "10:48:00",
-      "amount_usd": 183.56,
-      "status": "approved",
-      "settled_amount_usd": 183.56,
-      "instrument_last4": "7620",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 184,
+      "status": "published",
+      "served_views": 183.56,
+      "origin_last4": "7620",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-06-25",
       "time": "14:53:00",
-      "amount_usd": 280.16,
-      "status": "approved",
-      "settled_amount_usd": 280.16,
-      "instrument_last4": "8443",
-      "bin": "470000",
-      "type": "card_auth"
+      "length_chars": 280,
+      "status": "published",
+      "served_views": 280.16,
+      "origin_last4": "8443",
+      "network": "470000",
+      "type": "post"
     },
     {
       "date": "2026-07-03",
       "time": "08:04:00",
-      "amount_usd": 496.56,
-      "status": "approved",
-      "settled_amount_usd": 496.56,
-      "instrument_last4": "5748",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 497,
+      "status": "published",
+      "served_views": 496.56,
+      "origin_last4": "5748",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-07-03",
       "time": "14:22:00",
-      "amount_usd": 540.54,
-      "status": "approved",
-      "settled_amount_usd": 540.54,
-      "instrument_last4": "9596",
-      "bin": "430000",
-      "type": "card_auth"
+      "length_chars": 541,
+      "status": "published",
+      "served_views": 540.54,
+      "origin_last4": "9596",
+      "network": "430000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

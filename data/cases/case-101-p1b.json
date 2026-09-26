@@ -1,64 +1,64 @@
 {
   "case_id": "CASE-101-P1B",
-  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "flag_reason": "BLOCKLIST_ALIAS_MATCH",
   "opened": "2026-06-14",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-88120",
-    "owner_name": "Maria Garcia",
-    "owner_dob": "1991-03-22",
-    "owner_ssn_last4": "6642",
-    "owner_country": "US",
-    "business_name": "Garcia Home Bakery LLC",
-    "mcc": "5462",
+  "author": {
+    "author_id": "ATH-88120",
+    "display_name": "Maria Garcia",
+    "country": "US",
+    "page_name": "Garcia Home Bakery LLC",
+    "vertical": "5462",
     "tenure_days": 512,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
-          "vendor": "SanctionsScreenCo",
+          "vendor": "BlocklistScreenCo",
           "result": "POSSIBLE_MATCH",
-          "detail": "Full-attribute match to GLOBAL_SANCTIONS entry: name, DOB 1991-03-22, country US all corroborated by this vendor."
+          "detail": "Full-attribute match to EXTREMIST_ACTOR_DB entry: alias, DOB 1991-03-22, country US all corroborated by this vendor."
         },
         {
           "vendor": "IDVerifyPlus",
           "result": "PASS",
-          "detail": "Government ID, SSN, and DOB verified for Maria Garcia, DOB 1991-03-22, US."
+          "detail": "Government ID, tax ID, and DOB verified for Maria Garcia, DOB 1991-03-22, US."
         }
       ]
-    }
+    },
+    "dob": "1991-03-22",
+    "tax_id_last4": "6642"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 1840.55,
-    "lifetime_volume_usd": 41250.0
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 1840.55,
+    "lifetime_views": 41250.0
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [
+  "blocklist_hits": [
     {
-      "list": "GLOBAL_SANCTIONS",
-      "matched_name": "Maria Garcia",
-      "match_type": "name_dob_country",
+      "list": "EXTREMIST_ACTOR_DB",
+      "matched_alias": "Maria Garcia",
+      "match_type": "alias_dob_country",
       "matched_dob": "1991-03-22",
       "matched_country": "US",
       "score": 0.97
     },
     {
-      "list": "INTERNAL_WATCH",
-      "matched_name": "M. Garcia",
-      "match_type": "name_only",
+      "list": "INTERNAL_BLOCKLIST",
+      "matched_alias": "M. Garcia",
+      "match_type": "alias_only",
       "matched_dob": null,
       "matched_country": null,
       "score": 0.34
     }
   ],
-  "device_login_history": [
+  "session_history": [
     {
       "date": "2026-06-01",
       "ip": "72.14.20.5",
@@ -81,66 +81,66 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-02",
       "time": "09:14:00",
-      "amount_usd": 84.2,
-      "status": "approved",
-      "settled_amount_usd": 84.2,
-      "instrument_last4": "5521",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 84,
+      "status": "published",
+      "served_views": 84.2,
+      "origin_last4": "5521",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-05-11",
       "time": "14:02:00",
-      "amount_usd": 47.1,
-      "status": "approved",
-      "settled_amount_usd": 47.1,
-      "instrument_last4": "5521",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 47,
+      "status": "published",
+      "served_views": 47.1,
+      "origin_last4": "5521",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-05-19",
       "time": "18:40:00",
-      "amount_usd": 132.0,
-      "status": "approved",
-      "settled_amount_usd": 132.0,
-      "instrument_last4": "5521",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 132,
+      "status": "published",
+      "served_views": 132.0,
+      "origin_last4": "5521",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-05-27",
       "time": "10:20:00",
-      "amount_usd": 66.0,
-      "status": "approved",
-      "settled_amount_usd": 66.0,
-      "instrument_last4": "5521",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 66,
+      "status": "published",
+      "served_views": 66.0,
+      "origin_last4": "5521",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-06-03",
       "time": "12:05:00",
-      "amount_usd": 59.99,
-      "status": "approved",
-      "settled_amount_usd": 59.99,
-      "instrument_last4": "5521",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 60,
+      "status": "published",
+      "served_views": 59.99,
+      "origin_last4": "5521",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "16:30:00",
-      "amount_usd": 210.4,
-      "status": "approved",
-      "settled_amount_usd": 210.4,
-      "instrument_last4": "5521",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 210,
+      "status": "published",
+      "served_views": 210.4,
+      "origin_last4": "5521",
+      "network": "520000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],
@@ -149,7 +149,7 @@
     {
       "author": "screening_system",
       "date": "2026-06-14",
-      "text": "GLOBAL_SANCTIONS entry attributes (name, DOB 1991-03-22, US) match the account owner. Escalated."
+      "text": "EXTREMIST_ACTOR_DB entry attributes (alias, DOB 1991-03-22, US) match the account creator. Escalated."
     }
   ]
 }

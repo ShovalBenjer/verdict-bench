@@ -3,34 +3,34 @@
   "flag_reason": "PRIOR_CASE_REVIEW",
   "opened": "2026-07-17",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-99831",
-    "owner_name": "Ines Novak",
-    "owner_dob": "1982-08-01",
-    "owner_ssn_last4": "7959",
-    "owner_country": "US",
-    "business_name": "Novak Works",
-    "mcc": "5734",
+  "author": {
+    "author_id": "ATH-99831",
+    "display_name": "Ines Novak",
+    "country": "US",
+    "page_name": "Novak Works",
+    "vertical": "5734",
     "tenure_days": 216,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1982-08-01",
+    "tax_id_last4": "7959"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 1345.75,
-    "current_balance_usd": 5669.21,
-    "lifetime_volume_usd": 47127.15
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 1345.75,
+    "follower_count": 5669.21,
+    "lifetime_views": 47127.15
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-28",
       "ip": "72.90.213.131",
@@ -53,56 +53,56 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-21",
       "time": "08:20:00",
-      "amount_usd": 342.34,
-      "status": "approved",
-      "settled_amount_usd": 342.34,
-      "instrument_last4": "3413",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 342,
+      "status": "published",
+      "served_views": 342.34,
+      "origin_last4": "3413",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-05-24",
       "time": "17:12:00",
-      "amount_usd": 174.15,
-      "status": "approved",
-      "settled_amount_usd": 174.15,
-      "instrument_last4": "5011",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 174,
+      "status": "published",
+      "served_views": 174.15,
+      "origin_last4": "5011",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-05-30",
       "time": "18:31:00",
-      "amount_usd": 262.05,
-      "status": "approved",
-      "settled_amount_usd": 262.05,
-      "instrument_last4": "3752",
-      "bin": "430000",
-      "type": "card_auth"
+      "length_chars": 262,
+      "status": "published",
+      "served_views": 262.05,
+      "origin_last4": "3752",
+      "network": "430000",
+      "type": "post"
     },
     {
       "date": "2026-06-04",
       "time": "17:59:00",
-      "amount_usd": 314.37,
-      "status": "approved",
-      "settled_amount_usd": 314.37,
-      "instrument_last4": "5850",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 314,
+      "status": "published",
+      "served_views": 314.37,
+      "origin_last4": "5850",
+      "network": "480000",
+      "type": "post"
     },
     {
       "date": "2026-06-09",
       "time": "12:51:00",
-      "amount_usd": 307.21,
-      "status": "approved",
-      "settled_amount_usd": 307.21,
-      "instrument_last4": "4844",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 307,
+      "status": "published",
+      "served_views": 307.21,
+      "origin_last4": "4844",
+      "network": "500000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],
@@ -111,15 +111,15 @@
       "case_id": "CX-37936",
       "date": "2026-01-23",
       "decision": "REJECT",
-      "reviewer": "analyst_rk",
-      "note": "Bust-out adjudicated against this party; same SSN and payout account."
+      "reviewer": "moderator_rk",
+      "note": "Farm-and-dump adjudicated against this party; same tax ID and payout account."
     }
   ],
   "notes": [
     {
       "author": "data_migration_bot",
       "date": "2026-06-17",
-      "text": "Precomputed risk booleans regenerated during migration; may lag the case record."
+      "text": "Precomputed moderation booleans regenerated during migration; may lag the case record."
     }
   ]
 }

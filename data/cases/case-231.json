@@ -3,34 +3,34 @@
   "flag_reason": "PRIOR_CASE_REVIEW",
   "opened": "2026-07-19",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-22961",
-    "owner_name": "Felix Yona",
-    "owner_dob": "1978-01-08",
-    "owner_ssn_last4": "6075",
-    "owner_country": "US",
-    "business_name": "Yona Goods",
-    "mcc": "5812",
+  "author": {
+    "author_id": "ATH-22961",
+    "display_name": "Felix Yona",
+    "country": "US",
+    "page_name": "Yona Goods",
+    "vertical": "5812",
     "tenure_days": 719,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1978-01-08",
+    "tax_id_last4": "6075"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 3573.11,
-    "lifetime_volume_usd": 107628.46
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 3573.11,
+    "lifetime_views": 107628.46
   },
   "precomputed": {
     "confirmed_problem_on_record": true,
     "prior_verified_issue": true
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-16",
       "ip": "72.86.230.177",
@@ -53,56 +53,56 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-26",
       "time": "12:08:00",
-      "amount_usd": 274.03,
-      "status": "approved",
-      "settled_amount_usd": 274.03,
-      "instrument_last4": "1524",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 274,
+      "status": "published",
+      "served_views": 274.03,
+      "origin_last4": "1524",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-05-29",
       "time": "17:15:00",
-      "amount_usd": 60.39,
-      "status": "approved",
-      "settled_amount_usd": 60.39,
-      "instrument_last4": "4950",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 60,
+      "status": "published",
+      "served_views": 60.39,
+      "origin_last4": "4950",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-05-31",
       "time": "20:37:00",
-      "amount_usd": 241.39,
-      "status": "approved",
-      "settled_amount_usd": 241.39,
-      "instrument_last4": "1937",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 241,
+      "status": "published",
+      "served_views": 241.39,
+      "origin_last4": "1937",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-06-30",
       "time": "09:57:00",
-      "amount_usd": 120.41,
-      "status": "approved",
-      "settled_amount_usd": 120.41,
-      "instrument_last4": "7132",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 120,
+      "status": "published",
+      "served_views": 120.41,
+      "origin_last4": "7132",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-07-12",
       "time": "09:04:00",
-      "amount_usd": 187.99,
-      "status": "approved",
-      "settled_amount_usd": 187.99,
-      "instrument_last4": "2275",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 188,
+      "status": "published",
+      "served_views": 187.99,
+      "origin_last4": "2275",
+      "network": "440000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],
@@ -111,8 +111,8 @@
       "case_id": "CX-33221",
       "date": "2025-03-01",
       "decision": "REJECT",
-      "reviewer": "analyst_mm",
-      "note": "Chargeback fraud adjudicated against this party; identity verified at the time."
+      "reviewer": "moderator_mm",
+      "note": "Report abuse adjudicated against this party; identity verified at the time."
     }
   ],
   "notes": []

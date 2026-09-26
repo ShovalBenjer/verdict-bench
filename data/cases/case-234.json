@@ -3,34 +3,34 @@
   "flag_reason": "PRIOR_CASE_REVIEW",
   "opened": "2026-07-03",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-65011",
-    "owner_name": "Aisha Feld",
-    "owner_dob": "1979-11-04",
-    "owner_ssn_last4": "3246",
-    "owner_country": "US",
-    "business_name": "Feld Trading LLC",
-    "mcc": "5699",
+  "author": {
+    "author_id": "ATH-65011",
+    "display_name": "Aisha Feld",
+    "country": "US",
+    "page_name": "Feld Trading LLC",
+    "vertical": "5699",
     "tenure_days": 771,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1979-11-04",
+    "tax_id_last4": "3246"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 4866.42,
-    "current_balance_usd": 1163.63,
-    "lifetime_volume_usd": 138204.34
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 4866.42,
+    "follower_count": 1163.63,
+    "lifetime_views": 138204.34
   },
   "precomputed": {
     "confirmed_problem_on_record": true,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-02",
       "ip": "72.64.21.16",
@@ -53,56 +53,56 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-07",
       "time": "20:28:00",
-      "amount_usd": 340.13,
-      "status": "approved",
-      "settled_amount_usd": 340.13,
-      "instrument_last4": "8532",
-      "bin": "460000",
-      "type": "card_auth"
+      "length_chars": 340,
+      "status": "published",
+      "served_views": 340.13,
+      "origin_last4": "8532",
+      "network": "460000",
+      "type": "post"
     },
     {
       "date": "2026-05-13",
       "time": "10:46:00",
-      "amount_usd": 249.14,
-      "status": "approved",
-      "settled_amount_usd": 249.14,
-      "instrument_last4": "4962",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 249,
+      "status": "published",
+      "served_views": 249.14,
+      "origin_last4": "4962",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-05-23",
       "time": "15:24:00",
-      "amount_usd": 240.77,
-      "status": "approved",
-      "settled_amount_usd": 240.77,
-      "instrument_last4": "6212",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 241,
+      "status": "published",
+      "served_views": 240.77,
+      "origin_last4": "6212",
+      "network": "410000",
+      "type": "post"
     },
     {
       "date": "2026-06-09",
       "time": "10:15:00",
-      "amount_usd": 132.31,
-      "status": "approved",
-      "settled_amount_usd": 132.31,
-      "instrument_last4": "5334",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 132,
+      "status": "published",
+      "served_views": 132.31,
+      "origin_last4": "5334",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-06-16",
       "time": "16:50:00",
-      "amount_usd": 264.32,
-      "status": "approved",
-      "settled_amount_usd": 264.32,
-      "instrument_last4": "8243",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 264,
+      "status": "published",
+      "served_views": 264.32,
+      "origin_last4": "8243",
+      "network": "490000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

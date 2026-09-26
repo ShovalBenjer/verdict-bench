@@ -3,34 +3,34 @@
   "flag_reason": "LINK_ANALYSIS",
   "opened": "2026-07-28",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-81702",
-    "owner_name": "Sofia Petrov",
-    "owner_dob": "1996-01-01",
-    "owner_ssn_last4": "2827",
-    "owner_country": "US",
-    "business_name": "Petrov Labs",
-    "mcc": "7538",
+  "author": {
+    "author_id": "ATH-81702",
+    "display_name": "Sofia Petrov",
+    "country": "US",
+    "page_name": "Petrov Labs",
+    "vertical": "7538",
     "tenure_days": 633,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1996-01-01",
+    "tax_id_last4": "2827"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 4284.7,
-    "lifetime_volume_usd": 60730.71
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 4284.7,
+    "lifetime_views": 60730.71
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-07-01",
       "ip": "72.84.226.100",
@@ -53,84 +53,84 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-09",
       "time": "13:58:00",
-      "amount_usd": 77.33,
-      "status": "approved",
-      "settled_amount_usd": 77.33,
-      "instrument_last4": "8096",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 77,
+      "status": "published",
+      "served_views": 77.33,
+      "origin_last4": "8096",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-06-12",
       "time": "08:19:00",
-      "amount_usd": 106.12,
-      "status": "approved",
-      "settled_amount_usd": 106.12,
-      "instrument_last4": "9667",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 106,
+      "status": "published",
+      "served_views": 106.12,
+      "origin_last4": "9667",
+      "network": "500000",
+      "type": "post"
     },
     {
       "date": "2026-06-21",
       "time": "10:58:00",
-      "amount_usd": 148.51,
-      "status": "approved",
-      "settled_amount_usd": 148.51,
-      "instrument_last4": "9411",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 149,
+      "status": "published",
+      "served_views": 148.51,
+      "origin_last4": "9411",
+      "network": "480000",
+      "type": "post"
     },
     {
       "date": "2026-06-24",
       "time": "20:37:00",
-      "amount_usd": 31.51,
-      "status": "approved",
-      "settled_amount_usd": 31.51,
-      "instrument_last4": "7211",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 32,
+      "status": "published",
+      "served_views": 31.51,
+      "origin_last4": "7211",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-06-26",
       "time": "10:21:00",
-      "amount_usd": 206.72,
-      "status": "approved",
-      "settled_amount_usd": 206.72,
-      "instrument_last4": "2124",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 207,
+      "status": "published",
+      "served_views": 206.72,
+      "origin_last4": "2124",
+      "network": "500000",
+      "type": "post"
     },
     {
       "date": "2026-07-07",
       "time": "12:59:00",
-      "amount_usd": 275.37,
-      "status": "approved",
-      "settled_amount_usd": 275.37,
-      "instrument_last4": "8700",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 275,
+      "status": "published",
+      "served_views": 275.37,
+      "origin_last4": "8700",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-07-08",
       "time": "15:44:00",
-      "amount_usd": 48.55,
-      "status": "approved",
-      "settled_amount_usd": 48.55,
-      "instrument_last4": "7105",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 49,
+      "status": "published",
+      "served_views": 48.55,
+      "origin_last4": "7105",
+      "network": "410000",
+      "type": "post"
     }
   ],
   "linked_accounts": [
     {
-      "account_id": "ACC-24127",
-      "relationship": "shared_coworking_address",
+      "author_id": "ATH-24127",
       "status": "OPEN_GOOD_STANDING",
-      "note": "Same registered coworking address; no shared identity, bank, or device attributes."
+      "relationship": "shared_coworking_address",
+      "note": "Same registered coworking address; no shared identity, payout, or device attributes."
     }
   ],
   "prior_cases": [],

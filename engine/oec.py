@@ -1,5 +1,5 @@
 """Overall Evaluation Criterion: expected loss per decision (in dollars,
-per SPEC.md's cost matrix), the sanctions/confirmed-history disqualifying
+per SPEC.md's cost matrix), the blocklist/confirmed-history disqualifying
 gate, policy-clause coverage, and the guardrail checks that stop a report
 from overstating confidence.
 
@@ -35,23 +35,23 @@ DECISIONS = ("APPROVE", "HOLD", "REJECT")
 # tagged with exactly one of these via `policy_clause`, used for coverage
 # and slicing, not for cost weighting (see module docstring).
 POLICY_CLAUSES: dict[str, str] = {
-    "sanctions_watchlist": "zero tolerance: a genuine sanctions match is disqualifying",
-    "account_linkage": "a genuine connection to known fraud... is a serious concern",
-    "transaction_activity": "systematic testing... and... a bust-out[] are fraud",
-    "identity_ownership": "where the party... cannot presently be established and money is exposed, the risk is unresolved",
+    "blocklist_match": "zero tolerance: a genuine blocklist match is disqualifying",
+    "author_linkage": "a genuine connection to known abuse... is a serious concern",
+    "posting_activity": "spam bursts... and... a farm-and-dump[] are violations",
+    "identity_control": "where the party... cannot presently be established and reach is exposed, the risk is unresolved",
     "confirmed_history": "a confirmed, adjudicated problem against the same party is disqualifying",
     "weighing_proportionality": "the response is proportionate to what is at stake",
-    "evidence_discipline": "an account holder's own account of events is not evidence on its own",
+    "evidence_discipline": "a creator's own account of events is not evidence on its own",
     "data_quality_flag": "a flag with nothing substantiating it... is a data-quality question, not a confirmed problem",
 }
 
 # Clauses where the POLICY's OWN word is "zero tolerance" / "disqualifying",
-# and SPEC.md independently states the matching KPI ("Sanctions recall must
+# and SPEC.md independently states the matching KPI ("Blocklist recall must
 # be 1.0; a single miss is disqualifying"). A miss on either is not a cost,
 # it is a gate: the cell fails eligibility outright, regardless of its EL.
-DISQUALIFYING_CLAUSES = frozenset({"sanctions_watchlist", "confirmed_history"})
+DISQUALIFYING_CLAUSES = frozenset({"blocklist_match", "confirmed_history"})
 
-# SPEC.md's KPI table, verbatim: FA=$2,000 (realized fraud loss), FH=$45
+# SPEC.md's KPI table, verbatim: FA=$2,000 (realized harm: abusive reach left live), FH=$45
 # (support touch + churn risk), FR=$600 (lost LTV). This matrix MUST match
 # engine/export.py's error_cost() exactly (export feeds benchmark.json, the
 # surface a reviewer sees); to change it, change error_cost() FIRST and port
@@ -65,7 +65,7 @@ DISQUALIFYING_CLAUSES = frozenset({"sanctions_watchlist", "confirmed_history"})
 # stated $2,000, but n=4 with one $0 case is too thin to overrule the stated
 # figure. Read as: not contradicted, not confirmed; --sweep covers $1k-$5k,
 # bracketing the computed mean on both sides.
-FA_USD = 2000.0   # false approve: realized fraud loss (expected REJECT, decided APPROVE)
+FA_USD = 2000.0   # false approve: realized harm (expected REJECT, decided APPROVE)
 FH_USD = 45.0     # false hold: support touch + churn risk
 FR_USD = 600.0    # false reject: lost LTV
 
@@ -188,7 +188,7 @@ class OECResult:
     model_id: str
     n: int
     expected_loss_usd_per_1k: float | None
-    disqualified: bool                 # True: a sanctions/confirmed-history miss occurred
+    disqualified: bool                 # True: a blocklist/confirmed-history miss occurred
     disqualified_cases: list[str] = field(default_factory=list)
     trustworthy: bool = True
     violations: list[str] = field(default_factory=list)
@@ -257,7 +257,7 @@ def expected_loss(
     unparseable = 0
     disqualified_cases: list[str] = []
     for case_id, (decision, _contract_ok, expected, clause) in first.items():  # NamedTuple unpacks positionally too
-        # SPEC.md: "Sanctions recall must be 1.0; a single miss is
+        # SPEC.md: "Blocklist recall must be 1.0; a single miss is
         # disqualifying." POLICY.md: "zero tolerance." A miss on either
         # disqualifying clause is a gate failure, not a cost: it does not
         # get averaged away by 11 other correct cases.
@@ -287,7 +287,7 @@ def expected_loss(
     if disqualified:
         violations.append(
             f"DISQUALIFIED: miss on {sorted(set(disqualified_cases))} "
-            "(sanctions or confirmed-history clause; SPEC.md: 'a single "
+            "(blocklist or confirmed-history clause; SPEC.md: 'a single "
             "miss is disqualifying', zero tolerance, not averaged into EL)")
 
     el_per_1k = (total_loss / graded) * 1000 if graded else None
@@ -311,7 +311,7 @@ def sensitivity_sweep(
     fa_values: tuple[float, ...] = (1000.0, 1500.0, 2000.0, 3000.0, 5000.0),
 ) -> dict[float, list[tuple[str, float | None]]]:
     """Does the version ranking hold if FA (SPEC.md's most arguable figure,
-    'realized fraud loss, avg of case exposures') moves? SPEC.md commits to
+    'realized harm, avg of case exposures') moves? SPEC.md commits to
     running this in the notebook; this is the same test from the engine
     side, over the real banked runs. Only FA moves; FH/FR/the HOLD-cell
     assumptions stay fixed, isolating the one number most likely disputed."""

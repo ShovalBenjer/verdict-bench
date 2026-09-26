@@ -3,34 +3,34 @@
   "flag_reason": "VELOCITY_REVIEW",
   "opened": "2026-07-31",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-91985",
-    "owner_name": "Omar Yona",
-    "owner_dob": "1979-03-17",
-    "owner_ssn_last4": "4364",
-    "owner_country": "US",
-    "business_name": "Yona Works",
-    "mcc": "5812",
+  "author": {
+    "author_id": "ATH-91985",
+    "display_name": "Omar Yona",
+    "country": "US",
+    "page_name": "Yona Works",
+    "vertical": "5812",
     "tenure_days": 944,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1979-03-17",
+    "tax_id_last4": "4364"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 2496.27,
-    "lifetime_volume_usd": 67565.81
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 2496.27,
+    "lifetime_views": 67565.81
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-22",
       "ip": "72.25.24.37",
@@ -53,86 +53,86 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-07",
       "time": "10:50:00",
-      "amount_usd": 201.7,
-      "status": "approved",
-      "settled_amount_usd": 201.7,
-      "instrument_last4": "5244",
-      "bin": "450000",
-      "type": "card_auth"
+      "length_chars": 202,
+      "status": "published",
+      "served_views": 201.7,
+      "origin_last4": "5244",
+      "network": "450000",
+      "type": "post"
     },
     {
       "date": "2026-06-11",
       "time": "10:18:00",
-      "amount_usd": 72.56,
-      "status": "approved",
-      "settled_amount_usd": 72.56,
-      "instrument_last4": "6714",
-      "bin": "550000",
-      "type": "card_auth"
+      "length_chars": 73,
+      "status": "published",
+      "served_views": 72.56,
+      "origin_last4": "6714",
+      "network": "550000",
+      "type": "post"
     },
     {
       "date": "2026-06-11",
       "time": "15:33:00",
-      "amount_usd": 296.66,
-      "status": "approved",
-      "settled_amount_usd": 296.66,
-      "instrument_last4": "1371",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 297,
+      "status": "published",
+      "served_views": 296.66,
+      "origin_last4": "1371",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-06-11",
       "time": "19:15:00",
-      "amount_usd": 187.8,
-      "status": "approved",
-      "settled_amount_usd": 187.8,
-      "instrument_last4": "8400",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 188,
+      "status": "published",
+      "served_views": 187.8,
+      "origin_last4": "8400",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-06-30",
       "time": "09:46:00",
-      "amount_usd": 160.92,
-      "status": "approved",
-      "settled_amount_usd": 160.92,
-      "instrument_last4": "7404",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 161,
+      "status": "published",
+      "served_views": 160.92,
+      "origin_last4": "7404",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "19:57:00",
-      "amount_usd": 268.34,
-      "status": "approved",
-      "settled_amount_usd": 268.34,
-      "instrument_last4": "7936",
-      "bin": "470000",
-      "type": "card_auth"
+      "length_chars": 268,
+      "status": "published",
+      "served_views": 268.34,
+      "origin_last4": "7936",
+      "network": "470000",
+      "type": "post"
     },
     {
       "date": "2026-07-23",
       "time": "20:50:00",
-      "amount_usd": 270.08,
-      "status": "approved",
-      "settled_amount_usd": 270.08,
-      "instrument_last4": "9823",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 270,
+      "status": "published",
+      "served_views": 270.08,
+      "origin_last4": "9823",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-07-26",
       "time": "18:49:00",
-      "amount_usd": 314.48,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "4962",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 314,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "4962",
+      "network": "480000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

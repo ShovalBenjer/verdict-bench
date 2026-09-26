@@ -1,45 +1,45 @@
 {
   "case_id": "CASE-104-P2",
-  "flag_reason": "KYB_DOC_PENDING",
+  "flag_reason": "ENTITY_DOC_PENDING",
   "opened": "2026-06-16",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-61888",
-    "owner_name": "Northwind Trading LLC",
-    "owner_country": "US",
-    "business_name": "Northwind Trading LLC",
-    "mcc": "5999",
+  "author": {
+    "author_id": "ATH-61888",
+    "display_name": "Northwind Trading LLC",
+    "country": "US",
+    "page_name": "Northwind Trading LLC",
+    "vertical": "5999",
     "tenure_days": 640,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
-          "vendor": "KYBVerify",
+          "vendor": "EntityVerify",
           "result": "PASS",
-          "detail": "Beneficial owner verified."
+          "detail": "Controller verified."
         },
         {
           "vendor": "IDVerifyPlus",
           "result": "PASS",
-          "detail": "Owner verified 18 months ago; unchanged."
+          "detail": "Creator verified 18 months ago; unchanged."
         }
       ]
     }
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 12050.0,
-    "lifetime_volume_usd": 420000.0
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 12050.0,
+    "lifetime_views": 420000.0
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-10",
       "ip": "70.15.9.1",
@@ -62,68 +62,68 @@
       "note": "Long prior history from US"
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-12",
       "time": "09:40:00",
-      "amount_usd": 4200.0,
-      "status": "settled",
-      "settled_amount_usd": 4200.0,
-      "instrument_last4": "6698",
-      "bin": "512300",
-      "type": "transfer_out"
+      "length_chars": 4200,
+      "status": "served",
+      "served_views": 4200.0,
+      "origin_last4": "6698",
+      "network": "512300",
+      "type": "link_drop"
     },
     {
       "date": "2026-06-13",
       "time": "16:10:00",
-      "amount_usd": 3900.0,
-      "status": "settled",
-      "settled_amount_usd": 3900.0,
-      "instrument_last4": "6698",
-      "bin": "512300",
-      "type": "transfer_out"
+      "length_chars": 3900,
+      "status": "served",
+      "served_views": 3900.0,
+      "origin_last4": "6698",
+      "network": "512300",
+      "type": "link_drop"
     },
     {
       "date": "2026-06-14",
       "time": "10:05:00",
-      "amount_usd": 3900.0,
-      "status": "settled",
-      "settled_amount_usd": 3900.0,
-      "instrument_last4": "6698",
-      "bin": "512300",
-      "type": "transfer_out"
+      "length_chars": 3900,
+      "status": "served",
+      "served_views": 3900.0,
+      "origin_last4": "6698",
+      "network": "512300",
+      "type": "link_drop"
     },
     {
       "date": "2026-02-01",
       "time": "10:00:00",
-      "amount_usd": 1500.0,
-      "status": "settled",
-      "settled_amount_usd": 1500.0,
-      "instrument_last4": "2231",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 1500,
+      "status": "served",
+      "served_views": 1500.0,
+      "origin_last4": "2231",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-03-15",
       "time": "10:00:00",
-      "amount_usd": 2200.0,
-      "status": "settled",
-      "settled_amount_usd": 2200.0,
-      "instrument_last4": "2231",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 2200,
+      "status": "served",
+      "served_views": 2200.0,
+      "origin_last4": "2231",
+      "network": "453211",
+      "type": "post"
     }
   ],
   "linked_accounts": [
     {
-      "account_id": "EXT-external-bank",
-      "owner_name": "Northwind Trading LLC",
+      "author_id": "EXT-external-bank",
       "status": "VERIFIED",
+      "display_name": "Northwind Trading LLC",
       "link_dimensions": [
         "payout_destination"
       ],
-      "added_days_ago": 600,
-      "note": "Long-established verified payout destination."
+      "note": "Long-established verified payout destination.",
+      "added_days_ago": 600
     }
   ],
   "prior_cases": [
@@ -131,13 +131,13 @@
       "case_id": "CX-38820",
       "date": "2025-01-10",
       "decision": "APPROVE",
-      "reviewer": "analyst_lee",
-      "note": "Long-standing US business, clean. NOTE: this review predates the recent ownership change."
+      "reviewer": "moderator_lee",
+      "note": "Long-standing US creator, clean. NOTE: this review predates the recent control change."
     }
   ],
   "notes": [
     {
-      "author": "analyst_svo",
+      "author": "moderator_svo",
       "date": "2026-06-16",
       "text": "Routine transfers to the usual payout account; history clean."
     }

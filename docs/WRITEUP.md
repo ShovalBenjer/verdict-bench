@@ -18,15 +18,15 @@ refuted a false single-run regression) in
 
 The decision logic reads in a fixed priority order and stops at the
 first step that fires, the way a SQL CASE statement evaluates: Step 1
-looks for a corroborated problem (a genuine sanctions match, a confirmed
-prior determination against the same party, card testing, a bust-out, a
-real link to known fraud), and names the look-alikes that must NOT
+looks for a corroborated problem (a genuine blocklist match, a confirmed
+prior determination against the same party, spam bursts, a farm-and-dump, a
+real link to known abuse), and names the look-alikes that must NOT
 trigger it; Step 2 holds only when a genuine doubt remains AND money is
 exposed; Step 3 is default approve. The 4 expert labels each exercise a
 different part of that order, which is some of why I trust it: CASE-106
 dies at Step 1 on the confirmed prior, CASE-102 dies at Step 1 on the
 card-testing pattern, CASE-101 is Step 1's own named look-alike (a
-name-only watchlist hit with mismatched attributes and independently
+alias-only blocklist hit with mismatched attributes and independently
 verified identity) passing through to approval, and CASE-108 is the
 Step 3 default, high volume explained by its own settled history.
 
@@ -53,7 +53,7 @@ ground truth, and I don't present them as such.
 runs behind it that I would act on it: the zero-tolerance gate is live
 and enforced: after the full matrix fill it fired on 10 of 38 cells
 (v1-era rungs and the weaker open models, almost all on CASE-101-P1B,
-the perturbation where the sanctions match becomes genuine, deciding
+the perturbation where the blocklist match becomes genuine, deciding
 HOLD where the policy demands REJECT) and disqualified every one of them
 from ranking, so on every cell that IS ranked, gate-clause recall is 1.0
 by construction, and the recommended cell never tripped it anywhere on
@@ -98,7 +98,7 @@ defend:
    unstable), it did NOT fix llama (still wrong). I'm reporting this as
    a genuine mixed result, not smoothing it into "the fix worked."
 3. **A stable disagreement on a case I constructed** (CASE-104, ownership
-   change + KYB pending): at v4, gemini-flash says REJECT in all six
+   change + entity verification pending): at v4, gemini-flash says REJECT in all six
    repeat runs (and in its single v3c and v4b runs); every other model
    at v4 says HOLD. Scope matters here: at v1 through v3, one run each,
    flash itself said HOLD, so the disagreement is a property of the
@@ -119,9 +119,9 @@ defend:
   unresolved question, then default to approve) instead of a wall of
   prose to re-derive structure from on every case.
 - **One change per rung**: after finding I'd conflated two changes in an
-  early v4 draft (contract hardening + the sanctions rule, both at once,
+  early v4 draft (contract hardening + the blocklist rule, both at once,
   making it impossible to attribute a metric delta to either one), I
-  split it into v3c (contract only) then v4 (v3c + the sanctions rule)
+  split it into v3c (contract only) then v4 (v3c + the blocklist rule)
   and kept that discipline for every rung after. `engine/prompts/CHANGELOG.md`
   is the ledger; it also keeps this correction on the record rather than
   quietly rewriting history.
@@ -131,7 +131,7 @@ defend:
   both models plus gemini-flash as a control, and reported the honest
   mixed result (fixes haiku, doesn't fix llama) rather than a single
   clean story.
-- **Sanctions/confirmed-history are treated as a hard gate, not a
+- **Blocklist/confirmed-history are treated as a hard gate, not a
   point deduction**, in how I score my own work (not in the prompt
   itself, which already encodes POLICY.md's "zero tolerance" language
   directly). Checked every run against the 3 cases tagged to those two
@@ -165,7 +165,7 @@ Honestly, and in order of how much I actually trust each check:
    wraps output in markdown fences by default; gemini-flash does not).
    Before shipping, I'd pin the exact model + prompt pair, not just the
    prompt, since the prompt alone doesn't fully determine behavior.
-4. **I would re-run the sanctions/confirmed-history cases specifically**
+4. **I would re-run the blocklist/confirmed-history cases specifically**
    as a release gate, separate from a general accuracy number, because
    POLICY.md itself states zero tolerance there and a single miss on
    those clauses is disqualifying regardless of how the rest of the
@@ -278,7 +278,7 @@ remains its best-evidenced cell.
 **LR baseline.** Logistic regression on 10 hand-extracted mechanical
 features, leave-one-out over the 12 decision-suite cases: 8/12, against
 11 to 12 of 12 for the LLM cells. Its four misses are exactly the
-policy-reasoning cases (both zero-tolerance gates, the bust-out, the
+policy-reasoning cases (both zero-tolerance gates, the farm-and-dump, the
 proportionality flip), all missed in the expensive direction. On this
 suite, that is where the LLM earns its cost. The caveat file names the
 leakage: the feature author also wrote 8 of the 12 labels, so the
@@ -392,8 +392,8 @@ clause it was written against, not expert agreement, and the results
 never blend into headline accuracy or loss.
 
 The headline: on the uncontested archetypes, v5 with gemini-flash is
-56/56 where v1 is 44/48, and v1's misses are exactly where fraud lives:
-two bust-outs decided HOLD instead of REJECT, one unverifiable-identity
+56/56 where v1 is 44/48, and v1's misses are exactly where abuse lives:
+two farm-and-dumps decided HOLD instead of REJECT, one unverifiable-identity
 and one document-inconsistency case over-rejected. The full cross-model
 sweep is the corpus's strongest result: it separates models the 12-case
 suite could not. flash sweeps 56/56 and qwen 48/48; gemini-pro drops two
@@ -445,8 +445,8 @@ that the bench could measure which was which instead of arguing.
 **Claims the work had already answered.** The review's centerpiece, that
 the prompt never draws the line between CASE-104 (HOLD) and CASE-107
 (REJECT), described an earlier draft: v5's look-alike bullet IS that line
-(build-up AND extraction; a pre-existing balance moved after a control
-change is Step 2 HOLD, not a Step 1 bust-out), and it exists because the
+(build-up AND link-drops; a pre-existing audience redirected after a control
+change is Step 2 HOLD, not a Step 1 farm-and-dump), and it exists because the
 loop measured flash misreading 104 six of six before the gated edit. The
 "benchmark over nine cases proves nothing" meta-critique prescribes,
 almost verbatim, what this repo is: consistency repeats, perturbations,
@@ -463,11 +463,11 @@ days ago, unverified, money staged) HOLDs four of four: tenure attaches
 to the party in control by design, not by luck.
 
 **The claim that was half right, in an instructive way.** The review
-predicted the sanctions middle case (DOB matches, country null, zero
-dollars at risk) would fall through to APPROVE, "releasing a possibly
-sanctioned party because their balance is low." Measured: v5 REJECTs all
+predicted the blocklist middle case (DOB matches, country null, zero
+views at risk) would fall through to APPROVE, "leaving up a possibly
+blocklisted creator because their reach is low." Measured: v5 REJECTs all
 four variants. It fails CLOSED, not open, because Step 1's
-unresolved-sanctions branch carries no money gate, exactly the exemption
+unresolved-blocklist branch carries no reach gate, exactly the exemption
 the review said was missing. What the probe DID expose is a verdict
 choice the policy underdetermines: zero tolerance argues REJECT,
 resolve-then-decide argues HOLD pending re-screening, and both are

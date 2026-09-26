@@ -3,34 +3,34 @@
   "flag_reason": "LINK_ANALYSIS",
   "opened": "2026-07-30",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-21879",
-    "owner_name": "Omar Osei",
-    "owner_dob": "1993-05-20",
-    "owner_ssn_last4": "9289",
-    "owner_country": "US",
-    "business_name": "Osei Studio",
-    "mcc": "5734",
+  "author": {
+    "author_id": "ATH-21879",
+    "display_name": "Omar Osei",
+    "country": "US",
+    "page_name": "Osei Studio",
+    "vertical": "5734",
     "tenure_days": 340,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1993-05-20",
+    "tax_id_last4": "9289"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 11500.44,
-    "current_balance_usd": 5107.95,
-    "lifetime_volume_usd": 60836.89
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 11500.44,
+    "follower_count": 5107.95,
+    "lifetime_views": 60836.89
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-29",
       "ip": "72.80.217.190",
@@ -53,64 +53,64 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-03",
       "time": "09:54:00",
-      "amount_usd": 356.98,
-      "status": "approved",
-      "settled_amount_usd": 356.98,
-      "instrument_last4": "7841",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 357,
+      "status": "published",
+      "served_views": 356.98,
+      "origin_last4": "7841",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-06-15",
       "time": "12:39:00",
-      "amount_usd": 489.22,
-      "status": "approved",
-      "settled_amount_usd": 489.22,
-      "instrument_last4": "8700",
-      "bin": "550000",
-      "type": "card_auth"
+      "length_chars": 489,
+      "status": "published",
+      "served_views": 489.22,
+      "origin_last4": "8700",
+      "network": "550000",
+      "type": "post"
     },
     {
       "date": "2026-07-06",
       "time": "15:35:00",
-      "amount_usd": 447.71,
-      "status": "approved",
-      "settled_amount_usd": 447.71,
-      "instrument_last4": "9145",
-      "bin": "450000",
-      "type": "card_auth"
+      "length_chars": 448,
+      "status": "published",
+      "served_views": 447.71,
+      "origin_last4": "9145",
+      "network": "450000",
+      "type": "post"
     },
     {
       "date": "2026-07-08",
       "time": "13:14:00",
-      "amount_usd": 161.3,
-      "status": "approved",
-      "settled_amount_usd": 161.3,
-      "instrument_last4": "8649",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 161,
+      "status": "published",
+      "served_views": 161.3,
+      "origin_last4": "8649",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-07-15",
       "time": "18:11:00",
-      "amount_usd": 362.74,
-      "status": "approved",
-      "settled_amount_usd": 362.74,
-      "instrument_last4": "1197",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 363,
+      "status": "published",
+      "served_views": 362.74,
+      "origin_last4": "1197",
+      "network": "480000",
+      "type": "post"
     }
   ],
   "linked_accounts": [
     {
-      "account_id": "ACC-36478",
-      "relationship": "same_owner_ssn_and_bank_account",
-      "status": "CLOSED_FRAUD",
-      "note": "Same SSN and payout bank account as an account closed for bust-out fraud."
+      "author_id": "ATH-36478",
+      "status": "CLOSED_ABUSE",
+      "relationship": "same_creator_tax_id_and_payout_account",
+      "note": "Same tax ID and payout account as an account closed for farm-and-dump abuse."
     }
   ],
   "prior_cases": [],

@@ -3,34 +3,34 @@
   "flag_reason": "LINK_ANALYSIS",
   "opened": "2026-08-15",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-86237",
-    "owner_name": "Priya Quinn",
-    "owner_dob": "1984-10-26",
-    "owner_ssn_last4": "7574",
-    "owner_country": "US",
-    "business_name": "Quinn Services",
-    "mcc": "5941",
+  "author": {
+    "author_id": "ATH-86237",
+    "display_name": "Priya Quinn",
+    "country": "US",
+    "page_name": "Quinn Services",
+    "vertical": "5941",
     "tenure_days": 103,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1984-10-26",
+    "tax_id_last4": "7574"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 9907.78,
-    "current_balance_usd": 885.53,
-    "lifetime_volume_usd": 19897.75
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 9907.78,
+    "follower_count": 885.53,
+    "lifetime_views": 19897.75
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-07-13",
       "ip": "72.14.36.232",
@@ -53,64 +53,64 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-18",
       "time": "15:13:00",
-      "amount_usd": 181.11,
-      "status": "approved",
-      "settled_amount_usd": 181.11,
-      "instrument_last4": "8163",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 181,
+      "status": "published",
+      "served_views": 181.11,
+      "origin_last4": "8163",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-07-11",
       "time": "11:42:00",
-      "amount_usd": 286.06,
-      "status": "approved",
-      "settled_amount_usd": 286.06,
-      "instrument_last4": "1555",
-      "bin": "470000",
-      "type": "card_auth"
+      "length_chars": 286,
+      "status": "published",
+      "served_views": 286.06,
+      "origin_last4": "1555",
+      "network": "470000",
+      "type": "post"
     },
     {
       "date": "2026-07-25",
       "time": "11:33:00",
-      "amount_usd": 180.81,
-      "status": "approved",
-      "settled_amount_usd": 180.81,
-      "instrument_last4": "8665",
-      "bin": "420000",
-      "type": "card_auth"
+      "length_chars": 181,
+      "status": "published",
+      "served_views": 180.81,
+      "origin_last4": "8665",
+      "network": "420000",
+      "type": "post"
     },
     {
       "date": "2026-08-06",
       "time": "17:29:00",
-      "amount_usd": 148.63,
-      "status": "approved",
-      "settled_amount_usd": 148.63,
-      "instrument_last4": "5965",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 149,
+      "status": "published",
+      "served_views": 148.63,
+      "origin_last4": "5965",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-08-13",
       "time": "11:57:00",
-      "amount_usd": 414.01,
-      "status": "approved",
-      "settled_amount_usd": 414.01,
-      "instrument_last4": "2004",
-      "bin": "400000",
-      "type": "card_auth"
+      "length_chars": 414,
+      "status": "published",
+      "served_views": 414.01,
+      "origin_last4": "2004",
+      "network": "400000",
+      "type": "post"
     }
   ],
   "linked_accounts": [
     {
-      "account_id": "ACC-20544",
-      "relationship": "same_owner_ssn_and_bank_account",
-      "status": "CLOSED_FRAUD",
-      "note": "Same SSN and payout bank account as an account closed for bust-out fraud."
+      "author_id": "ATH-20544",
+      "status": "CLOSED_ABUSE",
+      "relationship": "same_creator_tax_id_and_payout_account",
+      "note": "Same tax ID and payout account as an account closed for farm-and-dump abuse."
     }
   ],
   "prior_cases": [],

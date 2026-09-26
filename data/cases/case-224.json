@@ -3,19 +3,17 @@
   "flag_reason": "DOC_REVIEW",
   "opened": "2026-07-14",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-32291",
-    "owner_name": "Amara Petrov",
-    "owner_dob": "1979-07-25",
-    "owner_ssn_last4": "2568",
-    "owner_country": "US",
-    "business_name": "Petrov Services",
-    "mcc": "5462",
+  "author": {
+    "author_id": "ATH-32291",
+    "display_name": "Amara Petrov",
+    "country": "US",
+    "page_name": "Petrov Services",
+    "vertical": "5462",
     "tenure_days": 51,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -25,23 +23,25 @@
         {
           "vendor": "BizRegistryCheck",
           "result": "MISMATCH",
-          "detail": "Registered business address differs from application; officer list does not include the account owner."
+          "detail": "Registered entity address differs from application; officer list does not include the account creator."
         }
       ]
-    }
+    },
+    "dob": "1979-07-25",
+    "tax_id_last4": "2568"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 3591.88,
-    "current_balance_usd": 676.82,
-    "lifetime_volume_usd": 3019.71
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 3591.88,
+    "follower_count": 676.82,
+    "lifetime_views": 3019.71
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-18",
       "ip": "72.32.243.221",
@@ -64,36 +64,36 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-31",
       "time": "15:20:00",
-      "amount_usd": 368.03,
-      "status": "approved",
-      "settled_amount_usd": 368.03,
-      "instrument_last4": "9560",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 368,
+      "status": "published",
+      "served_views": 368.03,
+      "origin_last4": "9560",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-07-01",
       "time": "09:28:00",
-      "amount_usd": 270.28,
-      "status": "approved",
-      "settled_amount_usd": 270.28,
-      "instrument_last4": "7660",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 270,
+      "status": "published",
+      "served_views": 270.28,
+      "origin_last4": "7660",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-07-08",
       "time": "19:14:00",
-      "amount_usd": 340.48,
-      "status": "approved",
-      "settled_amount_usd": 340.48,
-      "instrument_last4": "8591",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 340,
+      "status": "published",
+      "served_views": 340.48,
+      "origin_last4": "8591",
+      "network": "410000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

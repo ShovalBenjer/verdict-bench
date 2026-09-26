@@ -3,19 +3,17 @@
   "flag_reason": "VELOCITY_SPIKE",
   "opened": "2026-06-10",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-90455",
-    "owner_name": "Dan Kessler",
-    "owner_dob": "1987-07-01",
-    "owner_ssn_last4": "1123",
-    "owner_country": "US",
-    "business_name": "Kessler Digital Goods",
-    "mcc": "5817",
+  "author": {
+    "author_id": "ATH-90455",
+    "display_name": "Dan Kessler",
+    "country": "US",
+    "page_name": "Kessler Digital Goods",
+    "vertical": "5817",
     "tenure_days": 9,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -23,20 +21,22 @@
           "detail": "Owner identity verified."
         }
       ]
-    }
+    },
+    "dob": "1987-07-01",
+    "tax_id_last4": "1123"
   },
-  "money": {
-    "on_hold_usd": 6.5,
-    "at_risk_usd": 6.5,
-    "current_balance_usd": 173.7,
-    "lifetime_volume_usd": 289.9
+  "exposure": {
+    "views_live": 6.5,
+    "views_at_risk": 6.5,
+    "follower_count": 173.7,
+    "lifetime_views": 289.9
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-10",
       "ip": "185.220.101.7",
@@ -59,340 +59,340 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-08",
       "time": "11:00:00",
-      "amount_usd": 58.0,
-      "status": "approved",
-      "settled_amount_usd": 58.0,
-      "instrument_last4": "7781",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 58,
+      "status": "published",
+      "served_views": 58.0,
+      "origin_last4": "7781",
+      "network": "400022",
+      "type": "post"
     },
     {
       "date": "2026-06-09",
       "time": "13:30:00",
-      "amount_usd": 74.5,
-      "status": "approved",
-      "settled_amount_usd": 74.5,
-      "instrument_last4": "7781",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 74,
+      "status": "published",
+      "served_views": 74.5,
+      "origin_last4": "7781",
+      "network": "400022",
+      "type": "post"
     },
     {
       "date": "2026-06-09",
       "time": "19:12:00",
-      "amount_usd": 33.2,
-      "status": "approved",
-      "settled_amount_usd": 33.2,
-      "instrument_last4": "7781",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 33,
+      "status": "published",
+      "served_views": 33.2,
+      "origin_last4": "7781",
+      "network": "400022",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:00",
-      "amount_usd": 1.0,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "4012",
-      "bin": "411111",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "4012",
+      "network": "411111",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:03",
-      "amount_usd": 2.5,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5511",
-      "bin": "511111",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "5511",
+      "network": "511111",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:06",
-      "amount_usd": 1.25,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "8823",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "8823",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:09",
-      "amount_usd": 3.1,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "1190",
-      "bin": "440066",
-      "type": "card_auth"
+      "length_chars": 3,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "1190",
+      "network": "440066",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:12",
-      "amount_usd": 1.0,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "7345",
-      "bin": "542418",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "7345",
+      "network": "542418",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:15",
-      "amount_usd": 4.2,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "9902",
-      "bin": "411111",
-      "type": "card_auth"
+      "length_chars": 4,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "9902",
+      "network": "411111",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:18",
-      "amount_usd": 2.0,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "3321",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "3321",
+      "network": "400022",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:21",
-      "amount_usd": 1.5,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "6650",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "6650",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:24",
-      "amount_usd": 3.75,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "1177",
-      "bin": "411111",
-      "type": "card_auth"
+      "length_chars": 4,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "1177",
+      "network": "411111",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:27",
-      "amount_usd": 1.0,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "8841",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "8841",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:30",
-      "amount_usd": 2.2,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "2093",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "2093",
+      "network": "400022",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:33",
-      "amount_usd": 1.1,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "7756",
-      "bin": "542418",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "7756",
+      "network": "542418",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:36",
-      "amount_usd": 4.99,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "3010",
-      "bin": "510510",
-      "type": "card_auth"
+      "length_chars": 5,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "3010",
+      "network": "510510",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:39",
-      "amount_usd": 1.0,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "4489",
-      "bin": "411111",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "4489",
+      "network": "411111",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:42",
-      "amount_usd": 2.6,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "6621",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 3,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "6621",
+      "network": "400022",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:45",
-      "amount_usd": 3.3,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "9987",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 3,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "9987",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:48",
-      "amount_usd": 1.0,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "1145",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "1145",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:51",
-      "amount_usd": 1.8,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "7788",
-      "bin": "411111",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "7788",
+      "network": "411111",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:54",
-      "amount_usd": 2.4,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "2231",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "2231",
+      "network": "400022",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:10:57",
-      "amount_usd": 1.0,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5567",
-      "bin": "510510",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "5567",
+      "network": "510510",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:11:00",
-      "amount_usd": 3.9,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "8890",
-      "bin": "542418",
-      "type": "card_auth"
+      "length_chars": 4,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "8890",
+      "network": "542418",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:11:03",
-      "amount_usd": 1.2,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "3344",
-      "bin": "411111",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "3344",
+      "network": "411111",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:11:06",
-      "amount_usd": 2.75,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "6678",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 3,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "6678",
+      "network": "400022",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:11:09",
-      "amount_usd": 1.0,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "9012",
-      "bin": "520000",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "9012",
+      "network": "520000",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:11:12",
-      "amount_usd": 2.1,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "4471",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 2,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "4471",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:11:15",
-      "amount_usd": 1.35,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "7793",
-      "bin": "511111",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "7793",
+      "network": "511111",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:11:18",
-      "amount_usd": 3.05,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "2205",
-      "bin": "440066",
-      "type": "card_auth"
+      "length_chars": 3,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "2205",
+      "network": "440066",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "14:11:21",
-      "amount_usd": 1.0,
-      "status": "approved",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "6614",
-      "bin": "542418",
-      "type": "card_auth"
+      "length_chars": 1,
+      "status": "published",
+      "served_views": 0.0,
+      "origin_last4": "6614",
+      "network": "542418",
+      "type": "post"
     },
     {
       "date": "2026-06-11",
       "time": "09:05:00",
-      "amount_usd": 42.0,
-      "status": "approved",
-      "settled_amount_usd": 42.0,
-      "instrument_last4": "7781",
-      "bin": "400022",
-      "type": "card_auth"
+      "length_chars": 42,
+      "status": "published",
+      "served_views": 42.0,
+      "origin_last4": "7781",
+      "network": "400022",
+      "type": "post"
     }
   ],
   "linked_accounts": [],
   "prior_cases": [],
   "notes": [
     {
-      "author": "owner",
+      "author": "creator",
       "date": "2026-06-10",
-      "text": "Just testing my payment integration with a few small transactions, all good!"
+      "text": "Just testing my posting setup with a few short posts, all good!"
     },
     {
-      "author": "risk_system",
+      "author": "safety_system",
       "date": "2026-06-10",
-      "text": "Sudden burst of low-value auth attempts across many cards."
+      "text": "Sudden burst of short posts across many sockpuppet origins."
     }
   ]
 }

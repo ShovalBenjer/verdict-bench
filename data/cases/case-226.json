@@ -3,19 +3,17 @@
   "flag_reason": "DOC_REVIEW",
   "opened": "2026-07-01",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-52851",
-    "owner_name": "Omar Ueda",
-    "owner_dob": "1990-06-04",
-    "owner_ssn_last4": "1378",
-    "owner_country": "US",
-    "business_name": "Ueda Works",
-    "mcc": "7538",
+  "author": {
+    "author_id": "ATH-52851",
+    "display_name": "Omar Ueda",
+    "country": "US",
+    "page_name": "Ueda Works",
+    "vertical": "7538",
     "tenure_days": 66,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -25,23 +23,25 @@
         {
           "vendor": "BizRegistryCheck",
           "result": "MISMATCH",
-          "detail": "Registered business address differs from application; officer list does not include the account owner."
+          "detail": "Registered entity address differs from application; officer list does not include the account creator."
         }
       ]
-    }
+    },
+    "dob": "1990-06-04",
+    "tax_id_last4": "1378"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 2953.12,
-    "current_balance_usd": 1749.97,
-    "lifetime_volume_usd": 6660.1
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 2953.12,
+    "follower_count": 1749.97,
+    "lifetime_views": 6660.1
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-12",
       "ip": "72.55.52.220",
@@ -64,36 +64,36 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-29",
       "time": "20:03:00",
-      "amount_usd": 456.05,
-      "status": "approved",
-      "settled_amount_usd": 456.05,
-      "instrument_last4": "6791",
-      "bin": "530000",
-      "type": "card_auth"
+      "length_chars": 456,
+      "status": "published",
+      "served_views": 456.05,
+      "origin_last4": "6791",
+      "network": "530000",
+      "type": "post"
     },
     {
       "date": "2026-06-25",
       "time": "17:08:00",
-      "amount_usd": 68.29,
-      "status": "approved",
-      "settled_amount_usd": 68.29,
-      "instrument_last4": "8362",
-      "bin": "460000",
-      "type": "card_auth"
+      "length_chars": 68,
+      "status": "published",
+      "served_views": 68.29,
+      "origin_last4": "8362",
+      "network": "460000",
+      "type": "post"
     },
     {
       "date": "2026-06-26",
       "time": "13:36:00",
-      "amount_usd": 239.1,
-      "status": "approved",
-      "settled_amount_usd": 239.1,
-      "instrument_last4": "6285",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 239,
+      "status": "published",
+      "served_views": 239.1,
+      "origin_last4": "6285",
+      "network": "500000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

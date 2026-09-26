@@ -1,21 +1,19 @@
 {
   "case_id": "CASE-113",
-  "flag_reason": "ELEVATED_DISPUTE_RATE",
+  "flag_reason": "ELEVATED_REPORT_RATE",
   "opened": "2026-06-12",
   "priority": "medium",
-  "account": {
-    "account_id": "ACC-31905",
-    "owner_name": "Grant Holloway",
-    "owner_dob": "1976-03-03",
-    "owner_ssn_last4": "8845",
-    "owner_country": "US",
-    "business_name": "Holloway Apparel Co",
-    "mcc": "5651",
+  "author": {
+    "author_id": "ATH-31905",
+    "display_name": "Grant Holloway",
+    "country": "US",
+    "page_name": "Holloway Apparel Co",
+    "vertical": "5651",
     "tenure_days": 1650,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -23,20 +21,22 @@
           "detail": "Identity verified."
         }
       ]
-    }
+    },
+    "dob": "1976-03-03",
+    "tax_id_last4": "8845"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 22000.0,
-    "lifetime_volume_usd": 2400000.0
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 22000.0,
+    "lifetime_views": 2400000.0
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-04-14",
       "ip": "70.20.5.5",
@@ -59,318 +59,318 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-04-14",
       "time": "10:00:00",
-      "amount_usd": 60.0,
-      "status": "settled",
-      "settled_amount_usd": 60.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 60,
+      "status": "served",
+      "served_views": 60.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-04-14",
       "time": "11:00:00",
-      "amount_usd": 75.0,
-      "status": "settled",
-      "settled_amount_usd": 75.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 75,
+      "status": "served",
+      "served_views": 75.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-04-14",
       "time": "12:00:00",
-      "amount_usd": 90.0,
-      "status": "settled",
-      "settled_amount_usd": 90.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 90,
+      "status": "served",
+      "served_views": 90.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-04-21",
       "time": "10:00:00",
-      "amount_usd": 68.0,
-      "status": "settled",
-      "settled_amount_usd": 68.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 68,
+      "status": "served",
+      "served_views": 68.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-04-21",
       "time": "11:00:00",
-      "amount_usd": 83.0,
-      "status": "settled",
-      "settled_amount_usd": 83.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 83,
+      "status": "served",
+      "served_views": 83.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-04-21",
       "time": "12:00:00",
-      "amount_usd": 98.0,
-      "status": "settled",
-      "settled_amount_usd": 98.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 98,
+      "status": "served",
+      "served_views": 98.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-04-29",
       "time": "10:00:00",
-      "amount_usd": 76.0,
-      "status": "settled",
-      "settled_amount_usd": 76.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 76,
+      "status": "served",
+      "served_views": 76.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-04-29",
       "time": "11:00:00",
-      "amount_usd": 91.0,
-      "status": "settled",
-      "settled_amount_usd": 91.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 91,
+      "status": "served",
+      "served_views": 91.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-04-29",
       "time": "12:00:00",
-      "amount_usd": 106.0,
-      "status": "settled",
-      "settled_amount_usd": 106.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 106,
+      "status": "served",
+      "served_views": 106.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-06",
       "time": "10:00:00",
-      "amount_usd": 84.0,
-      "status": "settled",
-      "settled_amount_usd": 84.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 84,
+      "status": "served",
+      "served_views": 84.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-06",
       "time": "11:00:00",
-      "amount_usd": 99.0,
-      "status": "settled",
-      "settled_amount_usd": 99.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 99,
+      "status": "served",
+      "served_views": 99.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-06",
       "time": "12:00:00",
-      "amount_usd": 114.0,
-      "status": "settled",
-      "settled_amount_usd": 114.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 114,
+      "status": "served",
+      "served_views": 114.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-13",
       "time": "10:00:00",
-      "amount_usd": 92.0,
-      "status": "settled",
-      "settled_amount_usd": 92.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 92,
+      "status": "served",
+      "served_views": 92.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-13",
       "time": "11:00:00",
-      "amount_usd": 107.0,
-      "status": "settled",
-      "settled_amount_usd": 107.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 107,
+      "status": "served",
+      "served_views": 107.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-13",
       "time": "12:00:00",
-      "amount_usd": 122.0,
-      "status": "settled",
-      "settled_amount_usd": 122.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 122,
+      "status": "served",
+      "served_views": 122.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-20",
       "time": "10:00:00",
-      "amount_usd": 100.0,
-      "status": "settled",
-      "settled_amount_usd": 100.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 100,
+      "status": "served",
+      "served_views": 100.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-20",
       "time": "11:00:00",
-      "amount_usd": 115.0,
-      "status": "settled",
-      "settled_amount_usd": 115.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 115,
+      "status": "served",
+      "served_views": 115.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-20",
       "time": "12:00:00",
-      "amount_usd": 130.0,
-      "status": "settled",
-      "settled_amount_usd": 130.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 130,
+      "status": "served",
+      "served_views": 130.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-27",
       "time": "10:00:00",
-      "amount_usd": 108.0,
-      "status": "settled",
-      "settled_amount_usd": 108.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 108,
+      "status": "served",
+      "served_views": 108.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-27",
       "time": "11:00:00",
-      "amount_usd": 123.0,
-      "status": "settled",
-      "settled_amount_usd": 123.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 123,
+      "status": "served",
+      "served_views": 123.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-27",
       "time": "12:00:00",
-      "amount_usd": 138.0,
-      "status": "settled",
-      "settled_amount_usd": 138.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 138,
+      "status": "served",
+      "served_views": 138.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-03",
       "time": "10:00:00",
-      "amount_usd": 116.0,
-      "status": "settled",
-      "settled_amount_usd": 116.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 116,
+      "status": "served",
+      "served_views": 116.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-03",
       "time": "11:00:00",
-      "amount_usd": 131.0,
-      "status": "settled",
-      "settled_amount_usd": 131.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 131,
+      "status": "served",
+      "served_views": 131.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-03",
       "time": "12:00:00",
-      "amount_usd": 146.0,
-      "status": "settled",
-      "settled_amount_usd": 146.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 146,
+      "status": "served",
+      "served_views": 146.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "10:00:00",
-      "amount_usd": 124.0,
-      "status": "settled",
-      "settled_amount_usd": 124.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 124,
+      "status": "served",
+      "served_views": 124.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "11:00:00",
-      "amount_usd": 139.0,
-      "status": "settled",
-      "settled_amount_usd": 139.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 139,
+      "status": "served",
+      "served_views": 139.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-10",
       "time": "12:00:00",
-      "amount_usd": 154.0,
-      "status": "settled",
-      "settled_amount_usd": 154.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 154,
+      "status": "served",
+      "served_views": 154.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-02",
       "time": "15:00:00",
-      "amount_usd": 72.0,
-      "status": "chargeback",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 72,
+      "status": "reported",
+      "served_views": 0.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-05-24",
       "time": "15:00:00",
-      "amount_usd": 72.0,
-      "status": "chargeback",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 72,
+      "status": "reported",
+      "served_views": 0.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     },
     {
       "date": "2026-06-08",
       "time": "15:00:00",
-      "amount_usd": 72.0,
-      "status": "chargeback",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "5150",
-      "bin": "401288",
-      "type": "card_auth"
+      "length_chars": 72,
+      "status": "reported",
+      "served_views": 0.0,
+      "origin_last4": "5150",
+      "network": "401288",
+      "type": "post"
     }
   ],
   "linked_accounts": [
     {
-      "account_id": "EXT-payout-main",
-      "owner_name": "Holloway Apparel Co",
+      "author_id": "EXT-payout-main",
       "status": "VERIFIED",
+      "display_name": "Holloway Apparel Co",
       "link_dimensions": [
         "payout_destination"
       ],
-      "added_days_ago": 1200,
-      "note": "Long-established verified payout destination."
+      "note": "Long-established verified payout destination.",
+      "added_days_ago": 1200
     }
   ],
   "prior_cases": [
@@ -378,20 +378,20 @@
       "case_id": "CX-31200",
       "date": "2025-10-05",
       "decision": "APPROVE",
-      "reviewer": "analyst_lee",
-      "note": "Reviewed dispute rate for this apparel merchant; in line with category norms and the account's own history. Cleared."
+      "reviewer": "moderator_lee",
+      "note": "Reviewed report rate for this comedy creator; in line with vertical norms and the account's own history. Cleared."
     }
   ],
   "notes": [
     {
-      "author": "risk_system",
+      "author": "safety_system",
       "date": "2026-06-12",
-      "text": "Dispute rate above portfolio average this month."
+      "text": "Report rate above platform average this month."
     },
     {
-      "author": "analyst_lee",
+      "author": "moderator_lee",
       "date": "2026-06-12",
-      "text": "Apparel returns run high; this merchant's rate is consistent with its own three-year history and the category. Nothing new here."
+      "text": "Comedy clips draw reports; this creator's rate is consistent with its own three-year history and the vertical. Nothing new here."
     }
   ]
 }

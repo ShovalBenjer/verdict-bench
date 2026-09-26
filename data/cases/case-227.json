@@ -3,19 +3,17 @@
   "flag_reason": "DOC_REVIEW",
   "opened": "2026-08-04",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-17439",
-    "owner_name": "Ken Weiss",
-    "owner_dob": "1987-01-08",
-    "owner_ssn_last4": "2602",
-    "owner_country": "US",
-    "business_name": "Weiss Studio",
-    "mcc": "5812",
+  "author": {
+    "author_id": "ATH-17439",
+    "display_name": "Ken Weiss",
+    "country": "US",
+    "page_name": "Weiss Studio",
+    "vertical": "5812",
     "tenure_days": 20,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -25,23 +23,25 @@
         {
           "vendor": "BizRegistryCheck",
           "result": "MISMATCH",
-          "detail": "Registered business address differs from application; officer list does not include the account owner."
+          "detail": "Registered entity address differs from application; officer list does not include the account creator."
         }
       ]
-    }
+    },
+    "dob": "1987-01-08",
+    "tax_id_last4": "2602"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 5608.92,
-    "current_balance_usd": 4900.75,
-    "lifetime_volume_usd": 1305.5
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 5608.92,
+    "follower_count": 4900.75,
+    "lifetime_views": 1305.5
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-29",
       "ip": "72.51.173.33",
@@ -64,36 +64,36 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-06-22",
       "time": "13:37:00",
-      "amount_usd": 420.31,
-      "status": "approved",
-      "settled_amount_usd": 420.31,
-      "instrument_last4": "6625",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 420,
+      "status": "published",
+      "served_views": 420.31,
+      "origin_last4": "6625",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-07-03",
       "time": "14:05:00",
-      "amount_usd": 445.73,
-      "status": "approved",
-      "settled_amount_usd": 445.73,
-      "instrument_last4": "2879",
-      "bin": "510000",
-      "type": "card_auth"
+      "length_chars": 446,
+      "status": "published",
+      "served_views": 445.73,
+      "origin_last4": "2879",
+      "network": "510000",
+      "type": "post"
     },
     {
       "date": "2026-08-01",
       "time": "14:42:00",
-      "amount_usd": 285.65,
-      "status": "approved",
-      "settled_amount_usd": 285.65,
-      "instrument_last4": "5773",
-      "bin": "480000",
-      "type": "card_auth"
+      "length_chars": 286,
+      "status": "published",
+      "served_views": 285.65,
+      "origin_last4": "5773",
+      "network": "480000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

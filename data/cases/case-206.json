@@ -1,51 +1,51 @@
 {
   "case_id": "CASE-206",
-  "flag_reason": "WATCHLIST_NAME_MATCH",
+  "flag_reason": "BLOCKLIST_ALIAS_MATCH",
   "opened": "2026-07-04",
   "priority": "high",
-  "account": {
-    "account_id": "ACC-99401",
-    "owner_name": "Tal Haddad",
-    "owner_dob": "1999-01-18",
-    "owner_ssn_last4": "5659",
-    "owner_country": "US",
-    "business_name": "Haddad Labs",
-    "mcc": "5462",
+  "author": {
+    "author_id": "ATH-99401",
+    "display_name": "Tal Haddad",
+    "country": "US",
+    "page_name": "Haddad Labs",
+    "vertical": "5462",
     "tenure_days": 532,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
           "result": "PASS",
-          "detail": "Government ID, SSN, and DOB verified for Tal Haddad, DOB 1999-01-18, US."
+          "detail": "Government ID, tax ID, and DOB verified for Tal Haddad, DOB 1999-01-18, US."
         }
       ]
-    }
+    },
+    "dob": "1999-01-18",
+    "tax_id_last4": "5659"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 1407.86,
-    "lifetime_volume_usd": 112122.84
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 1407.86,
+    "lifetime_views": 112122.84
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [
+  "blocklist_hits": [
     {
-      "list": "GLOBAL_SANCTIONS",
-      "matched_name": "Tal Haddad",
-      "match_type": "name_only",
+      "list": "EXTREMIST_ACTOR_DB",
+      "matched_alias": "Tal Haddad",
+      "match_type": "alias_only",
       "matched_dob": "1959-10-12",
       "matched_country": "IR",
       "score": 0.69
     }
   ],
-  "device_login_history": [
+  "session_history": [
     {
       "date": "2026-05-29",
       "ip": "72.74.133.174",
@@ -68,66 +68,66 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-16",
       "time": "14:10:00",
-      "amount_usd": 263.86,
-      "status": "approved",
-      "settled_amount_usd": 263.86,
-      "instrument_last4": "5139",
-      "bin": "550000",
-      "type": "card_auth"
+      "length_chars": 264,
+      "status": "published",
+      "served_views": 263.86,
+      "origin_last4": "5139",
+      "network": "550000",
+      "type": "post"
     },
     {
       "date": "2026-06-03",
       "time": "10:35:00",
-      "amount_usd": 32.38,
-      "status": "approved",
-      "settled_amount_usd": 32.38,
-      "instrument_last4": "1245",
-      "bin": "440000",
-      "type": "card_auth"
+      "length_chars": 32,
+      "status": "published",
+      "served_views": 32.38,
+      "origin_last4": "1245",
+      "network": "440000",
+      "type": "post"
     },
     {
       "date": "2026-06-07",
       "time": "13:36:00",
-      "amount_usd": 61.15,
-      "status": "approved",
-      "settled_amount_usd": 61.15,
-      "instrument_last4": "2183",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 61,
+      "status": "published",
+      "served_views": 61.15,
+      "origin_last4": "2183",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-06-12",
       "time": "10:54:00",
-      "amount_usd": 92.76,
-      "status": "approved",
-      "settled_amount_usd": 92.76,
-      "instrument_last4": "4742",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 93,
+      "status": "published",
+      "served_views": 92.76,
+      "origin_last4": "4742",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-06-20",
       "time": "12:18:00",
-      "amount_usd": 25.58,
-      "status": "approved",
-      "settled_amount_usd": 25.58,
-      "instrument_last4": "5694",
-      "bin": "450000",
-      "type": "card_auth"
+      "length_chars": 26,
+      "status": "published",
+      "served_views": 25.58,
+      "origin_last4": "5694",
+      "network": "450000",
+      "type": "post"
     },
     {
       "date": "2026-06-28",
       "time": "19:54:00",
-      "amount_usd": 262.97,
-      "status": "approved",
-      "settled_amount_usd": 262.97,
-      "instrument_last4": "1848",
-      "bin": "450000",
-      "type": "card_auth"
+      "length_chars": 263,
+      "status": "published",
+      "served_views": 262.97,
+      "origin_last4": "1848",
+      "network": "450000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],

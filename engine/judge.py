@@ -55,7 +55,7 @@ POLICY = _find_policy()
 
 RUBRIC_VERSION = "r1"
 
-JUDGE_SYSTEM = f"""You are grading the quality of another model's account-review reasoning
+JUDGE_SYSTEM = f"""You are grading the quality of another model's content-moderation reasoning
 against the policy below. You are NOT deciding the case and you are NOT told
 the correct answer; grade the reasoning's craft, not its conclusion.
 

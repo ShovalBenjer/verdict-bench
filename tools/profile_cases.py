@@ -16,9 +16,9 @@ ROOT = Path(__file__).resolve().parent.parent
 CASES = ROOT / "data" / "cases"
 LABELS = json.loads((ROOT / "data" / "labels.json").read_text())
 
-REQUIRED_TOP = ("case_id", "flag_reason", "opened", "account", "money",
-                "precomputed", "watchlist_hits", "device_login_history",
-                "transactions", "linked_accounts", "prior_cases", "notes")
+REQUIRED_TOP = ("case_id", "flag_reason", "opened", "author", "exposure",
+                "precomputed", "blocklist_hits", "session_history",
+                "posts", "linked_accounts", "prior_cases", "notes")
 KNOWN_KINDS = {"golden", "perturbation", "metamorphic", "injection",
                "synthetic", "coverage", "holdout"}
 KNOWN_SOURCES = {"expert", "adjudicated", "construction", "none"}
@@ -46,11 +46,11 @@ def main() -> int:
         for k in REQUIRED_TOP:
             if k not in case:
                 violations.append(f"{cid}: missing top-level field {k}")
-        money = case.get("money", {})
-        for k in ("on_hold_usd", "at_risk_usd", "lifetime_volume_usd"):
-            if not isinstance(money.get(k), (int, float)):
-                violations.append(f"{cid}: money.{k} missing or non-numeric")
-        ver = case.get("account", {}).get("verification", {})
+        exposure = case.get("exposure", {})
+        for k in ("views_live", "views_at_risk", "lifetime_views"):
+            if not isinstance(exposure.get(k), (int, float)):
+                violations.append(f"{cid}: exposure.{k} missing or non-numeric")
+        ver = case.get("author", {}).get("verification", {})
         if "status" not in ver:
             violations.append(f"{cid}: verification.status missing")
         # rule 4a: internal consistency: the confirmed-problem boolean must
@@ -61,12 +61,12 @@ def main() -> int:
                          if p.get("decision") == "REJECT"]
         lab = LABELS.get(cid, {})
         if confirmed and not prior_rejects and lab.get("policy_clause") != "data_quality_flag":
-            has_fraud_link = any(la.get("status") == "CLOSED_FRAUD"
-                                 for la in case.get("linked_accounts", []))
-            if not has_fraud_link:
+            has_abuse_link = any(la.get("status") == "CLOSED_ABUSE"
+                                  for la in case.get("linked_accounts", []))
+            if not has_abuse_link:
                 violations.append(
                     f"{cid}: confirmed_problem_on_record=true with no REJECT prior "
-                    "case and no fraud-closed link (and not a data_quality_flag case)")
+                    "case and no abuse-closed link (and not a data_quality_flag case)")
 
     # rule 3: referential integrity between labels.json and case files
     for cid, lab in LABELS.items():

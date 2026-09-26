@@ -3,34 +3,34 @@
   "flag_reason": "PRIOR_CASE_REVIEW",
   "opened": "2026-07-25",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-41024",
-    "owner_name": "Sofia Osei",
-    "owner_dob": "1988-03-01",
-    "owner_ssn_last4": "6495",
-    "owner_country": "US",
-    "business_name": "Osei Collective",
-    "mcc": "5812",
+  "author": {
+    "author_id": "ATH-41024",
+    "display_name": "Sofia Osei",
+    "country": "US",
+    "page_name": "Osei Collective",
+    "vertical": "5812",
     "tenure_days": 691,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": []
-    }
+    },
+    "dob": "1988-03-01",
+    "tax_id_last4": "6495"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 2043.77,
-    "current_balance_usd": 5771.4,
-    "lifetime_volume_usd": 143264.64
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 2043.77,
+    "follower_count": 5771.4,
+    "lifetime_views": 143264.64
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [],
-  "device_login_history": [
+  "blocklist_hits": [],
+  "session_history": [
     {
       "date": "2026-06-22",
       "ip": "72.82.73.43",
@@ -53,56 +53,56 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-05-28",
       "time": "14:20:00",
-      "amount_usd": 317.65,
-      "status": "approved",
-      "settled_amount_usd": 317.65,
-      "instrument_last4": "3750",
-      "bin": "470000",
-      "type": "card_auth"
+      "length_chars": 318,
+      "status": "published",
+      "served_views": 317.65,
+      "origin_last4": "3750",
+      "network": "470000",
+      "type": "post"
     },
     {
       "date": "2026-05-31",
       "time": "16:59:00",
-      "amount_usd": 238.92,
-      "status": "approved",
-      "settled_amount_usd": 238.92,
-      "instrument_last4": "4912",
-      "bin": "500000",
-      "type": "card_auth"
+      "length_chars": 239,
+      "status": "published",
+      "served_views": 238.92,
+      "origin_last4": "4912",
+      "network": "500000",
+      "type": "post"
     },
     {
       "date": "2026-06-09",
       "time": "16:22:00",
-      "amount_usd": 147.79,
-      "status": "approved",
-      "settled_amount_usd": 147.79,
-      "instrument_last4": "8686",
-      "bin": "540000",
-      "type": "card_auth"
+      "length_chars": 148,
+      "status": "published",
+      "served_views": 147.79,
+      "origin_last4": "8686",
+      "network": "540000",
+      "type": "post"
     },
     {
       "date": "2026-06-16",
       "time": "19:33:00",
-      "amount_usd": 119.38,
-      "status": "approved",
-      "settled_amount_usd": 119.38,
-      "instrument_last4": "6009",
-      "bin": "490000",
-      "type": "card_auth"
+      "length_chars": 119,
+      "status": "published",
+      "served_views": 119.38,
+      "origin_last4": "6009",
+      "network": "490000",
+      "type": "post"
     },
     {
       "date": "2026-07-03",
       "time": "08:06:00",
-      "amount_usd": 154.08,
-      "status": "approved",
-      "settled_amount_usd": 154.08,
-      "instrument_last4": "8328",
-      "bin": "410000",
-      "type": "card_auth"
+      "length_chars": 154,
+      "status": "published",
+      "served_views": 154.08,
+      "origin_last4": "8328",
+      "network": "410000",
+      "type": "post"
     }
   ],
   "linked_accounts": [],
@@ -111,15 +111,15 @@
       "case_id": "CX-49995",
       "date": "2025-05-25",
       "decision": "REJECT",
-      "reviewer": "analyst_rk",
-      "note": "Bust-out adjudicated against this party; same SSN and payout account."
+      "reviewer": "moderator_rk",
+      "note": "Farm-and-dump adjudicated against this party; same tax ID and payout account."
     }
   ],
   "notes": [
     {
       "author": "data_migration_bot",
       "date": "2026-06-25",
-      "text": "Precomputed risk booleans regenerated during migration; may lag the case record."
+      "text": "Precomputed moderation booleans regenerated during migration; may lag the case record."
     }
   ]
 }

@@ -3,19 +3,17 @@
   "flag_reason": "RANDOM_AUDIT",
   "opened": "2026-06-16",
   "priority": "low",
-  "account": {
-    "account_id": "ACC-30021",
-    "owner_name": "Grace O. Baker",
-    "owner_dob": "1979-02-14",
-    "owner_ssn_last4": "8890",
-    "owner_country": "US",
-    "business_name": "Baker & Co Stationery",
-    "mcc": "5943",
+  "author": {
+    "author_id": "ATH-30021",
+    "display_name": "Grace O. Baker",
+    "country": "US",
+    "page_name": "Baker & Co Stationery",
+    "vertical": "5943",
     "tenure_days": 903,
     "verification": {
       "status": "VERIFIED",
-      "kyc_completed": true,
-      "kyb_completed": true,
+      "identity_verified": true,
+      "entity_verified": true,
       "vendor_reports": [
         {
           "vendor": "IDVerifyPlus",
@@ -23,34 +21,36 @@
           "detail": "Verified."
         },
         {
-          "vendor": "SanctionsScreenCo",
+          "vendor": "BlocklistScreenCo",
           "result": "POSSIBLE_MATCH",
-          "detail": "Low-confidence name token 'Baker'; no identity attributes."
+          "detail": "Low-confidence alias token 'Baker'; no identity attributes."
         }
       ]
-    }
+    },
+    "dob": "1979-02-14",
+    "tax_id_last4": "8890"
   },
-  "money": {
-    "on_hold_usd": 0.0,
-    "at_risk_usd": 0.0,
-    "current_balance_usd": 9800.0,
-    "lifetime_volume_usd": 512000.0
+  "exposure": {
+    "views_live": 0.0,
+    "views_at_risk": 0.0,
+    "follower_count": 9800.0,
+    "lifetime_views": 512000.0
   },
   "precomputed": {
     "confirmed_problem_on_record": false,
     "prior_verified_issue": false
   },
-  "watchlist_hits": [
+  "blocklist_hits": [
     {
-      "list": "GLOBAL_SANCTIONS",
-      "matched_name": "Baker",
-      "match_type": "name_only",
+      "list": "EXTREMIST_ACTOR_DB",
+      "matched_alias": "Baker",
+      "match_type": "alias_only",
       "matched_dob": null,
       "matched_country": null,
       "score": 0.22
     }
   ],
-  "device_login_history": [
+  "session_history": [
     {
       "date": "2026-05-01",
       "ip": "65.30.1.4",
@@ -73,66 +73,66 @@
       "note": ""
     }
   ],
-  "transactions": [
+  "posts": [
     {
       "date": "2026-04-01",
       "time": "09:00:00",
-      "amount_usd": 220.0,
-      "status": "approved",
-      "settled_amount_usd": 220.0,
-      "instrument_last4": "1234",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 220,
+      "status": "published",
+      "served_views": 220.0,
+      "origin_last4": "1234",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-04-22",
       "time": "13:15:00",
-      "amount_usd": 410.0,
-      "status": "approved",
-      "settled_amount_usd": 410.0,
-      "instrument_last4": "1234",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 410,
+      "status": "published",
+      "served_views": 410.0,
+      "origin_last4": "1234",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-05-04",
       "time": "10:10:00",
-      "amount_usd": 95.0,
-      "status": "declined",
-      "settled_amount_usd": 0.0,
-      "instrument_last4": "1234",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 95,
+      "status": "filtered",
+      "served_views": 0.0,
+      "origin_last4": "1234",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-05-05",
       "time": "10:12:00",
-      "amount_usd": 95.0,
-      "status": "approved",
-      "settled_amount_usd": 95.0,
-      "instrument_last4": "1234",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 95,
+      "status": "published",
+      "served_views": 95.0,
+      "origin_last4": "1234",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-05-15",
       "time": "17:45:00",
-      "amount_usd": 155.75,
-      "status": "approved",
-      "settled_amount_usd": 155.75,
-      "instrument_last4": "1234",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 156,
+      "status": "published",
+      "served_views": 155.75,
+      "origin_last4": "1234",
+      "network": "453211",
+      "type": "post"
     },
     {
       "date": "2026-06-09",
       "time": "11:30:00",
-      "amount_usd": 512.3,
-      "status": "approved",
-      "settled_amount_usd": 512.3,
-      "instrument_last4": "1234",
-      "bin": "453211",
-      "type": "card_auth"
+      "length_chars": 512,
+      "status": "published",
+      "served_views": 512.3,
+      "origin_last4": "1234",
+      "network": "453211",
+      "type": "post"
     }
   ],
   "linked_accounts": [],
@@ -144,9 +144,9 @@
       "text": "Selected by routine random audit. No prior flags."
     },
     {
-      "author": "analyst_kdo",
+      "author": "moderator_kdo",
       "date": "2026-06-16",
-      "text": "One declined charge the day before a successful retry (same card) \u2014 normal. Sanctions token 'Baker' is trivial. Nothing here."
+      "text": "One filtered post the day before a successful retry (same origin) — normal. Blocklist token 'Baker' is trivial. Nothing here."
     }
   ]
 }

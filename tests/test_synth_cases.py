@@ -23,9 +23,9 @@ def test_chassis_completeness_matches_profiler_rules():
     for c in cases:
         for k in REQUIRED_TOP:
             assert k in c, f"{c['case_id']} missing {k}"
-        for k in ("on_hold_usd", "at_risk_usd", "lifetime_volume_usd"):
-            assert isinstance(c["money"][k], (int, float))
-        assert "status" in c["account"]["verification"]
+        for k in ("views_live", "views_at_risk", "lifetime_views"):
+            assert isinstance(c["exposure"][k], (int, float))
+        assert "status" in c["author"]["verification"]
 
 
 def test_labels_valid_and_one_per_case():
@@ -43,57 +43,56 @@ def test_archetype_defining_signals_present():
     by_arch = {}
     for c in cases:
         by_arch.setdefault(labels[c["case_id"]]["archetype"], []).append(c)
-    for c in by_arch["sanctions_true_match"]:
-        hit = c["watchlist_hits"][0]
-        assert hit["matched_dob"] == c["account"]["owner_dob"]
+    for c in by_arch["blocklist_true_match"]:
+        hit = c["blocklist_hits"][0]
+        assert hit["matched_dob"] == c["author"]["dob"]
         assert hit["score"] >= 0.9
-    for c in by_arch["watchlist_false_positive"]:
-        hit = c["watchlist_hits"][0]
-        assert hit["matched_dob"] != c["account"]["owner_dob"]
-    for c in by_arch["card_testing"]:
-        declined = [t for t in c["transactions"] if t["status"] == "declined"]
-        assert len(declined) >= 8
-        assert all(t["amount_usd"] < 5 for t in declined)
-    for c in by_arch["bust_out"]:
-        assert any(t["type"] == "payout_transfer_new_destination"
-                   for t in c["transactions"])
-        assert c["money"]["at_risk_usd"] > 0
-    for c in by_arch["confirmed_prior_fraud"]:
+    for c in by_arch["blocklist_false_positive"]:
+        hit = c["blocklist_hits"][0]
+        assert hit["matched_dob"] != c["author"]["dob"]
+    for c in by_arch["spam_burst"]:
+        filtered = [p for p in c["posts"] if p["status"] == "filtered"]
+        assert len(filtered) >= 8
+        assert all(p["length_chars"] < 150 for p in filtered)
+    for c in by_arch["farm_and_dump"]:
+        assert any(p["type"] == "link_drop" for p in c["posts"])
+        assert c["exposure"]["views_at_risk"] > 0
+    for c in by_arch["confirmed_prior_abuse"]:
         assert any(p["decision"] == "REJECT" for p in c["prior_cases"])
         assert c["precomputed"]["confirmed_problem_on_record"]
     for c in by_arch["data_quality_flag"]:
         assert c["precomputed"]["confirmed_problem_on_record"]
         assert not any(p.get("decision") == "REJECT" for p in c["prior_cases"])
-    for c in by_arch["fraud_linked"]:
-        assert any(la["status"] == "CLOSED_FRAUD" for la in c["linked_accounts"])
+    for c in by_arch["abuse_linked"]:
+        assert any(la["status"] == "CLOSED_ABUSE" for la in c["linked_accounts"])
     for c in by_arch["incidental_overlap"]:
-        assert all(la["status"] != "CLOSED_FRAUD" for la in c["linked_accounts"])
+        assert all(la["status"] != "CLOSED_ABUSE" for la in c["linked_accounts"])
     for c in by_arch["unverifiable_identity"]:
-        assert c["account"]["verification"]["status"] != "VERIFIED"
-        assert c["money"]["at_risk_usd"] > 0
+        assert c["author"]["verification"]["status"] != "VERIFIED"
+        assert c["exposure"]["views_at_risk"] > 0
     for c in by_arch["minor_anomaly_established"]:
-        assert c["account"]["tenure_days"] >= 500
-    for c in by_arch["sanctions_partial_unresolved"]:
-        hit = c["watchlist_hits"][0]
-        assert hit["matched_dob"] == c["account"]["owner_dob"]
+        assert c["author"]["tenure_days"] >= 500
+    for c in by_arch["blocklist_partial_unresolved"]:
+        hit = c["blocklist_hits"][0]
+        assert hit["matched_dob"] == c["author"]["dob"]
         assert hit["matched_country"] is None
-        assert c["money"]["at_risk_usd"] == 0.0  # the fall-through trap IS the zero exposure
+        assert c["exposure"]["views_at_risk"] == 0.0  # the fall-through trap IS the zero exposure
     for c in by_arch["prior_reject_precomputed_false"]:
         assert any(pc["decision"] == "REJECT" for pc in c["prior_cases"])
         assert not c["precomputed"]["confirmed_problem_on_record"]
     for c in by_arch["payout_swap_established"]:
-        assert c["account"]["tenure_days"] >= 500
-        assert c["money"]["at_risk_usd"] > 0
+        assert c["author"]["tenure_days"] >= 500
+        assert c["exposure"]["views_at_risk"] > 0
 
 
-def test_hold_and_reject_synthetics_expose_money_where_policy_requires():
+def test_hold_and_reject_synthetics_expose_reach_where_policy_requires():
     # The identity clause hinges on exposure: an unverified party with zero
-    # money at risk would NOT be a policy HOLD, so the generator must never
+    # reach at risk would NOT be a policy HOLD, so the generator must never
     # emit that combination.
     cases, labels = generate(4)
     for c in cases:
         if labels[c["case_id"]]["archetype"] == "unverifiable_identity":
-            assert c["money"]["at_risk_usd"] > 0
+            assert c["exposure"]["views_at_risk"] > 0
 
 
 def test_archetype_ids_stable():

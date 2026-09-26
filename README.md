@@ -13,7 +13,7 @@
 
 </div>
 
-An account-review agent decides flagged merchant accounts: APPROVE, HOLD,
+A content-moderation agent decides flagged creator posts: APPROVE, HOLD,
 or REJECT, driven by a plain-text prompt. This repository treats that
 prompt the way a risk team should: versioned one change at a time,
 benchmarked across 8 wired (7 decided) models on a frozen case suite,
@@ -21,7 +21,7 @@ attacked with planted instructions, repeated until stability is a number,
 and gated so an untrustworthy cell cannot show a headline figure.
 
 It is not a general eval platform (promptfoo is the production-grade
-alternative and is named as prior art), not a fraud model, and not a
+alternative and is named as prior art), not an abuse model, and not a
 prediction of money: the dollar figures are stated exchange rates between
 error types, sensitivity-swept, with the one partially-grounded figure
 marked as such.
@@ -73,9 +73,9 @@ full benchmark UI with the ledger mounted.
 
 Rankable cells only; a cell that fails the trust gate (n, contract rate,
 CI width, repeat-run flip, or a zero-tolerance miss) hides its own number.
-Loss prices are assumptions: three stated (missed fraud $2,000, needless
-hold $45, lost customer $600) plus one derived cell, a fraudster merely
-held instead of rejected at $2,000/4 = $500 (partial containment). The
+Loss prices are assumptions: three stated (missed abuse $2,000, needless
+hold $45, lost creator $600) plus one derived cell, an abusive post merely
+held instead of removed at $2,000/4 = $500 (partial containment). The
 interval is case-resampling variability only. For scale, deciding every
 case the same way costs $189k (always HOLD) to $674k (always APPROVE)
 per 1,000 cases.
@@ -142,6 +142,6 @@ fix is in the transcript).
 |---|---|
 | Rank prompts for this decisioning task | yes, gated matrix |
 | Certify production readiness | no: 4 expert labels bound everything at Wilson [0.51, 1.00] |
-| Predict fraud losses in dollars | no: prices are stated assumptions |
+| Predict abuse losses in dollars | no: prices are stated assumptions |
 | Resist adversarial notes | measured, not achieved: resistance is a coin flip at every rung, named |
 | Replace promptfoo in CI | no, and the writeup says why |
