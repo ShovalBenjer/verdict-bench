@@ -1,0 +1,15 @@
+name: ci
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repo sanity
+        run: |
+          echo "Static/content repo: no build step. Checking tree hygiene."
+          test -f README.md || echo "::warning::no README.md"
+          test -f AGENTS.md || echo "::warning::no AGENTS.md"
